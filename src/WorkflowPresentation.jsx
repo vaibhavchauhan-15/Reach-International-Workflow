@@ -13,8 +13,21 @@ export default function WorkflowPresentation() {
     const [selectedNode, setSelectedNode] = useState(null);
     const [isWalkthroughActive, setIsWalkthroughActive] = useState(false);
     const [activeWalkthroughStep, setActiveWalkthroughStep] = useState(null);
+    const [isFullscreen, setIsFullscreen] = useState(false);
 
     const walkthroughTimerRef = useRef(null);
+
+    useEffect(() => {
+        const handleFullscreenChange = () => {
+            setIsFullscreen(!!document.fullscreenElement);
+        };
+        document.addEventListener('fullscreenchange', handleFullscreenChange);
+        document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+        return () => {
+            document.removeEventListener('fullscreenchange', handleFullscreenChange);
+            document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
+        };
+    }, []);
 
     const goToSlide = (idx) => {
         if (idx >= 0 && idx < totalSlides) {
@@ -62,9 +75,15 @@ export default function WorkflowPresentation() {
 
     const toggleFullscreen = () => {
         if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen();
+            document.documentElement.requestFullscreen().catch(err => {
+                console.error("Error attempting to enable fullscreen:", err);
+            });
         } else {
-            if (document.exitFullscreen) document.exitFullscreen();
+            if (document.exitFullscreen) {
+                document.exitFullscreen().catch(err => {
+                    console.error("Error attempting to exit fullscreen:", err);
+                });
+            }
         }
     };
 
@@ -98,6 +117,7 @@ export default function WorkflowPresentation() {
                 toggleWalkthrough={toggleWalkthrough}
                 setIsGridOpen={setIsGridOpen}
                 toggleFullscreen={toggleFullscreen}
+                isFullscreen={isFullscreen}
             />
 
             {/* 16:9 Presentation Stage */}

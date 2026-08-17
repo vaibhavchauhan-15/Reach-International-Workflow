@@ -169,10 +169,27 @@ body {
     color: var(--text-primary);
     border: 1px solid var(--border-light);
     border-radius: var(--radius-sm);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-icon svg {
+    display: block;
 }
 
 .btn-icon:hover {
     background: var(--stage-bg);
+    color: var(--ribbon-4);
+    border-color: var(--ribbon-4);
+}
+
+.btn-icon.active {
+    background: rgba(0, 168, 204, 0.12);
+    color: var(--ribbon-4);
+    border-color: var(--ribbon-4);
 }
 
 /* Presentation Container & Plain White Stage */

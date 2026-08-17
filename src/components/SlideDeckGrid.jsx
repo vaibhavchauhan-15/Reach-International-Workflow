@@ -1,6 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-export default function SlideDeckGrid({ isGridOpen, setIsGridOpen, slidesData, currentSlide, goToSlide }) {
+const SlideDeckGrid = React.memo(function SlideDeckGrid({ isGridOpen, setIsGridOpen, slidesData, currentSlide, goToSlide }) {
+    useEffect(() => {
+        if (!isGridOpen) return;
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') {
+                setIsGridOpen(false);
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [isGridOpen, setIsGridOpen]);
+
     if (!isGridOpen) return null;
 
     return (
@@ -20,7 +31,7 @@ export default function SlideDeckGrid({ isGridOpen, setIsGridOpen, slidesData, c
                                 setIsGridOpen(false);
                             }}
                         >
-                            <span className="thumb-tag">{slide.isCover ? 'START' : `SLIDE 0${idx}`}</span>
+                            <span className="thumb-tag">{slide.isCover ? 'START' : `SLIDE ${idx < 10 ? '0' : ''}${idx}`}</span>
                             <div className="thumb-title">{slide.title}</div>
                         </div>
                     ))}
@@ -28,4 +39,7 @@ export default function SlideDeckGrid({ isGridOpen, setIsGridOpen, slidesData, c
             </div>
         </div>
     );
-}
+});
+
+export default SlideDeckGrid;
+

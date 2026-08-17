@@ -27,7 +27,29 @@
     --radius-md: 16px;
     --radius-lg: 24px;
 
-    --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease;
+    --transition-fast: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease;
+    --transition-card: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
 }
 
 * {
@@ -107,6 +129,12 @@ body {
     display: flex;
     align-items: center;
     gap: 12px;
+}
+
+.walkthrough-btn-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .slide-indicator {
@@ -230,16 +258,52 @@ body {
     color: var(--text-primary);
     opacity: 0;
     visibility: hidden;
-    transform: scale(0.98) translateY(10px);
-    transition: var(--transition);
+    transform: translate3d(0, 0, 0);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    contain: content;
     overflow-y: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
 }
 
 .slide-card.active {
     opacity: 1;
     visibility: visible;
-    transform: scale(1) translateY(0);
+    transform: translate3d(0, 0, 0);
 }
+
+.slide-card.active.slide-enter-right {
+    animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.slide-card.active.slide-enter-left {
+    animation: slideInLeft 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translate3d(35px, 0, 0) scale(0.985);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translate3d(-35px, 0, 0) scale(0.985);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+}
+
+
 
 /* Header Safe-Zone */
 .slide-header {
@@ -396,51 +460,112 @@ body {
 }
 
 /* ==========================================================================
-   CHEVRON RIBBON INFOGRAPHIC CARDS (Fluid No-Scroll Horizontal Layout)
+   CHEVRON RIBBON INFOGRAPHIC CARDS (Fluid & Scrollable Horizontal Layout)
    ========================================================================== */
 
+.flowchart-scroll-wrapper {
+    position: relative;
+    width: 100%;
+    margin: auto 0;
+    display: flex;
+    align-items: center;
+}
+
 .visual-flowchart {
-    flex: 1;
+    flex: 1 1 auto;
+    margin: auto 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 8px;
-    padding: 12px 0;
+    padding: 12px 4px 16px 4px;
     width: 100%;
 }
 
 .horizontal-flow {
     flex-direction: row;
-    overflow-x: hidden;
-    padding-bottom: 4px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    align-items: stretch;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
 }
 
-/* Chevron Ribbon Node Card - Fits 100% horizontally with compact proportional height */
+/* Scrollbar styling for visual flowchart */
+.horizontal-flow::-webkit-scrollbar {
+    height: 6px;
+}
+
+.horizontal-flow::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.04);
+    border-radius: 4px;
+}
+
+.horizontal-flow::-webkit-scrollbar-thumb {
+    background: rgba(0, 168, 204, 0.4);
+    border-radius: 4px;
+}
+
+.horizontal-flow::-webkit-scrollbar-thumb:hover {
+    background: var(--ribbon-4, #00a8cc);
+}
+
 .flow-node {
     flex: 1 1 0px;
-    min-width: 0;
+    min-width: 170px;
     max-width: none;
+    scroll-snap-align: start;
     height: auto;
-    min-height: 180px;
+    min-height: auto;
     background: var(--bg-white);
     border: 1px solid var(--border-light);
     border-radius: var(--radius-md);
-    padding: 16px 14px 22px 14px;
+    padding: 12px 12px 16px 12px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     text-align: left;
     position: relative;
-    transition: var(--transition);
-    cursor: pointer;
+    transition: var(--transition-card);
+    will-change: transform;
+    transform: translateZ(0);
+    contain: layout style;
+    cursor: default;
     box-shadow: var(--card-shadow);
     overflow: hidden;
 }
 
 .flow-node:hover {
-    transform: translateY(-4px);
+    transform: translate3d(0, -4px, 0);
     box-shadow: var(--hover-shadow);
     border-color: var(--ribbon-4);
+}
+
+/* Card Photo Thumbnail Styling - 4:3 ratio image rectangle */
+.node-photo-wrapper {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    margin-bottom: 8px;
+    background: var(--stage-bg);
+    border: 1px solid var(--border-light);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.node-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.flow-node:hover .node-photo {
+    transform: scale(1.05);
 }
 
 .flow-node.active-step {
@@ -454,21 +579,111 @@ body {
     100% { transform: translateY(-4px); }
 }
 
+/* When slide has more than 5 cards (e.g. 6, 7, 8 cards) */
+.visual-flowchart.has-many-nodes {
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.visual-flowchart.has-many-nodes .flow-node {
+    flex: 0 0 230px;
+    min-width: 220px;
+}
+
+/* Floating Navigation Scroll Buttons */
+.flow-scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 15;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--bg-white, #ffffff);
+    border: 1px solid var(--border-light, #e2e8f0);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+    color: var(--navy-800, #0a192f);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0.95;
+}
+
+.flow-scroll-btn:hover {
+    background: var(--navy-800, #0a192f);
+    color: #ffffff;
+    border-color: var(--navy-800, #0a192f);
+    transform: translateY(-50%) scale(1.12);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.flow-scroll-btn:active {
+    transform: translateY(-50%) scale(0.96);
+}
+
+.flow-scroll-btn.left {
+    left: -14px;
+}
+
+.flow-scroll-btn.right {
+    right: -14px;
+}
+
+/* Horizontal scroll indicator gradient overlays */
+.scroll-shadow-left,
+.scroll-shadow-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 28px;
+    pointer-events: none;
+    z-index: 8;
+    transition: opacity 0.3s ease;
+}
+
+.scroll-shadow-left {
+    left: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));
+}
+
+.scroll-shadow-right {
+    right: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0));
+}
+
+/* Scroll Hint Pill Badge */
+.scroll-hint-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 2px 9px;
+    background: rgba(0, 168, 204, 0.1);
+    color: var(--ribbon-4, #00a8cc);
+    border: 1px solid rgba(0, 168, 204, 0.25);
+    border-radius: 12px;
+    font-size: 0.73rem;
+    font-weight: 600;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
 /* CHEVRON RIBBON BADGE AT TOP RIGHT */
 .chevron-ribbon {
     position: absolute;
     top: 0;
     right: 0;
-    height: 36px;
-    padding: 0 12px 0 20px;
+    height: 30px;
+    padding: 0 10px 0 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     font-weight: 800;
     letter-spacing: 0.5px;
-    clip-path: polygon(14px 0%, 100% 0%, 100% 100%, 14px 100%, 0% 50%);
+    clip-path: polygon(12px 0%, 100% 0%, 100% 100%, 12px 100%, 0% 50%);
     box-shadow: 0 4px 10px rgba(0,0,0,0.12);
     z-index: 5;
 }
@@ -500,15 +715,17 @@ body {
 /* Role Tag */
 .node-badge {
     display: inline-block;
+    width: fit-content;
     max-width: calc(100% - 55px);
-    padding: 3px 6px;
+    align-self: flex-start;
+    padding: 2px 6px;
     border-radius: 4px;
     font-size: 0.58rem;
     font-weight: 700;
     color: #ffffff;
     text-transform: uppercase;
     letter-spacing: 0.3px;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -530,26 +747,36 @@ body {
 }
 
 .node-content h3 {
-    font-size: 0.88rem;
+    font-size: 0.84rem;
     font-weight: 800;
     color: var(--text-primary);
-    margin-bottom: 4px;
+    margin-bottom: 3px;
     line-height: 1.25;
 }
 
 .node-content p {
-    font-size: 0.74rem;
+    font-size: 0.72rem;
     color: var(--text-secondary);
-    line-height: 1.4;
-    margin-bottom: 8px;
+    line-height: 1.35;
+    margin-bottom: 6px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .node-meta {
     margin-top: auto;
+    display: flex;
+    align-items: flex-start;
 }
 
 .meta-tag {
     display: inline-block;
+    width: fit-content;
+    max-width: 100%;
+    align-self: flex-start;
     background: var(--stage-bg);
     color: var(--text-secondary);
     border: 1px solid var(--border-light);
@@ -565,12 +792,62 @@ body {
 .decision-badges {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 4px;
-    margin-top: 6px;
+    width: auto;
+}
+
+/* Card Footer Row & Blue Arrow Button */
+.card-footer-row {
     width: 100%;
+    margin-top: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 8px;
+    padding-top: 6px;
+}
+
+.open-large-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    padding: 0;
+    border-radius: 6px;
+    background: #0284c7;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    flex-shrink: 0;
+    margin-left: auto;
+    box-shadow: 0 2px 5px rgba(2, 132, 199, 0.35);
+}
+
+.open-large-btn svg {
+    display: block;
+    width: 14px;
+    height: 14px;
+    pointer-events: none;
+}
+
+.open-large-btn:hover {
+    background: #0369a1;
+    transform: scale(1.12);
+    box-shadow: 0 4px 8px rgba(2, 132, 199, 0.5);
+}
+
+.open-large-btn:active {
+    transform: scale(0.92);
 }
 
 .badge-yes, .badge-no {
+    display: inline-block;
+    width: fit-content;
+    max-width: 100%;
+    align-self: flex-start;
     font-size: 0.62rem;
     font-weight: 700;
     padding: 2px 5px;
@@ -773,22 +1050,602 @@ body {
     margin-top: 4px;
 }
 
-.node-modal-card {
-    max-width: 500px;
+/* ==========================================================================
+   ZOOMED BIG CARD MODAL (Clean UI/UX Card Zoom in Middle of Screen)
+   ========================================================================== */
+
+.zoomed-modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+    padding: 20px;
 }
 
-.modal-step-badge {
-    background: var(--ribbon-4);
+.zoomed-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.zoomed-card-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    max-height: 88vh;
+    background: var(--bg-white);
+    border-radius: var(--radius-lg);
+    overflow-y: auto;
+    overflow-x: hidden;
+    box-shadow: 0 30px 60px -12px rgba(15, 23, 42, 0.35);
+    border: 1px solid var(--border-light);
+    transform: scale(0.85);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.zoomed-modal-overlay.active .zoomed-card-wrapper {
+    transform: scale(1);
+}
+
+.zoomed-close-btn {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(15, 23, 42, 0.5);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     color: #ffffff;
-    padding: 3px 8px;
-    border-radius: 4px;
-    font-size: 0.7rem;
-    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 20;
+    transition: all 0.2s ease;
 }
 
-.modal-body {
-    padding: 24px;
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: var(--text-secondary);
+.zoomed-close-btn:hover {
+    background: rgba(15, 23, 42, 0.85);
+    transform: scale(1.1);
 }
+
+.zoomed-card-hero {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    max-height: 360px;
+    background: #0b0f19;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.zoomed-card-hero.no-photo {
+    aspect-ratio: auto;
+    height: 110px;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+.zoomed-card-img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.zoomed-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15, 23, 42, 0.05) 0%, rgba(15, 23, 42, 0.35) 45%, rgba(15, 23, 42, 0.92) 100%);
+    pointer-events: none;
+}
+
+.zoomed-ribbon {
+    top: 14px !important;
+    left: 0 !important;
+    right: auto !important;
+    clip-path: polygon(0% 0%, 100% 0%, calc(100% - 14px) 50%, 100% 100%, 0% 100%) !important;
+    padding: 0 20px 0 16px !important;
+}
+
+.zoomed-hero-content {
+    position: absolute;
+    bottom: 18px;
+    left: 20px;
+    right: 20px;
+    z-index: 10;
+}
+
+.zoomed-card-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1.25;
+    margin-top: 6px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.zoomed-card-body {
+    padding: 24px 24px 30px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.zoomed-card-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.zoomed-card-meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    width: 100%;
+}
+
+.zoomed-card-meta .meta-tag {
+    font-size: 0.72rem;
+    padding: 4px 10px;
+    border-radius: 6px;
+    width: fit-content;
+    align-self: flex-start;
+}
+
+.zoomed-decision-box {
+    background: var(--stage-bg);
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border-light);
+    width: fit-content;
+    max-width: 100%;
+    align-self: flex-start;
+}
+
+.decision-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.decision-options {
+    display: flex;
+    gap: 10px;
+}
+
+.zoomed-action-footer {
+    margin-top: 8px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* ==========================================================================
+   MOBILE & RESPONSIVE OPTIMIZATION SYSTEM
+   ========================================================================== */
+
+/* Base Touch & Accessibility Optimizations */
+button, .flow-node, .stat-card, .grid-thumb-card {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+button:active, .flow-node:active, .stat-card:active {
+    transform: scale(0.985);
+}
+
+@keyframes move-arrow-vertical {
+    0%, 100% { transform: translateY(0) rotate(90deg); }
+    50% { transform: translateY(5px) rotate(90deg); }
+}
+
+/* Tablet Breakpoint (<= 1024px) */
+@media (max-width: 1024px) {
+    .presentation-container {
+        padding: 16px 20px;
+    }
+
+    .ppt-stage-frame {
+        max-height: 85vh;
+    }
+
+    .slide-card {
+        padding: 20px;
+    }
+
+    .flow-node {
+        padding: 10px 10px 14px 10px;
+        min-height: auto;
+    }
+
+    .node-photo-wrapper {
+        height: auto;
+        aspect-ratio: 4 / 3;
+    }
+
+    .node-content h3 {
+        font-size: 0.8rem;
+    }
+
+    .node-content p {
+        font-size: 0.68rem;
+    }
+
+    .cover-title {
+        font-size: 1.8rem;
+    }
+}
+
+/* Mobile Devices & Small Tablets (<= 768px) */
+@media (max-width: 768px) {
+    body, #root {
+        height: 100vh;
+        height: 100dvh;
+    }
+
+    /* Header Mobile Layout */
+    .app-header {
+        height: 56px;
+        padding: 0 12px;
+    }
+
+    .brand-header-logo {
+        width: 26px;
+        height: 26px;
+    }
+
+    .brand-name {
+        font-size: 0.9rem;
+        letter-spacing: 0.2px;
+    }
+
+    .brand-tagline {
+        display: none;
+    }
+
+    .header-controls {
+        gap: 6px;
+    }
+
+    .slide-indicator {
+        padding: 4px 10px;
+        font-size: 0.72rem;
+    }
+
+    .indicator-label {
+        display: none;
+    }
+
+    .btn {
+        padding: 7px 12px;
+        font-size: 0.78rem;
+    }
+
+    .btn-header-action {
+        padding: 7px 10px;
+    }
+
+    .btn-icon {
+        padding: 7px;
+    }
+
+    /* Stage Frame Mobile Expansion - Remove 16:9 rigidity on tall phones */
+    .presentation-container {
+        padding: 8px 10px;
+        flex: 1;
+    }
+
+    .ppt-stage-frame {
+        aspect-ratio: auto;
+        height: 100%;
+        max-height: none;
+        border-radius: var(--radius-sm);
+        box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+    }
+
+    .slide-card {
+        padding: 16px 14px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .slide-header {
+        margin-bottom: 12px;
+        padding-bottom: 8px;
+    }
+
+    .slide-tag {
+        font-size: 0.65rem;
+        padding: 2px 8px;
+        margin-bottom: 4px;
+    }
+
+    .slide-header h2 {
+        font-size: 1.18rem;
+        line-height: 1.3;
+    }
+
+    /* FLOWCHART MOBILE VERTICAL TIMELINE LAYOUT */
+    .visual-flowchart.horizontal-flow {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 12px;
+        overflow-x: visible;
+        overflow-y: visible;
+        padding-bottom: 24px;
+    }
+
+    .flow-node,
+    .visual-flowchart.has-many-nodes .flow-node {
+        flex: none;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        min-height: auto;
+        padding: 12px 12px 14px 12px;
+        border-radius: var(--radius-sm);
+    }
+
+    .flow-scroll-btn,
+    .scroll-shadow-left,
+    .scroll-shadow-right {
+        display: none !important;
+    }
+
+    .node-photo-wrapper {
+        height: auto;
+        aspect-ratio: 4 / 3;
+        max-height: 220px;
+        margin-bottom: 8px;
+    }
+
+    .node-content h3 {
+        font-size: 0.88rem;
+        margin-bottom: 3px;
+    }
+
+    .node-content p {
+        font-size: 0.76rem;
+        line-height: 1.4;
+        margin-bottom: 8px;
+    }
+
+    .node-badge {
+        font-size: 0.6rem;
+        padding: 2px 6px;
+        max-width: calc(100% - 50px);
+    }
+
+    .chevron-ribbon {
+        height: 28px;
+        padding: 0 8px 0 14px;
+        font-size: 0.8rem;
+    }
+
+    /* Flow Connecting Arrow for Mobile Vertical Layout */
+    .flow-arrow {
+        min-height: 22px;
+        align-self: center;
+        margin: 2px 0;
+    }
+
+    .flow-arrow svg {
+        width: 20px;
+        height: 20px;
+        transform: rotate(90deg);
+        animation: move-arrow-vertical 1.8s infinite ease-in-out;
+    }
+
+    /* Cover Slide Mobile Adaptations */
+    .cover-content {
+        padding: 16px 12px;
+        justify-content: flex-start;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .cover-machine-showcase {
+        height: 115px;
+        max-width: 240px;
+        margin-bottom: 8px;
+    }
+
+    .cover-title {
+        font-size: 1.3rem;
+        margin-bottom: 16px;
+        letter-spacing: -0.2px;
+    }
+
+    .cover-stats-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+
+    .stat-card {
+        padding: 12px 14px;
+        gap: 14px;
+    }
+
+    .stat-img-wrapper {
+        width: 44px;
+        height: 44px;
+    }
+
+    .stat-num {
+        font-size: 0.98rem;
+    }
+
+    .stat-label {
+        font-size: 0.7rem;
+    }
+
+    .cover-cta-bar {
+        width: 100%;
+    }
+
+    .btn-large {
+        width: 100%;
+        justify-content: center;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+
+    /* Footer Bar Mobile Adaptations */
+    .slide-footer {
+        height: 52px;
+        padding: 0 12px;
+    }
+
+    .nav-arrow-btn {
+        padding: 8px 12px;
+        font-size: 0.78rem;
+    }
+
+    .slide-thumbnails-bar {
+        max-width: 130px;
+        overflow-x: auto;
+        padding: 4px 2px;
+        scrollbar-width: none;
+    }
+
+    .slide-thumbnails-bar::-webkit-scrollbar {
+        display: none;
+    }
+
+    .dot-btn {
+        width: 8px;
+        height: 8px;
+        flex-shrink: 0;
+    }
+
+    .dot-btn.active {
+        width: 18px;
+    }
+
+    /* Modal Mobile Adjustments */
+    .modal-card {
+        width: 95%;
+        max-height: 90vh;
+    }
+
+    .modal-header {
+        padding: 14px 18px;
+    }
+
+    .modal-header h3 {
+        font-size: 0.98rem;
+    }
+
+    .grid-slides-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 14px;
+    }
+
+    .grid-thumb-card {
+        padding: 12px;
+    }
+
+    .thumb-title {
+        font-size: 0.82rem;
+    }
+
+    .zoomed-modal-overlay {
+        padding: 10px;
+    }
+
+    .zoomed-card-wrapper {
+        width: 96%;
+        max-height: 88vh;
+        border-radius: var(--radius-md);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .zoomed-card-hero {
+        aspect-ratio: 4 / 3;
+        height: auto;
+        max-height: 280px;
+    }
+
+    .zoomed-card-title {
+        font-size: 1.15rem;
+    }
+
+    .zoomed-card-body {
+        padding: 16px;
+        gap: 12px;
+    }
+
+    .zoomed-card-desc {
+        font-size: 0.85rem;
+    }
+}
+
+/* Small Screens (<= 480px) */
+@media (max-width: 480px) {
+    .btn-header-action .btn-text {
+        display: none;
+    }
+
+    .btn-header-action {
+        padding: 8px;
+    }
+
+    .nav-btn-text {
+        display: none;
+    }
+
+    .nav-arrow-btn {
+        padding: 8px 10px;
+    }
+
+    .brand-name {
+        font-size: 0.82rem;
+    }
+
+    .cover-title {
+        font-size: 1.18rem;
+    }
+
+    .zoomed-card-hero {
+        aspect-ratio: 4 / 3;
+        height: auto;
+        max-height: 220px;
+    }
+}
+
+/* Ultra Small Screens (<= 360px) */
+@media (max-width: 360px) {
+    .grid-slides-container {
+        grid-template-columns: 1fr;
+    }
+
+    .cover-machine-showcase {
+        height: 95px;
+    }
+
+    .cover-title {
+        font-size: 1.08rem;
+    }
+}
+
+

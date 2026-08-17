@@ -72,21 +72,11 @@ body {
     gap: 14px;
 }
 
-.logo-graphic {
-    width: 42px;
-    height: 42px;
-    background: rgba(0, 168, 204, 0.08);
-    border-radius: var(--radius-sm);
-    padding: 6px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid rgba(0, 168, 204, 0.25);
-}
-
-.scissor-icon {
-    width: 100%;
-    height: 100%;
+.brand-header-logo {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    border-radius: 6px;
 }
 
 .brand-text {

@@ -5,9 +5,12 @@ import CoverSlide from './components/CoverSlide';
 import FlowNodeCard from './components/FlowNodeCard';
 import SlideDeckGrid from './components/SlideDeckGrid';
 import NodeDetailModal from './components/NodeDetailModal';
+import LandingPage from './components/LandingPage';
+import MeetingSummariesPage from './components/MeetingSummariesPage';
 import { slidesData, totalSlides } from './data/workflowsData';
 
 export default function WorkflowPresentation() {
+    const [activePage, setActivePage] = useState('landing'); // 'landing' | 'workflows' | 'meetings'
     const [currentSlide, setCurrentSlide] = useState(0);
     const [slideDirection, setSlideDirection] = useState('right');
     const [isGridOpen, setIsGridOpen] = useState(false);
@@ -48,6 +51,7 @@ export default function WorkflowPresentation() {
     }, []);
 
     useEffect(() => {
+        if (activePage !== 'workflows') return;
         const timer = setTimeout(() => {
             checkScrollState();
         }, 60);
@@ -57,7 +61,7 @@ export default function WorkflowPresentation() {
             clearTimeout(timer);
             window.removeEventListener('resize', checkScrollState);
         };
-    }, [currentSlide, checkScrollState]);
+    }, [currentSlide, checkScrollState, activePage]);
 
     useEffect(() => {
         const handleFullscreenChange = () => {
@@ -181,7 +185,7 @@ export default function WorkflowPresentation() {
 
     // Smooth Mouse Wheel / Trackpad Scroll Navigation
     const handleWheel = useCallback((e) => {
-        if (isGridOpen || selectedNode) return;
+        if (isGridOpen || selectedNode || activePage !== 'workflows') return;
         
         // Allow horizontal scroll inside flowchart wrapper without triggering slide navigation
         if (e.target.closest && (e.target.closest('.visual-flowchart') || e.target.closest('.flowchart-scroll-wrapper'))) {
@@ -207,18 +211,18 @@ export default function WorkflowPresentation() {
                 scrollLockRef.current = false;
             }, 380);
         }
-    }, [isGridOpen, selectedNode, nextSlide, prevSlide]);
+    }, [isGridOpen, selectedNode, activePage, nextSlide, prevSlide]);
 
     // Touch Swipe Gesture Handlers
     const handleTouchStart = useCallback((e) => {
-        if (isGridOpen || selectedNode) return;
+        if (isGridOpen || selectedNode || activePage !== 'workflows') return;
         const touch = e.touches[0];
         const isFlowchart = !!(e.target.closest && e.target.closest('.visual-flowchart'));
         touchStartRef.current = { x: touch.clientX, y: touch.clientY, isFlowchart };
-    }, [isGridOpen, selectedNode]);
+    }, [isGridOpen, selectedNode, activePage]);
 
     const handleTouchEnd = useCallback((e) => {
-        if (isGridOpen || selectedNode) return;
+        if (isGridOpen || selectedNode || activePage !== 'workflows') return;
 
         // If swipe originated inside flowchart and flowchart has horizontal scroll space, let native scroll handle it
         if (touchStartRef.current.isFlowchart) {
@@ -240,12 +244,12 @@ export default function WorkflowPresentation() {
                 prevSlide();
             }
         }
-    }, [isGridOpen, selectedNode, nextSlide, prevSlide]);
+    }, [isGridOpen, selectedNode, activePage, nextSlide, prevSlide]);
 
     // Keyboard Shortcuts
     useEffect(() => {
         const handleKeyDown = (e) => {
-            if (isGridOpen || selectedNode) return;
+            if (isGridOpen || selectedNode || activePage !== 'workflows') return;
 
             if (e.key === 'ArrowRight' || e.key === ' ') {
                 nextSlide();
@@ -260,10 +264,12 @@ export default function WorkflowPresentation() {
 
         window.addEventListener('keydown', handleKeyDown);
         return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [isGridOpen, selectedNode, nextSlide, prevSlide, toggleFullscreen]);
+    }, [isGridOpen, selectedNode, activePage, nextSlide, prevSlide, toggleFullscreen]);
 
     // Preload Adjacent Slide Images Silently for Instantaneous Load Speed
     useEffect(() => {
+        if (activePage !== 'workflows') return;
+
         const preloadSlideImages = (slideIdx) => {
             const slide = slidesData[slideIdx];
             if (!slide || !slide.nodes) return;
@@ -291,7 +297,7 @@ export default function WorkflowPresentation() {
             if (window.cancelIdleCallback) window.cancelIdleCallback(idleId);
             else clearTimeout(idleId);
         };
-    }, [currentSlide]);
+    }, [currentSlide, activePage]);
 
     const activeSlideData = slidesData[currentSlide];
 
@@ -303,6 +309,8 @@ export default function WorkflowPresentation() {
             onTouchEnd={handleTouchEnd}
         >
             <Header 
+                activePage={activePage}
+                setActivePage={setActivePage}
                 currentSlide={currentSlide}
                 totalSlides={totalSlides}
                 isWalkthroughActive={isWalkthroughActive}
@@ -316,104 +324,112 @@ export default function WorkflowPresentation() {
                 isFullscreen={isFullscreen}
             />
 
-            {/* 16:9 Presentation Stage */}
-            <main className="presentation-container">
-                <div className="ppt-stage-frame">
-                    <section key={currentSlide} className={`slide-card active slide-enter-${slideDirection}`}>
-                        {activeSlideData.isCover ? (
-                            <CoverSlide goToSlide={goToSlide} toggleFullscreen={toggleFullscreen} />
-                        ) : (
-                            <>
-                                <div className="slide-header">
-                                    <div className="slide-tag">
-                                        {activeSlideData.tag}
-                                    </div>
-                                    <h2>{activeSlideData.title}</h2>
-                                </div>
+            {/* Page Content Switcher */}
+            {activePage === 'workflows' && (
+                <>
+                    {/* 16:9 Presentation Stage */}
+                    <main className="presentation-container">
+                        <div className="ppt-stage-frame">
+                            <section key={currentSlide} className={`slide-card active slide-enter-${slideDirection}`}>
+                                {activeSlideData.isCover ? (
+                                    <CoverSlide goToSlide={goToSlide} toggleFullscreen={toggleFullscreen} />
+                                ) : (
+                                    <>
+                                        <div className="slide-header">
+                                            <div className="slide-tag">
+                                                {activeSlideData.tag}
+                                            </div>
+                                            <h2>{activeSlideData.title}</h2>
+                                        </div>
 
-                                <div className="flowchart-scroll-wrapper">
-                                    {canScrollLeft && (
-                                        <button 
-                                            type="button" 
-                                            className="flow-scroll-btn left"
-                                            onClick={() => scrollFlowchart('left')}
-                                            title="Scroll left to view previous steps"
-                                            aria-label="Scroll left"
-                                        >
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-                                        </button>
-                                    )}
+                                        <div className="flowchart-scroll-wrapper">
+                                            {canScrollLeft && (
+                                                <button 
+                                                    type="button" 
+                                                    className="flow-scroll-btn left"
+                                                    onClick={() => scrollFlowchart('left')}
+                                                    title="Scroll left to view previous steps"
+                                                    aria-label="Scroll left"
+                                                >
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                                                </button>
+                                            )}
 
-                                    {canScrollRight && (
-                                        <button 
-                                            type="button" 
-                                            className="flow-scroll-btn right"
-                                            onClick={() => scrollFlowchart('right')}
-                                            title="Scroll right to view more steps"
-                                            aria-label="Scroll right"
-                                        >
-                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                                        </button>
-                                    )}
+                                            {canScrollRight && (
+                                                <button 
+                                                    type="button" 
+                                                    className="flow-scroll-btn right"
+                                                    onClick={() => scrollFlowchart('right')}
+                                                    title="Scroll right to view more steps"
+                                                    aria-label="Scroll right"
+                                                >
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                                </button>
+                                            )}
 
-                                    {canScrollLeft && <div className="scroll-shadow-left" />}
-                                    {canScrollRight && <div className="scroll-shadow-right" />}
+                                            {canScrollLeft && <div className="scroll-shadow-left" />}
+                                            {canScrollRight && <div className="scroll-shadow-right" />}
 
-                                    <div 
-                                        ref={flowchartRef}
-                                        className={`visual-flowchart horizontal-flow ${activeSlideData.nodes && activeSlideData.nodes.length > 5 ? 'has-many-nodes' : ''}`}
-                                        onScroll={checkScrollState}
-                                    >
-                                        {activeSlideData.nodes && activeSlideData.nodes.map((node, nIdx) => {
-                                            const isNodeActive = activeWalkthroughStep === nIdx;
-                                            return (
-                                                <React.Fragment key={nIdx}>
-                                                    <FlowNodeCard 
-                                                        node={node}
-                                                        nIdx={nIdx}
-                                                        isNodeActive={isNodeActive}
-                                                        goToSlide={goToSlide}
-                                                        setSelectedNode={setSelectedNode}
-                                                    />
+                                            <div 
+                                                ref={flowchartRef}
+                                                className={`visual-flowchart horizontal-flow ${activeSlideData.nodes && activeSlideData.nodes.length > 5 ? 'has-many-nodes' : ''}`}
+                                                onScroll={checkScrollState}
+                                            >
+                                                {activeSlideData.nodes && activeSlideData.nodes.map((node, nIdx) => {
+                                                    const isNodeActive = activeWalkthroughStep === nIdx;
+                                                    return (
+                                                        <React.Fragment key={nIdx}>
+                                                            <FlowNodeCard 
+                                                                node={node}
+                                                                nIdx={nIdx}
+                                                                isNodeActive={isNodeActive}
+                                                                goToSlide={goToSlide}
+                                                                setSelectedNode={setSelectedNode}
+                                                            />
 
-                                                    {nIdx < activeSlideData.nodes.length - 1 && (
-                                                        <div className="flow-arrow">
-                                                            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" fill="none"/></svg>
-                                                        </div>
-                                                    )}
-                                                </React.Fragment>
-                                            );
-                                        })}
-                                    </div>
-                                </div>
-                            </>
-                        )}
-                    </section>
-                </div>
-            </main>
+                                                            {nIdx < activeSlideData.nodes.length - 1 && (
+                                                                <div className="flow-arrow">
+                                                                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" fill="none"/></svg>
+                                                                </div>
+                                                            )}
+                                                        </React.Fragment>
+                                                    );
+                                                })}
+                                            </div>
+                                        </div>
+                                    </>
+                                )}
+                            </section>
+                        </div>
+                    </main>
 
-            <Footer 
-                currentSlide={currentSlide}
-                totalSlides={totalSlides}
-                prevSlide={prevSlide}
-                nextSlide={nextSlide}
-                goToSlide={goToSlide}
-            />
+                    <Footer 
+                        currentSlide={currentSlide}
+                        totalSlides={totalSlides}
+                        prevSlide={prevSlide}
+                        nextSlide={nextSlide}
+                        goToSlide={goToSlide}
+                    />
 
-            <SlideDeckGrid 
-                isGridOpen={isGridOpen}
-                setIsGridOpen={setIsGridOpen}
-                slidesData={slidesData}
-                currentSlide={currentSlide}
-                goToSlide={goToSlide}
-            />
+                    <SlideDeckGrid 
+                        isGridOpen={isGridOpen}
+                        setIsGridOpen={setIsGridOpen}
+                        slidesData={slidesData}
+                        currentSlide={currentSlide}
+                        goToSlide={goToSlide}
+                    />
 
-            <NodeDetailModal 
-                selectedNode={selectedNode}
-                setSelectedNode={setSelectedNode}
-                goToSlide={goToSlide}
-            />
+                    <NodeDetailModal 
+                        selectedNode={selectedNode}
+                        setSelectedNode={setSelectedNode}
+                        goToSlide={goToSlide}
+                    />
+                </>
+            )}
+
+            {activePage === 'landing' && <LandingPage setActivePage={setActivePage} totalSlides={totalSlides} />}
+
+            {activePage === 'meetings' && <MeetingSummariesPage />}
         </div>
     );
 }
-

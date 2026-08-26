@@ -1,164 +1,192 @@
 export const meetingsData = [
     {
-        id: 'meet-2026-08-25',
-        title: '25 August 2026',
-        fullDateFormatted: 'Tuesday, 25 August 2026',
-        date: '2026-08-25',
-        subtitle: '',
-        time: '',
-        location: '',
-        chairperson: '',
-        attendees: [],
-        summary: 'Daily operational meeting covering machine repairs (Converter, Noida, Hyundai, Haldia, 1930 Model), payment clearances (Mukesh, Bunty), spare parts procurement (chargers, connectors, Hyundai parts), logistics (Khurja to Lucknow), site sanitation, and team action items.',
-        status: '',
-        statusColor: '#10b981',
-        machineBreakdowns: [
+        id: 'meet-2026-08-26',
+        title: '26 Aug 2026',
+        date: '2026-08-26',
+        dateFormatted: '26 Aug 2026',
+        focus: 'Machine Breakdowns, Site Service Operations, Logistics & Parts Procurement',
+        breakdowns: [
             {
-                id: 'mb-25-1',
-                machineName: 'Converter System',
-                machineCode: 'Converter Unit',
-                location: 'Site Location',
-                downtime: 'Pending Payment Clearance (00:28)',
-                urgency: 'High',
-                problemFacing: 'Converter is broken/defective. Payment is pending with Mukesh (00:28); clearing June payment is mandatory to resume operations.',
-                servicemanStatus: {
-                    serviced: false,
-                    servicemanName: 'Shiv Uniyal / Mukesh',
-                    serviceStatusText: 'Payment Clearance & Repair Pending',
-                    serviceTime: '00:28',
-                    serviceNotes: 'Shiv Uniyal to speak with Mukesh for converter payment clearance.'
-                },
-                partsRequired: [
-                    { partName: 'Converter Component / Assembly', qty: '1 Unit', storeStatus: 'Payment Pending', urgency: 'High' }
-                ]
+                site: 'Noida 143',
+                issue: 'Function motor failure on 2 machines (ex-Mumbai units); battery & charger issues.',
+                action: 'Ambrish dispatched with replacement motor, batteries, and chargers. Trilochan (Service Engineer) visiting site to diagnose whether fault is in the drive motor or function motor.',
+                logistics: 'Defective motors and old batteries must be retrieved from the site immediately via Porter to the office.'
             },
             {
-                id: 'mb-25-2',
-                machineName: 'Noida Machine',
-                machineCode: 'Noida Unit',
-                location: 'Noida Site',
-                downtime: 'Battery Malfunction (26:31)',
-                urgency: 'High',
-                problemFacing: 'Noida machine battery is defective and there is a general shortage of chargers (26:31). Battery exchange is currently in progress.',
-                servicemanStatus: {
-                    serviced: false,
-                    servicemanName: 'Umesh Kumar / Sushil Mishra',
-                    serviceStatusText: 'Battery Exchange In Progress',
-                    serviceTime: '26:31',
-                    serviceNotes: 'Umesh Kumar taking action on battery and charger issues; Sushil Mishra sharing live updates on WhatsApp.'
-                },
-                partsRequired: [
-                    { partName: 'Replacement Battery Unit', qty: '1 Unit', storeStatus: 'Exchange In Progress', urgency: 'High' },
-                    { partName: 'Battery Charger', qty: 'Required', storeStatus: 'Shortage / Dispatch Ordered', urgency: 'High' }
-                ]
+                site: 'Samsung Display',
+                issue: '3-Ton machine charger transformer has a loud noise issue and is not charging the machine properly.',
+                action: 'Single charger available on site; immediate transformer replacement/inspection prioritized to prevent machine stoppage.'
             },
             {
-                id: 'mb-25-3',
-                machineName: 'Hyundai Machine (Sales Unit)',
-                machineCode: 'Hyundai Unit',
-                location: 'Workshop / Yard',
-                downtime: 'Awaiting Spare Parts (02:01)',
-                urgency: 'High',
-                problemFacing: 'Sales unit parts for Hyundai machine have not arrived yet (02:01). Servicing must be completed within 1 day once parts arrive.',
-                servicemanStatus: {
-                    serviced: false,
-                    servicemanName: 'Dhruv Sharma / Shiv Uniyal',
-                    serviceStatusText: 'Awaiting Parts Shipment',
-                    serviceTime: '02:01',
-                    serviceNotes: 'Emails sent to Yogesh and Tarun Jha to expedite Hyundai parts delivery.'
-                },
-                partsRequired: [
-                    { partName: 'Hyundai Machine Spare Parts', qty: 'As Per Order', storeStatus: 'Delivery Awaited', urgency: 'High' }
-                ]
+                site: 'Fatehgarh / Desert Sites (JLG 600SJ)',
+                issue: 'Radiator failure caused by heavy sand/dust accumulation; previous chemical cleaning failed.',
+                action: 'Radiator to be replaced/repaired. Management approved providing air blowers / compressors on sandy sites for routine cleaning.'
             },
             {
-                id: 'mb-25-4',
-                machineName: 'Haldia Machine',
-                machineCode: 'Haldia Unit',
-                location: 'Haldia Site',
-                downtime: 'Operational with Defect (13:43)',
-                urgency: 'Medium',
-                problemFacing: 'Machine is running, but Haldia machine connector is broken (13:43). Battery and motor issues encountered.',
-                servicemanStatus: {
-                    serviced: false,
-                    servicemanName: 'Technical Repair Team',
-                    serviceStatusText: 'Connector Broken / Motor Repair Planning',
-                    serviceTime: '13:43',
-                    serviceNotes: 'Repair team following up on connector replacement and motor repair plan.'
-                },
-                partsRequired: [
-                    { partName: 'Machine Connector', qty: '1 Pc', storeStatus: 'Broken - Replacement Needed', urgency: 'Medium' }
-                ]
+                site: 'Jamnagar Site',
+                issue: '2 machines down (CT-5 / Z-60 / Z-45 boom lift). Cable tray pending for 5–6 months.',
+                clarification: 'Management clarified the machine was purchased from auction/TC and is company-owned (not cross-rent). Invoice to be retrieved from office by Keshav; serial plate photos to be shared.'
             },
             {
-                id: 'mb-25-5',
-                machineName: '1930 Model Machine',
-                machineCode: 'Model 1930',
-                location: 'Repair Workshop',
-                downtime: 'Under Repair Planning (29:56)',
-                urgency: 'Medium',
-                problemFacing: 'Model 1930 machine battery is working fine (29:56). Motor repairing plan is being formulated.',
-                servicemanStatus: {
-                    serviced: false,
-                    servicemanName: 'Repair Team',
-                    serviceStatusText: 'Battery OK / Motor Repair Planned',
-                    serviceTime: '29:56',
-                    serviceNotes: 'Battery verified working fine; motor repair plan under preparation.'
-                },
-                partsRequired: [
-                    { partName: 'Motor Repair Components', qty: 'As Planned', storeStatus: 'Under Planning', urgency: 'Medium' }
-                ]
+                site: 'Kolkata Site',
+                status: 'Cleaning and greasing completed. Oil and filter replacement pending arrival of Damru Patra.',
+                pendingIssue: 'Key switch bypassed for several months; permanent replacement ordered.'
             },
             {
-                id: 'mb-25-6',
-                machineName: 'Machine Transfer Vehicle (Logistics)',
-                machineCode: 'Logistics Unit',
-                location: 'Khurja to Lucknow Route',
-                downtime: 'Stalled for Months (20:04)',
-                urgency: 'Medium',
-                problemFacing: 'Machine transfer is stuck and vehicle has been standing idle for months (20:04). Shifting arrangements queued from Khurja to Lucknow (12:53).',
-                servicemanStatus: {
-                    serviced: false,
-                    servicemanName: 'Logistics Team',
-                    serviceStatusText: 'Transfer Logistics Pending',
-                    serviceTime: '20:04',
-                    serviceNotes: 'Arrangements being set up to dispatch machine from Khurja to Lucknow.'
-                },
-                partsRequired: []
+                site: 'Korba & Anuppur',
+                status: 'Laptop dispatched. Service pending for Korba machine. Past complaint resolved on-site; pending CRM closure.'
+            },
+            {
+                site: 'Udyog Bhawan / Lucknow',
+                action: '45 ft machine (450) at Udyog Bhawan to be inspected and mobilized for dispatch to Lucknow. 450 freed from NTPC Khurja.'
             }
         ],
-        keyTopics: [
-            'Machine Repair & Payment Clearances: Converter broken, payment pending with Mukesh (00:28), June payment required, Bunty payment rejected & advance payment needed (04:20).',
-            'Parts & Delivery: Defective battery link & charger (08:25), Hyundai machine parts delay (02:01), rate negotiations based on legacy rates (08:25).',
-            'Machine Operations & Site Status: Haldia machine connector broken (13:43), site flooring & cleaning video submission required (09:56), 1930 Model battery & motor plan (29:56).',
-            'Team Communication & Governance: Email updates to Yogesh & Tarun Jha (03:15), rental machine focus, WhatsApp for urgent issues & rejected payments (05:20), formal meeting summary logging (47:52).',
-            'Local Support & Logistics: Rambabu on sick leave, Sanand manpower gap (23:25), Khurja to Lucknow machine dispatch (12:53), medical issues (Vinod & Praveen) and laptop dispatch (44:40).'
+        parts: [
+            {
+                part: 'Control Boards (Platform Controllers)',
+                context: '4 Cross-Rent Scissor Lifts',
+                statusNextSteps: '2 boards arrived damaged/cut wires. Replacements approved. 1 unit in stock (Part ending in 0241) to be dispatched immediately.'
+            },
+            {
+                part: 'Batteries (8 Units)',
+                context: 'J20 / General Stock',
+                statusNextSteps: 'Payment to be released today for next-day vendor dispatch.'
+            },
+            {
+                part: 'Hour Meter & Toggle Switch',
+                context: 'Kasna (600S)',
+                statusNextSteps: 'Dispatched with technician; operator photo requested.'
+            },
+            {
+                part: 'Safety Camera',
+                context: 'Saint-Gobain Machine',
+                statusNextSteps: 'Payment completed. Hari & Shiv to coordinate camera installation on ready machine before dispatch.'
+            },
+            {
+                part: 'Hydraulic Oil',
+                context: 'General Fleet',
+                statusNextSteps: 'Orders placed; dispatch expected in 1–2 days.'
+            },
+            {
+                part: '1930 Drive/Function Motors',
+                context: 'Workshop / Spares',
+                statusNextSteps: 'Explore China sourcing via Shiv and alternate local repair vendors (Jitendra).'
+            }
+        ],
+        directives: [
+            {
+                title: 'Mandatory PO Placement Rule',
+                points: [
+                    'POs must be issued to vendors immediately upon requirement identification. PO creation cannot be put on hold for payment approval.',
+                    'Google Sheets must reflect: "Order Placed – Pending for Payment".'
+                ]
+            },
+            {
+                title: 'Cross-Rent Inventory Protocol',
+                points: [
+                    'All cross-rent machines must have Google Forms submitted with model, serial number, and cross-rent vendor name (Pravesh / Rahul).',
+                    'Physical cross-rent identification stickers/markings must be applied.'
+                ]
+            },
+            {
+                title: 'CRM Ticket Management',
+                points: [
+                    'Vaibhav & Jitendra to review and close all resolved pending CRM service tickets before lunch.'
+                ]
+            },
+            {
+                title: 'Defective Part Recovery',
+                points: [
+                    'Strict instruction to return all replaced parts (batteries, boards, motors) back to the central warehouse via Porter/bike delivery.'
+                ]
+            }
         ],
         actionItems: [
-            { id: 1, task: 'Send email to Yugesh and Tarun Jha for Hyundai parts delivery and communication improvement (03:27)', assignee: 'Dhruv Sharma', priority: 'High', status: 'Pending', dueDate: '25 Aug 2026' },
-            { id: 2, task: 'Send Team Deployment Sheet for machine repair and servicing (23:43)', assignee: 'Dhruv Sharma', priority: 'High', status: 'Pending', dueDate: '25 Aug 2026' },
-            { id: 3, task: 'Issue instructions for quick charger dispatch to resolve charging issues (35:56)', assignee: 'Dhruv Sharma', priority: 'High', status: 'Pending', dueDate: '25 Aug 2026' },
-            { id: 4, task: 'Audit Charger and PCON supply chain to prevent logistics delays (36:14)', assignee: 'Dhruv Sharma', priority: 'Medium', status: 'Pending', dueDate: '25 Aug 2026' },
-            { id: 5, task: 'Speak with Mukesh regarding converter payment clearance to unlock progress (00:51)', assignee: 'Shiv Uniyal', priority: 'High', status: 'Pending', dueDate: '25 Aug 2026' },
-            { id: 6, task: 'Re-send email for Hyundai machine parts delivery (03:28)', assignee: 'Shiv Uniyal', priority: 'High', status: 'Pending', dueDate: '25 Aug 2026' },
-            { id: 7, task: 'Prepare Warranty Report with photos/videos for machine warranty tracking (22:23)', assignee: 'Sushil Mishra', priority: 'High', status: 'Pending', dueDate: '25 Aug 2026' },
-            { id: 8, task: 'Send live updates on battery and charger status via personal WhatsApp (05:18)', assignee: 'Sushil Mishra', priority: 'Medium', status: 'Pending', dueDate: '25 Aug 2026' },
-            { id: 9, task: 'Follow up between repair team and customer for smooth repair progress (36:32)', assignee: 'Sushil Mishra', priority: 'Medium', status: 'Pending', dueDate: '25 Aug 2026' },
-            { id: 10, task: 'Conduct training for Raj Kishore and handle team deployment (45:15)', assignee: 'Jitendra Budhauliya', priority: 'High', status: 'Pending', dueDate: '25 Aug 2026' },
-            { id: 11, task: 'Check charger requirements across teams (36:11)', assignee: 'Jitendra Budhauliya', priority: 'Medium', status: 'Pending', dueDate: '25 Aug 2026' },
-            { id: 12, task: 'Arrange Mumbai train tickets for team travel (41:32)', assignee: 'Jitendra Budhauliya', priority: 'Medium', status: 'Pending', dueDate: '25 Aug 2026' },
-            { id: 13, task: 'Take action on charger and battery issues to maintain machine performance (28:37)', assignee: 'Umesh Kumar', priority: 'High', status: 'Pending', dueDate: '25 Aug 2026' },
-            { id: 14, task: 'Ensure proper battery fitting in fleet vehicles (32:15)', assignee: 'Umesh Kumar', priority: 'High', status: 'Pending', dueDate: '25 Aug 2026' },
-            { id: 15, task: 'Take Blue Star order to secure required machinery (36:40)', assignee: 'Vinay Singh', priority: 'High', status: 'Pending', dueDate: '25 Aug 2026' },
-            { id: 16, task: 'Follow up with machine repair customers (42:58)', assignee: 'Vinay Singh', priority: 'Medium', status: 'Pending', dueDate: '25 Aug 2026' }
+            { person: 'Dhruv Sharma', task: 'Authorize urgent payments (8 batteries, control boxes).' },
+            { person: 'Jitendra Budhauliya & Sushil Mishra', task: 'Coordinate Ambrish/Trilochan at Noida 143; follow up on control bank vendor and alternate motor sourcing.' },
+            { person: 'Pardeep Tomar', task: 'Dispatch in-stock controller board (ending in 0241) and track reverse logistics of defective parts.' },
+            { person: 'Pravesh Yadav & Rahul Singh', task: 'Fill Google Forms for new scissor lifts; ensure machine cleanliness and tagging.' },
+            { person: 'Vaibhav Chauhan', task: 'Coordinate with site leads to close all resolved CRM service calls.' }
+        ]
+    },
+    {
+        id: 'meet-2026-08-25',
+        title: '25 Aug 2026',
+        date: '2026-08-25',
+        dateFormatted: '25 Aug 2026',
+        focus: 'Machine Repairs, Payment Clearances & Logistics Transfers',
+        breakdowns: [
+            {
+                site: 'Main Workshop / Converter System',
+                issue: 'Converter is broken/defective. Payment is pending with Mukesh (00:28); clearing June payment is mandatory to resume operations.',
+                action: 'Shiv Uniyal to speak with Mukesh for converter payment clearance.'
+            },
+            {
+                site: 'Noida Site',
+                issue: 'Noida machine battery is defective and there is a general shortage of chargers (26:31).',
+                action: 'Battery exchange is currently in progress. Umesh Kumar taking action on battery and charger issues; Sushil Mishra sharing live updates.'
+            },
+            {
+                site: 'Workshop / Hyundai Machine (Sales Unit)',
+                issue: 'Sales unit parts for Hyundai machine have not arrived yet (02:01). Servicing must be completed within 1 day once parts arrive.',
+                action: 'Emails sent to Yogesh and Tarun Jha to expedite Hyundai parts delivery.'
+            },
+            {
+                site: 'Haldia Site',
+                issue: 'Machine is running, but Haldia machine connector is broken (13:43). Battery and motor issues encountered.',
+                action: 'Technical repair team following up on connector replacement and motor repair plan.'
+            },
+            {
+                site: 'Repair Workshop / 1930 Model Machine',
+                issue: 'Model 1930 machine battery is working fine (29:56). Motor repairing plan is being formulated.',
+                action: 'Formulate motor repair plan and evaluate vendor cost differences.'
+            },
+            {
+                site: 'Khurja to Lucknow Route',
+                issue: 'Machine transfer is stuck and vehicle has been standing idle for months (20:04).',
+                action: 'Shifting arrangements queued from Khurja to Lucknow (12:53).'
+            }
         ],
-        departmentUpdates: [
-            { dept: 'Machine Repair & Payments', lead: 'Shiv Uniyal & Sushil Mishra', update: 'Converter payment pending with Mukesh; warranty report preparation with photo/video proof active; Bunty payment rejected.' },
-            { dept: 'Parts & Delivery', lead: 'Dhruv Sharma & Shiv Uniyal', update: 'Awaiting Hyundai machine parts (1 day turnaround upon receipt); price negotiations on old rates; charger & PCON supply audit.' },
-            { dept: 'Site & Machine Operations', lead: 'Umesh Kumar & Repair Team', update: 'Haldia machine connector broken; Noida battery exchange active; 1930 Model battery OK & motor repair planned; site cleaning video audit.' },
-            { dept: 'Local Support & Logistics', lead: 'Jitendra Budhauliya & Team', update: 'Khurja to Lucknow machine shifting queued; Rambabu on sick leave; Mumbai train tickets; laptop dispatch planned.' }
+        parts: [
+            {
+                part: 'Hyundai Machine Spare Parts',
+                context: 'Workshop / Yard',
+                statusNextSteps: 'Delivery awaited from Yogesh and Tarun Jha; 1-day turnaround target upon receipt.'
+            },
+            {
+                part: 'Battery Chargers & Connectors',
+                context: 'Noida & Haldia Sites',
+                statusNextSteps: 'Shortage flagged; fast-track dispatch instructions issued by Dhruv Sharma.'
+            },
+            {
+                part: 'Converter Assembly',
+                context: 'Main Workshop',
+                statusNextSteps: 'Payment clearance pending with Mukesh to unlock repair.'
+            }
         ],
-        meetingNotes: 'Priority focus on clearing pending payments (Mukesh & Bunty), expediting Hyundai spare parts delivery, issuing charger dispatches, and submitting photo/video documentation for warranty reports.'
+        directives: [
+            {
+                title: 'Photo & Video Documentation for Warranty',
+                points: [
+                    'All machine warranty claims must be supported with high-resolution photos and video proof before vendor submission.'
+                ]
+            },
+            {
+                title: 'Site Flooring & Sanitation Standards',
+                points: [
+                    'Video audit required for fleet machine cleanliness and site flooring condition.'
+                ]
+            }
+        ],
+        actionItems: [
+            { person: 'Dhruv Sharma', task: 'Send email to Yugesh/Tarun Jha for parts; send Team Deployment Sheet; audit Charger/PCON supply chain.' },
+            { person: 'Shiv Uniyal', task: 'Speak with Mukesh regarding converter payment clearance; re-send email for Hyundai parts.' },
+            { person: 'Sushil Mishra', task: 'Prepare Warranty Report with photos/videos; send live updates on battery/charger status on WhatsApp.' },
+            { person: 'Jitendra Budhauliya', task: 'Conduct training for Raj Kishore; check charger requirements across teams; arrange Mumbai train tickets.' },
+            { person: 'Umesh Kumar', task: 'Take action on charger and battery issues; ensure proper battery fitting in fleet vehicles.' },
+            { person: 'Vinay Singh', task: 'Take Blue Star order to secure required machinery; follow up with machine repair customers.' }
+        ]
     }
 ];
+
 

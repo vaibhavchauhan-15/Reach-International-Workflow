@@ -78,7 +78,7 @@ export default function LandingPage({ setActivePage, totalSlides = 11, totalMeet
                         </p>
 
                         <ul className="card-feature-list">
-                            <li><span className="bullet-icon">📅</span> Date-Wise Meeting Grid Navigation</li>
+                            <li><span className="bullet-icon">📅</span> Choose Meeting Date & Card Grid</li>
                             <li><span className="bullet-icon">🔧</span> Machine Breakdown & Serviceman Status</li>
                             <li><span className="bullet-icon">✅</span> Action Items & Task Completion Tracking</li>
                         </ul>
@@ -86,7 +86,7 @@ export default function LandingPage({ setActivePage, totalSlides = 11, totalMeet
 
                     <div className="landing-card-footer">
                         <button className="landing-action-btn btn-meetings">
-                            View Daily Meetings <span className="btn-arrow">→</span>
+                            Choose Meeting Date <span className="btn-arrow">→</span>
                         </button>
                     </div>
                 </div>

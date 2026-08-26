@@ -13,7 +13,9 @@ const Header = React.memo(function Header({
     resetWalkthrough,
     setIsGridOpen,
     toggleFullscreen,
-    isFullscreen
+    isFullscreen,
+    searchQuery,
+    setSearchQuery
 }) {
     return (
         <header className="app-header">
@@ -30,6 +32,25 @@ const Header = React.memo(function Header({
             </div>
 
             <div className="header-controls">
+                {activePage === 'meetings' && (
+                    <div className="search-input-wrapper header-search-box">
+                        <svg className="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        <input 
+                            type="text" 
+                            className="page-search-input navbar-search-input"
+                            placeholder="Search by site, part, person, or keyword..."
+                            value={searchQuery || ''}
+                            onChange={(e) => setSearchQuery && setSearchQuery(e.target.value)}
+                        />
+                        {searchQuery && (
+                            <button className="clear-search-btn" onClick={() => setSearchQuery && setSearchQuery('')}>✕</button>
+                        )}
+                    </div>
+                )}
+
                 {activePage === 'workflows' && (
                     <>
                         <div className="slide-indicator">

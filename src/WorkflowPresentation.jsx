@@ -21,6 +21,7 @@ export default function WorkflowPresentation() {
     const [isFullscreen, setIsFullscreen] = useState(false);
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(false);
+    const [meetingSearchQuery, setMeetingSearchQuery] = useState('');
 
     const walkthroughTimerRef = useRef(null);
     const scrollLockRef = useRef(false);
@@ -322,6 +323,8 @@ export default function WorkflowPresentation() {
                 setIsGridOpen={setIsGridOpen}
                 toggleFullscreen={toggleFullscreen}
                 isFullscreen={isFullscreen}
+                searchQuery={meetingSearchQuery}
+                setSearchQuery={setMeetingSearchQuery}
             />
 
             {/* Page Content Switcher */}
@@ -429,7 +432,12 @@ export default function WorkflowPresentation() {
 
             {activePage === 'landing' && <LandingPage setActivePage={setActivePage} totalSlides={totalSlides} />}
 
-            {activePage === 'meetings' && <MeetingSummariesPage />}
+            {activePage === 'meetings' && (
+                <MeetingSummariesPage 
+                    searchQuery={meetingSearchQuery} 
+                    setSearchQuery={setMeetingSearchQuery} 
+                />
+            )}
         </div>
     );
 }

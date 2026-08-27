@@ -41,9 +41,10 @@ const Header = React.memo(function Header({
                         <input 
                             type="text" 
                             className="page-search-input navbar-search-input"
-                            placeholder="Search by site, part, person, or keyword..."
+                            placeholder="Search summaries by site, part..."
                             value={searchQuery || ''}
                             onChange={(e) => setSearchQuery && setSearchQuery(e.target.value)}
+                            aria-label="Search meeting summaries"
                         />
                         {searchQuery && (
                             <button className="clear-search-btn" onClick={() => setSearchQuery && setSearchQuery('')}>✕</button>

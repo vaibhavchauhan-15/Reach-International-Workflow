@@ -4818,6 +4818,7 @@ button:active, .flow-node:active, .stat-card:active {
    ========================================================================== */
 
 .clean-meeting-document {
+    position: relative;
     background: #ffffff;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
@@ -4826,6 +4827,100 @@ button:active, .flow-node:active, .stat-card:active {
     margin: 0 auto 40px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
     font-family: inherit;
+}
+
+/* Sticky / Floating Copy Button at Top-Right of Meeting Card */
+.doc-sticky-copy-anchor {
+    position: sticky;
+    top: 16px;
+    z-index: 40;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: -44px;
+    pointer-events: none;
+}
+
+.btn-icon-copy-sticky {
+    pointer-events: auto;
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.1);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-icon-copy-sticky:hover {
+    background: #f8fafc;
+    border-color: #00a8cc;
+    color: #00a8cc;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 168, 204, 0.2);
+}
+
+.btn-icon-copy-sticky:active {
+    transform: scale(0.94);
+}
+
+.btn-icon-copy-sticky.copied {
+    background: #10b981;
+    border-color: #10b981;
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
+}
+
+/* Tooltip Badge for Sticky Copy Icon */
+.copy-badge-tooltip {
+    position: absolute;
+    right: calc(100% + 10px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: #0f2537;
+    color: #ffffff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 6px 12px;
+    border-radius: 6px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.copy-badge-tooltip::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid transparent;
+    border-left-color: #0f2537;
+}
+
+.btn-icon-copy-sticky:hover .copy-badge-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(-2px);
+}
+
+.copy-badge-tooltip.show-copied {
+    background: #065f46;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: translateY(-50%) translateX(-2px);
+}
+
+.copy-badge-tooltip.show-copied::after {
+    border-left-color: #065f46;
 }
 
 .modal-doc-version {
@@ -5050,9 +5145,45 @@ button:active, .flow-node:active, .stat-card:active {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 24px;
-    padding-top: 16px;
+    gap: 16px;
+    margin-top: 32px;
+    padding-top: 20px;
     border-top: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+}
+
+.doc-footer-nav-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.footer-day-pills {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.doc-footer-actions-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-back-btn,
+.footer-day-btn,
+.footer-copy-btn,
+.footer-top-btn {
+    min-height: 40px;
+    padding: 8px 18px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    border-radius: 8px;
 }
 
 /* Grid Cards */
@@ -5161,28 +5292,102 @@ button:active, .flow-node:active, .stat-card:active {
 
 /* Tablet & Mobile (<= 768px) */
 @media (max-width: 768px) {
-    /* Detail Page Nav Bar */
-    .detail-page-nav-bar {
+    /* Clean Document Footer Tablet/Mobile */
+    .clean-doc-footer {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 14px;
+        margin-top: 24px;
+        padding-top: 18px;
+    }
+
+    .doc-footer-nav-group {
         display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 16px;
+        flex-direction: column;
         width: 100%;
+        gap: 10px;
     }
 
-    .detail-page-nav-bar .nav-bar-left,
-    .detail-page-nav-bar .nav-bar-right {
-        display: flex;
-        align-items: center;
+    .footer-day-pills {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+        gap: 8px;
     }
 
-    .back-to-grid-btn, .copy-summary-btn {
-        padding: 8px 14px;
-        font-size: 0.82rem;
-        min-height: 38px;
+    .footer-back-btn,
+    .footer-day-btn {
+        width: 100%;
+        min-height: 44px;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+
+    .doc-footer-actions-group {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 10px;
+    }
+
+    .footer-copy-btn {
+        width: 100%;
+        min-height: 44px;
+        padding: 10px 16px;
+        font-size: 0.85rem;
+    }
+
+    .footer-top-btn {
+        min-height: 44px;
+        padding: 0 20px;
+        font-size: 0.85rem;
+    }
+
+    /* Mobile Navbar Header Optimization */
+    .app-header {
+        height: 56px;
+        padding: 0 14px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    .brand-container {
+        gap: 10px;
+    }
+
+    .brand-name {
+        font-size: 0.88rem;
+        font-weight: 800;
         white-space: nowrap;
+    }
+
+    .header-controls {
+        gap: 8px;
+    }
+
+    .header-search-box {
+        width: auto;
+        flex: 1;
+        max-width: 260px;
+        min-width: 140px;
+    }
+
+    .navbar-search-input {
+        height: 38px;
+        padding: 6px 28px 6px 32px;
+        font-size: 0.82rem;
+    }
+
+    /* Clean Document Sticky Copy Mobile */
+    .doc-sticky-copy-anchor {
+        top: 12px;
+        margin-bottom: -40px;
+    }
+
+    .btn-icon-copy-sticky {
+        width: 40px;
+        height: 40px;
     }
 
     /* Clean Document Responsive */
@@ -5326,17 +5531,113 @@ button:active, .flow-node:active, .stat-card:active {
 
 /* Small Phones (<= 480px) */
 @media (max-width: 480px) {
-    .detail-page-nav-bar {
-        flex-direction: column;
-        align-items: stretch;
+    .app-header {
+        height: 52px;
+        padding: 0 10px;
+    }
+
+    .brand-header-logo {
+        width: 26px;
+        height: 26px;
+    }
+
+    .brand-name {
+        font-size: 0.78rem;
+        letter-spacing: 0.2px;
+    }
+
+    .header-controls {
+        gap: 6px;
+    }
+
+    .header-search-box {
+        max-width: 170px;
+        min-width: 110px;
+    }
+
+    .navbar-search-input {
+        height: 34px;
+        padding: 4px 22px 4px 28px;
+        font-size: 0.76rem;
+    }
+
+    .search-icon {
+        width: 14px;
+        height: 14px;
+        left: 8px;
+    }
+
+    .doc-sticky-copy-anchor {
+        top: 8px;
+        margin-bottom: -38px;
+    }
+
+    .btn-icon-copy-sticky {
+        width: 38px;
+        height: 38px;
+        border-radius: 8px;
+    }
+
+    .copy-badge-tooltip {
+        right: calc(100% + 6px);
+        font-size: 0.72rem;
+        padding: 4px 8px;
+    }
+
+    .clean-doc-footer {
+        gap: 12px;
+        margin-top: 20px;
+        padding-top: 16px;
+    }
+
+    .doc-footer-nav-group {
         gap: 8px;
     }
 
-    .back-to-grid-btn, .copy-summary-btn {
+    .footer-day-pills {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
         width: 100%;
-        justify-content: center;
-        font-size: 0.8rem;
-        padding: 9px 12px;
+    }
+
+    .footer-day-pills .footer-day-btn:only-child {
+        grid-column: 1 / -1;
+    }
+
+    .footer-back-btn {
+        width: 100%;
+        min-height: 44px;
+        font-size: 0.86rem;
+        font-weight: 700;
+    }
+
+    .footer-day-btn {
+        min-height: 44px;
+        font-size: 0.82rem;
+        padding: 8px 10px;
+        text-align: center;
+    }
+
+    .doc-footer-actions-group {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 8px;
+        width: 100%;
+    }
+
+    .footer-copy-btn {
+        min-height: 44px;
+        font-size: 0.84rem;
+        padding: 10px 12px;
+        font-weight: 700;
+    }
+
+    .footer-top-btn {
+        min-height: 44px;
+        padding: 0 18px;
+        font-size: 0.86rem;
+        font-weight: 700;
     }
 
     .clean-meeting-document {

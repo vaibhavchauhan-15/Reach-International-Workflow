@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+﻿import React, { useEffect } from 'react';
 
 const SlideDeckGrid = React.memo(function SlideDeckGrid({ isGridOpen, setIsGridOpen, slidesData, currentSlide, goToSlide }) {
     useEffect(() => {
@@ -15,24 +15,49 @@ const SlideDeckGrid = React.memo(function SlideDeckGrid({ isGridOpen, setIsGridO
     if (!isGridOpen) return null;
 
     return (
-        <div className="modal-overlay active" onClick={() => setIsGridOpen(false)}>
-            <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-                <div className="modal-header">
-                    <h3>Operational Flowcharts Slide Index</h3>
-                    <button className="close-btn" onClick={() => setIsGridOpen(false)}>×</button>
+        <div 
+            className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[1000] flex items-center justify-center p-3 sm:p-4 transition-all duration-300 animate-fade-in" 
+            onClick={() => setIsGridOpen(false)}
+        >
+            <div 
+                className="bg-white border border-border-light rounded-2xl shadow-modal w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden" 
+                onClick={(e) => e.stopPropagation()}
+            >
+                {/* Header */}
+                <div className="px-4 py-3 sm:px-6 sm:py-4 border-b border-border-light flex items-center justify-between">
+                    <h3 className="text-sm sm:text-base font-extrabold text-slate-900 uppercase tracking-tight">
+                        Operational Flowcharts Slide Index
+                    </h3>
+                    <button 
+                        className="text-slate-400 hover:text-slate-700 text-xl font-bold p-1.5 leading-none transition-colors min-w-[36px] min-h-[36px] flex items-center justify-center" 
+                        onClick={() => setIsGridOpen(false)}
+                        title="Close (Esc)"
+                    >
+                        ✕
+                    </button>
                 </div>
-                <div className="grid-slides-container">
+
+                {/* Slides Grid */}
+                <div className="p-3 sm:p-5 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3.5">
                     {slidesData.map((slide, idx) => (
                         <div 
                             key={idx} 
-                            className={`grid-thumb-card ${currentSlide === idx ? 'active' : ''}`}
+                            className={`p-3 rounded-xl border transition-all cursor-pointer text-left flex flex-col ${
+                                currentSlide === idx 
+                                    ? 'bg-cyan-50/70 border-ribbon-4 ring-2 ring-ribbon-4/20 shadow-sm' 
+                                    : 'bg-stage-bg border-border-light hover:bg-white hover:border-ribbon-4 hover:-translate-y-0.5 hover:shadow-md'
+                            }`}
                             onClick={() => {
                                 goToSlide(idx);
                                 setIsGridOpen(false);
                             }}
                         >
-                            <span className="thumb-tag">{slide.isCover ? 'START' : `SLIDE ${idx < 10 ? '0' : ''}${idx}`}</span>
-                            <div className="thumb-title">{slide.title}</div>
+                            <span className="text-[10px] font-bold text-ribbon-3 uppercase tracking-wider mb-1">
+                                {slide.isCover ? 'START' : `SLIDE ${idx < 10 ? '0' : ''}${idx}`}
+                            </span>
+                            <div className="text-xs sm:text-sm font-bold text-slate-900 line-clamp-2">
+                                {slide.title}
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -42,4 +67,3 @@ const SlideDeckGrid = React.memo(function SlideDeckGrid({ isGridOpen, setIsGridO
 });
 
 export default SlideDeckGrid;
-

@@ -22,6 +22,7 @@ export default function WorkflowPresentation() {
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(false);
     const [meetingSearchQuery, setMeetingSearchQuery] = useState('');
+    const [selectedMeeting, setSelectedMeeting] = useState(null);
 
     const walkthroughTimerRef = useRef(null);
     const scrollLockRef = useRef(false);
@@ -189,7 +190,7 @@ export default function WorkflowPresentation() {
         if (isGridOpen || selectedNode || activePage !== 'workflows') return;
         
         // Allow horizontal scroll inside flowchart wrapper without triggering slide navigation
-        if (e.target.closest && (e.target.closest('.visual-flowchart') || e.target.closest('.flowchart-scroll-wrapper'))) {
+        if (e.target.closest && (e.target.closest('.visual-flowchart-area') || e.target.closest('.flowchart-scroll-wrapper'))) {
             return;
         }
 
@@ -218,7 +219,7 @@ export default function WorkflowPresentation() {
     const handleTouchStart = useCallback((e) => {
         if (isGridOpen || selectedNode || activePage !== 'workflows') return;
         const touch = e.touches[0];
-        const isFlowchart = !!(e.target.closest && e.target.closest('.visual-flowchart'));
+        const isFlowchart = !!(e.target.closest && e.target.closest('.visual-flowchart-area'));
         touchStartRef.current = { x: touch.clientX, y: touch.clientY, isFlowchart };
     }, [isGridOpen, selectedNode, activePage]);
 
@@ -304,78 +305,101 @@ export default function WorkflowPresentation() {
 
     return (
         <div 
-            style={{ width: '100%', height: '100%', display: 'flex', flexDirection: 'column' }}
+            className="w-full h-full flex flex-col overflow-hidden bg-white"
             onWheel={handleWheel}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
         >
-            <Header 
-                activePage={activePage}
-                setActivePage={setActivePage}
-                currentSlide={currentSlide}
-                totalSlides={totalSlides}
-                isWalkthroughActive={isWalkthroughActive}
-                isWalkthroughPaused={isWalkthroughPaused}
-                startWalkthrough={startWalkthrough}
-                pauseWalkthrough={pauseWalkthrough}
-                resumeWalkthrough={resumeWalkthrough}
-                resetWalkthrough={resetWalkthrough}
-                setIsGridOpen={setIsGridOpen}
-                toggleFullscreen={toggleFullscreen}
-                isFullscreen={isFullscreen}
-                searchQuery={meetingSearchQuery}
-                setSearchQuery={setMeetingSearchQuery}
-            />
+            {(activePage !== 'meetings' || !selectedMeeting) && (
+                <Header 
+                    activePage={activePage}
+                    setActivePage={(page) => {
+                        if (page !== activePage) {
+                            setSelectedMeeting(null);
+                        }
+                        setActivePage(page);
+                    }}
+                    currentSlide={currentSlide}
+                    totalSlides={totalSlides}
+                    isWalkthroughActive={isWalkthroughActive}
+                    isWalkthroughPaused={isWalkthroughPaused}
+                    startWalkthrough={startWalkthrough}
+                    pauseWalkthrough={pauseWalkthrough}
+                    resumeWalkthrough={resumeWalkthrough}
+                    resetWalkthrough={resetWalkthrough}
+                    setIsGridOpen={setIsGridOpen}
+                    toggleFullscreen={toggleFullscreen}
+                    isFullscreen={isFullscreen}
+                    searchQuery={meetingSearchQuery}
+                    setSearchQuery={setMeetingSearchQuery}
+                />
+            )}
 
             {/* Page Content Switcher */}
             {activePage === 'workflows' && (
                 <>
-                    {/* 16:9 Presentation Stage */}
-                    <main className="presentation-container">
-                        <div className="ppt-stage-frame">
-                            <section key={currentSlide} className={`slide-card active slide-enter-${slideDirection}`}>
+                    {/* 16:9 Presentation Stage Container */}
+                    <main className="flex-1 flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8 bg-white relative overflow-hidden">
+                        <div className="w-full max-w-[1440px] md:aspect-video md:max-h-[82vh] h-full relative bg-white rounded-xl md:rounded-2xl shadow-card border border-border-light overflow-hidden flex flex-col">
+                            <section 
+                                key={currentSlide} 
+                                className={`absolute inset-0 p-3.5 sm:p-5 md:p-7 flex flex-col bg-white text-slate-900 overflow-y-auto scrollbar-none will-change-transform contain-content ${
+                                    slideDirection === 'right' ? 'animate-slide-in-right' : 'animate-slide-in-left'
+                                }`}
+                            >
                                 {activeSlideData.isCover ? (
                                     <CoverSlide goToSlide={goToSlide} toggleFullscreen={toggleFullscreen} />
                                 ) : (
                                     <>
-                                        <div className="slide-header">
-                                            <div className="slide-tag">
+                                        {/* Slide Header */}
+                                        <div className="mb-3 sm:mb-4 border-b-2 border-border-light pb-2 sm:pb-3 flex-shrink-0">
+                                            <div className="inline-block bg-stage-bg text-ribbon-3 text-[10px] sm:text-xs font-bold px-2.5 py-1 rounded tracking-wider uppercase mb-1.5 border border-border-light">
                                                 {activeSlideData.tag}
                                             </div>
-                                            <h2>{activeSlideData.title}</h2>
+                                            <h2 className="text-lg sm:text-xl md:text-2xl font-extrabold text-slate-900 leading-tight">
+                                                {activeSlideData.title}
+                                            </h2>
                                         </div>
 
-                                        <div className="flowchart-scroll-wrapper">
+                                        {/* Flowchart Scroll Wrapper */}
+                                        <div className="flowchart-scroll-wrapper relative w-full my-auto flex items-center">
                                             {canScrollLeft && (
                                                 <button 
                                                     type="button" 
-                                                    className="flow-scroll-btn left"
+                                                    className="hidden md:flex absolute -left-3.5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white border border-border-light shadow-lg text-slate-800 items-center justify-center cursor-pointer hover:bg-slate-900 hover:text-white hover:border-slate-900 hover:scale-110 active:scale-95 transition-all opacity-95"
                                                     onClick={() => scrollFlowchart('left')}
                                                     title="Scroll left to view previous steps"
                                                     aria-label="Scroll left"
                                                 >
-                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                                                    <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                                        <polyline points="15 18 9 12 15 6"></polyline>
+                                                    </svg>
                                                 </button>
                                             )}
 
                                             {canScrollRight && (
                                                 <button 
                                                     type="button" 
-                                                    className="flow-scroll-btn right"
+                                                    className="hidden md:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-20 w-9 h-9 rounded-full bg-white border border-border-light shadow-lg text-slate-800 items-center justify-center cursor-pointer hover:bg-slate-900 hover:text-white hover:border-slate-900 hover:scale-110 active:scale-95 transition-all opacity-95"
                                                     onClick={() => scrollFlowchart('right')}
                                                     title="Scroll right to view more steps"
                                                     aria-label="Scroll right"
                                                 >
-                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                                    <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                                        <polyline points="9 18 15 12 9 6"></polyline>
+                                                    </svg>
                                                 </button>
                                             )}
 
-                                            {canScrollLeft && <div className="scroll-shadow-left" />}
-                                            {canScrollRight && <div className="scroll-shadow-right" />}
+                                            {canScrollLeft && <div className="hidden md:block absolute top-0 bottom-0 left-0 w-7 pointer-events-none z-10 bg-gradient-to-r from-white/95 to-transparent transition-opacity" />}
+                                            {canScrollRight && <div className="hidden md:block absolute top-0 bottom-0 right-0 w-7 pointer-events-none z-10 bg-gradient-to-l from-white/95 to-transparent transition-opacity" />}
 
+                                            {/* Visual Flowchart Timeline */}
                                             <div 
                                                 ref={flowchartRef}
-                                                className={`visual-flowchart horizontal-flow ${activeSlideData.nodes && activeSlideData.nodes.length > 5 ? 'has-many-nodes' : ''}`}
+                                                className={`visual-flowchart-area flex-1 my-auto flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 md:gap-2 p-1 md:py-3 md:px-1 w-full md:overflow-x-auto md:snap-x md:snap-proximity scrollbar-none ${
+                                                    activeSlideData.nodes && activeSlideData.nodes.length > 5 ? 'md:justify-start md:gap-3' : ''
+                                                }`}
                                                 onScroll={checkScrollState}
                                             >
                                                 {activeSlideData.nodes && activeSlideData.nodes.map((node, nIdx) => {
@@ -391,8 +415,10 @@ export default function WorkflowPresentation() {
                                                             />
 
                                                             {nIdx < activeSlideData.nodes.length - 1 && (
-                                                                <div className="flow-arrow">
-                                                                    <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" fill="none"/></svg>
+                                                                <div className="flex items-center justify-center my-0.5 md:my-0 flex-shrink-0 text-ribbon-4">
+                                                                    <svg viewBox="0 0 24 24" className="w-5 h-5 rotate-90 md:rotate-0 animate-move-arrow-vertical md:animate-none">
+                                                                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="2" fill="none"/>
+                                                                    </svg>
                                                                 </div>
                                                             )}
                                                         </React.Fragment>
@@ -435,7 +461,9 @@ export default function WorkflowPresentation() {
             {activePage === 'meetings' && (
                 <MeetingSummariesPage 
                     searchQuery={meetingSearchQuery} 
-                    setSearchQuery={setMeetingSearchQuery} 
+                    setSearchQuery={setMeetingSearchQuery}
+                    selectedMeeting={selectedMeeting}
+                    setSelectedMeeting={setSelectedMeeting}
                 />
             )}
         </div>

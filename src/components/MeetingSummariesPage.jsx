@@ -93,6 +93,7 @@ export default function MeetingSummariesPage({
                meeting.date.includes(query) ||
                (meeting.dateFormatted && meeting.dateFormatted.toLowerCase().includes(query)) ||
                (meeting.focus && meeting.focus.toLowerCase().includes(query)) ||
+               (meeting.holidayName && meeting.holidayName.toLowerCase().includes(query)) ||
                (meeting.breakdowns && meeting.breakdowns.some(b => 
                    (b.site && b.site.toLowerCase().includes(query)) ||
                    (b.issue && b.issue.toLowerCase().includes(query)) ||
@@ -118,13 +119,15 @@ export default function MeetingSummariesPage({
     });
 
     const handleSelectMeeting = (meeting) => {
+        if (meeting?.isHoliday) return;
         setSelectedMeeting(meeting);
         scrollToTop();
     };
 
-    const currentIndex = selectedMeeting ? meetingsData.findIndex(m => m.id === selectedMeeting.id) : -1;
-    const prevMeeting = currentIndex > 0 ? meetingsData[currentIndex - 1] : null;
-    const nextMeeting = currentIndex < meetingsData.length - 1 ? meetingsData[currentIndex + 1] : null;
+    const navigableMeetings = meetingsData.filter(m => !m.isHoliday);
+    const currentNavIndex = selectedMeeting ? navigableMeetings.findIndex(m => m.id === selectedMeeting.id) : -1;
+    const prevMeeting = currentNavIndex > 0 ? navigableMeetings[currentNavIndex - 1] : null;
+    const nextMeeting = currentNavIndex >= 0 && currentNavIndex < navigableMeetings.length - 1 ? navigableMeetings[currentNavIndex + 1] : null;
 
     const copyFormattedSummary = async () => {
         if (!selectedMeeting) return;
@@ -218,6 +221,23 @@ export default function MeetingSummariesPage({
                                 )}
                             </div>
                         </div>
+
+                        {/* Holiday Notification Banner */}
+                        {selectedMeeting.isHoliday && (
+                            <div className="bg-amber-50/80 border border-amber-200/90 border-l-4 border-l-amber-500 rounded-xl p-4 sm:p-5 mb-6 shadow-xs">
+                                <div className="flex items-start sm:items-center gap-3">
+                                    <span className="text-2xl sm:text-3xl flex-shrink-0">🎉</span>
+                                    <div className="space-y-1">
+                                        <h2 className="text-sm sm:text-base font-extrabold text-amber-950">
+                                            Official Company Holiday – {selectedMeeting.holidayName || 'Holiday'}
+                                        </h2>
+                                        <p className="text-xs sm:text-sm text-amber-900/80 leading-relaxed font-medium">
+                                            Operations, workshop maintenance, and administrative offices remained closed in celebration of {selectedMeeting.holidayName || 'Company Holiday'}. No daily operations breakdown or coordination meeting was conducted on this day.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
 
                         {/* SECTION 1: Machine Breakdowns & Site Updates */}
                         {selectedMeeting.breakdowns && selectedMeeting.breakdowns.length > 0 && (
@@ -456,24 +476,51 @@ export default function MeetingSummariesPage({
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4 md:gap-5">
                             {filteredMeetings.map((meeting) => (
-                                <div 
-                                    key={meeting.id} 
-                                    className="bg-white border border-border-light border-t-4 border-t-theme-breakdown rounded-xl p-4 sm:p-5 shadow-card hover:shadow-card-hover hover:-translate-y-1 cursor-pointer transition-all duration-300 flex flex-col justify-between group min-h-[140px]"
-                                    onClick={() => handleSelectMeeting(meeting)}
-                                >
-                                    <div>
-                                        <h2 className="text-base sm:text-lg font-extrabold text-slate-900 group-hover:text-theme-breakdown transition-colors">
-                                            {formatMeetingDate(meeting.dateFormatted || meeting.date || meeting.title)}
-                                        </h2>
-                                        <p className="text-xs text-slate-500 mt-2 line-clamp-2">
-                                            {meeting.focus}
-                                        </p>
+                                meeting.isHoliday ? (
+                                    <div 
+                                        key={meeting.id} 
+                                        className="bg-white border border-border-light border-t-4 border-t-amber-500 rounded-xl p-4 sm:p-5 shadow-card flex flex-col justify-between min-h-[140px] select-none"
+                                    >
+                                        <div>
+                                            <h2 className="text-base sm:text-lg font-extrabold text-slate-900">
+                                                {formatMeetingDate(meeting.dateFormatted || meeting.date || meeting.title)}
+                                            </h2>
+                                            <div className="mt-2.5">
+                                                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-amber-100/90 text-amber-900 font-extrabold text-xs">
+                                                    🎉 Holiday: {meeting.holidayName || 'Rakshabandhan'}
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-400">
+                                            <span className="flex items-center gap-1.5">
+                                                <span className="w-2 h-2 rounded-full bg-amber-400"></span>
+                                                <span>No Meeting Held</span>
+                                            </span>
+                                            <span className="text-[11px] font-semibold text-amber-800 bg-amber-50 border border-amber-200/60 px-2 py-0.5 rounded">
+                                                Official Holiday
+                                            </span>
+                                        </div>
                                     </div>
-                                    <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-theme-breakdown">
-                                        <span>View Document</span>
-                                        <span className="transition-transform group-hover:translate-x-1">→</span>
+                                ) : (
+                                    <div 
+                                        key={meeting.id} 
+                                        className="bg-white border border-border-light border-t-4 border-t-theme-breakdown rounded-xl p-4 sm:p-5 shadow-card hover:shadow-card-hover hover:-translate-y-1 cursor-pointer transition-all duration-300 flex flex-col justify-between group min-h-[140px]"
+                                        onClick={() => handleSelectMeeting(meeting)}
+                                    >
+                                        <div>
+                                            <h2 className="text-base sm:text-lg font-extrabold text-slate-900 group-hover:text-theme-breakdown transition-colors">
+                                                {formatMeetingDate(meeting.dateFormatted || meeting.date || meeting.title)}
+                                            </h2>
+                                            <p className="text-xs text-slate-500 mt-2 line-clamp-2">
+                                                {meeting.focus}
+                                            </p>
+                                        </div>
+                                        <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-theme-breakdown">
+                                            <span>View Document</span>
+                                            <span className="transition-transform group-hover:translate-x-1">→</span>
+                                        </div>
                                     </div>
-                                </div>
+                                )
                             ))}
                         </div>
 

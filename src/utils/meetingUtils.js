@@ -42,6 +42,14 @@ export function formatMeetingSummary(meeting) {
     text += `Date: ${displayDate}\n`;
     text += `Focus: ${meeting.focus || 'Operational Updates'}\n\n`;
 
+    if (meeting.isHoliday) {
+        text += `--------------------------------------------------\n`;
+        text += `OFFICIAL HOLIDAY: ${(meeting.holidayName || 'COMPANY HOLIDAY').toUpperCase()}\n`;
+        text += `--------------------------------------------------\n`;
+        text += `• Office and general fleet operations remained closed on account of ${meeting.holidayName || 'Company Holiday'}.\n`;
+        text += `• No daily operations breakdown or coordination meeting was conducted.\n\n`;
+    }
+
     if (meeting.breakdowns && meeting.breakdowns.length > 0) {
         text += `--------------------------------------------------\n`;
         text += `1. MACHINE BREAKDOWNS & SITE UPDATES\n`;

@@ -1,5 +1,135 @@
 export const meetingsData = [
     {
+        id: 'meet-2026-08-29',
+        title: '29 Aug 2026',
+        date: '2026-08-29',
+        dateFormatted: '29 Aug 2026',
+        focus: 'Maruti 45ft AGM Battery Swaps & Night Power Cutoff, Khurja Cutter Issue, Scrap Battery Clearance, Yard Team Job Cards & Public Transport Health Mandate',
+        breakdowns: [
+            {
+                site: 'Maruti Site (45ft Boom Lift)',
+                issue: 'Machine battery pack had 1 damaged unit and a mismatched 6V 250Ah battery instead of required 370/390Ah AGM. Charger delivered 2 days prior remained uncollected/unconnected on-site. Critical site constraint: Tata power distribution board (DB) cuts power daily at 9:00 PM, preventing overnight machine charging.',
+                action: 'Khemchand instructed to replace all 8 AGM batteries immediately today to make the rental machine operational. Pardeep Tomar to coordinate with supervisor Dheeraj regarding charger pickup. Vinay Singh and Dhruv Sharma to escalate DB night power cutoff with Tata/client management.',
+                logistics: 'All 8 replaced batteries to be packed in original wooden crates and booked via transport to Delhi yard.',
+                status: 'All 8 Batteries Being Replaced Today; Night Power Issue Escalated to Client'
+            },
+            {
+                site: 'Maruti Sites (Bangalore & Gujarat Deployments)',
+                issue: 'Client repeatedly calling for running and commissioning (OB) of machine delivered to Bangalore; service pending for 8 fleet machines with spare parts already on site.',
+                action: 'Anuj assigned for Bangalore Maruti service (familiar with site machinery). New technician joining post-1st to be deployed from Delhi to handle Gujarat operations.',
+                status: 'Technician Mobilization Planned (Anuj for Bangalore, New Joiner for Gujarat)'
+            },
+            {
+                site: 'Khurja Site (JLG 60ft / Model 600)',
+                issue: 'Boom lift facing cutter / wire cutting malfunction on machine for the past 2 days.',
+                action: 'Ravi Tiwari and Khemchand to identify exact serial/model details and open an immediate job card in the mobile application for technician dispatch and troubleshooting.',
+                status: 'Job Card Opening & Serial Verification in Progress'
+            },
+            {
+                site: 'Yard Workshop / Fleet Refurbishment',
+                issue: '5-ton machine standing with brake work pending; multiple scissor and boom lifts (1930 models, 3384, 2632, 2620, JCB, and Genie ex-Rajasthan) require service, battery checks, and unloading.',
+                action: 'Service team deployed (Raj Kishore, Govind, Mantu, Babulal, Ranjan, helper) in pairs (1 senior + 1 junior per machine). 5-ton brake repair being finalized today. Forklift unable to unload 2 new long machines; specialized unloading arranged.',
+                status: 'Multi-Mechanic Team Deployed with Individual Job Cards'
+            },
+            {
+                site: 'Assam Site (Jagiroad / Guwahati)',
+                issue: 'Machine has been standing idle for 1.5 months awaiting replacement battery (delayed 45 days in bus transit); engine oil, hydraulic oil, and filter service overdue.',
+                action: 'Pardeep Tomar actively tracking bus parcel logistics for battery. Imran Khan instructed to prepare consolidated machine spares/oil list by 1:00 PM to initiate direct OEM supply via Mishra ji.',
+                status: 'Battery Delivery Follow-up & Spares List Compilation Underway'
+            },
+            {
+                site: 'Haldiram / Odisha / Bihar Movement',
+                issue: 'Machinery movement from Haldiram pending; machine transfer for Odisha/Bihar awaiting trailer truck arrangement.',
+                action: 'Vaibhav Chauhan and Ravi Tiwari to remind and coordinate with Rahul to book a 450 trailer truck for machine mobilization.',
+                status: '450 Truck Booking Coordination Pending with Rahul'
+            }
+        ],
+        parts: [
+            {
+                part: 'AGM Fleet Batteries (8 Units - 6V 370/390Ah)',
+                context: 'Maruti 45ft Boom Lift',
+                statusNextSteps: 'Replaced on site today by Khemchand. All 8 removed batteries to be packed in wooden boxes and returned to Delhi yard via transport.'
+            },
+            {
+                part: 'Old Scrap Batteries (Entire Yard Stock)',
+                context: 'Yard Safety & Inventory Clearance',
+                statusNextSteps: 'Negotiated at ₹109 per unit. Ravi Tiwari to coordinate with scrap vendor to lift all old batteries within 2–3 days ahead of Singhania Sahab / safety management visit on 1st.'
+            },
+            {
+                part: 'Limit Switches',
+                context: 'Workshop Fleet Refurbishment',
+                statusNextSteps: 'Yard stock depleted. Pardeep sending Raju to market for direct procurement. Existing repairable switches to be reconditioned.'
+            },
+            {
+                part: 'Boom Extension Rods / Sticks (डंडे)',
+                context: 'Yard Workshop Maintenance',
+                statusNextSteps: 'Old bent/damaged rods to be straightened, repaired, and painted by dedicated helper to maintain standby spare stock.'
+            },
+            {
+                part: 'External Cable Tray (Part No. 54 14 15)',
+                context: 'Z-60 Boom Lift (Satendra Request)',
+                statusNextSteps: 'Satendra instructed to log exact length and specification requirement in Google Sheets for purchase order release.'
+            },
+            {
+                part: 'Hydraulic Oil, Engine Oil & Filter Kits',
+                context: 'Assam (Jagiroad / Guwahati) Fleet',
+                statusNextSteps: 'Imran Khan submitting consolidated requirement list by 1:00 PM for direct OEM purchase order dispatch via Mishra ji.'
+            }
+        ],
+        directives: [
+            {
+                title: 'Mandatory Public Transport Health & Mask Protocol',
+                points: [
+                    'Due to seasonal weather shifts and surging viral infections/hospitalizations, all staff and technicians traveling via Metro, buses, or shared public transport must wear protective face masks.',
+                    'Store team (Dinesh) to order bulk black protective masks online immediately for distribution to all workshop and field service personnel.'
+                ]
+            },
+            {
+                title: 'Mandatory Job Card Opening & Digital Tracking',
+                points: [
+                    'Every machine attended at customer sites or undergoing workshop refurbishment must have a digital Job Card opened in the mobile app before commencing work.',
+                    'Senior and junior mechanic pairs must be assigned to specific machine serial numbers, and signed completion reports must be submitted before departure.'
+                ]
+            },
+            {
+                title: 'Scrap Clearance & Yard Safety Audit Compliance',
+                points: [
+                    'All dead/scrap battery inventory, discarded parts, and scrap metal must be cleared from the yard within a strict 2-3 day window ahead of executive safety inspections on the 1st.',
+                    'Defective batteries returning from sites must remain in designated packaging until scrap pickup.'
+                ]
+            },
+            {
+                title: 'On-Site Charging & Client Power Verification',
+                points: [
+                    'Site supervisors must verify power supply continuity at client Distribution Boards (DB). If client shuts power off at night (e.g. 9:00 PM cutoff), charging schedules or dedicated power feeds must be escalated in writing.'
+                ]
+            }
+        ],
+        actionItems: [
+            { person: 'Dhruv Sharma', task: 'Authorize urgent mask bulk order; review Assam spares list at 1:00 PM; coordinate client discussions regarding Maruti DB power cutoff.' },
+            { person: 'Khemchand', task: 'Complete replacement of all 8 AGM batteries on Maruti 45ft boom lift today; pack old batteries into wooden crates for return dispatch.' },
+            { person: 'Pardeep Tomar', task: 'Deploy workshop mechanics in pairs with assigned job cards; send Raju to procure limit switches; supervise boom stick straightening and painting; expedite Assam battery delivery.' },
+            { person: 'Imran Khan', task: 'Compile and share consolidated oil and filter requirement list for Assam/Guwahati machines by 1:00 PM with Dhruv and Vaibhav.' },
+            { person: 'Ravi Tiwari', task: 'Contact scrap battery buyer at ₹109 negotiated rate for yard clearance; open Khurja 60ft boom lift job card and coordinate client follow-up.' },
+            { person: 'Shivam Pandey', task: 'Coordinate with Mukesh to generate, finalize, and scan customer/vendor bills before lunch.' },
+            { person: 'Vaibhav Chauhan', task: 'Log and publish 28 Aug (Holiday) and 29 Aug 2026 operational meeting summaries; conduct Daily Operator Log App demo at 2:30 PM; submit desktop workstation specifications.' },
+            { person: 'Vinay Singh', task: 'Follow up on Maruti Bangalore site machine running (Anuj deployment) and coordinate 450 trailer logistics with Rahul.' }
+        ]
+    },
+    {
+        id: 'meet-2026-08-28',
+        title: '28 Aug 2026',
+        date: '2026-08-28',
+        dateFormatted: '28 Aug 2026',
+        isHoliday: true,
+        holidayName: 'Rakshabandhan',
+        focus: 'Holiday for Rakshabandhan – Office & Fleet Operations Closed',
+        breakdowns: [],
+        parts: [],
+        directives: [],
+        actionItems: []
+    },
+    {
         id: 'meet-2026-08-27',
         title: '27 Aug 2026',
         date: '2026-08-27',

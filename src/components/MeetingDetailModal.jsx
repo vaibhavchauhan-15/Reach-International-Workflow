@@ -1,4 +1,4 @@
-﻿import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { formatMeetingSummary, copyTextToClipboard, formatMeetingDate } from '../utils/meetingUtils';
 
 export default function MeetingDetailModal({ selectedMeeting, setSelectedMeeting }) {
@@ -71,6 +71,23 @@ export default function MeetingDetailModal({ selectedMeeting, setSelectedMeeting
                             <span className="text-slate-600">{selectedMeeting.focus}</span>
                         </div>
                     </div>
+
+                    {/* Holiday Notification Banner */}
+                    {selectedMeeting.isHoliday && (
+                        <div className="bg-amber-50/80 border border-amber-200/90 border-l-4 border-l-amber-500 rounded-xl p-4 shadow-xs">
+                            <div className="flex items-start gap-3">
+                                <span className="text-2xl flex-shrink-0">🎉</span>
+                                <div className="space-y-1">
+                                    <h2 className="text-sm sm:text-base font-extrabold text-amber-950">
+                                        Official Company Holiday – {selectedMeeting.holidayName || 'Holiday'}
+                                    </h2>
+                                    <p className="text-xs text-amber-900/80 leading-relaxed font-medium">
+                                        Operations, workshop maintenance, and administrative offices remained closed in celebration of {selectedMeeting.holidayName || 'Company Holiday'}. No daily operations breakdown or coordination meeting was conducted on this day.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
 
                     {/* SECTION 1: Machine Breakdowns & Site Updates */}
                     {selectedMeeting.breakdowns && selectedMeeting.breakdowns.length > 0 && (

@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { reportsData } from '../data/reportsData';
 import ReportDetailModal from './ReportDetailModal';
 

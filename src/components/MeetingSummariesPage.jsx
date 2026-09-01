@@ -13,7 +13,26 @@ export default function MeetingSummariesPage({
     const currentSearchQuery = setSearchQuery ? searchQuery : localSearchQuery;
     const updateSearchQuery = setSearchQuery || setLocalSearchQuery;
 
-    const [selectedMonth, setSelectedMonth] = useState('all');
+    const getDefaultMonth = () => {
+        const now = new Date();
+        const currentYearMonth = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}`;
+        const allMonths = Array.from(
+            new Set(
+                meetingsData
+                    .map(m => {
+                        const parts = m.date.split('-');
+                        return `${parts[0]}-${parts[1]}`;
+                    })
+                    .filter(Boolean)
+            )
+        );
+        if (allMonths.includes(currentYearMonth)) {
+            return currentYearMonth;
+        }
+        return allMonths[0] || 'all';
+    };
+
+    const [selectedMonth, setSelectedMonth] = useState(getDefaultMonth);
     const [localSelectedMeeting, setLocalSelectedMeeting] = useState(null);
     const selectedMeeting = controlledSelectedMeeting !== undefined ? controlledSelectedMeeting : localSelectedMeeting;
     const setSelectedMeeting = controlledSetSelectedMeeting || setLocalSelectedMeeting;

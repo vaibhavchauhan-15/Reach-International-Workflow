@@ -1,5 +1,151 @@
 export const meetingsData = [
     {
+        id: 'meet-2026-09-01',
+        title: '01 Sep 2026',
+        date: '2026-09-01',
+        dateFormatted: '01 Sep 2026',
+        focus: 'Fleet Breakdown Resolutions (Jammu, Sanand, Hardoi, Chengalpattu), Assam Landslide Logistics & Genie Control Protection, Maruti Fleet Servicing & Transport Dispatch, Rejected Battery Scrap Clearance, and Vendor Payment Approval Protocol',
+        breakdowns: [
+            {
+                site: 'Assam Site (Jagiroad / Guwahati) — Genie Boom Lift (Tata Client)',
+                issue: 'Heavy monsoon rainfall triggered landslides and boulder collapse blocking the 6-lane road between Guwahati and Jagiroad. Machine battery arrived in Guwahati transit overnight but road transit is blocked. Actuator coil (burnt earlier) dispatched by train arriving at 7:00 AM. Control joystick experiences moisture sensitivity, causing control card error lockouts during abrupt operator inputs.',
+                action: 'Pravesh Yadav collecting actuator coil from train at 7:00 AM for immediate installation. Coordinating with transporter to move battery to Guwahati railway station for train cargo transport to Jagiroad. Damroo (forklift boy) assigned to assist Pravesh with wiring inspection. Joystick console covered with waterproof protection. Operator briefed on smooth joystick handling; supervisor Imran instructed to provide basic training.',
+                status: 'Actuator Coil & Battery Rail Logistics Underway; Weatherproofing & Training in Progress'
+            },
+            {
+                site: 'Jammu Site (Airport & Field Operations) — JLG Fleet Machines (Units 4047 & 1209 / 571)',
+                issue: 'Unit 4047 facing power supply cut/failure; Unit 1209 / 571 has motor carbon brush wear. JLG radiator dispatched from Delhi yesterday to avoid high Mumbai vendor cost (₹30,000–40,000).',
+                action: 'Technician reaching site today with replacement JLG radiator to inspect carbon brushes on Unit 1209 and diagnose power supply on Unit 4047.',
+                status: 'Radiator in Transit; On-Site Motor & Electrical Diagnostics Scheduled Today'
+            },
+            {
+                site: 'Sanand Site (Gujarat) — Zoomlion 450 Scissor Lift (Serial No. 10027)',
+                issue: 'Both front tyres severely damaged and worn out, causing machine to stand idle for 15–20 days with escalating client complaints.',
+                action: 'Confirmed compatible JLG/JCB tyres from yard/iTech repairs fit Zoomlion 450. Dhruv Sharma authorized immediate payment clearance to tyre vendor (Kaushal/iTech) to dispatch tyres to Sanand today.',
+                status: 'Vendor Payment Approved; Tyres Being Dispatched to Sanand'
+            },
+            {
+                site: 'Hardoi Site (UP) — Palfinger 12m Aerial Platform',
+                issue: 'Hydraulic oil leakage detected in pipe located directly beneath the coil; machine stopped by client without operator present.',
+                action: 'Umesh Kumar shared site leakage photos. Service team dispatching replacement hydraulic hose and technician for on-site fitment.',
+                status: 'Hydraulic Leak Photos Verified; Replacement Hose & Technician Mobilization Underway'
+            },
+            {
+                site: 'Chennai Site (Chengalpattu) — 2 Rental Fleet Machines',
+                issue: 'Hydraulic pipe leakage on site. Local external technician attended 2 service visits and billed ₹12,000 (₹6,000/visit), but payment was slashed to ₹8,000 (₹4,000/visit), causing the technician to refuse further service calls.',
+                action: 'Umesh Kumar to share exact site address. Dhruv Sharma to speak with local technician directly to settle payment and restore uninterrupted field maintenance support.',
+                status: 'Dispute Under Direct Resolution by Management; Site Address Forwarded'
+            },
+            {
+                site: 'Maruti Site (Manesar / Gurgaon / Gujarat) — Fleet Deployment & Order Pickers',
+                issue: '33 machines stationed at Maruti; 3 Order Picker units down due to camera alignment, fork issues, and missing lock nut. Transport truck carrying replacement equipment suffered a tyre puncture en route.',
+                action: 'Transport vehicle departing tomorrow. Dedicated junior service technician (skilled in 5-ton/8-ton servicing from Vapi) assigned to station at Maruti for 4 continuous days of servicing. Ahmedabad technician joining on the 15th to assume long-term Gujarat fleet maintenance.',
+                status: '4-Day Dedicated Service Deployment Initiated; Transport Resuming Tomorrow'
+            },
+            {
+                site: 'Gujarat Operations — Order Picker & Fleet Loading',
+                issue: 'One machine down due to severed cable; second machine awaiting gate pass / loading clearance from client Pandey.',
+                action: 'Damaged cable repaired locally and machine entering operation today. Dispatch loading gate pass confirmed with Pandey. Amit arriving tomorrow to resolve all pending site maintenance matters within 1 day.',
+                status: 'Cable Repaired; Dispatch Gate Pass Confirmed'
+            }
+        ],
+        parts: [
+            {
+                part: 'Actuator Coil',
+                context: 'Genie Boom Lift — Tata Project, Jagiroad Site (Assam)',
+                statusNextSteps: 'Dispatched and arriving today via train at 7:00 AM. Pravesh Yadav collecting for immediate on-site fitment; Vinod Yadav on standby for backup dispatch if required.'
+            },
+            {
+                part: 'Heavy-Duty Traction Battery Pack',
+                context: 'Genie Boom Lift / Fleet Equipment — Jagiroad Site (Assam)',
+                statusNextSteps: 'Arrived in Guwahati transit overnight. Transporter transferring battery to Guwahati railway station to bypass road landslide via train cargo to Jagiroad.'
+            },
+            {
+                part: 'Front Tyres (JLG / Zoomlion Compatible)',
+                context: 'Zoomlion 450 Scissor Lift (Serial No. 10027) — Sanand Site (Gujarat)',
+                statusNextSteps: '2 front tyres required. Payment cleared today for tyre vendor (Kaushal / iTech repaired stock) to enable immediate shipment to site.'
+            },
+            {
+                part: 'JLG Radiator Assembly',
+                context: 'JLG Fleet Equipment — Jammu Airport / Field Site',
+                statusNextSteps: 'Dispatched from Delhi inventory yesterday (saving ₹30,000–40,000 compared to Mumbai market). Arriving today for technician installation.'
+            },
+            {
+                part: 'Motor Carbon Brushes & Electrical Supply Cable',
+                context: 'Fleet Machines (Serial Nos. 4047 & 1209 / 571) — Jammu Airport Site',
+                statusNextSteps: 'Technician reaching site today to replace worn carbon brushes on Unit 1209 and diagnose power supply on Unit 4047.'
+            },
+            {
+                part: 'Hydraulic Hose & Coil Fittings',
+                context: 'Palfinger 12m Aerial Platform — Hardoi Site (UP)',
+                statusNextSteps: 'Leaking hydraulic line under the coil identified from photos; replacement hose assembly being prepared for technician fitment.'
+            },
+            {
+                part: 'JCB 45 / 43-13238 Battery Charger',
+                context: 'JCB Model 43-13238 — Mundra Site (Gujarat)',
+                statusNextSteps: 'Charger reached Mundra site in July. Umesh Kumar to verify whether local technician installed the new unit or repaired the previous one. Local Indian charger conversion feasibility reviewed.'
+            },
+            {
+                part: 'Motor & Pump Assembly',
+                context: 'Boom Lift / Yard Refurbishment Fleet — Mundra / Delhi Yard',
+                statusNextSteps: 'Tracked at Janakpuri courier hub. Workshop team dispatched to collect and expedite machine assembly.'
+            },
+            {
+                part: 'Fleet Cross-Rent Branding Stickers & Manuals',
+                context: 'JCB, Scissor & Boom Lifts (15 units) — Deployments to Sanand (12), Mandir (5), Rajkot, Vadodara, Chandigarh & Jammu',
+                statusNextSteps: '15 sheets of Cross-Rent branding stickers, JCB books, and JK Paper checklist printed (₹7,788). Payment cleared for Kaushal to release materials.'
+            },
+            {
+                part: 'Rejected Batteries & Scrap Clearance',
+                context: 'Kolkata (2 chargers + batteries), Bangalore (3 batteries), JK Paper, Bhiwadi & Delhi Yard',
+                statusNextSteps: 'Transporters being arranged for Kolkata & Bangalore returns. Rate finalized at ₹108–109/unit for scrap buyer to lift all rejected batteries from JK Paper, Bhiwadi, and Yard ahead of safety audits.'
+            }
+        ],
+        directives: [
+            {
+                title: 'Daily Vendor Payment Clearance Window (5:30 PM – 6:00 PM)',
+                points: [
+                    'To eliminate payment pendency for critical suppliers (Gama Power, tyre repairers, local mechanics, printers), Dhruv Sharma and Jitendra Budhauliya will conduct a dedicated 10-minute daily review from 5:30 PM to 6:00 PM to approve all verified invoices.',
+                    'Vendor credit lines must not be compromised over small balance delays.'
+                ]
+            },
+            {
+                title: 'Mandatory Video Camera On for All Field Personnel',
+                points: [
+                    'All site supervisors, field service engineers, and technicians attending morning operational syncs must keep their cameras ON starting tomorrow.'
+                ]
+            },
+            {
+                title: 'Genie Control Protection & Operator Handling Protocol',
+                points: [
+                    'Genie joystick electronics and control cards are sensitive to moisture and rapid multi-directional inputs. Site teams must install waterproof covers during rain and instruct operators on smooth joystick handling to prevent error lockouts.'
+                ]
+            },
+            {
+                title: 'Transparent Outstation Local Vendor Rate Alignment',
+                points: [
+                    'Before assigning emergency breakdown visits to third-party local mechanics (e.g. Chengalpattu), visit rates and travel costs must be clearly agreed upon in advance and paid promptly without arbitrary post-service deductions.'
+                ]
+            },
+            {
+                title: 'Fleet Commissioning & Branding Verification',
+                points: [
+                    'Before machines depart for client deployments (Sanand, Rajkot, Vadodara, Chandigarh, Jammu), store and operations teams must verify whether units are company fleet, sales, or cross-rental, ensuring battery commissioning (by Lochan ji for JCB) and Cross-Rent stickers are completed.'
+                ]
+            }
+        ],
+        actionItems: [
+            { person: 'Dhruv Sharma', task: 'Conduct daily 5:30 PM – 6:00 PM payment clearance sync with Jitendra to resolve vendor pendencies (Kaushal, Gama Power, tyre vendors); speak with Chengalpattu local technician to resolve payment dispute; oversee operator training protocols and camera-on compliance.' },
+            { person: 'Jitendra Budhauliya', task: 'Finalize scrap battery buyer pickup at ₹108–109 rate for JK Paper, Bhiwadi, and yard stock today; arrange transport logistics for lifting rejected batteries/chargers from Kolkata and Bangalore; track Mundra motor & pump from Janakpuri hub; coordinate candidate Gupta 1-week yard trial.' },
+            { person: 'Ravi Tiwari', task: 'Finalize cable repair on Gujarat order picker and follow up with Pandey for second machine loading gate pass; assist with transport arrangements for Kolkata charger/battery return; coordinate Maruti transport departure tomorrow.' },
+            { person: 'Pravesh Yadav', task: 'Collect Genie actuator coil from train at 7:00 AM and install on Tata site machine at Jagiroad; coordinate with transporter to receive replacement battery via railway station cargo; work with Damroo on wiring diagnostics and maintain waterproof joystick covering.' },
+            { person: 'Umesh Kumar', task: 'Track transit delivery of JLG radiator, carbon brushes, and electrical spares for Jammu Airport machines (Units 4047 & 1209); forward Chengalpattu site address to Dhruv; verify charger status on JCB unit 43-13238 at Mundra.' },
+            { person: 'Shiv Uniyal', task: 'Ensure immediate release of payment to Kaushal/iTech for Zoomlion 450 front tyres and track shipment to Sanand; track printed stickers and checklist batch.' },
+            { person: 'Pardeep Tomar', task: 'Call Lochan ji for battery commissioning on new JCB fleet machines; distribute Cross-Rent branding stickers across machines heading to Sanand (12), Mandir (5), Rajkot, Vadodara, Chandigarh, and Jammu.' },
+            { person: 'Sushil Mishra', task: 'Schedule candidate Gupta for a 1-week technical trial at Delhi yard before field deployment; expedite Amit arrival at Gujarat site tomorrow to close open maintenance points.' }
+        ]
+    },
+    {
         id: 'meet-2026-08-31',
         title: '31 Aug 2026',
         date: '2026-08-31',

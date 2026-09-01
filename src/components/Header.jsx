@@ -37,7 +37,7 @@ const Header = React.memo(function Header({
                         REACH <span className="text-ribbon-4">INTERNATIONAL</span>
                     </span>
                     <span className="hidden md:inline-block text-[10px] font-semibold text-slate-500 tracking-wider">
-                        WORKFLOW MANAGEMENT SYSTEM
+                        DAILY MEETING REPORTS
                     </span>
                 </div>
             </div>

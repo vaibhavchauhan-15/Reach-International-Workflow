@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { formatMeetingSummary, copyTextToClipboard, formatMeetingDate } from '../utils/meetingUtils';
+import { formatMeetingSummary, copyTextToClipboard, formatDateDDMMYYYY } from '../utils/meetingUtils';
 
 export default function MeetingDetailModal({ selectedMeeting, setSelectedMeeting }) {
     if (!selectedMeeting) return null;
@@ -30,6 +30,8 @@ export default function MeetingDetailModal({ selectedMeeting, setSelectedMeeting
         }
     };
 
+    const displayDate = formatDateDDMMYYYY(selectedMeeting.date || selectedMeeting.dateDisplay || selectedMeeting.dateFormatted || selectedMeeting.title);
+
     return (
         <div 
             className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[1000] flex items-center justify-center p-3 sm:p-4 transition-all duration-300 animate-fade-in" 
@@ -46,7 +48,7 @@ export default function MeetingDetailModal({ selectedMeeting, setSelectedMeeting
                             Operational Meeting Summary
                         </span>
                         <h2 className="text-base sm:text-lg font-extrabold text-slate-900 leading-tight">
-                            {formatMeetingDate(selectedMeeting.dateFormatted || selectedMeeting.date || selectedMeeting.title)}
+                            {displayDate}
                         </h2>
                     </div>
                     <button 
@@ -65,7 +67,7 @@ export default function MeetingDetailModal({ selectedMeeting, setSelectedMeeting
                     <div className="border-b border-border-light pb-4">
                         <div className="text-xs sm:text-sm text-slate-700 mb-1 flex flex-wrap gap-1.5">
                             <span className="font-bold text-slate-900">Date:</span>
-                            <span className="font-semibold text-ribbon-3">{formatMeetingDate(selectedMeeting.dateFormatted || selectedMeeting.date || selectedMeeting.title)}</span>
+                            <span className="font-semibold text-ribbon-3">{displayDate}</span>
                         </div>
                         <div className="text-xs sm:text-sm text-slate-700 flex flex-wrap gap-1.5">
                             <span className="font-bold text-slate-900">Focus:</span>

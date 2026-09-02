@@ -97,3 +97,19 @@
     margin-bottom: -48px;
   }
 }
+
+@media print {
+  body, #root {
+    overflow: visible !important;
+    height: auto !important;
+    background: #ffffff !important;
+  }
+  header, button, .top-blur-mask, .no-print {
+    display: none !important;
+  }
+  .scroll-fade-top {
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+  }
+}
+

@@ -1,8 +1,9 @@
 {
   "id": "meet-2026-08-26",
-  "title": "26 Aug 2026",
+  "title": "26-08-2026",
   "date": "2026-08-26",
-  "dateFormatted": "26 Aug 2026",
+  "dateDisplay": "26-08-2026",
+  "dateFormatted": "26-08-2026",
   "focus": "Machine Breakdowns, Site Service Operations, Logistics & Parts Procurement",
   "isHoliday": false,
   "holidayName": "",

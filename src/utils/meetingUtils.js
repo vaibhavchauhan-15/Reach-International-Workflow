@@ -1,87 +1,223 @@
 /**
- * Formats a date string into 'DD Mon YYYY' (e.g. '25 Aug 2026') format.
+ * Standard Date & Meeting Text Utilities for Reach International Workflow
+ */
+
+const MONTH_NAMES = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+];
+
+const MONTH_ABBR = [
+    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+];
+
+function getOrdinalSuffix(n) {
+    const s = ['th', 'st', 'nd', 'rd'];
+    const v = n % 100;
+    return s[(v - 20) % 10] || s[v] || s[0];
+}
+
+/**
+ * Parses any incoming date string (DD-MM-YYYY, YYYY-MM-DD, DD/MM/YYYY, 2 September, etc.)
+ * into a structured parts object.
+ */
+export function parseAnyDateToParts(dateStr) {
+    if (!dateStr) return null;
+    const clean = String(dateStr).trim();
+
+    // 1. YYYY-MM-DD or YYYY/MM/DD or YYYY.MM.DD
+    let m = clean.match(/^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})$/);
+    if (m) {
+        const year = m[1];
+        const monthInt = parseInt(m[2], 10);
+        const dayInt = parseInt(m[3], 10);
+        if (monthInt >= 1 && monthInt <= 12 && dayInt >= 1 && dayInt <= 31) {
+            return buildParts(year, monthInt, dayInt);
+        }
+    }
+
+    // 2. DD-MM-YYYY or DD/MM/YYYY or DD.MM.YYYY
+    m = clean.match(/^(\d{1,2})[-/.](\d{1,2})[-/.](\d{4})$/);
+    if (m) {
+        const dayInt = parseInt(m[1], 10);
+        const monthInt = parseInt(m[2], 10);
+        const year = m[3];
+        if (monthInt >= 1 && monthInt <= 12 && dayInt >= 1 && dayInt <= 31) {
+            return buildParts(year, monthInt, dayInt);
+        }
+    }
+
+    // 3. DD Month (YYYY) (e.g. "02 Sep 2026", "2 September 2026", "2nd Sept", "2 sept")
+    m = clean.match(/^(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+)(?:\s+(\d{4}))?$/i);
+    if (m) {
+        const dayInt = parseInt(m[1], 10);
+        const monthWord = m[2].toLowerCase();
+        const year = m[3] || '2026';
+        let monthInt = MONTH_NAMES.findIndex(mn => mn.toLowerCase().startsWith(monthWord.slice(0, 3))) + 1;
+        if (monthWord === 'sept') monthInt = 9;
+        if (monthInt >= 1 && monthInt <= 12 && dayInt >= 1 && dayInt <= 31) {
+            return buildParts(year, monthInt, dayInt);
+        }
+    }
+
+    // 4. Month DD (YYYY) (e.g. "September 2 2026", "Sep 02", "Sept 2nd")
+    m = clean.match(/^([A-Za-z]+)\s+(\d{1,2})(?:st|nd|rd|th)?(?:\s+(\d{4}))?$/i);
+    if (m) {
+        const monthWord = m[1].toLowerCase();
+        const dayInt = parseInt(m[2], 10);
+        const year = m[3] || '2026';
+        let monthInt = MONTH_NAMES.findIndex(mn => mn.toLowerCase().startsWith(monthWord.slice(0, 3))) + 1;
+        if (monthWord === 'sept') monthInt = 9;
+        if (monthInt >= 1 && monthInt <= 12 && dayInt >= 1 && dayInt <= 31) {
+            return buildParts(year, monthInt, dayInt);
+        }
+    }
+
+    // 5. Native Date parser fallback
+    const d = new Date(clean);
+    if (!isNaN(d.getTime())) {
+        return buildParts(String(d.getFullYear()), d.getMonth() + 1, d.getDate());
+    }
+
+    return null;
+}
+
+function buildParts(year, monthInt, dayInt) {
+    const dayPadded = String(dayInt).padStart(2, '0');
+    const monthPadded = String(monthInt).padStart(2, '0');
+    const dayStr = String(dayInt);
+    const monthStr = String(monthInt);
+    const yearStr = String(year);
+
+    const monthFull = MONTH_NAMES[monthInt - 1] || 'Unknown';
+    const monthShort = MONTH_ABBR[monthInt - 1] || 'Unknown';
+    const monthSept = monthInt === 9 ? 'Sept' : monthShort;
+
+    const ord = getOrdinalSuffix(dayInt);
+    const dayOrd = `${dayInt}${ord}`;
+    const dayPaddedOrd = `${dayPadded}${ord}`;
+
+    return {
+        year: yearStr,
+        monthInt,
+        monthPadded,
+        monthStr,
+        dayInt,
+        dayPadded,
+        dayStr,
+        monthFull,
+        monthShort,
+        monthSept,
+        dayOrd,
+        dayPaddedOrd,
+        isoDate: `${yearStr}-${monthPadded}-${dayPadded}`,
+        displayDate: `${dayPadded}-${monthPadded}-${yearStr}`
+    };
+}
+
+/**
+ * Converts any date string to 'DD-MM-YYYY' (e.g. '02-09-2026').
+ */
+export function formatDateDDMMYYYY(dateStr) {
+    const p = parseAnyDateToParts(dateStr);
+    return p ? p.displayDate : (dateStr || '');
+}
+
+/**
+ * Converts any date string to 'YYYY-MM-DD' (e.g. '2026-09-02') for disk paths/storage.
+ */
+export function normalizeDateToYYYYMMDD(dateStr) {
+    const p = parseAnyDateToParts(dateStr);
+    return p ? p.isoDate : (dateStr || '');
+}
+
+/**
+ * Formats a date string into 'DD-MM-YYYY' format for main titles & headers.
  */
 export function formatMeetingDate(dateStr) {
-    if (!dateStr) return '';
-    if (typeof dateStr === 'string' && /^\d{1,2}\s+[A-Za-z]{3}\s+\d{4}$/.test(dateStr.trim())) {
-        return dateStr.trim();
-    }
-    if (typeof dateStr === 'string' && dateStr.includes('-')) {
-        const parts = dateStr.split('-');
-        if (parts.length === 3 && parts[0].length === 4) {
-            const year = parts[0];
-            const monthIdx = parseInt(parts[1], 10) - 1;
-            const day = parseInt(parts[2], 10);
-            const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            if (monthIdx >= 0 && monthIdx < 12) {
-                const dayPadded = day < 10 ? `0${day}` : `${day}`;
-                return `${dayPadded} ${monthNames[monthIdx]} ${year}`;
-            }
-        }
-    }
-    const d = new Date(dateStr);
-    if (!isNaN(d.getTime())) {
-        const day = d.getDate();
-        const dayPadded = day < 10 ? `0${day}` : `${day}`;
-        const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        return `${dayPadded} ${monthNames[d.getMonth()]} ${d.getFullYear()}`;
-    }
-    return dateStr;
+    return formatDateDDMMYYYY(dateStr);
 }
 
 /**
- * Formats a date string into 'DD Mon' (e.g. '02 Sep') format for list streams.
+ * Formats a date string into 'DD-MM-YYYY' or short stream format.
  */
 export function formatShortMeetingDate(dateStr) {
-    if (!dateStr) return '';
-    if (typeof dateStr === 'string' && dateStr.includes('-')) {
-        const parts = dateStr.split('-');
-        if (parts.length === 3 && parts[0].length === 4) {
-            const monthIdx = parseInt(parts[1], 10) - 1;
-            const day = parseInt(parts[2], 10);
-            const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-            if (monthIdx >= 0 && monthIdx < 12) {
-                const dayPadded = day < 10 ? `0${day}` : `${day}`;
-                return `${dayPadded} ${monthNames[monthIdx]}`;
-            }
-        }
-    }
-    const formatted = formatMeetingDate(dateStr);
-    const parts = formatted.split(' ');
-    if (parts.length >= 2) {
-        return `${parts[0]} ${parts[1]}`;
-    }
-    return formatted;
+    return formatDateDDMMYYYY(dateStr);
 }
 
 /**
- * Formats a date string into 'DD MMMM YYYY' (e.g. '02 September 2026') format.
+ * Formats a date string into 'DD-MM-YYYY' for main headers.
  */
 export function formatLongMeetingDate(dateStr) {
-    if (!dateStr) return '';
-    const fullMonths = [
-        'January', 'February', 'March', 'April', 'May', 'June',
-        'July', 'August', 'September', 'October', 'November', 'December'
-    ];
-    if (typeof dateStr === 'string' && dateStr.includes('-')) {
-        const parts = dateStr.split('-');
-        if (parts.length === 3 && parts[0].length === 4) {
-            const year = parts[0];
-            const monthIdx = parseInt(parts[1], 10) - 1;
-            const day = parseInt(parts[2], 10);
-            if (monthIdx >= 0 && monthIdx < 12) {
-                const dayPadded = day < 10 ? `0${day}` : `${day}`;
-                return `${dayPadded} ${fullMonths[monthIdx]} ${year}`;
-            }
-        }
-    }
-    const d = new Date(dateStr);
-    if (!isNaN(d.getTime())) {
-        const day = d.getDate();
-        const dayPadded = day < 10 ? `0${day}` : `${day}`;
-        return `${dayPadded} ${fullMonths[d.getMonth()]} ${d.getFullYear()}`;
-    }
-    return formatMeetingDate(dateStr);
+    return formatDateDDMMYYYY(dateStr);
+}
+
+/**
+ * Generates all search variation tokens for a given meeting date.
+ * (e.g. '02-09-2026', '2/09/2026', '2 September', '2 sept', 'sept 2', etc.)
+ */
+export function generateAllDateVariations(dateStr) {
+    const p = parseAnyDateToParts(dateStr);
+    if (!p) return [];
+
+    const variations = new Set();
+
+    // 1. Numeric with hyphens
+    variations.add(`${p.dayPadded}-${p.monthPadded}-${p.year}`); // 02-09-2026
+    variations.add(`${p.dayStr}-${p.monthPadded}-${p.year}`);    // 2-09-2026
+    variations.add(`${p.dayPadded}-${p.monthStr}-${p.year}`);    // 02-9-2026
+    variations.add(`${p.dayStr}-${p.monthStr}-${p.year}`);       // 2-9-2026
+    variations.add(`${p.dayPadded}-${p.monthPadded}`);           // 02-09
+    variations.add(`${p.dayStr}-${p.monthPadded}`);              // 2-09
+    variations.add(`${p.dayStr}-${p.monthStr}`);                 // 2-9
+    variations.add(`${p.dayPadded}-${p.monthStr}`);              // 02-9
+
+    // 2. Numeric with slashes
+    variations.add(`${p.dayPadded}/${p.monthPadded}/${p.year}`); // 02/09/2026
+    variations.add(`${p.dayStr}/${p.monthPadded}/${p.year}`);    // 2/09/2026
+    variations.add(`${p.dayPadded}/${p.monthStr}/${p.year}`);    // 02/9/2026
+    variations.add(`${p.dayStr}/${p.monthStr}/${p.year}`);       // 2/9/2026
+    variations.add(`${p.dayPadded}/${p.monthPadded}`);           // 02/09
+    variations.add(`${p.dayStr}/${p.monthPadded}`);              // 2/09
+    variations.add(`${p.dayStr}/${p.monthStr}`);                 // 2/9
+    variations.add(`${p.dayPadded}/${p.monthStr}`);              // 02/9
+
+    // 3. Numeric with dots
+    variations.add(`${p.dayPadded}.${p.monthPadded}.${p.year}`); // 02.09.2026
+    variations.add(`${p.dayStr}.${p.monthPadded}.${p.year}`);    // 2.09.2026
+    variations.add(`${p.dayStr}.${p.monthStr}.${p.year}`);       // 2.9.2026
+    variations.add(`${p.dayPadded}.${p.monthPadded}`);           // 02.09
+    variations.add(`${p.dayStr}.${p.monthStr}`);                 // 2.9
+
+    // 4. ISO variations
+    variations.add(`${p.year}-${p.monthPadded}-${p.dayPadded}`); // 2026-09-02
+    variations.add(`${p.year}/${p.monthPadded}/${p.dayPadded}`); // 2026/09/02
+    variations.add(`${p.year}-${p.monthStr}-${p.dayStr}`);       // 2026-9-2
+
+    // 5. Month word variations
+    const monthWords = [p.monthFull, p.monthShort];
+    if (p.monthSept !== p.monthShort) monthWords.push(p.monthSept);
+
+    const dayForms = [p.dayStr, p.dayPadded, p.dayOrd, p.dayPaddedOrd];
+
+    monthWords.forEach(mw => {
+        dayForms.forEach(df => {
+            variations.add(`${df} ${mw}`);               // 2 September, 2nd Sept, 02 Sep
+            variations.add(`${df} ${mw} ${p.year}`);     // 2 September 2026, 2nd Sept 2026
+            variations.add(`${mw} ${df}`);               // September 2, Sept 2nd, Sep 02
+            variations.add(`${mw} ${df} ${p.year}`);     // September 2 2026
+            variations.add(`${mw} ${df}, ${p.year}`);    // September 2, 2026
+        });
+        variations.add(`${mw} ${p.year}`);               // September 2026
+        variations.add(mw);                              // September, Sep, Sept
+    });
+
+    // 6. Compact numeric
+    variations.add(`${p.dayPadded}${p.monthPadded}${p.year}`);   // 02092026
+    variations.add(`${p.year}${p.monthPadded}${p.dayPadded}`);   // 20260902
+
+    return Array.from(variations);
 }
 
 /**
@@ -91,7 +227,7 @@ export function formatLongMeetingDate(dateStr) {
 export function formatMeetingSummary(meeting) {
     if (!meeting) return '';
 
-    const displayDate = formatMeetingDate(meeting.dateFormatted || meeting.date || meeting.title);
+    const displayDate = formatDateDDMMYYYY(meeting.date || meeting.dateFormatted || meeting.title);
 
     let text = `==================================================\n`;
     text += `OPERATIONAL MEETING SUMMARY\n`;
@@ -191,7 +327,6 @@ export async function copyTextToClipboard(text) {
         const textArea = document.createElement('textarea');
         textArea.value = text;
         
-        // Prevent scrolling to bottom of page in mobile / older browsers
         textArea.style.position = 'fixed';
         textArea.style.top = '0';
         textArea.style.left = '0';

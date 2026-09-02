@@ -16,37 +16,165 @@ const MONTH_ABBR = [
     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
 ];
 
-function formatMeetingDate(dateStr) {
-    if (!dateStr) return '';
-    if (/^\d{1,2}\s+[A-Za-z]{3}\s+\d{4}$/.test(dateStr.trim())) {
-        return dateStr.trim();
-    }
-    if (dateStr.includes('-')) {
-        const parts = dateStr.split('-');
-        if (parts.length === 3 && parts[0].length === 4) {
-            const year = parts[0];
-            const monthIdx = parseInt(parts[1], 10) - 1;
-            const day = parseInt(parts[2], 10);
-            if (monthIdx >= 0 && monthIdx < 12) {
-                const dayPadded = day < 10 ? `0${day}` : `${day}`;
-                return `${dayPadded} ${MONTH_ABBR[monthIdx]} ${year}`;
-            }
+function getOrdinalSuffix(n) {
+    const s = ['th', 'st', 'nd', 'rd'];
+    const v = n % 100;
+    return s[(v - 20) % 10] || s[v] || s[0];
+}
+
+function parseAnyDateToParts(dateStr) {
+    if (!dateStr) return null;
+    const clean = String(dateStr).trim();
+
+    // 1. YYYY-MM-DD
+    let m = clean.match(/^(\d{4})[-/.](\d{1,2})[-/.](\d{1,2})$/);
+    if (m) {
+        const year = m[1];
+        const monthInt = parseInt(m[2], 10);
+        const dayInt = parseInt(m[3], 10);
+        if (monthInt >= 1 && monthInt <= 12 && dayInt >= 1 && dayInt <= 31) {
+            return buildParts(year, monthInt, dayInt);
         }
     }
-    const d = new Date(dateStr);
-    if (!isNaN(d.getTime())) {
-        const day = d.getDate();
-        const dayPadded = day < 10 ? `0${day}` : `${day}`;
-        return `${dayPadded} ${MONTH_ABBR[d.getMonth()]} ${d.getFullYear()}`;
+
+    // 2. DD-MM-YYYY
+    m = clean.match(/^(\d{1,2})[-/.](\d{1,2})[-/.](\d{4})$/);
+    if (m) {
+        const dayInt = parseInt(m[1], 10);
+        const monthInt = parseInt(m[2], 10);
+        const year = m[3];
+        if (monthInt >= 1 && monthInt <= 12 && dayInt >= 1 && dayInt <= 31) {
+            return buildParts(year, monthInt, dayInt);
+        }
     }
-    return dateStr;
+
+    // 3. DD Month (YYYY)
+    m = clean.match(/^(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+)(?:\s+(\d{4}))?$/i);
+    if (m) {
+        const dayInt = parseInt(m[1], 10);
+        const monthWord = m[2].toLowerCase();
+        const year = m[3] || '2026';
+        let monthInt = MONTH_NAMES.findIndex(mn => mn.toLowerCase().startsWith(monthWord.slice(0, 3))) + 1;
+        if (monthWord === 'sept') monthInt = 9;
+        if (monthInt >= 1 && monthInt <= 12 && dayInt >= 1 && dayInt <= 31) {
+            return buildParts(year, monthInt, dayInt);
+        }
+    }
+
+    // 4. Native Date parse
+    const d = new Date(clean);
+    if (!isNaN(d.getTime())) {
+        return buildParts(String(d.getFullYear()), d.getMonth() + 1, d.getDate());
+    }
+
+    return null;
+}
+
+function buildParts(year, monthInt, dayInt) {
+    const dayPadded = String(dayInt).padStart(2, '0');
+    const monthPadded = String(monthInt).padStart(2, '0');
+    const dayStr = String(dayInt);
+    const monthStr = String(monthInt);
+    const yearStr = String(year);
+
+    const monthFull = MONTH_NAMES[monthInt - 1] || 'Unknown';
+    const monthShort = MONTH_ABBR[monthInt - 1] || 'Unknown';
+    const monthSept = monthInt === 9 ? 'Sept' : monthShort;
+
+    const ord = getOrdinalSuffix(dayInt);
+    const dayOrd = `${dayInt}${ord}`;
+    const dayPaddedOrd = `${dayPadded}${ord}`;
+
+    return {
+        year: yearStr,
+        monthInt,
+        monthPadded,
+        monthStr,
+        dayInt,
+        dayPadded,
+        dayStr,
+        monthFull,
+        monthShort,
+        monthSept,
+        dayOrd,
+        dayPaddedOrd,
+        isoDate: `${yearStr}-${monthPadded}-${dayPadded}`,
+        displayDate: `${dayPadded}-${monthPadded}-${yearStr}`
+    };
+}
+
+function formatDateDDMMYYYY(dateStr) {
+    const p = parseAnyDateToParts(dateStr);
+    return p ? p.displayDate : (dateStr || '');
+}
+
+function generateAllDateVariations(dateStr) {
+    const p = parseAnyDateToParts(dateStr);
+    if (!p) return [];
+
+    const variations = new Set();
+
+    // 1. Numeric with hyphens
+    variations.add(`${p.dayPadded}-${p.monthPadded}-${p.year}`); // 02-09-2026
+    variations.add(`${p.dayStr}-${p.monthPadded}-${p.year}`);    // 2-09-2026
+    variations.add(`${p.dayPadded}-${p.monthStr}-${p.year}`);    // 02-9-2026
+    variations.add(`${p.dayStr}-${p.monthStr}-${p.year}`);       // 2-9-2026
+    variations.add(`${p.dayPadded}-${p.monthPadded}`);           // 02-09
+    variations.add(`${p.dayStr}-${p.monthPadded}`);              // 2-09
+    variations.add(`${p.dayStr}-${p.monthStr}`);                 // 2-9
+    variations.add(`${p.dayPadded}-${p.monthStr}`);              // 02-9
+
+    // 2. Numeric with slashes
+    variations.add(`${p.dayPadded}/${p.monthPadded}/${p.year}`); // 02/09/2026
+    variations.add(`${p.dayStr}/${p.monthPadded}/${p.year}`);    // 2/09/2026
+    variations.add(`${p.dayPadded}/${p.monthStr}/${p.year}`);    // 02/9/2026
+    variations.add(`${p.dayStr}/${p.monthStr}/${p.year}`);       // 2/9/2026
+    variations.add(`${p.dayPadded}/${p.monthPadded}`);           // 02/09
+    variations.add(`${p.dayStr}/${p.monthPadded}`);              // 2/09
+    variations.add(`${p.dayStr}/${p.monthStr}`);                 // 2/9
+    variations.add(`${p.dayPadded}/${p.monthStr}`);              // 02/9
+
+    // 3. Numeric with dots
+    variations.add(`${p.dayPadded}.${p.monthPadded}.${p.year}`); // 02.09.2026
+    variations.add(`${p.dayStr}.${p.monthPadded}.${p.year}`);    // 2.09.2026
+    variations.add(`${p.dayStr}.${p.monthStr}.${p.year}`);       // 2.9.2026
+    variations.add(`${p.dayPadded}.${p.monthPadded}`);           // 02.09
+    variations.add(`${p.dayStr}.${p.monthStr}`);                 // 2.9
+
+    // 4. ISO variations
+    variations.add(`${p.year}-${p.monthPadded}-${p.dayPadded}`); // 2026-09-02
+    variations.add(`${p.year}/${p.monthPadded}/${p.dayPadded}`); // 2026/09/02
+    variations.add(`${p.year}-${p.monthStr}-${p.dayStr}`);       // 2026-9-2
+
+    // 5. Month word variations
+    const monthWords = [p.monthFull, p.monthShort];
+    if (p.monthSept !== p.monthShort) monthWords.push(p.monthSept);
+
+    const dayForms = [p.dayStr, p.dayPadded, p.dayOrd, p.dayPaddedOrd];
+
+    monthWords.forEach(mw => {
+        dayForms.forEach(df => {
+            variations.add(`${df} ${mw}`);               // 2 September, 2nd Sept, 02 Sep
+            variations.add(`${df} ${mw} ${p.year}`);     // 2 September 2026, 2nd Sept 2026
+            variations.add(`${mw} ${df}`);               // September 2, Sept 2nd, Sep 02
+            variations.add(`${mw} ${df} ${p.year}`);     // September 2 2026
+            variations.add(`${mw} ${df}, ${p.year}`);    // September 2, 2026
+        });
+        variations.add(`${mw} ${p.year}`);               // September 2026
+        variations.add(mw);                              // September, Sep, Sept
+    });
+
+    // 6. Compact numeric
+    variations.add(`${p.dayPadded}${p.monthPadded}${p.year}`);   // 02092026
+    variations.add(`${p.year}${p.monthPadded}${p.dayPadded}`);   // 20260902
+
+    return Array.from(variations);
 }
 
 function extractKeywords(meeting) {
     const tokens = new Set();
     const addWords = (text) => {
         if (!text) return;
-        // Clean and tokenize
         const words = String(text)
             .toLowerCase()
             .replace(/[^\w\s-]/g, ' ')
@@ -57,9 +185,17 @@ function extractKeywords(meeting) {
 
     addWords(meeting.title);
     addWords(meeting.date);
+    addWords(meeting.dateDisplay);
     addWords(meeting.dateFormatted);
     addWords(meeting.focus);
     addWords(meeting.holidayName);
+
+    // Add all date variations
+    const variations = generateAllDateVariations(meeting.date);
+    variations.forEach(v => {
+        tokens.add(v.toLowerCase());
+        addWords(v);
+    });
 
     if (meeting.breakdowns && Array.isArray(meeting.breakdowns)) {
         meeting.breakdowns.forEach(b => {
@@ -117,7 +253,6 @@ function getAllJsonFiles(dir) {
 }
 
 async function loadMeetingsSource() {
-    // 1. Primary Source: Modular per-day JSON files in src/data/meetings/YYYY/MM/DD.json
     const meetingsSrcDir = path.resolve(rootDir, 'src/data/meetings');
     if (fs.existsSync(meetingsSrcDir)) {
         const jsonFiles = getAllJsonFiles(meetingsSrcDir);
@@ -140,7 +275,6 @@ async function loadMeetingsSource() {
         }
     }
 
-    // 2. Fallback if meetingsData.js still exists during transition
     const meetingsDataPath = path.resolve(rootDir, 'src/data/meetingsData.js');
     if (fs.existsSync(meetingsDataPath)) {
         const fileUrl = new URL(`file://${meetingsDataPath.replace(/\\/g, '/')}`).href;
@@ -163,16 +297,13 @@ async function generate() {
         fs.mkdirSync(outputBaseDir, { recursive: true });
     }
 
-    // Sort meetings chronologically (oldest to newest for sequence, newest to oldest for display)
     const sortedChronological = [...meetings].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
     const sortedNewestFirst = [...meetings].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-    // Map of Year -> Month -> Array of Meetings
     const yearMonthMap = new Map();
     const searchIndexList = [];
     const chronologicalSequence = [];
 
-    // Process all meetings
     for (const meeting of sortedNewestFirst) {
         const parts = meeting.date.split('-');
         if (parts.length < 3) {
@@ -185,7 +316,7 @@ async function generate() {
         const day = parts[2].padStart(2, '0');
         const monthIdx = parseInt(month, 10) - 1;
         const monthName = MONTH_NAMES[monthIdx] || 'Unknown';
-        const formattedDate = meeting.dateFormatted || formatMeetingDate(meeting.date);
+        const displayDate = formatDateDDMMYYYY(meeting.date);
 
         const meetingFilePath = `/data/meetings/${year}/${month}/${day}.json`;
         const meetingDiskDir = path.join(outputBaseDir, year, month);
@@ -195,11 +326,14 @@ async function generate() {
             fs.mkdirSync(meetingDiskDir, { recursive: true });
         }
 
+        const variations = generateAllDateVariations(meeting.date);
+
         const completeMeetingObject = {
             id: meeting.id || `meet-${meeting.date}`,
-            title: meeting.title || formattedDate,
+            title: displayDate,
             date: meeting.date,
-            dateFormatted: formattedDate,
+            dateDisplay: displayDate,
+            dateFormatted: displayDate,
             focus: meeting.focus || '',
             isHoliday: !!meeting.isHoliday,
             holidayName: meeting.holidayName || '',
@@ -209,15 +343,14 @@ async function generate() {
             actionItems: meeting.actionItems || []
         };
 
-        // Write individual meeting JSON
         fs.writeFileSync(meetingDiskFile, JSON.stringify(completeMeetingObject, null, 2), 'utf-8');
 
-        // Extract metadata for Month index
         const monthSummaryItem = {
             id: completeMeetingObject.id,
             date: completeMeetingObject.date,
-            dateFormatted: completeMeetingObject.dateFormatted,
-            title: completeMeetingObject.title,
+            dateDisplay: displayDate,
+            dateFormatted: displayDate,
+            title: displayDate,
             focus: completeMeetingObject.focus,
             isHoliday: completeMeetingObject.isHoliday,
             holidayName: completeMeetingObject.holidayName,
@@ -242,7 +375,6 @@ async function generate() {
         }
         monthMap.get(month).meetings.push(monthSummaryItem);
 
-        // Extract metadata for Search Index
         const sites = completeMeetingObject.breakdowns.map(b => b.site).filter(Boolean);
         const people = Array.from(new Set(completeMeetingObject.actionItems.map(a => a.person).filter(Boolean)));
         const partNames = completeMeetingObject.parts.map(p => p.part).filter(Boolean);
@@ -251,8 +383,9 @@ async function generate() {
         searchIndexList.push({
             id: completeMeetingObject.id,
             date: completeMeetingObject.date,
-            dateFormatted: completeMeetingObject.dateFormatted,
-            title: completeMeetingObject.title,
+            dateDisplay: displayDate,
+            dateFormatted: displayDate,
+            title: displayDate,
             focus: completeMeetingObject.focus,
             isHoliday: completeMeetingObject.isHoliday,
             holidayName: completeMeetingObject.holidayName,
@@ -261,6 +394,7 @@ async function generate() {
             directivesCount: completeMeetingObject.directives.length,
             actionItemsCount: completeMeetingObject.actionItems.length,
             path: meetingFilePath,
+            dateVariations: variations,
             sites: sites.slice(0, 8),
             people: people.slice(0, 10),
             parts: partNames.slice(0, 8),
@@ -268,26 +402,26 @@ async function generate() {
         });
     }
 
-    // Build chronological sequence for prev/next day navigation
     for (const meeting of sortedChronological) {
         const parts = meeting.date.split('-');
         const year = parts[0];
         const month = parts[1].padStart(2, '0');
         const day = parts[2].padStart(2, '0');
+        const displayDate = formatDateDDMMYYYY(meeting.date);
+
         chronologicalSequence.push({
             id: meeting.id || `meet-${meeting.date}`,
             date: meeting.date,
-            dateFormatted: meeting.dateFormatted || formatMeetingDate(meeting.date),
-            title: meeting.title || formatMeetingDate(meeting.date),
+            dateDisplay: displayDate,
+            dateFormatted: displayDate,
+            title: displayDate,
             isHoliday: !!meeting.isHoliday,
             holidayName: meeting.holidayName || '',
             path: `/data/meetings/${year}/${month}/${day}.json`
         });
     }
 
-    // Write monthly index.json files
     const yearsIndexStructure = [];
-
     const sortedYears = Array.from(yearMonthMap.keys()).sort((a, b) => parseInt(b, 10) - parseInt(a, 10));
 
     for (const year of sortedYears) {
@@ -328,7 +462,6 @@ async function generate() {
         yearsIndexStructure.push(yearEntry);
     }
 
-    // Write years.json
     const yearsIndexFile = path.join(outputBaseDir, 'years.json');
     const yearsIndexPayload = {
         years: yearsIndexStructure,
@@ -340,12 +473,11 @@ async function generate() {
     };
     fs.writeFileSync(yearsIndexFile, JSON.stringify(yearsIndexPayload, null, 2), 'utf-8');
 
-    // Write search-index.json
     const searchIndexFile = path.join(outputBaseDir, 'search-index.json');
     fs.writeFileSync(searchIndexFile, JSON.stringify(searchIndexList, null, 2), 'utf-8');
 
     console.log(`✅ Successfully generated:`);
-    console.log(`   - ${meetings.length} individual daily meeting JSON files`);
+    console.log(`   - ${meetings.length} individual daily meeting JSON files with DD-MM-YYYY display`);
     console.log(`   - Monthly index.json files for ${yearsIndexStructure.reduce((acc, y) => acc + y.months.length, 0)} month(s)`);
     console.log(`   - Global years.json (${(fs.statSync(yearsIndexFile).size / 1024).toFixed(2)} KB)`);
     console.log(`   - Global search-index.json (${(fs.statSync(searchIndexFile).size / 1024).toFixed(2)} KB)`);

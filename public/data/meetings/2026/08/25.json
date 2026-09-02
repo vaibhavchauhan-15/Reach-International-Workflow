@@ -1,8 +1,9 @@
 {
   "id": "meet-2026-08-25",
-  "title": "25 Aug 2026",
+  "title": "25-08-2026",
   "date": "2026-08-25",
-  "dateFormatted": "25 Aug 2026",
+  "dateDisplay": "25-08-2026",
+  "dateFormatted": "25-08-2026",
   "focus": "Machine Repairs, Payment Clearances & Logistics Transfers",
   "isHoliday": false,
   "holidayName": "",

@@ -74,27 +74,30 @@ When adding or editing workflow slides in `src/data/workflowsData.js` or `src/co
 
 ## 3. Daily Meeting Summaries Standards
 
-When adding or editing meeting summaries in `src/data/meetingsData.js` or `src/components/MeetingSummariesPage.jsx`:
+When adding or editing meeting summaries in `src/data/meetings/YYYY/MM/DD.json` (e.g. `src/data/meetings/2026/09/02.json`) or `src/components/MeetingSummariesPage.jsx`:
 
+- **Meeting File Hierarchy**:
+  - Each meeting is stored in its own isolated file: `src/data/meetings/YYYY/MM/DD.json`
+  - Do NOT use a single monolithic data file.
 - **Meeting Data Schema**:
-  ```js
+  ```json
   {
-      id: 'meet-YYYY-MM-DD',
-      title: 'DD Mon YYYY',
-      date: 'YYYY-MM-DD',
-      dateFormatted: 'DD Mon YYYY',
-      focus: 'High-level meeting agenda & focus areas',
-      breakdowns: [
-          { site: 'Site Name', issue: '...', action: '...', logistics: '...', clarification: '...', status: '...', pendingIssue: '...' }
+      "id": "meet-YYYY-MM-DD",
+      "title": "DD Mon YYYY",
+      "date": "YYYY-MM-DD",
+      "dateFormatted": "DD Mon YYYY",
+      "focus": "High-level meeting agenda & focus areas",
+      "breakdowns": [
+          { "site": "Site Name", "issue": "...", "action": "...", "logistics": "...", "clarification": "...", "status": "...", "pendingIssue": "..." }
       ],
-      parts: [
-          { part: 'Part Name', context: 'Site / Equipment Context', statusNextSteps: 'Status & Next steps' }
+      "parts": [
+          { "part": "Part Name", "context": "Site / Equipment Context", "statusNextSteps": "Status & Next steps" }
       ],
-      directives: [
-          { title: 'Directive Name', points: ['Point 1', 'Point 2'] }
+      "directives": [
+          { "title": "Directive Name", "points": ["Point 1", "Point 2"] }
       ],
-      actionItems: [
-          { person: 'Owner Name', task: 'Assigned task details' }
+      "actionItems": [
+          { "person": "Owner Name", "task": "Assigned task details" }
       ]
   }
   ```

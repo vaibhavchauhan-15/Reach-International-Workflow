@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 
 const CoverSlide = React.memo(function CoverSlide({ goToSlide, toggleFullscreen }) {
     const handleStartPresentation = () => {
@@ -9,7 +9,8 @@ const CoverSlide = React.memo(function CoverSlide({ goToSlide, toggleFullscreen 
     };
 
     return (
-        <div className="h-full flex flex-col items-center justify-center text-center bg-white rounded-2xl p-4 sm:p-6 md:p-8 text-slate-900 overflow-y-auto">
+        <div className="h-full flex flex-col items-center justify-center text-center bg-white rounded-2xl p-4 sm:p-6 md:p-8 text-slate-900 overflow-y-auto scroll-fade-top relative">
+            <div className="top-blur-mask" aria-hidden="true" />
             {/* Scissor Lift Hero Image Showcase */}
             <div className="w-full max-w-[220px] sm:max-w-[260px] md:max-w-[320px] h-[100px] sm:h-[120px] md:h-[150px] mb-3 md:mb-4 flex items-center justify-center flex-shrink-0">
                 <img 

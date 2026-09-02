@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 const SlideDeckGrid = React.memo(function SlideDeckGrid({ isGridOpen, setIsGridOpen, slidesData, currentSlide, goToSlide }) {
     useEffect(() => {
@@ -38,7 +38,8 @@ const SlideDeckGrid = React.memo(function SlideDeckGrid({ isGridOpen, setIsGridO
                 </div>
 
                 {/* Slides Grid */}
-                <div className="p-3 sm:p-5 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3.5">
+                <div className="p-3 sm:p-5 overflow-y-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2.5 sm:gap-3.5 scroll-fade-top relative">
+                    <div className="top-blur-mask" aria-hidden="true" />
                     {slidesData.map((slide, idx) => (
                         <div 
                             key={idx} 

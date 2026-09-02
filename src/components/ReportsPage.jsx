@@ -19,9 +19,10 @@ export default function ReportsPage() {
     });
 
     return (
-        <div className="flex-1 flex flex-col overflow-y-auto bg-stage-bg pb-12 w-full select-none animate-fade-in">
+        <div className="flex-1 flex flex-col overflow-y-auto bg-stage-bg pb-12 w-full select-none animate-fade-in scroll-fade-top relative">
+            <div className="top-blur-mask" aria-hidden="true" />
             {/* Page Header */}
-            <div className="bg-white border-b border-border-light p-4 sm:p-6 md:p-8 mb-4 sm:mb-6 shadow-xs">
+            <div className="bg-white border-b border-border-light pt-20 sm:pt-22 md:pt-24 px-4 pb-4 sm:px-6 sm:pb-6 md:px-8 md:pb-8 mb-4 sm:mb-6 shadow-xs">
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                     <div className="flex flex-col gap-1 max-w-xl">
                         <span className="text-[10px] font-bold uppercase tracking-wider text-ribbon-4 bg-cyan-50 px-2.5 py-0.5 rounded-full border border-cyan-200 self-start">

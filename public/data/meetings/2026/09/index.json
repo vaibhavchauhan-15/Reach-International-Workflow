@@ -1,0 +1,36 @@
+{
+  "year": "2026",
+  "month": "09",
+  "monthName": "September",
+  "meetingCount": 2,
+  "meetings": [
+    {
+      "id": "meet-2026-09-02",
+      "date": "2026-09-02",
+      "dateFormatted": "02 Sep 2026",
+      "title": "02 Sep 2026",
+      "focus": "Fleet Breakdown Resolutions (Sanand, JK Paper, Noida, Silvassa, Jammu, Haldia), Sanand 2024 Battery Load Tests & Handover, JK Paper Night Shift & Overtime Protocol, and Zoomlion Online Warranty Servicing",
+      "isHoliday": false,
+      "holidayName": "",
+      "breakdownCount": 15,
+      "partsCount": 7,
+      "directivesCount": 5,
+      "actionItemsCount": 7,
+      "path": "/data/meetings/2026/09/02.json"
+    },
+    {
+      "id": "meet-2026-09-01",
+      "date": "2026-09-01",
+      "dateFormatted": "01 Sep 2026",
+      "title": "01 Sep 2026",
+      "focus": "Fleet Breakdown Resolutions (Jammu, Sanand, Hardoi, Chengalpattu), Assam Landslide Logistics & Genie Control Protection, Maruti Fleet Servicing & Transport Dispatch, Rejected Battery Scrap Clearance, and Vendor Payment Approval Protocol",
+      "isHoliday": false,
+      "holidayName": "",
+      "breakdownCount": 7,
+      "partsCount": 10,
+      "directivesCount": 5,
+      "actionItemsCount": 8,
+      "path": "/data/meetings/2026/09/01.json"
+    }
+  ]
+}

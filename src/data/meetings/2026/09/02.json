@@ -1,0 +1,199 @@
+{
+  "id": "meet-2026-09-02",
+  "title": "02 Sep 2026",
+  "date": "2026-09-02",
+  "dateFormatted": "02 Sep 2026",
+  "focus": "Fleet Breakdown Resolutions (Sanand, JK Paper, Noida, Silvassa, Jammu, Haldia), Sanand 2024 Battery Load Tests & Handover, JK Paper Night Shift & Overtime Protocol, and Zoomlion Online Warranty Servicing",
+  "breakdowns": [
+    {
+      "site": "Blue Star / Micron Site (Sanand) — JCB 3246 Scissor Lift (Unit 1, Serial No. 3362500)",
+      "issue": "Severe battery discharge failure — machine cuts off and shuts down completely as soon as battery level drops to 50%.",
+      "action": "Technician Deepak to perform full cell-by-cell voltage test under load, capture clear battery photos, and compile official service report.",
+      "status": "Running with Caution; Cell Load Test & Service Report Underway"
+    },
+    {
+      "site": "Blue Star / Micron Site (Sanand) — JCB 3246 Scissor Lift (Unit 2, 2024 Model, Serial No. 3362518)",
+      "issue": "Battery cuts off at 50% capacity; currently operating on site without client awareness of underlying electrical vulnerability.",
+      "action": "Pardeep and Deepak to record individual cell voltages under load, photograph battery manufacturing tags, and initiate warranty claim.",
+      "status": "Under Risk-Adjusted Operation; Battery Warranty Claim Preparation"
+    },
+    {
+      "site": "Sanand Site (Ex-Mumbai Transfer) — Genie 1932 Scissor Lift (Serial No. GS30D-11127)",
+      "issue": "Overload sensor tripping, foot pedal switch malfunction, and drive/marching circuit failure. Machine arrived without operator; TPI incomplete and multiple technician visits failed to resolve.",
+      "action": "Technicians to complete TPI, overhaul drive and overload circuits, and prepare unit for handover to Team Computer / secondary vendor.",
+      "status": "TPI & Circuit Rectification in Progress for Client Handover"
+    },
+    {
+      "site": "Team Computer Site (Sanand) — JCB 3246 Scissor Lift (Serial No. 3362413)",
+      "issue": "Function failure — steering wheel cutting defect and hydraulic pump performance issue.",
+      "action": "Machine parked to prevent breakdown while released backup machine operates on site. Service team assigned to overhaul pump and steering.",
+      "status": "Backup Machine Active; Pump & Steering Overhaul Scheduled"
+    },
+    {
+      "site": "Sanand Site — JCB 3246 Scissor Lift (Serial No. 3513798)",
+      "issue": "Dual failure — sluggish hydraulic function and battery cutting off at 40–50% charge level.",
+      "action": "Unit currently running. Deepak and Pardeep to record cell voltage under load, capture battery serial photos, and verify warranty coverage.",
+      "status": "Operational; Comprehensive Cell Load Diagnostics in Progress"
+    },
+    {
+      "site": "Sanand Site (Location 2) — Zoomlion 4550 Scissor Lift",
+      "issue": "Battery terminals disconnected/missing and initial TPI inspection pending.",
+      "action": "Deepak assigned to fit new battery terminals and complete full TPI inspection today.",
+      "status": "Terminal Fitment & TPI Inspection Underway"
+    },
+    {
+      "site": "JK Paper Site — 5-Ton Heavy Forklift / Equipment",
+      "issue": "Midnight (12:00 AM) breakdown with hydraulic pipe leakage, broken clamper 8-pin, and forward/reverse gear drive failure. Client shift in-charge repeatedly disturbed sleeping technician.",
+      "action": "Technician completed emergency midnight repair. Management approving dedicated night breakdown helper and establishing 2-hour OT per 1-hour night work policy validated by gate punch records.",
+      "status": "Midnight Repair Completed; Night Breakdown Helper Being Recruited"
+    },
+    {
+      "site": "CDC Samsung Site (Noida) — 1.5-Ton Reach Truck (RT)",
+      "issue": "Main hydraulic cylinder seal leakage; machine idle in breakdown for 3–4 days.",
+      "action": "Technician to replace cylinder seal on-site, or dispatch ready backup unit (5 Palfinger/JCB units available at yard) if repair delays persist.",
+      "status": "Seal Replacement Scheduled; Yard Backup Units on Standby"
+    },
+    {
+      "site": "Silvassa Site — 10-Ton Fleet Equipment",
+      "issue": "Bearing failure causing loud grinding noise; machine standing idle.",
+      "action": "Pandit Dhiraj Dubey to register breakdown in mobile app with video/photos immediately for prompt parts dispatch.",
+      "status": "Breakdown App Registration & Parts Sourcing Underway"
+    },
+    {
+      "site": "Sadar / Operations Site — Zoomlion 80ft & 100ft (also 150ft) Boom Lifts",
+      "issue": "Outrigger and inrigger indicator lights illuminated simultaneously; boom downward movement disabled. Replaced with spare part but issue remains unresolved. Unit 80ft released but has pending works.",
+      "action": "Jitendra Budhauliya sending Zoomlion service coordinator contact. Banarasi Yadav to provide machine serial numbers and schedule 2nd periodic warranty service online under Reach International.",
+      "status": "Zoomlion Warranty Service Registration Underway"
+    },
+    {
+      "site": "CG Power Site (Sanand) — Fleet Machine",
+      "issue": "Tyres worn out and requiring immediate replacement.",
+      "action": "Pardeep Tomar stationed at CG Power site today to execute complete tyre changing.",
+      "status": "On-Site Tyre Replacement in Progress"
+    },
+    {
+      "site": "Haldia Site (WB) — 80-100ft Boom Lift (Unit 80800)",
+      "issue": "1-year major periodic maintenance pending; client payment release pending with Dhruv Sir.",
+      "action": "Technician train ticket confirmed via WhatsApp; technician arriving tomorrow evening to execute full service. Dhruv Sir tracking payment file.",
+      "status": "Technician in Transit (Arriving Tomorrow); Payment Follow-up Active"
+    },
+    {
+      "site": "Korba Site (Chhattisgarh) — Fleet Equipment",
+      "issue": "Delivered spare parts kept outside unattended; operator availability uncertain.",
+      "action": "Admin booked travel ticket today; technician deploying to site to inspect spares, coordinate with operator, and service machine.",
+      "status": "Technician Travel Booked; On-Site Inspection Pending"
+    },
+    {
+      "site": "Jammu Airport / Field Site — JLG Fleet Units (1209, 5171, 12052, 12091)",
+      "issue": "1 machine down with electrical / motor carbon brush wear.",
+      "action": "Umesh Kumar monitoring on-site technician progress and repair completion.",
+      "status": "Technician On-Site; Electrical & Brush Repairs Active"
+    },
+    {
+      "site": "Hardoi Site (UP) — Aerial Platform",
+      "issue": "Hydraulic leakage beneath valve coil.",
+      "action": "Technician Amit inspected and resolved hydraulic leakage on-site.",
+      "status": "Issue Resolved & Machine Operational"
+    }
+  ],
+  "parts": [
+    {
+      "part": "JCB Joystick Assembly",
+      "context": "JCB Fleet Equipment — Chandigarh Site",
+      "statusNextSteps": "Client/operator called 3 times. Pardeep Tomar to look up part number via JCB catalog/Google and dispatch joystick immediately."
+    },
+    {
+      "part": "3-Ton Traction Battery Pack",
+      "context": "3-Ton Electric Equipment — Jamshedpur Site",
+      "statusNextSteps": "Previous stacker repair unviable and cancelled. Management approved purchasing new 3-ton battery pack for immediate dispatch to Jamshedpur."
+    },
+    {
+      "part": "Hydraulic Cylinder Seal Kit",
+      "context": "1.5-Ton Reach Truck — CDC Samsung Site, Noida",
+      "statusNextSteps": "Main cylinder seal leaking. Seal kit being dispatched; 5 backup machines at yard (Palfinger/JCB 3246) ready if required."
+    },
+    {
+      "part": "Fleet Branding Stickers & Service Inspection Report",
+      "context": "Fleet Equipment — Hyderabad Site",
+      "statusNextSteps": "Stickers dispatched day before yesterday. Pardeep to submit completed service report today to authorize loading and dispatch."
+    },
+    {
+      "part": "Front Tyres & Fitment Kit",
+      "context": "Zoomlion 4550 / 4580 (Serial No. 10027) & CG Power — Sanand",
+      "statusNextSteps": "Pardeep Tomar changing tyres at CG Power today; tyres for unit 10027 sourced and being fitted to clear long-standing breakdown."
+    },
+    {
+      "part": "Battery Terminals & Fasteners",
+      "context": "Zoomlion 4550 Scissor Lift — Sanand Site (Location 2)",
+      "statusNextSteps": "Deepak fitting battery terminals today followed by complete TPI clearance."
+    },
+    {
+      "part": "Heavy Equipment Bearings",
+      "context": "10-Ton Fleet Machine — Silvassa Site",
+      "statusNextSteps": "Dhiraj to log noisy/broken bearing in mobile app to initiate procurement and dispatch."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Dedicated Night Breakdown Helper & Staffing Protocol",
+      "points": [
+        "At high-utilization sites like JK Paper, a dedicated night breakdown helper will be deployed so day technicians get mandatory rest and night breakdowns are resolved immediately without waking day crew."
+      ]
+    },
+    {
+      "title": "Emergency Night Breakdown Overtime (OT) Policy",
+      "points": [
+        "Field technicians performing emergency night repairs will receive 2 hours of OT compensation for every 1 hour worked at night.",
+        "All OT claims must be supported by official client security gate punch in/out timestamp records."
+      ]
+    },
+    {
+      "title": "Mandatory Battery Cell Load Testing & Warranty Claims",
+      "points": [
+        "For all 2024 JCB/Genie scissor lift batteries shutting off at 40–50% charge, field teams must test and record individual cell voltages under active load, take photos of battery manufacturing tags, and submit full service reports for OEM warranty claims."
+      ]
+    },
+    {
+      "title": "Mandatory App-Based Breakdown & Media Registration",
+      "points": [
+        "Every machine breakdown (including Silvassa, Sanand, Noida) must be registered in the company mobile app with video/photos before requesting spare parts or technician mobilization."
+      ]
+    },
+    {
+      "title": "Strict Pre-Loading Service Report Requirement",
+      "points": [
+        "No machine (e.g. Hyderabad, Sanand handovers) may be loaded or handed over to clients/vendors without a completed, signed service report and pre-dispatch inspection photos."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Banarasi Yadav",
+      "task": "Obtain Zoomlion service coordinator contact from Jitendra, provide 80ft/100ft boom lift serial numbers, and book 2nd periodic warranty service online under Reach International; complete open items on released Sadar machine."
+    },
+    {
+      "person": "Jitendra Budhauliya",
+      "task": "Send Zoomlion service contact to Banarasi; expedite procurement and dispatch of 3-ton battery to Jamshedpur; arrange night breakdown helper for JK Paper; review JK Paper gate punch records for OT approval; follow up with Dhruv Sir for Haldia payment release."
+    },
+    {
+      "person": "Pardeep Tomar",
+      "task": "Complete tyre changing at CG Power today; look up JCB joystick part number for urgent Chandigarh courier; submit Hyderabad service report today; compile Sanand battery cell voltage load test reports with Deepak."
+    },
+    {
+      "person": "Pandit Dhiraj Dubey",
+      "task": "Register Silvassa bearing breakdown on mobile app immediately; coordinate with Deepak to conduct cell load tests and collect photos for JCB units 3362500, 3362518, and 3513798; supervise Genie 1932 (GS30D-11127) TPI and repair for vendor handover."
+    },
+    {
+      "person": "Ravi Tiwari",
+      "task": "Collect and share daily security gate punch in/out logs from JK Paper to validate technician work hours and OT; oversee 5-ton forklift mechanical and hydraulic repairs."
+    },
+    {
+      "person": "Umesh Kumar",
+      "task": "Monitor on-site repair progress for Jammu Airport fleet (Units 1209, 5171, 12052, 12091); track Jaisalmer Unit 660 status; coordinate local technician coverage for upcoming Chennai breakdown visits."
+    },
+    {
+      "person": "Deepak (Mechanic)",
+      "task": "Fit battery terminals on Zoomlion 4550 at Sanand and complete TPI; carry out multi-meter individual cell voltage load testing and capture photo evidence on all degraded battery packs."
+    }
+  ]
+}

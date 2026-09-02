@@ -1,0 +1,112 @@
+{
+  "id": "meet-2026-08-31",
+  "title": "31 Aug 2026",
+  "date": "2026-08-31",
+  "dateFormatted": "31 Aug 2026",
+  "focus": "Google Forms Parts Repair Escalation, Battery Capacity (6V 250Ah) & Cable Tree Assembly, Machine Angle Data Monitoring & Rotary Shield Installation",
+  "breakdowns": [
+    {
+      "site": "Fleet Breakdown Operations & Site Issues",
+      "issue": "Multiple fleet machines operating with ongoing breakdown issues and operator complaints raised during site operations (17:34, 28:49).",
+      "action": "Jitendra Budhauliya and Shiv Uniyal verifying live working status and breakdown details against Google Sheets and mobile application entries. Shift parts according to stock logic and escalate repair requirements through standardized Google Forms.",
+      "status": "Active Troubleshooting & Complaint Verification Ongoing"
+    },
+    {
+      "site": "Tool & Fleet Refurbishment (Internal Motor & Radiator)",
+      "issue": "Internal motor tool issues identified requiring physical diagnostics; radiator condition needs verification and repair follow-up (14:57, 16:18).",
+      "action": "Jitendra Budhauliya and Umesh Kumar checking internal motor mechanism and confirming radiator condition for overhaul.",
+      "status": "Inspection & Overhaul in Progress"
+    },
+    {
+      "site": "Rajpura & Visited Field Sites",
+      "issue": "Dhruv Sharma reported site visit observations regarding machine operating limits and battery cell capacity constraints (40:51, 45:38).",
+      "action": "Dhruv Sharma and technical leads documenting battery performance, capacity observations (6V 250Ah), and making second standby battery cells available if required.",
+      "status": "Site Observations Documented; Standby Battery Procurement Coordinated"
+    },
+    {
+      "site": "Fleet Telematics & Angle Sensor Job Monitoring",
+      "issue": "False machine angle sensor data and duplicate logs flagged during telemetry data collection (46:31, 46:37).",
+      "action": "Shiv Uniyal leading job monitoring data collection conference to resolve sensor bypass issues and streamline accurate tracking without data duplication.",
+      "status": "Data Review & Conference Review Planned"
+    }
+  ],
+  "parts": [
+    {
+      "part": "Battery Cells (6 Volt / 250 Ampere)",
+      "context": "Rajpura / Field Fleet Power Units",
+      "statusNextSteps": "Confirmed requirement of 6V 250Ah battery cells by Vaibhav and Shiv. Satendra Kumar confirming stock and cable availability; standby secondary batteries being sourced."
+    },
+    {
+      "part": "Cable Trees & Baskets (Rotary Shield)",
+      "context": "Rotary Shield Installation & Harness Protection",
+      "statusNextSteps": "Jitendra Budhauliya preparing cable tree assemblies and baskets for rotary shield installation to prevent wire entanglement and delay."
+    },
+    {
+      "part": "Part No. 245245 (Last 1f Sample)",
+      "context": "Fleet Spare Procurement & Replacement",
+      "statusNextSteps": "Pardeep Tomar confirmed part number 245245 (ending in 1f). Sushil Mishra and Satendra Kumar to ensure physical sample correctness and documentation before batch procurement."
+    },
+    {
+      "part": "Consolidated Service Materials & Spares",
+      "context": "Workshop & Yard Spares Inventory",
+      "statusNextSteps": "Dhruv Sharma and Pardeep shifting parts based on stock logic prioritization and breakdown urgency. Open points for remaining service materials to be finalized in next review."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Google Form Repair Escalation & Stock Allocation Logic",
+      "points": [
+        "All machine repair requirements and spare part requisitions must be formally logged via Google Forms before parts are shifted or issued.",
+        "Store and workshop teams (Pradeep) must prioritize part shifting based on logical breakdown urgency and available inventory math."
+      ]
+    },
+    {
+      "title": "Strict Sample Verification & Part Number Accuracy",
+      "points": [
+        "Prior to vendor ordering, exact part numbers (e.g. Part No. 245245) and physical samples must be cross-verified and validated to avoid incorrect procurement.",
+        "Paper requirements and technical specifications must be reconciled before purchase execution."
+      ]
+    },
+    {
+      "title": "Telemetry Data Integrity & Job Monitoring Protocol",
+      "points": [
+        "Technicians and monitoring teams must verify telematics sensors to prevent bypassing false angle readings or creating duplicate entries.",
+        "Daily conference calls to review job card execution and operational complaints logged in Google Sheets."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Dhruv Sharma",
+      "task": "Escalate repair requirements using Google Forms; implement stock logic prioritization for part shifting; document site visit observations regarding machine battery capacity."
+    },
+    {
+      "person": "Jitendra Budhauliya",
+      "task": "Check internal motor for tool issues; inspect radiator condition; verify Google Sheets complaint logs; fabricate cable trees and baskets for rotary shield installation; finalize service material specs."
+    },
+    {
+      "person": "Satendra Kumar",
+      "task": "Confirm stock availability for batteries and cables; verify sample correctness for Part No. 245245; reconcile open meeting points."
+    },
+    {
+      "person": "Shiv Uniyal",
+      "task": "Verify machine breakdown and working status; collect monitoring telematics data while avoiding duplicate entries; lead job monitoring conference."
+    },
+    {
+      "person": "Pardeep Tomar",
+      "task": "Shift parts in store based on breakdown priority logic; verify Part No. 245245 (Last 1f) sample details."
+    },
+    {
+      "person": "Sushil Mishra",
+      "task": "Ensure physical sample corrections and verify paper requirements for pending spare orders."
+    },
+    {
+      "person": "Vaibhav Chauhan",
+      "task": "Document and publish 30 Aug (Sunday Holiday) and 31 Aug 2026 daily meeting summary; coordinate 6V 250Ah battery capacity specifications."
+    },
+    {
+      "person": "Shivam Pandey",
+      "task": "Ensure all operational site complaints and repair tickets are properly logged and updated in Google Sheets."
+    }
+  ]
+}

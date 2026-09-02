@@ -1,4 +1,4 @@
-﻿import React, { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 const ribbonColors = ['bg-ribbon-1', 'bg-ribbon-2', 'bg-ribbon-3', 'bg-ribbon-4', 'bg-ribbon-5'];
 
@@ -39,7 +39,7 @@ const NodeDetailModal = React.memo(function NodeDetailModal({ selectedNode, setS
             onClick={() => setSelectedNode(null)}
         >
             <div 
-                className="relative w-full max-w-lg max-h-[90vh] bg-white border border-border-light rounded-2xl shadow-modal overflow-y-auto flex flex-col select-none" 
+                className="relative w-full max-w-lg max-h-[90vh] bg-white border border-border-light rounded-2xl shadow-modal overflow-y-auto flex flex-col select-none scroll-fade-top" 
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* Close Button */}

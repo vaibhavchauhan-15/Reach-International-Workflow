@@ -14,17 +14,74 @@ export function formatMeetingDate(dateStr) {
             const day = parseInt(parts[2], 10);
             const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
             if (monthIdx >= 0 && monthIdx < 12) {
-                return `${day} ${monthNames[monthIdx]} ${year}`;
+                const dayPadded = day < 10 ? `0${day}` : `${day}`;
+                return `${dayPadded} ${monthNames[monthIdx]} ${year}`;
             }
         }
     }
     const d = new Date(dateStr);
     if (!isNaN(d.getTime())) {
         const day = d.getDate();
+        const dayPadded = day < 10 ? `0${day}` : `${day}`;
         const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-        return `${day} ${monthNames[d.getMonth()]} ${d.getFullYear()}`;
+        return `${dayPadded} ${monthNames[d.getMonth()]} ${d.getFullYear()}`;
     }
     return dateStr;
+}
+
+/**
+ * Formats a date string into 'DD Mon' (e.g. '02 Sep') format for list streams.
+ */
+export function formatShortMeetingDate(dateStr) {
+    if (!dateStr) return '';
+    if (typeof dateStr === 'string' && dateStr.includes('-')) {
+        const parts = dateStr.split('-');
+        if (parts.length === 3 && parts[0].length === 4) {
+            const monthIdx = parseInt(parts[1], 10) - 1;
+            const day = parseInt(parts[2], 10);
+            const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+            if (monthIdx >= 0 && monthIdx < 12) {
+                const dayPadded = day < 10 ? `0${day}` : `${day}`;
+                return `${dayPadded} ${monthNames[monthIdx]}`;
+            }
+        }
+    }
+    const formatted = formatMeetingDate(dateStr);
+    const parts = formatted.split(' ');
+    if (parts.length >= 2) {
+        return `${parts[0]} ${parts[1]}`;
+    }
+    return formatted;
+}
+
+/**
+ * Formats a date string into 'DD MMMM YYYY' (e.g. '02 September 2026') format.
+ */
+export function formatLongMeetingDate(dateStr) {
+    if (!dateStr) return '';
+    const fullMonths = [
+        'January', 'February', 'March', 'April', 'May', 'June',
+        'July', 'August', 'September', 'October', 'November', 'December'
+    ];
+    if (typeof dateStr === 'string' && dateStr.includes('-')) {
+        const parts = dateStr.split('-');
+        if (parts.length === 3 && parts[0].length === 4) {
+            const year = parts[0];
+            const monthIdx = parseInt(parts[1], 10) - 1;
+            const day = parseInt(parts[2], 10);
+            if (monthIdx >= 0 && monthIdx < 12) {
+                const dayPadded = day < 10 ? `0${day}` : `${day}`;
+                return `${dayPadded} ${fullMonths[monthIdx]} ${year}`;
+            }
+        }
+    }
+    const d = new Date(dateStr);
+    if (!isNaN(d.getTime())) {
+        const day = d.getDate();
+        const dayPadded = day < 10 ? `0${day}` : `${day}`;
+        return `${dayPadded} ${fullMonths[d.getMonth()]} ${d.getFullYear()}`;
+    }
+    return formatMeetingDate(dateStr);
 }
 
 /**

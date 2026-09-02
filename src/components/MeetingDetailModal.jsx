@@ -59,7 +59,8 @@ export default function MeetingDetailModal({ selectedMeeting, setSelectedMeeting
                 </div>
 
                 {/* Modal Body */}
-                <div className="p-4 sm:p-6 overflow-y-auto space-y-6">
+                <div className="p-4 sm:p-6 overflow-y-auto space-y-6 scroll-fade-top relative">
+                    <div className="top-blur-mask" aria-hidden="true" />
                     {/* Header Details */}
                     <div className="border-b border-border-light pb-4">
                         <div className="text-xs sm:text-sm text-slate-700 mb-1 flex flex-wrap gap-1.5">
@@ -197,13 +198,54 @@ export default function MeetingDetailModal({ selectedMeeting, setSelectedMeeting
                                 <span>4.</span> Key Action Items & Ownership
                             </h2>
                             
-                            <div className="bg-emerald-50/70 border-l-4 border-theme-action border-t border-r border-b border-emerald-200/70 rounded-r-xl p-3 shadow-xs space-y-1.5">
-                                {selectedMeeting.actionItems.map((item, idx) => (
-                                    <div key={idx} className="text-xs text-slate-800">
-                                        <strong className="font-bold text-emerald-900 mr-1.5">{item.person}:</strong>
-                                        <span className="text-slate-700">{item.task}</span>
-                                    </div>
-                                ))}
+                            <div className="space-y-2.5">
+                                {selectedMeeting.actionItems.map((item, idx) => {
+                                    const taskPoints = item.task
+                                        ? item.task.split(';').map(t => t.trim()).filter(Boolean)
+                                        : [];
+                                    const nameParts = (item.person || '').split('&')[0].trim().split(' ');
+                                    const initials = nameParts.length > 1
+                                        ? `${nameParts[0][0]}${nameParts[nameParts.length - 1][0]}`.toUpperCase()
+                                        : (item.person || 'U').substring(0, 2).toUpperCase();
+
+                                    return (
+                                        <div 
+                                            key={idx} 
+                                            className="bg-emerald-50/40 border border-emerald-200/80 border-l-4 border-l-theme-action rounded-xl p-3 shadow-2xs flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-3"
+                                        >
+                                            <div className="flex items-center gap-2 sm:w-44 flex-shrink-0">
+                                                <span className="w-6 h-6 rounded-md bg-emerald-100/90 text-emerald-900 font-extrabold text-[11px] flex items-center justify-center border border-emerald-300/60 shadow-2xs flex-shrink-0">
+                                                    {initials}
+                                                </span>
+                                                <div className="flex flex-col min-w-0">
+                                                    <span className="text-xs font-extrabold text-slate-900 leading-tight truncate">
+                                                        {item.person}
+                                                    </span>
+                                                    <span className="text-[10px] font-semibold text-emerald-800">
+                                                        {taskPoints.length > 1 ? `${taskPoints.length} Action Points` : 'Assigned Owner'}
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div className="flex-1 min-w-0">
+                                                {taskPoints.length > 1 ? (
+                                                    <ul className="space-y-1 list-none">
+                                                        {taskPoints.map((point, pIdx) => (
+                                                            <li key={pIdx} className="flex items-start gap-1.5 text-xs text-slate-700 leading-relaxed font-medium">
+                                                                <span className="text-theme-action font-bold select-none text-[10px] mt-0.5">▪</span>
+                                                                <span>{point}</span>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                ) : (
+                                                    <p className="text-xs text-slate-700 leading-relaxed font-medium">
+                                                        {item.task}
+                                                    </p>
+                                                )}
+                                            </div>
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </section>
                     )}

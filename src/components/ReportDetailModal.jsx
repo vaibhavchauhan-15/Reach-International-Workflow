@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 
 export default function ReportDetailModal({ selectedReport, setSelectedReport }) {
     if (!selectedReport) return null;
@@ -37,7 +37,8 @@ export default function ReportDetailModal({ selectedReport, setSelectedReport })
                     </button>
                 </div>
 
-                <div className="p-4 sm:p-6 overflow-y-auto space-y-6">
+                <div className="p-4 sm:p-6 overflow-y-auto space-y-6 scroll-fade-top relative">
+                    <div className="top-blur-mask" aria-hidden="true" />
                     {/* Key Stats Bar */}
                     {selectedReport.keyMetrics && (
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">

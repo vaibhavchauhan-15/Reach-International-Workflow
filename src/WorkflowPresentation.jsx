@@ -5,12 +5,11 @@ import CoverSlide from './components/CoverSlide';
 import FlowNodeCard from './components/FlowNodeCard';
 import SlideDeckGrid from './components/SlideDeckGrid';
 import NodeDetailModal from './components/NodeDetailModal';
-import LandingPage from './components/LandingPage';
 import MeetingSummariesPage from './components/MeetingSummariesPage';
 import { slidesData, totalSlides } from './data/workflowsData';
 
 export default function WorkflowPresentation() {
-    const [activePage, setActivePage] = useState('landing'); // 'landing' | 'workflows' | 'meetings'
+    const [activePage, setActivePage] = useState('meetings'); // 'meetings' | 'workflows'
     const [currentSlide, setCurrentSlide] = useState(0);
     const [slideDirection, setSlideDirection] = useState('right');
     const [isGridOpen, setIsGridOpen] = useState(false);
@@ -301,39 +300,22 @@ export default function WorkflowPresentation() {
         };
     }, [currentSlide, activePage]);
 
+    const handleLogoClick = useCallback(() => {
+        setSelectedMeeting(null);
+        setMeetingSearchQuery('');
+        setActivePage('meetings');
+    }, []);
+
     const activeSlideData = slidesData[currentSlide];
 
     return (
         <div 
-            className="w-full h-full flex flex-col overflow-hidden bg-white"
+            className="w-full h-full flex flex-col overflow-hidden bg-stage-bg"
             onWheel={handleWheel}
             onTouchStart={handleTouchStart}
             onTouchEnd={handleTouchEnd}
         >
-            {(activePage !== 'meetings' || !selectedMeeting) && (
-                <Header 
-                    activePage={activePage}
-                    setActivePage={(page) => {
-                        if (page !== activePage) {
-                            setSelectedMeeting(null);
-                        }
-                        setActivePage(page);
-                    }}
-                    currentSlide={currentSlide}
-                    totalSlides={totalSlides}
-                    isWalkthroughActive={isWalkthroughActive}
-                    isWalkthroughPaused={isWalkthroughPaused}
-                    startWalkthrough={startWalkthrough}
-                    pauseWalkthrough={pauseWalkthrough}
-                    resumeWalkthrough={resumeWalkthrough}
-                    resetWalkthrough={resetWalkthrough}
-                    setIsGridOpen={setIsGridOpen}
-                    toggleFullscreen={toggleFullscreen}
-                    isFullscreen={isFullscreen}
-                    searchQuery={meetingSearchQuery}
-                    setSearchQuery={setMeetingSearchQuery}
-                />
-            )}
+            <Header onLogoClick={handleLogoClick} />
 
             {/* Page Content Switcher */}
             {activePage === 'workflows' && (
@@ -343,10 +325,11 @@ export default function WorkflowPresentation() {
                         <div className="w-full max-w-[1440px] md:aspect-video md:max-h-[82vh] h-full relative bg-white rounded-xl md:rounded-2xl shadow-card border border-border-light overflow-hidden flex flex-col">
                             <section 
                                 key={currentSlide} 
-                                className={`absolute inset-0 p-3.5 sm:p-5 md:p-7 flex flex-col bg-white text-slate-900 overflow-y-auto scrollbar-none will-change-transform contain-content ${
+                                className={`absolute inset-0 p-3.5 sm:p-5 md:p-7 flex flex-col bg-white text-slate-900 overflow-y-auto scrollbar-none will-change-transform contain-content scroll-fade-top relative ${
                                     slideDirection === 'right' ? 'animate-slide-in-right' : 'animate-slide-in-left'
                                 }`}
                             >
+                                <div className="top-blur-mask" aria-hidden="true" />
                                 {activeSlideData.isCover ? (
                                     <CoverSlide goToSlide={goToSlide} toggleFullscreen={toggleFullscreen} />
                                 ) : (
@@ -455,8 +438,6 @@ export default function WorkflowPresentation() {
                     />
                 </>
             )}
-
-            {activePage === 'landing' && <LandingPage setActivePage={setActivePage} totalSlides={totalSlides} />}
 
             {activePage === 'meetings' && (
                 <MeetingSummariesPage 

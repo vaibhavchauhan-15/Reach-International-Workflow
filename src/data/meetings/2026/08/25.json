@@ -1,0 +1,96 @@
+{
+  "id": "meet-2026-08-25",
+  "title": "25 Aug 2026",
+  "date": "2026-08-25",
+  "dateFormatted": "25 Aug 2026",
+  "focus": "Machine Repairs, Payment Clearances & Logistics Transfers",
+  "breakdowns": [
+    {
+      "site": "Main Workshop / Converter System",
+      "issue": "Converter is broken/defective. Payment is pending with Mukesh (00:28); clearing June payment is mandatory to resume operations.",
+      "action": "Shiv Uniyal to speak with Mukesh for converter payment clearance."
+    },
+    {
+      "site": "Noida Site",
+      "issue": "Noida machine battery is defective and there is a general shortage of chargers (26:31).",
+      "action": "Battery exchange is currently in progress. Umesh Kumar taking action on battery and charger issues; Sushil Mishra sharing live updates."
+    },
+    {
+      "site": "Workshop / Hyundai Machine (Sales Unit)",
+      "issue": "Sales unit parts for Hyundai machine have not arrived yet (02:01). Servicing must be completed within 1 day once parts arrive.",
+      "action": "Emails sent to Yogesh and Tarun Jha to expedite Hyundai parts delivery."
+    },
+    {
+      "site": "Haldia Site",
+      "issue": "Machine is running, but Haldia machine connector is broken (13:43). Battery and motor issues encountered.",
+      "action": "Technical repair team following up on connector replacement and motor repair plan."
+    },
+    {
+      "site": "Repair Workshop / 1930 Model Machine",
+      "issue": "Model 1930 machine battery is working fine (29:56). Motor repairing plan is being formulated.",
+      "action": "Formulate motor repair plan and evaluate vendor cost differences."
+    },
+    {
+      "site": "Khurja to Lucknow Route",
+      "issue": "Machine transfer is stuck and vehicle has been standing idle for months (20:04).",
+      "action": "Shifting arrangements queued from Khurja to Lucknow (12:53)."
+    }
+  ],
+  "parts": [
+    {
+      "part": "Hyundai Machine Spare Parts",
+      "context": "Workshop / Yard",
+      "statusNextSteps": "Delivery awaited from Yogesh and Tarun Jha; 1-day turnaround target upon receipt."
+    },
+    {
+      "part": "Battery Chargers & Connectors",
+      "context": "Noida & Haldia Sites",
+      "statusNextSteps": "Shortage flagged; fast-track dispatch instructions issued by Dhruv Sharma."
+    },
+    {
+      "part": "Converter Assembly",
+      "context": "Main Workshop",
+      "statusNextSteps": "Payment clearance pending with Mukesh to unlock repair."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Photo & Video Documentation for Warranty",
+      "points": [
+        "All machine warranty claims must be supported with high-resolution photos and video proof before vendor submission."
+      ]
+    },
+    {
+      "title": "Site Flooring & Sanitation Standards",
+      "points": [
+        "Video audit required for fleet machine cleanliness and site flooring condition."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Dhruv Sharma",
+      "task": "Send email to Yugesh/Tarun Jha for parts; send Team Deployment Sheet; audit Charger/PCON supply chain."
+    },
+    {
+      "person": "Shiv Uniyal",
+      "task": "Speak with Mukesh regarding converter payment clearance; re-send email for Hyundai parts."
+    },
+    {
+      "person": "Sushil Mishra",
+      "task": "Prepare Warranty Report with photos/videos; send live updates on battery/charger status on WhatsApp."
+    },
+    {
+      "person": "Jitendra Budhauliya",
+      "task": "Conduct training for Raj Kishore; check charger requirements across teams; arrange Mumbai train tickets."
+    },
+    {
+      "person": "Umesh Kumar",
+      "task": "Take action on charger and battery issues; ensure proper battery fitting in fleet vehicles."
+    },
+    {
+      "person": "Vinay Singh",
+      "task": "Take Blue Star order to secure required machinery; follow up with machine repair customers."
+    }
+  ]
+}

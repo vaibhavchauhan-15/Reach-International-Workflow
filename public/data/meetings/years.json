@@ -1,0 +1,111 @@
+{
+  "years": [
+    {
+      "year": "2026",
+      "meetingCount": 9,
+      "months": [
+        {
+          "month": "09",
+          "name": "September",
+          "meetingCount": 2,
+          "latestMeetingDate": "2026-09-02",
+          "indexPath": "/data/meetings/2026/09/index.json"
+        },
+        {
+          "month": "08",
+          "name": "August",
+          "meetingCount": 7,
+          "latestMeetingDate": "2026-08-31",
+          "indexPath": "/data/meetings/2026/08/index.json"
+        }
+      ]
+    }
+  ],
+  "totalMeetings": 9,
+  "latestYear": "2026",
+  "latestMonth": "09",
+  "latestMeetingId": "meet-2026-09-02",
+  "chronologicalSequence": [
+    {
+      "id": "meet-2026-08-25",
+      "date": "2026-08-25",
+      "dateFormatted": "25 Aug 2026",
+      "title": "25 Aug 2026",
+      "isHoliday": false,
+      "holidayName": "",
+      "path": "/data/meetings/2026/08/25.json"
+    },
+    {
+      "id": "meet-2026-08-26",
+      "date": "2026-08-26",
+      "dateFormatted": "26 Aug 2026",
+      "title": "26 Aug 2026",
+      "isHoliday": false,
+      "holidayName": "",
+      "path": "/data/meetings/2026/08/26.json"
+    },
+    {
+      "id": "meet-2026-08-27",
+      "date": "2026-08-27",
+      "dateFormatted": "27 Aug 2026",
+      "title": "27 Aug 2026",
+      "isHoliday": false,
+      "holidayName": "",
+      "path": "/data/meetings/2026/08/27.json"
+    },
+    {
+      "id": "meet-2026-08-28",
+      "date": "2026-08-28",
+      "dateFormatted": "28 Aug 2026",
+      "title": "28 Aug 2026",
+      "isHoliday": true,
+      "holidayName": "Rakshabandhan",
+      "path": "/data/meetings/2026/08/28.json"
+    },
+    {
+      "id": "meet-2026-08-29",
+      "date": "2026-08-29",
+      "dateFormatted": "29 Aug 2026",
+      "title": "29 Aug 2026",
+      "isHoliday": false,
+      "holidayName": "",
+      "path": "/data/meetings/2026/08/29.json"
+    },
+    {
+      "id": "meet-2026-08-30",
+      "date": "2026-08-30",
+      "dateFormatted": "30 Aug 2026",
+      "title": "30 Aug 2026",
+      "isHoliday": true,
+      "holidayName": "Sunday (Weekly Off)",
+      "path": "/data/meetings/2026/08/30.json"
+    },
+    {
+      "id": "meet-2026-08-31",
+      "date": "2026-08-31",
+      "dateFormatted": "31 Aug 2026",
+      "title": "31 Aug 2026",
+      "isHoliday": false,
+      "holidayName": "",
+      "path": "/data/meetings/2026/08/31.json"
+    },
+    {
+      "id": "meet-2026-09-01",
+      "date": "2026-09-01",
+      "dateFormatted": "01 Sep 2026",
+      "title": "01 Sep 2026",
+      "isHoliday": false,
+      "holidayName": "",
+      "path": "/data/meetings/2026/09/01.json"
+    },
+    {
+      "id": "meet-2026-09-02",
+      "date": "2026-09-02",
+      "dateFormatted": "02 Sep 2026",
+      "title": "02 Sep 2026",
+      "isHoliday": false,
+      "holidayName": "",
+      "path": "/data/meetings/2026/09/02.json"
+    }
+  ]
+}

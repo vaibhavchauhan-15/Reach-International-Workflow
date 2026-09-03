@@ -39,6 +39,11 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #94a3b8;
   }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #cbd5e1 transparent;
+  }
 }
 
 @layer utilities {
@@ -61,21 +66,19 @@
     mask-image: linear-gradient(
       to bottom,
       transparent 0px,
-      rgba(0, 0, 0, 0.02) 8px,
-      rgba(0, 0, 0, 0.15) 20px,
-      rgba(0, 0, 0, 0.5) 36px,
-      rgba(0, 0, 0, 0.85) 50px,
-      black 64px,
+      rgba(0, 0, 0, 0.04) 4px,
+      rgba(0, 0, 0, 0.25) 12px,
+      rgba(0, 0, 0, 0.7) 22px,
+      black 38px,
       black 100%
     );
     -webkit-mask-image: linear-gradient(
       to bottom,
       transparent 0px,
-      rgba(0, 0, 0, 0.02) 8px,
-      rgba(0, 0, 0, 0.15) 20px,
-      rgba(0, 0, 0, 0.5) 36px,
-      rgba(0, 0, 0, 0.85) 50px,
-      black 64px,
+      rgba(0, 0, 0, 0.04) 4px,
+      rgba(0, 0, 0, 0.25) 12px,
+      rgba(0, 0, 0, 0.7) 22px,
+      black 38px,
       black 100%
     );
   }
@@ -85,35 +88,97 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 52px;
+    height: 48px;
     pointer-events: none;
     z-index: 25;
     background: linear-gradient(
       to bottom,
-      rgba(255, 255, 255, 0.85) 0%,
-      rgba(255, 255, 255, 0.4) 45%,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0.7) 35%,
+      rgba(255, 255, 255, 0.2) 75%,
       rgba(255, 255, 255, 0) 100%
     );
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
-    -webkit-mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
-    margin-bottom: -52px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.6) 60%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.6) 60%, transparent 100%);
+    margin-bottom: -48px;
   }
 }
 
 @media print {
-  body, #root {
+  @page {
+    size: A4 portrait;
+    margin: 12mm 15mm 15mm 15mm;
+  }
+
+  *, *::before, *::after {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  html, body, #root, main, [class*="overflow-hidden"], [class*="overflow-y-auto"] {
     overflow: visible !important;
     height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    position: static !important;
     background: #ffffff !important;
   }
-  header, button, .top-blur-mask, .no-print {
+
+  header, .app-header, button, .top-blur-mask, .no-print, [class*="agentation"], [data-agentation] {
     display: none !important;
   }
+
   .scroll-fade-top {
     mask-image: none !important;
     -webkit-mask-image: none !important;
+  }
+
+  /* Reset outer container padding and shadows for clean full-page print */
+  .meeting-document-outer {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    display: block !important;
+  }
+
+  .meeting-document-card {
+    max-width: 100% !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: transparent !important;
+  }
+
+  /* Page break rules for clean, un-truncated report sections */
+  .print-break-inside-avoid,
+  .breakdown-item,
+  .directive-item,
+  .action-item,
+  tr {
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-break-after-avoid,
+  h1, h2, h3 {
+    break-after: avoid !important;
+    page-break-after: avoid !important;
+  }
+
+  thead {
+    display: table-header-group !important;
+  }
+
+  a {
+    text-decoration: none !important;
+    color: inherit !important;
   }
 }
 

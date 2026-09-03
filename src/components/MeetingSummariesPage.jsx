@@ -22,7 +22,8 @@ export default function MeetingSummariesPage({
     searchQuery = '', 
     setSearchQuery,
     selectedMeeting: controlledSelectedMeeting,
-    setSelectedMeeting: controlledSetSelectedMeeting
+    setSelectedMeeting: controlledSetSelectedMeeting,
+    resetTrigger
 }) {
     // -------------------------------------------------------------
     // State Management
@@ -46,9 +47,29 @@ export default function MeetingSummariesPage({
     const [isLoadingMonth, setIsLoadingMonth] = useState(false);
     const [copySuccess, setCopySuccess] = useState(false);
     const [showScrollTop, setShowScrollTop] = useState(false);
+    const [isCardsScrolled, setIsCardsScrolled] = useState(false);
 
     const pageContainerRef = useRef(null);
+    const cardsContainerRef = useRef(null);
     const copyTimeoutRef = useRef(null);
+
+    // -------------------------------------------------------------
+    // Navbar Reset Coordination
+    // -------------------------------------------------------------
+    useEffect(() => {
+        if (resetTrigger) {
+            setSelectedMeetingMeta(null);
+            setFullMeetingDetail(null);
+            updateSearchQuery('');
+            setIsCardsScrolled(false);
+            if (cardsContainerRef.current) {
+                cardsContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            if (pageContainerRef.current) {
+                pageContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+    }, [resetTrigger]);
 
     // -------------------------------------------------------------
     // Initial Load: Years Index & Search Index
@@ -162,30 +183,87 @@ export default function MeetingSummariesPage({
     // Scroll to top on meeting selection & scroll listener
     // -------------------------------------------------------------
     const scrollToTop = useCallback(() => {
-        if (pageContainerRef.current) {
+        if (selectedMeetingMeta && pageContainerRef.current) {
             pageContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+        } else if (cardsContainerRef.current) {
+            cardsContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
         }
         window.scrollTo({ top: 0, behavior: 'smooth' });
-    }, []);
+    }, [selectedMeetingMeta]);
 
+    // Track scroll for floating back-to-top button & card list scroll fade mask
     useEffect(() => {
-        const container = pageContainerRef.current;
-        if (!container) return;
-
         const handleScroll = () => {
-            const scrollTop = container.scrollTop || window.scrollY || 0;
-            setShowScrollTop(scrollTop > 200);
+            const activeContainer = selectedMeetingMeta ? pageContainerRef.current : cardsContainerRef.current;
+            const scrollTop = activeContainer ? activeContainer.scrollTop : (window.scrollY || 0);
+            setShowScrollTop(scrollTop > 150);
+
+            if (cardsContainerRef.current) {
+                setIsCardsScrolled(cardsContainerRef.current.scrollTop > 4);
+            }
         };
 
-        container.addEventListener('scroll', handleScroll, { passive: true });
+        const activeContainer = selectedMeetingMeta ? pageContainerRef.current : cardsContainerRef.current;
+        if (activeContainer) {
+            activeContainer.addEventListener('scroll', handleScroll, { passive: true });
+        }
         window.addEventListener('scroll', handleScroll, { passive: true });
 
         handleScroll();
 
         return () => {
-            container.removeEventListener('scroll', handleScroll);
+            if (activeContainer) {
+                activeContainer.removeEventListener('scroll', handleScroll);
+            }
             window.removeEventListener('scroll', handleScroll);
         };
+    }, [selectedMeetingMeta, monthData]);
+
+    // Reset card list scroll to top when month, year, or search changes
+    useEffect(() => {
+        if (cardsContainerRef.current) {
+            cardsContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        setIsCardsScrolled(false);
+    }, [selectedMonth, selectedYear, currentSearchQuery]);
+
+    // Smooth wheel forwarding when hovering over static dashboard areas (header/month pills)
+    const handleDashboardWheel = useCallback((e) => {
+        if (cardsContainerRef.current && !cardsContainerRef.current.contains(e.target)) {
+            cardsContainerRef.current.scrollTop += e.deltaY;
+        }
+    }, []);
+
+    // Keyboard navigation for card list (ArrowUp, ArrowDown, PageUp, PageDown, Home, End)
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return;
+            if (selectedMeetingMeta) return;
+            if (!cardsContainerRef.current) return;
+
+            if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                cardsContainerRef.current.scrollBy({ top: 68, behavior: 'smooth' });
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                cardsContainerRef.current.scrollBy({ top: -68, behavior: 'smooth' });
+            } else if (e.key === 'PageDown') {
+                e.preventDefault();
+                cardsContainerRef.current.scrollBy({ top: 260, behavior: 'smooth' });
+            } else if (e.key === 'PageUp') {
+                e.preventDefault();
+                cardsContainerRef.current.scrollBy({ top: -260, behavior: 'smooth' });
+            } else if (e.key === 'Home') {
+                e.preventDefault();
+                cardsContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+            } else if (e.key === 'End') {
+                e.preventDefault();
+                cardsContainerRef.current.scrollTo({ top: cardsContainerRef.current.scrollHeight, behavior: 'smooth' });
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
     }, [selectedMeetingMeta]);
 
     // -------------------------------------------------------------
@@ -314,7 +392,10 @@ export default function MeetingSummariesPage({
     );
 
     // Current Year's Month List & Total Meetings
-    const activeYearObject = yearsData?.years?.find(y => String(y.year) === String(selectedYear));
+    const availableYears = (yearsData?.years && yearsData.years.length > 0)
+        ? yearsData.years
+        : [{ year: selectedYear || '2026', months: [] }];
+    const activeYearObject = availableYears.find(y => String(y.year) === String(selectedYear)) || availableYears[0];
     const availableMonthsForYear = activeYearObject?.months || [];
     const totalMeetingsForYear = activeYearObject?.meetingCount ?? availableMonthsForYear.reduce((acc, m) => acc + (m.meetingCount || 0), 0);
 
@@ -326,16 +407,17 @@ export default function MeetingSummariesPage({
     // Render Component
     // -------------------------------------------------------------
     return (
-        <div ref={pageContainerRef} className="flex-1 min-h-0 flex flex-col overflow-y-auto bg-stage-bg pb-12 w-full select-none animate-fade-in scroll-fade-top relative">
-            <div className="top-blur-mask" aria-hidden="true" />
+        <div className="flex-1 min-h-0 flex flex-col bg-stage-bg w-full select-none animate-fade-in relative overflow-hidden">
             {selectedMeetingMeta ? (
                 /* ========================================================= */
                 /* OPERATIONAL DOCUMENT VIEW                                 */
                 /* ========================================================= */
-                <div className="pt-5 sm:pt-6 md:pt-8 px-3 sm:px-5 md:px-8 pb-12 flex justify-center">
-                    <div className="relative bg-white border border-border-light rounded-2xl p-4 sm:p-6 md:p-8 max-w-4xl w-full mx-auto shadow-card">
+                <div ref={pageContainerRef} className="flex-1 min-h-0 flex flex-col overflow-y-auto pb-12 w-full scroll-fade-top relative">
+                    <div className="top-blur-mask" aria-hidden="true" />
+                    <div className="pt-16 sm:pt-20 md:pt-20 px-3 sm:px-5 md:px-8 pb-12 flex justify-center meeting-document-outer">
+                    <div className="relative bg-white border border-border-light rounded-2xl p-4 sm:p-6 md:p-8 max-w-4xl w-full mx-auto shadow-card meeting-document-card">
                         {/* Top Navigation & Action Row */}
-                        <div className="flex items-center justify-between gap-3 pb-3 sm:pb-3.5 mb-4 sm:mb-5 border-b border-slate-100">
+                        <div className="flex items-center justify-between gap-3 pb-3 sm:pb-3.5 mb-4 sm:mb-5 border-b border-slate-100 no-print">
                             <button 
                                 type="button"
                                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-100/80 border border-border-light active:scale-95 transition-all cursor-pointer shadow-2xs"
@@ -344,10 +426,10 @@ export default function MeetingSummariesPage({
                                     setFullMeetingDetail(null);
                                     scrollToTop();
                                 }}
-                                title="Return to Archive Dashboard"
-                                aria-label="Return to Archive Dashboard"
+                                title="Return to Daily Meeting Report"
+                                aria-label="Return to Daily Meeting Report"
                             >
-                                <span>← Archive Dashboard</span>
+                                <span>← Daily Meeting Report</span>
                             </button>
 
                             {/* Action Buttons: Share & Copy */}
@@ -403,22 +485,44 @@ export default function MeetingSummariesPage({
                         {/* Loaded Content */}
                         {fullMeetingDetail && (
                             <>
+                                {/* Print-Only Formal Report Header */}
+                                <div className="hidden print:block pb-4 mb-5 border-b-2 border-slate-900">
+                                    <div className="flex items-start justify-between">
+                                        <div>
+                                            <div className="text-xl font-black tracking-tight text-slate-900 uppercase">
+                                                REACH INTERNATIONAL
+                                            </div>
+                                            <div className="text-xs text-slate-600 font-semibold tracking-wide">
+                                                Operations & Fleet Equipment Management
+                                            </div>
+                                        </div>
+                                        <div className="text-right">
+                                            <span className="inline-block px-2.5 py-0.5 rounded bg-blue-50 text-blue-800 text-[10px] font-extrabold border border-blue-200 uppercase tracking-wider">
+                                                Daily Operations Report
+                                            </span>
+                                            <div className="text-[10px] text-slate-500 font-mono mt-1">
+                                                Ref: #{fullMeetingDetail.id || 'REPORT'}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                                 {/* Meeting Summary Main Title & Date */}
-                                <div className="pb-4 sm:pb-5 mb-5 sm:mb-6">
-                                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4">
+                                <div className="pb-4 sm:pb-5 mb-5 sm:mb-6 print:pb-2 print:mb-3">
+                                    <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-4 print:text-2xl print:mb-2">
                                         {formatDateDDMMYYYY(fullMeetingDetail.date || fullMeetingDetail.dateDisplay || fullMeetingDetail.dateFormatted || fullMeetingDetail.title)}
                                     </h1>
 
                                     {/* Focus Section */}
                                     {fullMeetingDetail.focus && (
-                                        <div className="bg-slate-50/80 border border-slate-200/90 border-l-4 border-l-theme-breakdown rounded-xl p-3 sm:p-4 shadow-2xs">
+                                        <div className="bg-slate-50/80 border border-slate-200/90 border-l-4 border-l-theme-breakdown rounded-xl p-3 sm:p-4 shadow-2xs print:bg-slate-50 print:border-slate-300 print:shadow-none">
                                             <div className="flex items-center gap-1.5 mb-1">
                                                 <span className="text-xs">🎯</span>
                                                 <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-theme-breakdown">
                                                     Meeting Focus
                                                 </span>
                                             </div>
-                                            <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-semibold">
+                                            <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-semibold print:text-slate-900">
                                                 {fullMeetingDetail.focus}
                                             </p>
                                         </div>
@@ -447,8 +551,8 @@ export default function MeetingSummariesPage({
 
                                 {/* SECTION 01: Machine Breakdowns & Site Updates */}
                                 {fullMeetingDetail.breakdowns && fullMeetingDetail.breakdowns.length > 0 && (
-                                    <section className="mb-6 sm:mb-8 pb-5 sm:pb-6">
-                                        <div className="flex items-center justify-between gap-2 sm:gap-3 mb-3 sm:mb-4">
+                                    <section className="mb-6 sm:mb-8 pb-5 sm:pb-6 print:mb-4 print:pb-2">
+                                        <div className="flex items-center justify-between gap-2 sm:gap-3 mb-3 sm:mb-4 print:break-after-avoid">
                                             <h2 className="text-sm sm:text-base md:text-lg font-extrabold text-slate-900 flex items-center gap-2 sm:gap-2.5 min-w-0 flex-1">
                                                 <span className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-blue-600 text-white text-xs font-extrabold shadow-xs flex-shrink-0">
                                                     01
@@ -457,15 +561,15 @@ export default function MeetingSummariesPage({
                                                     <span className="hidden sm:inline">Machine </span>Breakdowns & Site Updates
                                                 </span>
                                             </h2>
-                                            <span className="text-[11px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full bg-blue-50 text-theme-breakdown border border-blue-200/80 flex-shrink-0 whitespace-nowrap shadow-2xs">
+                                            <span className="text-[11px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full bg-blue-50 text-theme-breakdown border border-blue-200/80 flex-shrink-0 whitespace-nowrap shadow-2xs print:border-blue-300">
                                                 {fullMeetingDetail.breakdowns.length} Sites
                                             </span>
                                         </div>
                                         
-                                        <div className="flex flex-col gap-3 sm:gap-3.5">
+                                        <div className="flex flex-col gap-3 sm:gap-3.5 print:gap-2.5">
                                             {fullMeetingDetail.breakdowns.map((item, idx) => (
-                                                <div key={idx} className="bg-slate-50/70 border border-border-light border-l-4 border-l-theme-breakdown rounded-xl p-3.5 sm:p-4.5 text-xs sm:text-sm shadow-xs flex flex-col gap-2 transition-colors hover:bg-slate-50">
-                                                    <h3 className="text-xs sm:text-sm font-extrabold text-slate-900 flex items-center gap-2 pb-1.5 border-b border-slate-200/70">
+                                                <div key={idx} className="breakdown-item bg-slate-50/70 border border-border-light border-l-4 border-l-theme-breakdown rounded-xl p-3.5 sm:p-4.5 text-xs sm:text-sm shadow-xs flex flex-col gap-2 transition-colors hover:bg-slate-50 print:bg-slate-50/90 print:border-slate-300 print:shadow-none print:break-inside-avoid print:p-3">
+                                                    <h3 className="text-xs sm:text-sm font-extrabold text-slate-900 flex items-center gap-2 pb-1.5 border-b border-slate-200/70 print:border-slate-300">
                                                         <span className="w-2 h-2 rounded-full bg-theme-breakdown"></span>
                                                         <span>{item.site}</span>
                                                     </h3>
@@ -521,34 +625,34 @@ export default function MeetingSummariesPage({
 
                                 {/* SECTION 02: Parts, Procurement & Inventory */}
                                 {fullMeetingDetail.parts && fullMeetingDetail.parts.length > 0 && (
-                                    <section className="mb-6 sm:mb-8 pb-5 sm:pb-6">
-                                        <div className="flex items-center justify-between gap-2 sm:gap-3 mb-3 sm:mb-4">
+                                    <section className="mb-6 sm:mb-8 pb-5 sm:pb-6 print:mb-4 print:pb-2">
+                                        <div className="flex items-center justify-between gap-2 sm:gap-3 mb-3 sm:mb-4 print:break-after-avoid">
                                             <h2 className="text-sm sm:text-base md:text-lg font-extrabold text-slate-900 flex items-center gap-2 sm:gap-2.5 min-w-0 flex-1">
                                                 <span className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-teal-600 text-white text-xs font-extrabold shadow-xs flex-shrink-0">
                                                     02
                                                 </span>
                                                 <span className="truncate sm:overflow-visible">Parts & Procurement</span>
                                             </h2>
-                                            <span className="text-[11px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full bg-teal-50 text-theme-parts border border-teal-200/80 flex-shrink-0 whitespace-nowrap shadow-2xs">
+                                            <span className="text-[11px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full bg-teal-50 text-theme-parts border border-teal-200/80 flex-shrink-0 whitespace-nowrap shadow-2xs print:border-teal-300">
                                                 {fullMeetingDetail.parts.length} Items
                                             </span>
                                         </div>
                                         
-                                        <div className="overflow-x-auto rounded-xl border border-border-light shadow-xs">
+                                        <div className="overflow-x-auto rounded-xl border border-border-light shadow-xs print:overflow-visible print:border-slate-300 print:shadow-none">
                                             <table className="w-full text-left text-xs sm:text-sm border-collapse bg-white">
-                                                <thead>
-                                                    <tr className="bg-slate-100/90 border-b border-border-light text-slate-800 font-bold uppercase text-[10px] sm:text-xs tracking-wider">
-                                                        <th className="px-3.5 py-2.5 sm:px-4 sm:py-3">Part / Equipment</th>
-                                                        <th className="px-3.5 py-2.5 sm:px-4 sm:py-3">Site / Context</th>
-                                                        <th className="px-3.5 py-2.5 sm:px-4 sm:py-3">Status & Next Steps</th>
+                                                <thead className="print:table-header-group">
+                                                    <tr className="bg-slate-100/90 border-b border-border-light text-slate-800 font-bold uppercase text-[10px] sm:text-xs tracking-wider print:bg-slate-100 print:border-slate-300">
+                                                        <th className="px-3.5 py-2.5 sm:px-4 sm:py-3 print:py-2 print:px-3">Part / Equipment</th>
+                                                        <th className="px-3.5 py-2.5 sm:px-4 sm:py-3 print:py-2 print:px-3">Site / Context</th>
+                                                        <th className="px-3.5 py-2.5 sm:px-4 sm:py-3 print:py-2 print:px-3">Status & Next Steps</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     {fullMeetingDetail.parts.map((p, idx) => (
-                                                        <tr key={idx} className="border-b border-border-light last:border-0 hover:bg-slate-50/80 transition-colors">
-                                                            <td className="px-3.5 py-2.5 sm:px-4 sm:py-3 font-bold text-slate-900 min-w-[130px]">{p.part}</td>
-                                                            <td className="px-3.5 py-2.5 sm:px-4 sm:py-3 text-slate-600 min-w-[110px]">{p.context}</td>
-                                                            <td className="px-3.5 py-2.5 sm:px-4 sm:py-3 text-slate-700 min-w-[180px] font-medium">{p.statusNextSteps}</td>
+                                                        <tr key={idx} className="border-b border-border-light last:border-0 hover:bg-slate-50/80 transition-colors print:border-slate-200 print:break-inside-avoid">
+                                                            <td className="px-3.5 py-2.5 sm:px-4 sm:py-3 font-bold text-slate-900 min-w-[130px] print:py-2 print:px-3">{p.part}</td>
+                                                            <td className="px-3.5 py-2.5 sm:px-4 sm:py-3 text-slate-600 min-w-[110px] print:py-2 print:px-3">{p.context}</td>
+                                                            <td className="px-3.5 py-2.5 sm:px-4 sm:py-3 text-slate-700 min-w-[180px] font-medium print:py-2 print:px-3">{p.statusNextSteps}</td>
                                                         </tr>
                                                     ))}
                                                 </tbody>
@@ -559,22 +663,22 @@ export default function MeetingSummariesPage({
 
                                 {/* SECTION 03: Policy & Process Directives */}
                                 {fullMeetingDetail.directives && fullMeetingDetail.directives.length > 0 && (
-                                    <section className="mb-6 sm:mb-8 pb-5 sm:pb-6">
-                                        <div className="flex items-center justify-between gap-2 sm:gap-3 mb-3 sm:mb-4">
+                                    <section className="mb-6 sm:mb-8 pb-5 sm:pb-6 print:mb-4 print:pb-2">
+                                        <div className="flex items-center justify-between gap-2 sm:gap-3 mb-3 sm:mb-4 print:break-after-avoid">
                                             <h2 className="text-sm sm:text-base md:text-lg font-extrabold text-slate-900 flex items-center gap-2 sm:gap-2.5 min-w-0 flex-1">
                                                 <span className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-amber-500 text-white text-xs font-extrabold shadow-xs flex-shrink-0">
                                                     03
                                                 </span>
                                                 <span className="truncate sm:overflow-visible">Directives</span>
                                             </h2>
-                                            <span className="text-[11px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-50 text-theme-directive border border-amber-200/80 flex-shrink-0 whitespace-nowrap shadow-2xs">
+                                            <span className="text-[11px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-50 text-theme-directive border border-amber-200/80 flex-shrink-0 whitespace-nowrap shadow-2xs print:border-amber-300">
                                                 {fullMeetingDetail.directives.length} Policies
                                             </span>
                                         </div>
                                         
-                                        <div className="space-y-3">
+                                        <div className="space-y-3 print:space-y-2.5">
                                             {fullMeetingDetail.directives.map((directive, idx) => (
-                                                <div key={idx} className="bg-amber-50/70 border border-amber-200/80 border-l-4 border-l-theme-directive rounded-xl p-3.5 sm:p-4.5 shadow-xs space-y-2">
+                                                <div key={idx} className="directive-item bg-amber-50/70 border border-amber-200/80 border-l-4 border-l-theme-directive rounded-xl p-3.5 sm:p-4.5 shadow-xs space-y-2 print:bg-amber-50/60 print:border-amber-300 print:shadow-none print:break-inside-avoid print:p-3">
                                                     <h3 className="text-xs sm:text-sm font-extrabold text-amber-950 flex items-center gap-1.5">
                                                         <span>{directive.title}</span>
                                                     </h3>
@@ -591,20 +695,20 @@ export default function MeetingSummariesPage({
 
                                 {/* SECTION 04: Key Action Items & Ownership */}
                                 {fullMeetingDetail.actionItems && fullMeetingDetail.actionItems.length > 0 && (
-                                    <section className="mb-6 sm:mb-8 pb-5 sm:pb-6">
-                                        <div className="flex items-center justify-between gap-2 sm:gap-3 mb-3 sm:mb-4">
+                                    <section className="mb-6 sm:mb-8 pb-5 sm:pb-6 print:mb-4 print:pb-2">
+                                        <div className="flex items-center justify-between gap-2 sm:gap-3 mb-3 sm:mb-4 print:break-after-avoid">
                                             <h2 className="text-sm sm:text-base md:text-lg font-extrabold text-slate-900 flex items-center gap-2 sm:gap-2.5 min-w-0 flex-1">
                                                 <span className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-emerald-600 text-white text-xs font-extrabold shadow-xs flex-shrink-0">
                                                     04
                                                 </span>
                                                 <span className="truncate sm:overflow-visible">Action Items</span>
                                             </h2>
-                                            <span className="text-[11px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-50 text-theme-action border border-emerald-200/80 flex-shrink-0 whitespace-nowrap shadow-2xs">
+                                            <span className="text-[11px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-50 text-theme-action border border-emerald-200/80 flex-shrink-0 whitespace-nowrap shadow-2xs print:border-emerald-300">
                                                 {fullMeetingDetail.actionItems.length} Owners
                                             </span>
                                         </div>
                                         
-                                        <div className="space-y-3 sm:space-y-3.5">
+                                        <div className="space-y-3 sm:space-y-3.5 print:space-y-2.5">
                                             {fullMeetingDetail.actionItems.map((item, idx) => {
                                                 const taskPoints = item.task
                                                     ? item.task.split(';').map(t => t.trim()).filter(Boolean)
@@ -617,7 +721,7 @@ export default function MeetingSummariesPage({
                                                 return (
                                                     <div 
                                                         key={idx} 
-                                                        className="bg-emerald-50/40 border border-emerald-200/80 border-l-4 border-l-theme-action rounded-xl p-3.5 sm:p-4 shadow-2xs hover:bg-emerald-50/70 hover:shadow-xs transition-all flex flex-col sm:flex-row sm:items-start gap-2.5 sm:gap-4"
+                                                        className="action-item bg-emerald-50/40 border border-emerald-200/80 border-l-4 border-l-theme-action rounded-xl p-3.5 sm:p-4 shadow-2xs hover:bg-emerald-50/70 hover:shadow-xs transition-all flex flex-col sm:flex-row sm:items-start gap-2.5 sm:gap-4 print:bg-emerald-50/40 print:border-emerald-300 print:shadow-none print:break-inside-avoid print:p-3"
                                                     >
                                                         {/* Person Info Badge */}
                                                         <div className="flex items-center gap-2 sm:w-48 md:w-56 flex-shrink-0">
@@ -658,11 +762,17 @@ export default function MeetingSummariesPage({
                                     </section>
                                 )}
 
+                                {/* Print-Only Formal Report Footer */}
+                                <div className="hidden print:flex items-center justify-between pt-4 mt-6 border-t border-slate-300 text-[10px] text-slate-500 font-medium">
+                                    <span>Reach International Workflow Portal • Daily Operations Report</span>
+                                    <span>Confidential • Internal Distribution Only</span>
+                                </div>
+
                                 {/* Clean Divider */}
-                                <hr className="border-border-light my-6 sm:my-8" />
+                                <hr className="border-border-light my-6 sm:my-8 no-print" />
 
                                 {/* Document Footer Controls: Previous Day / Next Day */}
-                                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-2">
+                                <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 pt-2 no-print">
                                     <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2 w-full">
                                         <button 
                                             type="button"
@@ -710,149 +820,142 @@ export default function MeetingSummariesPage({
                         )}
                     </div>
                 </div>
+            </div>
             ) : (
                 /* ========================================================= */
                 /* ARCHIVE DASHBOARD VIEW                                    */
                 /* ========================================================= */
-                <div className="pt-5 sm:pt-6 md:pt-8 px-3 sm:px-5 md:px-8 pb-12 max-w-5xl mx-auto w-full flex flex-col gap-6">
-                    {/* 1. Main Header & Search Box Card */}
-                    <div className="bg-white border border-border-light rounded-2xl p-4 sm:p-6 shadow-card flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                        <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight whitespace-nowrap">
-                            Daily Meeting Archive
-                        </h1>
-
-                        {/* Search meetings input */}
-                        <div className="relative flex items-center w-full sm:w-72 md:w-80">
-                            <svg className="absolute left-3.5 text-slate-400 pointer-events-none w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                            </svg>
-                            <input 
-                                type="text" 
-                                className="w-full h-11 sm:h-12 pl-10 sm:pl-11 pr-10 text-xs sm:text-sm bg-slate-50 border border-border-light rounded-xl focus:bg-white focus:border-theme-breakdown focus:ring-2 focus:ring-blue-100 outline-none transition-all text-slate-900 placeholder:text-slate-400 font-medium shadow-2xs"
-                                placeholder="Search (02-09-2026, 2 Sept, Sanand)..."
-                                value={currentSearchQuery}
-                                onChange={(e) => updateSearchQuery(e.target.value)}
-                                aria-label="Search meetings across archive"
-                            />
-                            {currentSearchQuery && (
-                                <button 
-                                    className="absolute right-3 w-6 h-6 flex items-center justify-center rounded-full text-slate-400 hover:text-slate-700 hover:bg-slate-200 text-xs font-bold transition-all active:scale-90" 
-                                    onClick={() => updateSearchQuery('')}
-                                    title="Clear search"
-                                    aria-label="Clear search query"
-                                >
-                                    ✕
-                                </button>
-                            )}
+                <div 
+                    className="flex-1 min-h-0 max-w-5xl mx-auto w-full flex flex-col px-3 sm:px-5 md:px-8 pt-3 sm:pt-4 pb-2 sm:pb-3 gap-2 sm:gap-2.5 overflow-hidden"
+                    onWheel={handleDashboardWheel}
+                >
+                    {/* 1. Sleek, Compact Heading Bar */}
+                    <div className="flex items-center justify-between gap-3 flex-shrink-0 pt-0.5">
+                        <div className="flex items-center gap-2.5 sm:gap-3">
+                            <h1 className="text-lg sm:text-xl md:text-2xl font-extrabold text-slate-900 tracking-tight whitespace-nowrap">
+                                Daily Meeting Report
+                            </h1>
+                            <span className="hidden sm:inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600 border border-slate-200/70">
+                                {totalMeetingsForYear} Total
+                            </span>
                         </div>
-                    </div>
 
-                    {/* 2. Year Header & Month Cards Grid (When Not Searching) */}
-                    {!isSearching && (
-                        <div className="flex flex-col gap-4">
-                            {/* Year Title & Switcher */}
-                            <div className="flex items-center justify-between">
-                                <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
-                                    {selectedYear}
-                                </h2>
-
-                                <div className="flex items-center gap-3">
-                                    <span className="text-xs sm:text-sm font-medium text-slate-500">
-                                        <span className="font-semibold text-slate-800">{totalMeetingsForYear}</span> Total Meetings
-                                    </span>
-
-                                    {/* Multi-year Switcher (if multiple years exist) */}
-                                    {yearsData?.years && yearsData.years.length > 1 && (
-                                        <div className="flex items-center gap-1.5 bg-white p-1 rounded-xl border border-border-light shadow-2xs">
-                                            {yearsData.years.map(y => (
-                                                <button
-                                                    key={y.year}
-                                                    type="button"
-                                                    onClick={() => {
-                                                        setSelectedYear(y.year);
-                                                        if (y.months && y.months.length > 0) {
-                                                            setSelectedMonth(y.months[0].month);
-                                                        }
-                                                    }}
-                                                    className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
-                                                        selectedYear === y.year
-                                                            ? 'bg-slate-900 text-white shadow-xs'
-                                                            : 'text-slate-500 hover:text-slate-800'
-                                                    }`}
-                                                >
-                                                    {y.year}
-                                                </button>
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
-                            </div>
-
-                            {/* Month Cards Grid */}
-                            {availableMonthsForYear.length > 0 && (
-                                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
-                                    {availableMonthsForYear.map(m => {
-                                        const isSelected = selectedMonth === m.month;
+                        {/* Year Switcher / Selector */}
+                        <div className="flex items-center gap-2">
+                            {availableYears.length > 0 && (
+                                <div className="flex items-center gap-1 bg-white p-1 rounded-xl border border-border-light shadow-2xs">
+                                    {availableYears.map(y => {
+                                        const isSelectedYear = String(selectedYear) === String(y.year);
                                         return (
-                                            <div
-                                                key={m.month}
-                                                onClick={() => setSelectedMonth(m.month)}
-                                                className={`p-4 rounded-xl border cursor-pointer transition-all duration-200 flex flex-col justify-between group min-h-[90px] shadow-card hover:shadow-card-hover hover:-translate-y-1 ${
-                                                    isSelected
-                                                        ? 'bg-blue-50/70 border-theme-breakdown ring-2 ring-theme-breakdown/20'
-                                                        : 'bg-white border-border-light hover:border-slate-300'
+                                            <button
+                                                key={y.year}
+                                                type="button"
+                                                onClick={() => {
+                                                    setSelectedYear(y.year);
+                                                    if (y.months && y.months.length > 0) {
+                                                        setSelectedMonth(y.months[0].month);
+                                                    }
+                                                }}
+                                                className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-all cursor-pointer ${
+                                                    isSelectedYear
+                                                        ? 'bg-slate-900 text-white shadow-xs'
+                                                        : 'text-slate-500 hover:text-slate-800 hover:bg-slate-50'
                                                 }`}
+                                                aria-pressed={isSelectedYear}
                                             >
-                                                <div>
-                                                    <h3 className={`text-sm sm:text-base font-extrabold leading-tight ${
-                                                        isSelected ? 'text-theme-breakdown' : 'text-slate-900 group-hover:text-theme-breakdown'
-                                                    }`}>
-                                                        {m.name}
-                                                    </h3>
-                                                    <p className="text-xs text-slate-500 font-semibold mt-1">
-                                                        {m.meetingCount} {m.meetingCount === 1 ? 'Meeting' : 'Meetings'}
-                                                    </p>
-                                                </div>
-
-                                                <div className="mt-2 flex items-center justify-end text-[10px] font-semibold text-slate-400">
-                                                    <span className={`transition-transform group-hover:translate-x-0.5 ${isSelected ? 'text-theme-breakdown font-bold' : ''}`}>→</span>
-                                                </div>
-                                            </div>
+                                                {y.year}
+                                            </button>
                                         );
                                     })}
                                 </div>
                             )}
+                            <span className="sm:hidden text-xs font-semibold text-slate-500">
+                                {totalMeetingsForYear} Total
+                            </span>
+                        </div>
+                    </div>
+
+                    {/* 2. Month Filter Pills Strip (or Search Indicator) */}
+                    {!isSearching ? (
+                        availableMonthsForYear.length > 0 && (
+                            <div className="flex items-center gap-2 overflow-x-auto scrollbar-none py-0.5 flex-shrink-0">
+                                {availableMonthsForYear.map(m => {
+                                    const isSelected = selectedMonth === m.month;
+                                    return (
+                                        <button
+                                            key={m.month}
+                                            type="button"
+                                            onClick={() => setSelectedMonth(m.month)}
+                                            className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-150 cursor-pointer min-h-[36px] select-none ${
+                                                isSelected
+                                                    ? 'bg-theme-breakdown text-white shadow-sm ring-2 ring-theme-breakdown/25 active:scale-[0.98]'
+                                                    : 'bg-white text-slate-600 border border-border-light hover:border-slate-300 hover:text-slate-900 hover:bg-slate-50 active:scale-[0.98]'
+                                            }`}
+                                            aria-pressed={isSelected}
+                                        >
+                                            <span>{m.name}</span>
+                                            <span className={`px-1.5 py-0.2 rounded-full text-[10px] font-extrabold ${
+                                                isSelected 
+                                                    ? 'bg-white/25 text-white' 
+                                                    : 'bg-slate-100 text-slate-600'
+                                            }`}>
+                                                {m.meetingCount}
+                                            </span>
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                        )
+                    ) : (
+                        <div className="flex items-center justify-between gap-3 flex-shrink-0 bg-white px-3.5 py-2 rounded-xl border border-border-light shadow-2xs">
+                            <div className="flex items-center gap-2 min-w-0">
+                                <span className="text-xs font-bold text-slate-900 truncate">
+                                    Search Results for "{currentSearchQuery}"
+                                </span>
+                                <span className="text-xs font-semibold text-slate-500 flex-shrink-0">
+                                    ({searchResults.length} {searchResults.length === 1 ? 'match' : 'matches'})
+                                </span>
+                            </div>
+                            <button
+                                type="button"
+                                onClick={() => updateSearchQuery('')}
+                                className="text-xs font-bold text-theme-breakdown hover:underline cursor-pointer flex-shrink-0"
+                            >
+                                Clear
+                            </button>
                         </div>
                     )}
 
                     {/* 3. Monthly Meeting Stream / List Section */}
-                    <div className="flex flex-col gap-3.5">
-                        {/* Section Header */}
-                        <div className="flex items-center justify-between pt-2">
-                            <h2 className="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">
-                                {isSearching 
-                                    ? `Search Results (${searchResults.length})` 
-                                    : `${displayMonthName} ${selectedYear}`}
-                            </h2>
-                            <span className="text-xs font-semibold text-slate-500">
-                                {isSearching 
-                                    ? `${searchResults.length} ${searchResults.length === 1 ? 'match' : 'matches'} across archive`
-                                    : `${monthData?.meetings?.length || 0} Records`}
-                            </span>
-                        </div>
-
+                    <div className="flex-1 min-h-0 flex flex-col overflow-hidden">
                         {/* Loading Month State */}
                         {isLoadingMonth && !isSearching && (
-                            <div className="py-12 bg-white rounded-2xl border border-border-light flex flex-col items-center justify-center gap-3 shadow-2xs">
-                                <div className="w-8 h-8 border-3 border-theme-breakdown border-t-transparent rounded-full animate-spin"></div>
+                            <div className="py-10 bg-white rounded-2xl border border-border-light flex flex-col items-center justify-center gap-3 shadow-2xs">
+                                <div className="w-7 h-7 border-3 border-theme-breakdown border-t-transparent rounded-full animate-spin"></div>
                                 <span className="text-xs font-semibold text-slate-500">Loading meeting records...</span>
                             </div>
                         )}
 
                         {/* List Items Stream */}
                         {(!isLoadingMonth || isSearching) && (
-                            <div className="flex flex-col gap-2.5">
+                            <div 
+                                ref={cardsContainerRef}
+                                tabIndex={0}
+                                aria-label="Meeting summaries list"
+                                onScroll={(e) => {
+                                    const scrolled = e.currentTarget.scrollTop > 4;
+                                    if (scrolled !== isCardsScrolled) {
+                                        setIsCardsScrolled(scrolled);
+                                    }
+                                }}
+                                className={`flex-1 min-h-0 overflow-y-auto flex flex-col gap-2 pt-0.5 pr-1.5 sm:pr-2 pb-8 overscroll-contain scroll-smooth focus:outline-none focus-visible:ring-1 focus-visible:ring-theme-breakdown/30 rounded-xl transition-[mask-image] duration-200 ${
+                                    isCardsScrolled ? 'scroll-fade-top' : ''
+                                }`}
+                                style={{
+                                    WebkitOverflowScrolling: 'touch',
+                                    willChange: 'scroll-position',
+                                }}
+                            >
                                 {(isSearching ? searchResults : (monthData?.meetings || [])).map((meeting) => {
                                     const shortDate = formatDateDDMMYYYY(meeting.date || meeting.dateDisplay || meeting.dateFormatted || meeting.title);
                                     
@@ -860,7 +963,11 @@ export default function MeetingSummariesPage({
                                         return (
                                             <div 
                                                 key={meeting.id} 
-                                                className="bg-white border border-border-light border-l-4 border-l-amber-500 rounded-xl p-3.5 sm:p-4 shadow-card flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 min-h-[56px] select-none"
+                                                className="bg-white border border-border-light border-l-4 border-l-amber-500 rounded-xl p-3 sm:px-4 sm:py-3 shadow-card flex flex-col sm:flex-row sm:items-center justify-between gap-2 min-h-[52px] select-none flex-shrink-0"
+                                                style={{
+                                                    contentVisibility: 'auto',
+                                                    containIntrinsicSize: 'auto 52px',
+                                                }}
                                             >
                                                 <div className="flex items-center gap-2.5 sm:gap-3.5">
                                                     <span className="text-xs sm:text-sm font-extrabold text-slate-900 min-w-[64px] flex-shrink-0">
@@ -887,7 +994,11 @@ export default function MeetingSummariesPage({
                                         <div 
                                             key={meeting.id} 
                                             onClick={() => handleSelectMeeting(meeting)}
-                                            className="bg-white border border-border-light border-l-4 border-l-theme-breakdown rounded-xl p-3.5 sm:p-4.5 shadow-card hover:shadow-card-hover hover:-translate-y-0.5 cursor-pointer transition-all duration-200 flex flex-col sm:flex-row sm:items-center justify-between gap-3 group min-h-[56px]"
+                                            className="bg-white border border-border-light border-l-4 border-l-theme-breakdown rounded-xl p-3 sm:px-4 sm:py-3.5 shadow-card hover:shadow-card-hover hover:-translate-y-0.5 cursor-pointer transition-all duration-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 group min-h-[52px] flex-shrink-0"
+                                            style={{
+                                                contentVisibility: 'auto',
+                                                containIntrinsicSize: 'auto 52px',
+                                            }}
                                         >
                                             <div className="flex items-start sm:items-center gap-2.5 sm:gap-3.5 min-w-0 flex-1">
                                                 {/* Date Label */}
@@ -933,21 +1044,36 @@ export default function MeetingSummariesPage({
                                         </div>
                                     );
                                 })}
+
+                                {/* Clean End of List Indicator */}
+                                {(isSearching ? searchResults : (monthData?.meetings || [])).length > 0 && (
+                                    <div className="pt-2 pb-2 flex items-center justify-center gap-2 text-xs font-semibold text-slate-400 select-none flex-shrink-0">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+                                        <span>
+                                            {isSearching 
+                                                ? `End of search results (${searchResults.length} ${searchResults.length === 1 ? 'record' : 'records'})` 
+                                                : `All ${monthData?.meetings?.length || 0} records loaded for ${displayMonthName} ${selectedYear || '2026'}`}
+                                        </span>
+                                        <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+                                    </div>
+                                )}
                             </div>
                         )}
 
                         {/* Empty Search State */}
                         {isSearching && searchResults.length === 0 && (
-                            <div className="text-center py-12 px-4 bg-white border border-border-light rounded-xl max-w-md mx-auto my-6 shadow-xs">
-                                <span className="text-4xl mb-3 block">🔍</span>
-                                <h3 className="text-base font-extrabold text-slate-900 mb-1">No meeting summaries found</h3>
-                                <p className="text-xs sm:text-sm text-slate-500 mb-4">No summaries matched "{currentSearchQuery}".</p>
-                                <button 
-                                    className="inline-flex items-center justify-center px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold bg-white text-slate-800 border border-border-light hover:bg-stage-bg active:scale-95 transition-all shadow-xs min-h-[44px]" 
-                                    onClick={() => updateSearchQuery('')}
-                                >
-                                    Clear Search
-                                </button>
+                            <div className="flex-1 flex items-center justify-center p-4">
+                                <div className="text-center py-10 px-4 bg-white border border-border-light rounded-xl max-w-md mx-auto shadow-xs">
+                                    <span className="text-4xl mb-3 block">🔍</span>
+                                    <h3 className="text-base font-extrabold text-slate-900 mb-1">No meeting summaries found</h3>
+                                    <p className="text-xs sm:text-sm text-slate-500 mb-4">No summaries matched "{currentSearchQuery}".</p>
+                                    <button 
+                                        className="inline-flex items-center justify-center px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold bg-white text-slate-800 border border-border-light hover:bg-stage-bg active:scale-95 transition-all shadow-xs min-h-[44px]" 
+                                        onClick={() => updateSearchQuery('')}
+                                    >
+                                        Clear Search
+                                    </button>
+                                </div>
                             </div>
                         )}
                     </div>

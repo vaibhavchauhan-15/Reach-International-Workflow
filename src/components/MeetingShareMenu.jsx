@@ -4,12 +4,10 @@ import { formatMeetingSummary, copyTextToClipboard, formatDateDDMMYYYY } from '.
 export default function MeetingShareMenu({ meeting, disabled = false }) {
     const [isOpen, setIsOpen] = useState(false);
     const [copiedLink, setCopiedLink] = useState(false);
-    const [copiedText, setCopiedText] = useState(false);
     const [hasNativeShare, setHasNativeShare] = useState(false);
 
     const menuRef = useRef(null);
     const linkTimeoutRef = useRef(null);
-    const textTimeoutRef = useRef(null);
 
     // Detect Web Share API availability
     useEffect(() => {
@@ -20,7 +18,6 @@ export default function MeetingShareMenu({ meeting, disabled = false }) {
     useEffect(() => {
         return () => {
             if (linkTimeoutRef.current) clearTimeout(linkTimeoutRef.current);
-            if (textTimeoutRef.current) clearTimeout(textTimeoutRef.current);
         };
     }, []);
 
@@ -82,35 +79,17 @@ export default function MeetingShareMenu({ meeting, disabled = false }) {
         }
     };
 
-    // Action 2: WhatsApp Share
+    // Action 2: WhatsApp Share (direct link share)
     const handleWhatsAppShare = () => {
         if (!meeting) return;
         const shareUrl = getShareUrl();
 
-        let waText = `🏢 *Reach International Operational Summary*\n`;
-        waText += `📅 *Date:* ${displayDate}\n`;
+        let waText = `🏢 *Reach International Operational Summary*\n` +
+                     `📅 *Date:* ${displayDate}\n`;
         if (meeting.focus) {
             waText += `🎯 *Focus:* ${meeting.focus}\n`;
         }
-        waText += `\n🔗 *Full Report Link:* ${shareUrl}\n\n`;
-
-        if (meeting.breakdowns && meeting.breakdowns.length > 0) {
-            waText += `*1. Machine Breakdowns (${meeting.breakdowns.length} Sites):*\n`;
-            meeting.breakdowns.forEach((b) => {
-                waText += `• *${b.site}:* ${b.issue || ''} ${b.status ? `[Status: ${b.status}]` : ''}\n`;
-            });
-            waText += `\n`;
-        }
-
-        if (meeting.actionItems && meeting.actionItems.length > 0) {
-            waText += `*Key Action Items:*\n`;
-            meeting.actionItems.forEach((a) => {
-                waText += `• *${a.person}:* ${a.task}\n`;
-            });
-            waText += `\n`;
-        }
-
-        waText += `_Access full breakdown, parts & policy directives in the link above._`;
+        waText += `\n🔗 *Full Report Link:*\n${shareUrl}`;
 
         const whatsappUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(waText)}`;
         window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
@@ -134,22 +113,7 @@ export default function MeetingShareMenu({ meeting, disabled = false }) {
         setIsOpen(false);
     };
 
-    // Action 4: Copy Formatted Summary Text
-    const handleCopyText = async () => {
-        if (!meeting) return;
-        const fullText = formatMeetingSummary(meeting);
-        const success = await copyTextToClipboard(fullText);
-
-        if (success) {
-            setCopiedText(true);
-            if (textTimeoutRef.current) clearTimeout(textTimeoutRef.current);
-            textTimeoutRef.current = setTimeout(() => {
-                setCopiedText(false);
-            }, 2500);
-        }
-    };
-
-    // Action 5: Native Device Share
+    // Action 4: Native Device Share
     const handleNativeShare = async () => {
         if (!meeting || !hasNativeShare) return;
         const shareUrl = getShareUrl();
@@ -167,11 +131,19 @@ export default function MeetingShareMenu({ meeting, disabled = false }) {
         }
     };
 
-    // Action 6: Print / Save PDF
+    // Action 5: Print / Save PDF
     const handlePrint = () => {
         setIsOpen(false);
+        const originalTitle = document.title;
+        if (meeting) {
+            const dateStr = displayDate || formatDateDDMMYYYY(meeting.date || meeting.dateDisplay || meeting.dateFormatted || '');
+            document.title = `Reach International - Operational Report - ${dateStr}`;
+        }
         setTimeout(() => {
             window.print();
+            setTimeout(() => {
+                document.title = originalTitle;
+            }, 1000);
         }, 150);
     };
 
@@ -257,13 +229,24 @@ export default function MeetingShareMenu({ meeting, disabled = false }) {
                             <button 
                                 type="button" 
                                 onClick={handleCopyLink}
-                                className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all shadow-2xs flex-shrink-0 cursor-pointer active:scale-95 ${
+                                title={copiedLink ? 'Link copied!' : 'Copy meeting link'}
+                                aria-label={copiedLink ? 'Copied link to clipboard' : 'Copy meeting link'}
+                                className={`w-7 h-7 rounded-lg flex items-center justify-center transition-all shadow-2xs flex-shrink-0 cursor-pointer active:scale-95 ${
                                     copiedLink 
-                                        ? 'bg-emerald-600 text-white' 
-                                        : 'bg-white text-slate-800 border border-border-light hover:bg-slate-100 hover:text-theme-breakdown'
+                                        ? 'bg-emerald-600 text-white border border-emerald-600' 
+                                        : 'bg-white text-slate-600 border border-border-light hover:bg-slate-100 hover:text-theme-breakdown'
                                 }`}
                             >
-                                {copiedLink ? '✓ Copied' : 'Copy'}
+                                {copiedLink ? (
+                                    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                        <polyline points="20 6 9 17 4 12"></polyline>
+                                    </svg>
+                                ) : (
+                                    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                                    </svg>
+                                )}
                             </button>
                         </div>
                     </div>
@@ -287,7 +270,7 @@ export default function MeetingShareMenu({ meeting, disabled = false }) {
                                         Send to WhatsApp
                                     </span>
                                     <span className="text-[10px] text-slate-500 font-medium">
-                                        Formatted message with quick overview
+                                        Share direct meeting report link
                                     </span>
                                 </div>
                             </div>
@@ -319,41 +302,6 @@ export default function MeetingShareMenu({ meeting, disabled = false }) {
                                 </div>
                             </div>
                             <span className="text-xs text-slate-400 group-hover:text-blue-700 transition-transform group-hover:translate-x-0.5">
-                                →
-                            </span>
-                        </button>
-
-                        {/* Copy Full Text Summary */}
-                        <button
-                            type="button"
-                            onClick={handleCopyText}
-                            className="w-full flex items-center justify-between p-2 rounded-xl text-left hover:bg-slate-100/80 border border-transparent hover:border-slate-200 transition-all cursor-pointer group"
-                        >
-                            <div className="flex items-center gap-2.5">
-                                <span className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 transition-colors ${
-                                    copiedText ? 'bg-emerald-600 text-white' : 'bg-slate-100 text-slate-700 group-hover:bg-slate-200'
-                                }`}>
-                                    {copiedText ? (
-                                        <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-white" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                            <polyline points="20 6 9 17 4 12"></polyline>
-                                        </svg>
-                                    ) : (
-                                        <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-                                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-                                        </svg>
-                                    )}
-                                </span>
-                                <div className="flex flex-col">
-                                    <span className="text-xs font-bold text-slate-900">
-                                        {copiedText ? '✓ Summary Copied!' : 'Copy Text Summary'}
-                                    </span>
-                                    <span className="text-[10px] text-slate-500 font-medium">
-                                        Plain-text formatted for Slack & chat
-                                    </span>
-                                </div>
-                            </div>
-                            <span className="text-xs text-slate-400 group-hover:text-slate-700 transition-transform group-hover:translate-x-0.5">
                                 →
                             </span>
                         </button>

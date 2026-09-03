@@ -1,14 +1,13 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { searchMeetings } from '../src/utils/meetingDataService.js';
-import { formatDateDDMMYYYY, parseAnyDateToParts } from '../src/utils/meetingUtils.js';
+import { searchMeetings, formatDateDDMMYYYY, parseAnyDateToParts } from '../src/utils/meetingUtils.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
-const searchIndex = JSON.parse(fs.readFileSync(path.join(rootDir, 'public/data/meetings/search-index.json'), 'utf-8'));
+const searchIndex = JSON.parse(fs.readFileSync(path.join(rootDir, 'src/data/meetings/search-index.json'), 'utf-8'));
 
 const testQueries = [
     { query: '02-09-2026', expectedDate: '2026-09-02' },

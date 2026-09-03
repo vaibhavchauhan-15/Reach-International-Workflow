@@ -1,11 +1,11 @@
 import React from 'react';
 import { Agentation } from "agentation";
-import WorkflowPresentation from "./WorkflowPresentation";
+import MeetingSummariesPage from "./components/MeetingSummariesPage";
 
 function App() {
   return (
     <>
-      <WorkflowPresentation />
+      <MeetingSummariesPage />
       {process.env.NODE_ENV === "development" && <Agentation />}
     </>
   );

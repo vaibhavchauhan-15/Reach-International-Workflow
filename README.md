@@ -349,11 +349,6 @@ Reach-International-Workflow/
 ├── .agent/                    # Antigravity agent configuration & rules
 ├── .agents/                   # Local multi-agent skills and workflow memory
 ├── public/                    # Static public assets
-│   ├── data/
-│   │   └── meetings/          # Static hierarchical meeting storage & indexes
-│   │       ├── years.json     # High-level year & month tree with meeting counts
-│   │       ├── search-index.json # Pre-built lightweight full-text search index
-│   │       └── YYYY/MM/       # Monthly indexes & individual DD.json daily meetings
 │   ├── apple-touch-icon.png   # iOS home screen web app icon (180x180)
 │   ├── favicon.ico            # Root favicon
 │   ├── favicon-96x96.png      # High-DPI browser tab favicon
@@ -362,7 +357,8 @@ Reach-International-Workflow/
 │   ├── web-app-manifest-*.png # 192px and 512px app icons
 │   └── images/                # Local SOP flow images & diagrams
 ├── scripts/
-│   └── generate-meeting-indexes.js # Build-time generator for indexes & JSONs
+│   ├── generate-meeting-indexes.js # Build-time generator for indexes & daily JSONs
+│   └── test-search.js         # Search engine automated verification suite
 ├── src/
 │   ├── components/            # Modular React UI components
 │   │   ├── CoverSlide.jsx     # Overview cover slide & presentation starter
@@ -376,12 +372,15 @@ Reach-International-Workflow/
 │   │   ├── ReportDetailModal.jsx  # Detail modal for operational reports
 │   │   ├── ReportsPage.jsx        # SOP reports & knowledge base directory
 │   │   └── SlideDeckGrid.jsx      # Quick-jump slide index overview grid
-│   ├── data/                  # Business data models & modular assets
-│   │   ├── meetings/          # Modular daily meeting JSON files (YYYY/MM/DD.json)
+│   ├── data/                  # Centralized business data models & assets (Single Source of Truth)
+│   │   ├── meetings/          # Centralized daily meetings & hierarchical indexes
+│   │   │   ├── years.json     # High-level year & month tree with meeting counts
+│   │   │   ├── search-index.json # Pre-built lightweight full-text search index
+│   │   │   └── YYYY/MM/       # Monthly indexes & individual DD.json daily meetings
 │   │   ├── reportsData.js     # SOP reports, metrics & department audits
 │   │   └── workflowsData.js   # 11 SOP workflow chapters & flowchart node definitions
 │   ├── utils/
-│   │   ├── meetingDataService.js # In-memory cached data fetcher & search engine
+│   │   ├── meetingDataService.js # Centralized module data loader & search engine
 │   │   └── meetingUtils.js    # WhatsApp/Slack text formatting & clipboard helpers
 │   ├── App.jsx                # Application root with Agentation dev tools
 │   ├── WorkflowPresentation.jsx # Main state coordinator, router & event listener

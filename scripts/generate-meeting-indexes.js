@@ -245,7 +245,7 @@ function getAllJsonFiles(dir) {
         const fullPath = path.join(dir, entry.name);
         if (entry.isDirectory()) {
             results = results.concat(getAllJsonFiles(fullPath));
-        } else if (entry.isFile() && entry.name.endsWith('.json')) {
+        } else if (entry.isFile() && /^\d{2}\.json$/.test(entry.name)) {
             results.push(fullPath);
         }
     }
@@ -292,7 +292,7 @@ async function generate() {
     const meetings = await loadMeetingsSource();
     console.log(`Found ${meetings.length} source meeting records.`);
 
-    const outputBaseDir = path.resolve(rootDir, 'public/data/meetings');
+    const outputBaseDir = path.resolve(rootDir, 'src/data/meetings');
     if (!fs.existsSync(outputBaseDir)) {
         fs.mkdirSync(outputBaseDir, { recursive: true });
     }

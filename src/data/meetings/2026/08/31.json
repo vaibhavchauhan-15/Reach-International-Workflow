@@ -1,9 +1,12 @@
 {
   "id": "meet-2026-08-31",
-  "title": "31 Aug 2026",
+  "title": "31-08-2026",
   "date": "2026-08-31",
-  "dateFormatted": "31 Aug 2026",
+  "dateDisplay": "31-08-2026",
+  "dateFormatted": "31-08-2026",
   "focus": "Google Forms Parts Repair Escalation, Battery Capacity (6V 250Ah) & Cable Tree Assembly, Machine Angle Data Monitoring & Rotary Shield Installation",
+  "isHoliday": false,
+  "holidayName": "",
   "breakdowns": [
     {
       "site": "Fleet Breakdown Operations & Site Issues",

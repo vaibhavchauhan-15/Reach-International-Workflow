@@ -1,9 +1,12 @@
 {
   "id": "meet-2026-08-27",
-  "title": "27 Aug 2026",
+  "title": "27-08-2026",
   "date": "2026-08-27",
-  "dateFormatted": "27 Aug 2026",
+  "dateDisplay": "27-08-2026",
+  "dateFormatted": "27-08-2026",
   "focus": "Breakdown Closures, AGM vs Flooded Battery Protocol, Jamnagar Cable Tray & Mundra Cross-Rent Spares",
+  "isHoliday": false,
+  "holidayName": "",
   "breakdowns": [
     {
       "site": "Vapi / JK Paper",

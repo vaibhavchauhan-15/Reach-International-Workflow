@@ -326,13 +326,13 @@ export default function MeetingSummariesPage({
     // Render Component
     // -------------------------------------------------------------
     return (
-        <div ref={pageContainerRef} className="flex-1 flex flex-col overflow-y-auto bg-stage-bg pb-12 w-full select-none animate-fade-in scroll-fade-top relative">
+        <div ref={pageContainerRef} className="flex-1 min-h-0 flex flex-col overflow-y-auto bg-stage-bg pb-12 w-full select-none animate-fade-in scroll-fade-top relative">
             <div className="top-blur-mask" aria-hidden="true" />
             {selectedMeetingMeta ? (
                 /* ========================================================= */
                 /* OPERATIONAL DOCUMENT VIEW                                 */
                 /* ========================================================= */
-                <div className="pt-20 sm:pt-22 md:pt-24 px-3 sm:px-5 md:px-8 pb-12 flex justify-center">
+                <div className="pt-5 sm:pt-6 md:pt-8 px-3 sm:px-5 md:px-8 pb-12 flex justify-center">
                     <div className="relative bg-white border border-border-light rounded-2xl p-4 sm:p-6 md:p-8 max-w-4xl w-full mx-auto shadow-card">
                         {/* Top Navigation & Action Row */}
                         <div className="flex items-center justify-between gap-3 pb-3 sm:pb-3.5 mb-4 sm:mb-5 border-b border-slate-100">
@@ -411,11 +411,14 @@ export default function MeetingSummariesPage({
 
                                     {/* Focus Section */}
                                     {fullMeetingDetail.focus && (
-                                        <div className="bg-slate-50/80 border border-slate-200/80 rounded-xl p-4 sm:p-5">
-                                            <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-theme-breakdown block mb-1">
-                                                Focus
-                                            </span>
-                                            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
+                                        <div className="bg-slate-50/80 border border-slate-200/90 border-l-4 border-l-theme-breakdown rounded-xl p-3 sm:p-4 shadow-2xs">
+                                            <div className="flex items-center gap-1.5 mb-1">
+                                                <span className="text-xs">🎯</span>
+                                                <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-theme-breakdown">
+                                                    Meeting Focus
+                                                </span>
+                                            </div>
+                                            <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-semibold">
                                                 {fullMeetingDetail.focus}
                                             </p>
                                         </div>
@@ -445,14 +448,16 @@ export default function MeetingSummariesPage({
                                 {/* SECTION 01: Machine Breakdowns & Site Updates */}
                                 {fullMeetingDetail.breakdowns && fullMeetingDetail.breakdowns.length > 0 && (
                                     <section className="mb-6 sm:mb-8 pb-5 sm:pb-6">
-                                        <div className="flex items-center justify-between mb-3 sm:mb-4">
-                                            <h2 className="text-base sm:text-lg font-extrabold text-slate-900 flex items-center gap-2.5">
+                                        <div className="flex items-center justify-between gap-2 sm:gap-3 mb-3 sm:mb-4">
+                                            <h2 className="text-sm sm:text-base md:text-lg font-extrabold text-slate-900 flex items-center gap-2 sm:gap-2.5 min-w-0 flex-1">
                                                 <span className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-blue-600 text-white text-xs font-extrabold shadow-xs flex-shrink-0">
                                                     01
                                                 </span>
-                                                <span>Machine Breakdowns & Site Updates</span>
+                                                <span className="truncate sm:overflow-visible">
+                                                    <span className="hidden sm:inline">Machine </span>Breakdowns & Site Updates
+                                                </span>
                                             </h2>
-                                            <span className="text-[11px] sm:text-xs font-bold px-2 py-0.5 rounded-full bg-blue-50 text-theme-breakdown border border-blue-100">
+                                            <span className="text-[11px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full bg-blue-50 text-theme-breakdown border border-blue-200/80 flex-shrink-0 whitespace-nowrap shadow-2xs">
                                                 {fullMeetingDetail.breakdowns.length} Sites
                                             </span>
                                         </div>
@@ -517,14 +522,14 @@ export default function MeetingSummariesPage({
                                 {/* SECTION 02: Parts, Procurement & Inventory */}
                                 {fullMeetingDetail.parts && fullMeetingDetail.parts.length > 0 && (
                                     <section className="mb-6 sm:mb-8 pb-5 sm:pb-6">
-                                        <div className="flex items-center justify-between mb-3 sm:mb-4">
-                                            <h2 className="text-base sm:text-lg font-extrabold text-slate-900 flex items-center gap-2.5">
+                                        <div className="flex items-center justify-between gap-2 sm:gap-3 mb-3 sm:mb-4">
+                                            <h2 className="text-sm sm:text-base md:text-lg font-extrabold text-slate-900 flex items-center gap-2 sm:gap-2.5 min-w-0 flex-1">
                                                 <span className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-teal-600 text-white text-xs font-extrabold shadow-xs flex-shrink-0">
                                                     02
                                                 </span>
-                                                <span>Parts & Procurement</span>
+                                                <span className="truncate sm:overflow-visible">Parts & Procurement</span>
                                             </h2>
-                                            <span className="text-[11px] sm:text-xs font-bold px-2 py-0.5 rounded-full bg-teal-50 text-theme-parts border border-teal-100">
+                                            <span className="text-[11px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full bg-teal-50 text-theme-parts border border-teal-200/80 flex-shrink-0 whitespace-nowrap shadow-2xs">
                                                 {fullMeetingDetail.parts.length} Items
                                             </span>
                                         </div>
@@ -555,14 +560,14 @@ export default function MeetingSummariesPage({
                                 {/* SECTION 03: Policy & Process Directives */}
                                 {fullMeetingDetail.directives && fullMeetingDetail.directives.length > 0 && (
                                     <section className="mb-6 sm:mb-8 pb-5 sm:pb-6">
-                                        <div className="flex items-center justify-between mb-3 sm:mb-4">
-                                            <h2 className="text-base sm:text-lg font-extrabold text-slate-900 flex items-center gap-2.5">
+                                        <div className="flex items-center justify-between gap-2 sm:gap-3 mb-3 sm:mb-4">
+                                            <h2 className="text-sm sm:text-base md:text-lg font-extrabold text-slate-900 flex items-center gap-2 sm:gap-2.5 min-w-0 flex-1">
                                                 <span className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-amber-500 text-white text-xs font-extrabold shadow-xs flex-shrink-0">
                                                     03
                                                 </span>
-                                                <span>Directives</span>
+                                                <span className="truncate sm:overflow-visible">Directives</span>
                                             </h2>
-                                            <span className="text-[11px] sm:text-xs font-bold px-2 py-0.5 rounded-full bg-amber-50 text-theme-directive border border-amber-100">
+                                            <span className="text-[11px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full bg-amber-50 text-theme-directive border border-amber-200/80 flex-shrink-0 whitespace-nowrap shadow-2xs">
                                                 {fullMeetingDetail.directives.length} Policies
                                             </span>
                                         </div>
@@ -587,14 +592,14 @@ export default function MeetingSummariesPage({
                                 {/* SECTION 04: Key Action Items & Ownership */}
                                 {fullMeetingDetail.actionItems && fullMeetingDetail.actionItems.length > 0 && (
                                     <section className="mb-6 sm:mb-8 pb-5 sm:pb-6">
-                                        <div className="flex items-center justify-between mb-3 sm:mb-4">
-                                            <h2 className="text-base sm:text-lg font-extrabold text-slate-900 flex items-center gap-2.5">
+                                        <div className="flex items-center justify-between gap-2 sm:gap-3 mb-3 sm:mb-4">
+                                            <h2 className="text-sm sm:text-base md:text-lg font-extrabold text-slate-900 flex items-center gap-2 sm:gap-2.5 min-w-0 flex-1">
                                                 <span className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-emerald-600 text-white text-xs font-extrabold shadow-xs flex-shrink-0">
                                                     04
                                                 </span>
-                                                <span>Action Items</span>
+                                                <span className="truncate sm:overflow-visible">Action Items</span>
                                             </h2>
-                                            <span className="text-[11px] sm:text-xs font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-theme-action border border-emerald-100">
+                                            <span className="text-[11px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full bg-emerald-50 text-theme-action border border-emerald-200/80 flex-shrink-0 whitespace-nowrap shadow-2xs">
                                                 {fullMeetingDetail.actionItems.length} Owners
                                             </span>
                                         </div>
@@ -709,7 +714,7 @@ export default function MeetingSummariesPage({
                 /* ========================================================= */
                 /* ARCHIVE DASHBOARD VIEW                                    */
                 /* ========================================================= */
-                <div className="pt-20 sm:pt-22 md:pt-24 px-3 sm:px-5 md:px-8 pb-12 max-w-5xl mx-auto w-full flex flex-col gap-6">
+                <div className="pt-5 sm:pt-6 md:pt-8 px-3 sm:px-5 md:px-8 pb-12 max-w-5xl mx-auto w-full flex flex-col gap-6">
                     {/* 1. Main Header & Search Box Card */}
                     <div className="bg-white border border-border-light rounded-2xl p-4 sm:p-6 shadow-card flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                         <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight whitespace-nowrap">

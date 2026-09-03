@@ -1,0 +1,135 @@
+{
+  "id": "meet-2026-09-03",
+  "title": "03-09-2026",
+  "date": "2026-09-03",
+  "dateDisplay": "03-09-2026",
+  "dateFormatted": "03-09-2026",
+  "focus": "Operator Dispatch, Sanand Fleet Diagnostics, Spares Clearance & Mandatory Leave Policy",
+  "isHoliday": false,
+  "holidayName": "",
+  "breakdowns": [
+    {
+      "site": "Sanand Site (Supervisor Pravesh) — Blue Star Scissor Lift Fleet",
+      "issue": "Actuator coil burnt out on-site and replaced; recurring starting trouble and battery discharging repeatedly every other day. Operator absent due to monsoon fever, forcing supervisor to manually haul oil and operate machines without notifying Imran.",
+      "action": "Imran Khan deploying replacement operator immediately. Direct escalation protocol enforced: supervisors strictly instructed to call or WhatsApp Imran immediately rather than running machines unassisted. Pravesh to log battery diagnostics before requesting new battery pack.",
+      "status": "Operator Dispatched; Direct Communication Protocol Enforced"
+    },
+    {
+      "site": "Sanand Site — JCB 3246 Scissor Lift (Serial No. 5710, 2-Month Old Machine)",
+      "issue": "Machine standing idle in breakdown for 2–3 days due to electrical wiring harness failure.",
+      "action": "Direct warranty claim escalated to JCB OEM by Sushil Mishra. JCB technical team verified wiring harness is inherently OK and advised inspecting for a localized pinch or short circuit. Pardeep Tomar inspecting on site today to trace and isolate electrical short.",
+      "status": "Under JCB Warranty Support; On-Site Short-Circuit Inspection Underway"
+    },
+    {
+      "site": "Dulhera Site (CG Power Client) — 12-Meter Scissor Lift & Fleet Tyres",
+      "issue": "Tyres sold to CG Power arrived on site; 12-meter scissor lift has operational function defects requiring technician troubleshooting.",
+      "action": "Imran Khan mobilizing mechanic urgently to Dulhera to execute tyre fitment and diagnose 12m scissor functionality. Commercial invoicing to be coordinated by Pardeep Tomar.",
+      "status": "Mechanic Dispatched; Tyre Fitment & Function Diagnostics Active"
+    },
+    {
+      "site": "Sanand Site (Tata Micron) — Zoomlion / 600 Scissor Lift",
+      "issue": "Newly installed local charger producing loud humming/buzzing noise ('bhann-bhann') and failing to charge the machine (achieved only 2% charge over entire overnight cycle), triggering severe client escalation.",
+      "action": "Pandit Dhiraj Dubey escalated urgency. Jitendra Budhauliya instructed immediate inspection and replacement of the defective local charger unit.",
+      "status": "Critical Client Escalation; Replacement Charger Sourcing Underway"
+    },
+    {
+      "site": "Sanand Site (Tata Micron) — JCB 2646 & JCB 3246 Scissor Lifts",
+      "issue": "Severe battery discharge failure where machines cut off completely upon reaching 50% capacity. Machines are 2024 models with lapsed battery warranties.",
+      "action": "Jitendra Budhauliya and Pardeep Tomar mandated that Deepak and site team must submit multi-meter cell voltage load test reports and log Google Form tickets before replacement battery packs are approved.",
+      "status": "Diagnostic Reports Required; Formal Google Form Logging Pending"
+    },
+    {
+      "site": "Fleet Operations — Genie / Unit 1930 (Unit 143)",
+      "issue": "Hydraulic oil leakage from the hydraulic tank beneath the coil/valve block; unit being operated with low hydraulic oil level risking pump cavitation and permanent burnout.",
+      "action": "Video footage verified. Technician instructed to cease operation or top up hydraulic oil immediately, inspect seals, and replace leaking hydraulic line.",
+      "status": "Video Verified; Immediate Hydraulic Hose/Seal Rectification Ordered"
+    }
+  ],
+  "parts": [
+    {
+      "part": "6V / 12V Traction Batteries (2 Units)",
+      "context": "Mundra Site Fleet Equipment",
+      "statusNextSteps": "Mundra urgently requires 2 replacement batteries. Central store lacks stock, but 6 surplus good-condition batteries are available at Sanand from a prior 8-unit replacement batch. Pardeep authorized to transfer required battery directly from Sanand to Mundra immediately."
+    },
+    {
+      "part": "Replacement Industrial Tyres (1x JCB, 2x Zoomlion, 2x 45ft)",
+      "context": "Sanand & Dulhera Fleet Machines",
+      "statusNextSteps": "Pardeep confirmed 1 JCB and 2 Zoomlion tyres ready for local dispatch. For 2x 45ft tyres coming from Pune: voucher prepared on 13th August; Jitendra Budhauliya expediting payment clearance upon receiving file number from Vinay Singh to authorize immediate vendor dispatch."
+    },
+    {
+      "part": "Repaired Hydraulic Pump & Electric Drive Motor",
+      "context": "Central Workshop Fleet Refurbishment",
+      "statusNextSteps": "Overhaul completed. Jitendra Budhauliya mandated comprehensive pressure and operational bench testing this morning prior to authorizing dispatch at 3:00 PM today."
+    },
+    {
+      "part": "Replacement Battery Charger Unit",
+      "context": "Zoomlion / 600 Unit — Tata Micron Site, Sanand",
+      "statusNextSteps": "Defective buzzing local charger (2% overnight charge) to be replaced immediately with tested OEM/industrial-grade charger unit."
+    },
+    {
+      "part": "Zoomlion Service Diagnostic Cable & Pendrive",
+      "context": "Scissor & Boom Fleet — Sanand Site",
+      "statusNextSteps": "Software pendrive and diagnostic connection cable dispatched to Sanand for calibration and controller diagnostics."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Mandatory Overtime (OT) WhatsApp Group for Leave Requests & Attendance",
+      "points": [
+        "All 40–45 field mechanics, technicians, and supervisors must submit leave applications EXCLUSIVELY in the official Overtime WhatsApp group (designated due to lower chat traffic).",
+        "Strict Prohibition of Personal Approvals: Neither Jitendra Budhauliya nor Sushil Mishra will accept or approve leaves communicated via personal WhatsApp chats, 1-on-1 direct messages, or verbal calls.",
+        "Double Leave Deduction Penalty: Any technician taking unannounced leave without prior notification in the designated OT group will be marked as Unauthorized Absence (Absent) with a mandatory 2-day leave penalty deducted from their record."
+      ]
+    },
+    {
+      "title": "Zero-Tolerance Google Form Prerequisite for Spare Parts Dispatch",
+      "points": [
+        "Store Manager Pardeep Tomar will NOT dispatch any spare parts, tyres, or battery packs based solely on phone calls, verbal requests, or informal WhatsApp messages.",
+        "All parts requisitions must be formally logged into the company Google Form with machine serial numbers, fault description, and cell load diagnostic reports."
+      ]
+    },
+    {
+      "title": "Supervisor-to-Coordinator Direct Escalation Protocol",
+      "points": [
+        "Site supervisors (such as Pravesh) must not attempt to perform manual machine operation or heavy parts hauling alone during operator shortages.",
+        "Supervisors must call or WhatsApp Imran Khan immediately upon discovering absent operators. Relief operators or helpers will be mobilized within 1–2 hours."
+      ]
+    },
+    {
+      "title": "Sanand Site Technical Manpower Expansion",
+      "points": [
+        "Due to high fleet density (both boom and scissor lifts) at Sanand, technician Deepak is overburdened with solo calibrations, TPIs, and multi-site travel. Pardeep Tomar is deploying to Sanand tomorrow to assist with calibration, and management is recruiting an additional dedicated scissor lift technician for the region."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Jitendra Budhauliya",
+      "task": "Obtain file number from Vinay Singh to immediately clear pending 13th August payment for 45ft Pune tyres; oversee mandatory bench testing of repaired pump and motor before 3:00 PM dispatch; enforce OT group leave notification rule and penalize unapproved absences."
+    },
+    {
+      "person": "Imran Khan",
+      "task": "Mobilize dedicated replacement operator to Pravesh's site immediately; dispatch mechanic to Dulhera site for urgent tyre fitment and 12m scissor troubleshooting; maintain direct proactive contact with field supervisors."
+    },
+    {
+      "person": "Sushil Mishra",
+      "task": "Liaise with JCB OEM technical team on JCB 3246 (Unit 5710) wiring harness short circuit diagnosis; enforce strict refusal of personal 1-on-1 leave approvals; coordinate technical handover of warranty tyres at CG Power Dulhera."
+    },
+    {
+      "person": "Pardeep Tomar",
+      "task": "Coordinate transfer of replacement battery from Sanand's 6-unit surplus stock to fulfill Mundra site requirement; travel to Sanand tomorrow to support Deepak with machine calibration and TPI clearances; ensure zero parts dispatch without Google Form verification."
+    },
+    {
+      "person": "Pandit Dhiraj Dubey",
+      "task": "Replace defective buzzing local charger at Sanand (unit achieved only 2% charge overnight); instruct technician Deepak to log full cell voltage load tests on degraded 50% cutoff batteries into Google Form."
+    },
+    {
+      "person": "Vinay Singh",
+      "task": "Forward Pune tyre supplier invoice file number (dated 13th August) to Jitendra Budhauliya for instant payment execution; finalize candidate recruitment for additional scissor lift technician at Sanand."
+    },
+    {
+      "person": "Sajid (Technician)",
+      "task": "Board scheduled train to Chennai with confirmed travel ticket to execute urgent machine breakdown repairs on site."
+    }
+  ]
+}

@@ -1,9 +1,12 @@
 {
   "id": "meet-2026-09-02",
-  "title": "02 Sep 2026",
+  "title": "02-09-2026",
   "date": "2026-09-02",
-  "dateFormatted": "02 Sep 2026",
+  "dateDisplay": "02-09-2026",
+  "dateFormatted": "02-09-2026",
   "focus": "Fleet Breakdown Resolutions (Sanand, JK Paper, Noida, Silvassa, Jammu, Haldia), Sanand 2024 Battery Load Tests & Handover, JK Paper Night Shift & Overtime Protocol, and Zoomlion Online Warranty Servicing",
+  "isHoliday": false,
+  "holidayName": "",
   "breakdowns": [
     {
       "site": "Blue Star / Micron Site (Sanand) — JCB 3246 Scissor Lift (Unit 1, Serial No. 3362500)",

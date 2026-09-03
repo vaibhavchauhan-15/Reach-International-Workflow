@@ -1,9 +1,12 @@
 {
   "id": "meet-2026-09-01",
-  "title": "01 Sep 2026",
+  "title": "01-09-2026",
   "date": "2026-09-01",
-  "dateFormatted": "01 Sep 2026",
+  "dateDisplay": "01-09-2026",
+  "dateFormatted": "01-09-2026",
   "focus": "Fleet Breakdown Resolutions (Jammu, Sanand, Hardoi, Chengalpattu), Assam Landslide Logistics & Genie Control Protection, Maruti Fleet Servicing & Transport Dispatch, Rejected Battery Scrap Clearance, and Vendor Payment Approval Protocol",
+  "isHoliday": false,
+  "holidayName": "",
   "breakdowns": [
     {
       "site": "Assam Site (Jagiroad / Guwahati) — Genie Boom Lift (Tata Client)",

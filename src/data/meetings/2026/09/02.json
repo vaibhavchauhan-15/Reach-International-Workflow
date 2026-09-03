@@ -9,12 +9,6 @@
   "holidayName": "",
   "breakdowns": [
     {
-      "site": "Blue Star / Micron Site (Sanand) — JCB 3246 Scissor Lift (Unit 1, Serial No. 3362500)",
-      "issue": "Severe battery discharge failure — machine cuts off and shuts down completely as soon as battery level drops to 50%.",
-      "action": "Technician Deepak to perform full cell-by-cell voltage test under load, capture clear battery photos, and compile official service report.",
-      "status": "Running with Caution; Cell Load Test & Service Report Underway"
-    },
-    {
       "site": "Blue Star / Micron Site (Sanand) — JCB 3246 Scissor Lift (Unit 2, 2024 Model, Serial No. 3362518)",
       "issue": "Battery cuts off at 50% capacity; currently operating on site without client awareness of underlying electrical vulnerability.",
       "action": "Pardeep and Deepak to record individual cell voltages under load, photograph battery manufacturing tags, and initiate warranty claim.",

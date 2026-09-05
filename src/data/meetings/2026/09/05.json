@@ -1,0 +1,166 @@
+{
+  "id": "meet-2026-09-05",
+  "title": "05-09-2026",
+  "date": "2026-09-05",
+  "dateDisplay": "05-09-2026",
+  "dateFormatted": "05-09-2026",
+  "focus": "Battery Diagnostic Dossiers & CRM Reporting (Sanand & Micron), Assam Flood Logistics & Transporter Coordination, Charger Stock Swaps & Returnable Challans, Mundra Ground Control & Connector Procurement, AI Camera Sourcing, and Preventive Maintenance Enforcement",
+  "isHoliday": false,
+  "holidayName": "",
+  "breakdowns": [
+    {
+      "site": "Tata Micron Site (Sanand) — JCB 3246 & JCB 2646 Scissor Lifts (Team Computers & Blue Star Fleet)",
+      "issue": "Severe battery discharge and marching/drive problems leading to machine cutoffs. Team Computers reported 1x JCB 3246 breakdown with 8 degraded/dead batteries; Blue Star reported 2x JCB scissor lifts in breakdown with faulty voltage readings. Complaints registered in CRM, but field technicians failed to upload formal battery test reports, specific gravity measurements, or Google Form entries prior to requesting replacements.",
+      "action": "Pardeep Tomar dispatched to Tata Micron site for direct physical inspection. Pandit Dhiraj Dubey instructed to urgently capture multi-meter cell voltage load readings, test specific gravity, document battery manufacturing date tags, record top-view photos and videos, and upload the complete diagnostic dossier to the Breakdown WhatsApp group and Google Form by this evening.",
+      "status": "Field Inspection Active at Micron; Comprehensive Diagnostic Dossier & Google Form Submission Mandatory Tonight"
+    },
+    {
+      "site": "Sanand Site — Zoomlion 4550 Scissor Lift (External Staging Area)",
+      "issue": "Machine was grounded in the external staging area due to disconnected/defective battery terminals and awaiting flatbed/trailer truck transport for movement into the primary work site.",
+      "action": "Battery terminals thoroughly inspected, repaired, and verified fully operational ('lag gaya, okay ho gaya'). Dhiraj confirmed transport truck coordination is finalized to move the machine into the operational job site.",
+      "status": "Terminal Issue Resolved & Machine Verified OK; Site Transport Underway"
+    },
+    {
+      "site": "Assam Site (Jagiroad / Flood Zone) — Traction Battery Transit Logistics",
+      "issue": "Severe monsoon flooding and waterlogging in Assam halted all standard battery transport. Commercial logistics carriers refused to carry heavy lead-acid batteries through inundated transit routes. Nearest operational hub is 70 km away with no site operators available to commute or handle manual transfer.",
+      "action": "Management instructed team to negotiate premium transport fees with local carriers or coordinate special operator pickup as soon as flood water levels recede slightly. Logistics coordinator Raju assigned to manage end-to-end transport coordination and dispatch.",
+      "status": "Road Logistics Blocked by Floods; Premium Carrier Negotiations & Raju Dispatch Coordination Active"
+    },
+    {
+      "site": "Tata Micron Site (Sanand) — Scissor Lift Battery Charger Burnout",
+      "issue": "Machine battery charger burnt out on-site during operation, risking complete fleet shutdown and client escalation.",
+      "action": "Immediate 5-minute restoration achieved without downtime because 2 chargers had been dispatched earlier (1 for active installation and 1 kept in on-site buffer stock). Defective unit was instantly replaced with the stock charger, resuming machine operations immediately. Burnt charger along with a second defective unit to be dispatched to Delhi vendor for repair under a Returnable Delivery Challan (RDC).",
+      "status": "Machine Operational via Buffer Stock Charger; Returnable Challan & Vendor Return for Repair Enforced"
+    },
+    {
+      "site": "Anand Site — JCB 60ft / 65ft Boom Lift Operations",
+      "issue": "Management sought status clarification regarding reported boom lift defects and battery stability at Anand site.",
+      "action": "Imran Khan confirmed the JCB boom lift in Anand is operating smoothly with zero defects following the prior replacement of its 8-battery set with water/flooded lead-acid batteries.",
+      "status": "Fully Operational; 8-Battery Set Replacement Verified Stable"
+    },
+    {
+      "site": "Mundra Site — JCB 3240 / 3246 Scissor Lifts & Boom Fleet (Client Pritam Chand)",
+      "issue": "Machine breakdown requiring Ground Control Card (GCC), drive motor, 2 controllers (Unit/Serial No. 3020), and 3 replacement traction batteries. Rail dispatch was delayed because Shukla ji refused to load oversized/heavy equipment into passenger train baggage compartments.",
+      "action": "4 replacement batteries already dispatched from Sanand surplus stock and arriving at Mundra today; boom lift battery being retrieved from Sanand. Logistics coordinator Raju (returning from leave today) deployed to take full charge of train/bus cargo dispatch for the Ground Control Card, controllers, and motor while mentoring junior logistics personnel.",
+      "status": "4 Batteries Arriving Today; Raju Mobilizing Ground Control Card & Controllers via Dedicated Cargo Dispatch"
+    },
+    {
+      "site": "Client Site (Supervisor Satinder) — Scissor Lift Cable Tray Assembly",
+      "issue": "Cable tray damaged on-site, causing machine breakdown. Full replacement cable tray assembly costs ₹15,000–16,000 and requires 2–3 days transit via bus.",
+      "action": "Satinder identified 8 emergency spare chain links in local stock and initiated immediate link replacement to restore machine function today. Complete replacement cable tray assembly ordered and dispatched via bus for permanent maintenance.",
+      "status": "Emergency Link Replacement Active for Same-Day Startup; Full Cable Tray in Bus Transit"
+    }
+  ],
+  "parts": [
+    {
+      "part": "Lead Battery Connectors (2 Pieces / 3-Ton Compatible)",
+      "context": "Vadodara Site Fleet Equipment",
+      "statusNextSteps": "Local Vadodara procurement was unavailable; parts successfully sourced and ordered from Kolkata stock. 2 pieces in transit to Vadodara, arriving Monday or Tuesday. Ravi Tiwari mandated Google Form logging with machine serial numbers prior to physical store release."
+    },
+    {
+      "part": "Hyundai Customer Fleet Spares (5-Ton & Multi-Tonnage Components)",
+      "context": "Hyundai Client Fleet Breakdowns",
+      "statusNextSteps": "First batch of spares dispatched yesterday after part number verification with Triand. Remaining customs-held components clearing Saturday and dispatching Monday. Expected on-site delivery by Monday or Tuesday. Road transport bottlenecks bypassed through emergency carrier booking."
+    },
+    {
+      "part": "Ground Control Card (GCC), Motor & Dual Controllers (Serial No. 3020)",
+      "context": "JCB 3240 / 3246 Breakdown — Mundra Site",
+      "statusNextSteps": "Dispatched via train/bus cargo by Raju today following earlier railway boarding refusal by Shukla ji. Junior logistics assistant assigned to accompany Raju for route training."
+    },
+    {
+      "part": "6V/12V Traction Battery Set (4 Units Transfer)",
+      "context": "Mundra Site Scissor Lift Fleet",
+      "statusNextSteps": "4 units successfully dispatched from Sanand surplus inventory; scheduled for delivery at Mundra site today. 1 additional boom lift battery scheduled for pickup from Sanand."
+    },
+    {
+      "part": "Defective Battery Charger Units (2 Units for Warranty Overhaul)",
+      "context": "Sanand & Tata Micron Fleet Equipment",
+      "statusNextSteps": "Machine operationalized with buffer stock charger. Pardeep Tomar instructed to prepare Returnable Delivery Challans (RDCs) and consign both defective/burnt chargers to Delhi vendor for repair and return tracking."
+    },
+    {
+      "part": "Traction Batteries Fleet Stock (Manish Vendor)",
+      "context": "Central Store Battery Stock Replenishment",
+      "statusNextSteps": "Vendor quotation received and confirmed via email at ₹5,300 + GST extra (negotiated from earlier ₹5,150 counter). Purchase Order (PO) approved for issue to close commercial terms."
+    },
+    {
+      "part": "AI Safety Cameras (Dual-Channel Front & Rear Setup)",
+      "context": "Pune Fleet Equipment Safety Upgrade",
+      "statusNextSteps": "Procurement finalized with vendor Mukesh for 2-camera system. Vendor requested to apply final negotiated discount. Quotation submitted in the management WhatsApp group for instant payment clearance."
+    },
+    {
+      "part": "Replacement Cable Tray Assembly & Chain Links (8 Units)",
+      "context": "Scissor Lift Fleet — Satinder Client Site",
+      "statusNextSteps": "8 emergency links being fitted on site today for immediate machine restart. Complete heavy-duty cable tray assembly (₹15,000–16,000) dispatched via bus transit (2–3 day delivery)."
+    },
+    {
+      "part": "Fleet Replacement Industrial Tyres",
+      "context": "Sanand Site Fleet Equipment",
+      "statusNextSteps": "Dispatched tyres confirmed in transit and scheduled to arrive on site at Sanand today."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Mandatory Battery Diagnostic Dossier & Google Form Prerequisite",
+      "points": [
+        "Zero-Tolerance on Verbal Requisitions: Store Manager Pardeep Tomar and logistics coordinators will strictly reject any battery requisition based solely on phone calls, informal WhatsApp chats, or CRM status flags.",
+        "Compulsory Technical Testing Dossier: For every reported weak or dead battery, site technicians (Dhiraj & Pardeep) must perform and document multi-meter cell voltage load tests, specific gravity measurements, battery serial number and date tags, accompanied by high-angle top-view photographs and videos.",
+        "Dual Submission Protocol: The verified diagnostic report must be uploaded to both the Breakdown WhatsApp group and the official Google Form before replacement dispatch will be authorized."
+      ]
+    },
+    {
+      "title": "Returnable Delivery Challan (RDC) & Vendor Repair Tracking Protocol",
+      "points": [
+        "All defective equipment sent to external vendors or Delhi headquarters for repair (including chargers, motors, and controllers) must strictly move under an official Returnable Delivery Challan (RDC) generated by Store Manager Pardeep Tomar.",
+        "Shiv Uniyal and the store department must maintain an active vendor tracking register to log dispatch date, vendor acknowledgment, expected repair turnaround, and return-to-stock confirmation."
+      ]
+    },
+    {
+      "title": "Preventive Maintenance (PM) Daily Checklist Audits & Photographic Proof",
+      "points": [
+        "Field supervisors (including Satinder) must actively push equipment operators to adhere strictly to daily preventive maintenance (greasing, water topping, terminal cleaning, and function checks).",
+        "Supervisors are mandated to collect photographic proof of operators' daily PM checklists for the past 1 full week and submit them to operations management immediately after operational calls."
+      ]
+    },
+    {
+      "title": "Logistics Dispatch Ownership & Outstation Training",
+      "points": [
+        "Equipment dispatch cannot be stalled due to individual carrier refusals (e.g. passenger rail luggage constraints). Dedicated logistics coordinator Raju is assigned end-to-end responsibility for executing rail/bus cargo dispatches.",
+        "Junior logistics personnel must be systematically paired with senior handlers during dispatch operations to build competent internal redundancy for outstation rail and road transit."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Imran Khan",
+      "task": "Expedite compilation and submission of pending battery diagnostic reports from Micron/Sanand; coordinate with Raju and outstation operators to resolve 70 km flood transit bottleneck in Assam; maintain direct operational oversight on Team Computers and Blue Star machines."
+    },
+    {
+      "person": "Pardeep Tomar",
+      "task": "Execute on-site battery cell load testing and gravity checks at Tata Micron; upload verified date tag photos to Google Form and Breakdown group; generate Returnable Delivery Challans (RDCs) for 2 defective chargers heading to Delhi vendor; oversee local trailer transport of Zoomlion 4550 into site."
+    },
+    {
+      "person": "Pandit Dhiraj Dubey",
+      "task": "Submit all pending battery diagnostic reports, date tags, and photos to the Google Form by this evening; update CRM complaint records with technical data for Team Computers (JCB 3246) and Blue Star (2 machines); verify tracking of controllers (Serial No. 3020) and Ground Control Card for Mundra."
+    },
+    {
+      "person": "Shiv Uniyal",
+      "task": "Audit date stamps and cell voltage sheets submitted in Breakdown group before clearing parts releases; establish a returnable tracking register for chargers dispatched to vendors; follow up with vendor Mukesh on discounted AI Camera quotation for Pune; coordinate Purchase Order release to vendor Manish for batteries at ₹5,300 + GST."
+    },
+    {
+      "person": "Vinay Singh",
+      "task": "Confirm dispatch and transit tracking for Vadodara lead connectors from Kolkata, ensuring delivery by Monday/Tuesday; monitor clearance and Monday dispatch of Hyundai customer parts from customs."
+    },
+    {
+      "person": "Raju",
+      "task": "Assume full ownership of outstation cargo dispatches (Ground Control Card, motor, controllers for Mundra); train junior logistics assistant during rail transit procedures; coordinate local carrier negotiations and premium transport for flood-affected Assam site."
+    },
+    {
+      "person": "Satinder",
+      "task": "Complete immediate on-site fitment of 8 emergency chain links to restore machine operation; track incoming full cable tray shipment via bus; collect and submit photos of operators' daily PM checklists for the past 1 week immediately."
+    },
+    {
+      "person": "Ganesh",
+      "task": "Finalize booking of Vijayawada train travel ticket; issue confirmed travel ticket for Anuj departing from Bangalore on Monday."
+    }
+  ]
+}

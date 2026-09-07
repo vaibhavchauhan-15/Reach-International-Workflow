@@ -1,0 +1,183 @@
+{
+  "id": "meet-2026-09-07",
+  "title": "07-09-2026",
+  "date": "2026-09-07",
+  "dateDisplay": "07-09-2026",
+  "dateFormatted": "07-09-2026",
+  "focus": "Kochi 120ft High Fuel Burn & Outstation Technician Deployment, Mundra Genie 4390 Pump Approval & JLG 660 Diesel Pump Breakdown, Hazardous Battery Train Transit Restrictions & Battery Cannibalization Strategy (Sanand), Jaisalmer SX-125 Charger Dispatch, Material Handling Fleet Battery Cell Replacements (Vapi/Rajpura), and Boom Lift Tyres Requisition (150ft & 80ft)",
+  "isHoliday": false,
+  "holidayName": "",
+  "breakdowns": [
+    {
+      "site": "Kochi Site — 120ft Boom Lift Fleet (Fuel Consumption Dispute)",
+      "issue": "Machine exhibiting abnormally excessive diesel consumption, burning up to 7 liters of fuel per hour during operation. Client is heavily escalating, disputing daily fuel logs, refusing further fuel supply, and comparing against standard equipment consumption rates.",
+      "action": "Dinesh Babu instructed to confirm technician travel tickets to Chennai for tomorrow. Technician will travel onward directly from Chennai to Kochi by bus (approx. 500–600 km) without detours to inspect engine fuel injectors, fuel pump calibration, and return lines immediately.",
+      "status": "Ticket Booking Finalized for Tomorrow; Direct Chennai-to-Kochi Bus Transit Planned for Immediate On-Site Engine Diagnostics"
+    },
+    {
+      "site": "Mundra Site — Genie 4390 RT Scissor Lift (Hydraulic / Function Pump)",
+      "issue": "Locally repaired 4390 hydraulic pump sent to site failed during commissioning and is completely inoperative. Machine remains grounded for 2 weeks awaiting commercial approval for new replacement pump due to loss-rental costing debates.",
+      "action": "Dhrup Sir and Vishal Sir requested urgent cost quotation. Emergency conference call mandated to clear Purchase Order approval today within 15 minutes to initiate immediate dispatch from vendor.",
+      "status": "Conference Call Alignment Pending Today; Quotation Submitted for Instant PO Authorization"
+    },
+    {
+      "site": "Mundra Site — JLG 660SJ Boom Lift (Serial No. 95369)",
+      "issue": "Grounded for over 1 week due to fuel injection / diesel supply pump failure, along with pending hydraulic and engine maintenance.",
+      "action": "Pritam Chand and Mantu deployed to Mundra. Travel tickets being confirmed for train departure today to address diesel pump overhaul, engine tuning, and hydraulic lines.",
+      "status": "Confirmed Ticket Issuance Underway Today; Technicians En Route for Fuel Pump and Engine Overhaul"
+    },
+    {
+      "site": "Tata Micron / Sanand Site — JCB Fleet (Serial Nos. 5710, 6241, 2518) & Genie 19",
+      "issue": "Critical battery degradation across multiple units. JCB 3240 (SN 2518) has 4 completely dead batteries with zero specific gravity; JCB 3240 (SN 6241) has 3 weak batteries being temporarily managed without client awareness; JCB 4G (SN 5710) battery under warranty review. Genie 19 suffered total battery discharge and overload cutout.",
+      "action": "Genie 19 being shifted to charging bay this evening with mechanic inspection scheduled tomorrow. Implemented internal battery cannibalization: healthy batteries to be pooled from 3 units into 2 machines to make 2 scissor lifts fully operational immediately, isolating 1 machine until new warranty/replacement batteries arrive.",
+      "status": "2 Machines Restored via Battery Swapping; 1 Machine Parked; Genie 19 Charging Tonight"
+    },
+    {
+      "site": "Sanand Site — Zoomlion 4550 Scissor Lift (Drive Motor & Overload Circuit)",
+      "issue": "Drive motor emitting abnormal grinding/humming noise with suspected connector faults. Overload sensor alarm repeatedly tripping due to a temporary bypass executed 2 months prior without recalibration.",
+      "action": "Deepak and Pardeep dispatched to site to inspect motor wiring, connector pins, and terminal supply. Formal load recalibration scheduled to replace the bypassed circuit.",
+      "status": "On-Site Physical Motor Inspection Active; Load Recalibration Queued"
+    },
+    {
+      "site": "Jaisalmer Site — Genie SX-125 Boom Lift (Unit 4047)",
+      "issue": "Machine grounded due to burnt/missing battery charger; ambiguity between Amrish and field technicians regarding requirement of contactors vs charger.",
+      "action": "High-capacity replacement charger being dispatched today via road transit. Senior technician from Durgapur / Ranjan being coordinated for on-site fitment and commissioning.",
+      "status": "Charger Dispatched Today; Outstation Technician Deputation in Progress"
+    },
+    {
+      "site": "Material Handling Fleet — Ahmedabad, Vapi, Samsung & Rajpura Sites",
+      "issue": "Multiple forklift breakdowns: Vapi 3-ton forklift down with dead battery cells; Rajpura forklift facing battery cell failure; Samsung 3-ton forklift throwing error code 4000 (controller communication); Ahmedabad JK Paper order picker (Bay 507/302).",
+      "action": "Silvassa 2-ton forklift issues resolved and verified clear; Bay 302 resolved at Ahmedabad. Replacement traction battery cells being dispatched by Raju today to Rajpura and Vapi. Samsung controller error diagnosis ongoing.",
+      "status": "Silvassa & Ahmedabad Bay 302 Clear; Battery Cells Dispatched to Rajpura; Controller Diagnostics Active at Samsung"
+    },
+    {
+      "site": "Outstation Fleet (Mangalore, Haldia & Client Sites) — 80ft, 100ft & 150ft Booms",
+      "issue": "Haldia 100ft boom lift waiting for replacement connector in transit without tracking status. Mangalore 80ft and 150ft boom lifts operational, but 100ft boom lift needs scheduled servicing delayed by client work schedule. Zoomlion OEM portal registration required prior to engineer dispatch.",
+      "action": "Courier tracking number for Haldia connector to be traced immediately. Mangalore 100ft maintenance planned for client off-hours (Sunday/Monday).",
+      "status": "80ft & 150ft OK; Connector Transit Tracking Underway; OEM Ticket Logging in Progress"
+    },
+    {
+      "site": "Client Fleet Site (Radhey) — 150ft & 80ft Boom Lift Tyres",
+      "issue": "Severe tyre failure causing extreme client escalation. On the 150ft boom lift, 3 tyres are excessively depressed/flattened and 1 tyre has burst completely. 80ft boom tyres are completely worn beyond retreading or repair.",
+      "action": "Requisition paperwork / indent for full set of replacement tyres prepared and submitted today for immediate management and commercial clearance.",
+      "status": "Tyres Declared Non-Repairable; Emergency Purchase Indent Submitted for Finance Approval Today"
+    }
+  ],
+  "parts": [
+    {
+      "part": "Genie 4390 Hydraulic / Function Pump",
+      "context": "Mundra Site — Genie 4390 RT Scissor Lift",
+      "statusNextSteps": "Locally repaired unit failed on site. Quotation submitted to Dhrup Sir and Vishal Sir; emergency PO approval being finalized today for rapid vendor procurement and dispatch."
+    },
+    {
+      "part": "Genie Z-40 Drive / Hydraulic Motor & Ground Control Card",
+      "context": "Mundra Site Fleet",
+      "statusNextSteps": "Z-40 motor successfully dispatched; Control card received on-site by Sitaram via train luggage. Fitment underway."
+    },
+    {
+      "part": "High-Capacity Battery Charger (SX-125 / Unit 4047)",
+      "context": "Jaisalmer Site Fleet Equipment",
+      "statusNextSteps": "Dispatched today. Coordination underway with Amrish for connector configuration and outstation technician alignment."
+    },
+    {
+      "part": "Traction Battery Replacement Cells",
+      "context": "Vapi & Rajpura Material Handling 3-Ton Forklifts",
+      "statusNextSteps": "Replacement traction battery cells being packed and dispatched today by Raju to resolve dead cell issues."
+    },
+    {
+      "part": "JCB 3240 / 4G Flooded Traction Batteries",
+      "context": "Sanand / Tata Micron Fleet (Serial Nos. 2518, 6241, 5710)",
+      "statusNextSteps": "4 batteries with zero specific gravity pending warranty replacement through JCB. Inter-machine battery swapping deployed as interim mitigation."
+    },
+    {
+      "part": "Heavy-Duty Industrial Tyres (150ft & 80ft Boom Lifts)",
+      "context": "Radhey Client Site Fleet",
+      "statusNextSteps": "1 burst tyre and 3 depressed tyres on 150ft boom, plus 80ft worn tyres. Commercial requisition indent submitted today for budget release."
+    },
+    {
+      "part": "Haldia 100ft Boom Lift Connector Assembly",
+      "context": "Haldia Site Maintenance",
+      "statusNextSteps": "Dispatched by Store Manager Pardeep; consignment docket/courier tracking to be retrieved and monitored for site delivery."
+    },
+    {
+      "part": "Sanand Zoomlion Scissor Tyres",
+      "context": "Sanand Site Fleet Equipment",
+      "statusNextSteps": "Dispatched tyres arrived on site; local mechanic actively fitting tyres today."
+    },
+    {
+      "part": "Forklift Direction Switch & Control Spares (5-Ton & 8-Ton)",
+      "context": "Material Handling Fleet",
+      "statusNextSteps": "Payment in process today; components scheduled for direct supplier dispatch to site tomorrow upon payment clearance."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Strict Prohibition of Battery Transit via Passenger Train Cargo",
+      "points": [
+        "Absolute Ban on Rail Luggage for Batteries: Following multiple RPF challans and legal notices issued for transporting hazardous lead-acid batteries in passenger rail compartments, all staff are strictly forbidden from booking batteries as train luggage.",
+        "Dedicated Road Carriers Only: Traction batteries and heavy chemical battery packs must exclusively move through registered surface logistics, commercial cargo trucks, or certified express couriers with valid e-way bills and hazmat declarations.",
+        "General Hardware Rail Dispatch: Non-hazardous spare parts, cards, cables, and lightweight motors may continue to utilize train cargo when accompanied by formal transit receipts."
+      ]
+    },
+    {
+      "title": "Interim Battery Swapping & Fleet Cannibalization Protocol",
+      "points": [
+        "Consolidate Functional Batteries: When multiple machines are partially crippled with 1 to 4 bad battery cells at a single location (e.g. Sanand), technicians must systematically test and consolidate good batteries into designated priority machines.",
+        "Maximize Operational Uptime: Ensure at least 60–70% of the fleet remains 100% operational rather than having 100% of machines stalled in degraded status awaiting new batteries.",
+        "Mandatory Dossier Prerequisite: Cannibalization does not waive reporting; specific gravity sheets and serial numbers of swapped batteries must be recorded in the Breakdown group."
+      ]
+    },
+    {
+      "title": "Loss-Rental & High-Value Spare Procurement Escalation Protocol",
+      "points": [
+        "Stop Inter-Departmental Delays: Any procurement requisition pending for more than 48 hours due to loss-rental costing or ownership ambiguities must be immediately escalated to a direct three-way conference call with Vishal Sir and Dhrup Sir.",
+        "Fast-Track Commercial Approvals: Once costing is established, formal PO approval must be closed within the same working day to avoid grounded machines exceeding 7 days of downtime."
+      ]
+    },
+    {
+      "title": "OEM Portal Complaint Logging Prerequisite",
+      "points": [
+        "Mandatory OEM Portal Registration: Field supervisors coordinating OEM field service (e.g. Zoomlion, JCB) must lodge complaints directly on the OEM's customer support portal with serial numbers and machine hours before requesting deputation.",
+        "Direct Service Tracking: Log ticket reference IDs in the daily breakdown update so management can track OEM engineer SLAs."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Vishal Sir & Dhrup Sir",
+      "task": "Conduct emergency conference call today regarding Mundra Genie 4390 hydraulic pump costing; issue final commercial approval and release Purchase Order immediately."
+    },
+    {
+      "person": "Pardeep Tomar",
+      "task": "Dispatch SX-125 battery charger to Jaisalmer site today; trace Haldia 100ft boom lift connector courier tracking docket; strictly enforce non-rail surface transport for all battery shipments."
+    },
+    {
+      "person": "Pandit Dhiraj Dubey",
+      "task": "Execute battery inter-change / cannibalization across JCB 3240 (SN 2518 & SN 6241) to make 2 scissor lifts operational; move Genie 19 to charging bay tonight and coordinate mechanic tomorrow; verify fitment of Zoomlion tyres."
+    },
+    {
+      "person": "Dinesh Babu",
+      "task": "Finalize confirmed travel tickets to Chennai for tomorrow; arrange direct onward bus connection from Chennai to Kochi for immediate investigation of the 120ft boom lift's excessive fuel consumption."
+    },
+    {
+      "person": "Raju",
+      "task": "Pack and dispatch replacement traction battery cells to Rajpura and Vapi sites today; coordinate courier receipts with local material handling supervisors."
+    },
+    {
+      "person": "Pritam Chand & Mantu",
+      "task": "Board train to Mundra today upon ticket confirmation to execute fuel injection pump replacement, hydraulic line repairs, and engine overhaul on JLG 660 (SN 95369)."
+    },
+    {
+      "person": "Radhey",
+      "task": "Submit formal requisition document and tyre dimension specifications for 150ft and 80ft boom lifts to store and finance for immediate procurement clearance."
+    },
+    {
+      "person": "Amrish",
+      "task": "Clarify electrical contactor vs charger requirements for Jaisalmer machine 4047; coordinate with Store Manager for immediate installation upon charger arrival."
+    },
+    {
+      "person": "Deepak",
+      "task": "Complete physical diagnostic inspection on Zoomlion 4550 drive motor and connectors at Sanand; verify supply voltages and plan formal load recalibration."
+    }
+  ]
+}

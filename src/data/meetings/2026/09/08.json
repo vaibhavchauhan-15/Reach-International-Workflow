@@ -1,0 +1,222 @@
+{
+  "id": "meet-2026-09-08",
+  "title": "08-09-2026",
+  "date": "2026-09-08",
+  "dateDisplay": "08-09-2026",
+  "dateFormatted": "08-09-2026",
+  "focus": "Bangalore Fleet 23-Battery Deficit & Cell Reconditioning, Bhiwani Hyundai 3-Ton Tilt Cylinder Deployment, Jamshedpur 3-Ton Transit & PG Electroplast 2-Ton Battery Readiness, GS90D-588 Scissor Scrapped Battery & Return-Credit Protocol, Jamnagar T65 JCB Platform Diagnostics, J-60/710 Cylinder Lock Pins & Rotary Seals, 450 Gasket Replacement (Praveen Transit), 800 Boom Lift Failed Local Axle Fabrication, Mundra Genie & Korba JCB 2040 Touch Pad Requisition, Ambala Genie 1932 Limit Switch Calibration, and 150ft Boom Exhaust Smoke & CRM Technician Ticket Allocation",
+  "isHoliday": false,
+  "holidayName": "",
+  "breakdowns": [
+    {
+      "site": "Bangalore Fleet Site — Severe 23-Battery Deficit & Battery Cell Reconditioning",
+      "issue": "Bangalore operations facing an acute shortage of traction batteries, with a deficit of 23 batteries needed across the 24/7 day-and-night fleet. Zero extra battery buffer on site. Technician Anuj was pulled from Bangalore and redirected to Pune via confirmed ticket before completing the cell reconditioning of 2 removed battery banks (combining functional cells to build 1 healthy pack).",
+      "action": "Rahul Singh instructed that outstation movement must not leave ongoing operations stranded. Team must post 4 distinct Bangalore tasks on WhatsApp for seamless coordination. Remaining site team and arriving battery vendor to finish cell swapping. 1 newly arrived battery commissioned, allowing 1 machine to resume operation.",
+      "status": "1 Machine Operational via New Battery; 23-Battery Shortage Active; 4-Point WhatsApp Task Handover Enforced"
+    },
+    {
+      "site": "Bhiwani Site — Hyundai 3-Ton Boom Lift (Tilt Cylinder Breakdown)",
+      "issue": "Machine grounded due to tilt cylinder assembly opening up / mechanical cylinder mast failure. Breakdown was posted yesterday in the group, but Mishra Ji failed to dispatch any technician to site last night or today.",
+      "action": "Deepak is currently stationed at Patna (Bihta site) working for over 1 week and cannot be pulled. Rahul Singh and Jitendra Budhauliya requested urgent management deputation of an engineer from Delhi/Bhiwadi corridor to inspect and rebuild the tilt cylinder.",
+      "status": "Technician Deputation Pending from Management / Mishra Ji; Deepak Retained at Patna; Urgent Cylinder Inspection Required"
+    },
+    {
+      "site": "Jamshedpur / Tatanagar Site — 3-Ton Traction Battery Transit & Long-Term Grounding",
+      "issue": "High-capacity machine standing grounded at Jamshedpur / Tatanagar for 2.5 to 3 months purely due to an exhausted 3-ton traction battery bank.",
+      "action": "Dispatched 3-ton battery bank left origin on 30th August (in road transit for 8–10 days). Dhruv Sharma confirmed delivery is expected within 24–48 hours. Consignment tracking details shared with Hari and Rahul Singh.",
+      "status": "3-Ton Battery Dispatched 30-Aug; In-Transit (ETA 1–2 Days) to Jamshedpur Site to Commission 3-Month Grounded Unit"
+    },
+    {
+      "site": "PG Electroplast (Greater Noida) — 2-Ton Forklift Traction Battery Order",
+      "issue": "2-Ton battery requirement for PG Electroplast equipment awaiting vendor delivery update.",
+      "action": "Order formally placed with vendor Manish for a complete 2-ton battery pack (cells and tray fully assembled). Payment clearance verified with no commercial block. Dhruv Sharma confirmed order readiness with Manish and tracking details are being shared with the team today.",
+      "status": "Vendor Order Confirmed with Manish; Cells & Tray Assembled; Final Dispatch Tracking Awaited Today"
+    },
+    {
+      "site": "Scissor Lift Fleet — GS 90 D 588 (Serial No. GS90D-588) Battery Scrap & Return-Credit Protocol",
+      "issue": "Genie GS-90 scissor lift reported in breakdown yesterday due to dead batteries. Satendra Kumar and Durgesh checked the Amaron battery bank (2023–2024 date codes). Electrolyte / water levels were normal, but battery cells suffered internal failure and are completely dead under cranking load.",
+      "action": "Satendra Kumar instructed to remove dead batteries immediately from the machine and deposit them into the central store. As per company policy, payment for replacement batteries is strictly processed after deduction/surrender of old scrap battery cores. Official replacement request mail and CRM report submission mandated today.",
+      "status": "Batteries Confirmed Dead (2023/24 Amaron); De-installation & Core Surrender Underway for Commercial Credit Clearance"
+    },
+    {
+      "site": "Jamnagar Site — T65 JCB Boom Lift (Serial No. 539503) Platform Function Failure",
+      "issue": "T65 JCB boom lift grounded with platform-side function failure; operator unable to operate boom movements from platform console. Serial number confirmed as 539503.",
+      "action": "Technician Pradeep was assigned and dispatched to Jamnagar site; arrived on site with formal management approval. Jitendra Budhauliya instructed Shiv and Dinesh to verify and register serial number 539503 into the CRM system immediately to log work and component consumption properly.",
+      "status": "Technician Pradeep On-Site; Approval Secured; CRM Serial Number Induction Underway"
+    },
+    {
+      "site": "Site Fleet — J-6034 / 710 Boom Lift Cylinder Lock Pins, Rotary Seal & Platform Diesel Setup",
+      "issue": "JLG / Genie J-6034 (or 710) boom lift faced safety hazard regarding cylinder locking pins, requiring urgent replacement. Rotary seal replacement was partially incomplete (half of seals arrived and fitted, balance pending). Machine experienced electrical wiring heating issues at 4:30–5:00 PM yesterday following initial restart.",
+      "action": "Lock pins ordered and dispatched from Delhi store. Rotary seals partial fitment completed; remaining seals to be fitted. Electrical wiring and heating issue diagnosed and resolved. Platform diesel engine function circuit and wiring harness being configured to prevent further operational interruptions.",
+      "status": "Delhi Lock Pins Sourced; Rotary Seal Partial Fitment Done; Wiring Heating Rectified; Complete Platform Function Setup in Progress"
+    },
+    {
+      "site": "Material Handling / Boom Fleet — Model 450 (Serial No. 030077669) Blown Cylinder Head Gasket",
+      "issue": "Model 450 machine in complete breakdown due to a blown engine cylinder head gasket. Serial number verified as 030077669. Cylinder head requires a specific 1-notch gasket.",
+      "action": "Requirement officially logged in the system. Ravikant and Jitendra Budhauliya confirmed that technician Praveen can carry the 1-notch gasket directly to the site this evening, or direct express consignment will be booked to Panipat for immediate cylinder head replacement.",
+      "status": "Blown Gasket Identified (1-Notch Specification); Dispatch via Praveen / Express Courier to Panipat Arranged for Tonight"
+    },
+    {
+      "site": "800 Boom Lift Fleet — Local Axle Fabrication Failure & Delhi Depot Overhaul",
+      "issue": "800 Boom lift axle assembly repair botched by local third-party contractor who abandoned the site with 1 week of work remaining. Local workshop attempted fabrication twice yesterday; upon installation, assembly immediately started smoking due to improper tolerances and unauthorized unbilled part substitutions costing Rs. 3,000–4,000 without warranty.",
+      "action": "Management aborted further local repairs to avoid vehicle destruction. Reverted machine temporarily to the operational previous configuration where feasible, and decided to send the damaged axle assembly directly to Delhi central depot for certified OEM precision machining and overhaul.",
+      "status": "Local Contractor Abandoned Site; Uncertified Local Axle Repairs Aborted; Assembly Being Dispatched to Delhi Depot for Overhaul"
+    },
+    {
+      "site": "Korba Site & Ambala Site — JCB 2040 Scissor Touch Pad & Genie 1932 Limit Calibration",
+      "issue": "Korba Site: JCB 2040 scissor lift (Serial No. 3534) operator Anil reported touch pad control keypad failure, requiring exact part number and replacement. Ambala / Chandigarh Site: Genie 1932 scissor lift (Serial No. 21730) experiencing recurrent starting and limit switch lockout tripping; safety limit sensor calibration is out of tolerance.",
+      "action": "Technical store to identify JCB 2040 touch pad part number for Anil. Limit switch circuit on Genie 1932 (SN 21730) to be re-calibrated. Pre-printed warning and operational decals for 6 machines handed over to Ranjan for field application.",
+      "status": "JCB 2040 Touchpad Part Identification Underway; Genie 1932 Limit Re-calibration & Safety Decals Assigned to Ranjan"
+    },
+    {
+      "site": "Outstation Boom Fleet (Machine 3046 & Mundra Site) — Remote Drive Selector Switch Failure",
+      "issue": "Machine 3046 experiencing electrical supply cutout and drive failure. While remote drive functions intermittently, the platform lift/drive selector toggle/touch button is defective, dropping power and locking the machine. Mundra 60ft resolved and operational.",
+      "action": "Jitendra Budhauliya instructed the site technician/operator to immediately initiate a live video conference with Senior Technician Trilochan Ji to troubleshoot terminal wiring and bypass/replace the faulty selector button via live guidance.",
+      "status": "Live Video Call Troubleshooting Arranged with Trilochan Ji; Selector Switch Diagnostic & Bypass Active"
+    },
+    {
+      "site": "Client Site — 150ft Ultra Boom Lift Exhaust Silencer Smoke, Large Tyre & Medical Card Admin",
+      "issue": "150ft boom lift is operating on site but throwing heavy exhaust smoke towards the boom structure due to a misaligned/damaged exhaust silencer pipe. Client supervisor Vishnu calling daily regarding persistent fault codes. Large replacement tyre pending for over 1 month from Shiv Sir. Technician Vinod Pal reported admin mistakenly sent him Vinod Yadav's medical insurance card while withholding his own.",
+      "action": "Banarsi dispatched to site to repair exhaust silencer pipe and eliminate smoke discharge onto the boom. Site technician instructed to photograph cable assembly immediately and send to Pardeep Tomar for logging. Admin requested to urgently rectify medical card mix-up between Vinod Pal and Vinod Yadav.",
+      "status": "Banarsi Rectifying Exhaust Silencer; Cable Photo Awaited by Pardeep; Tyre & Medical Card Documentation Escalated to Management"
+    }
+  ],
+  "parts": [
+    {
+      "part": "2-Ton Traction Battery Pack (Cells, Tray & Harness)",
+      "context": "PG Electroplast Site Fleet (Greater Noida)",
+      "statusNextSteps": "Vendor order confirmed with Manish; battery cells and tray fully assembled and ready. Final dispatch docket and ETA being tracked today by Dhruv Sharma."
+    },
+    {
+      "part": "3-Ton Industrial Traction Battery Bank",
+      "context": "Jamshedpur / Tatanagar Site (Grounded 3-Month Unit)",
+      "statusNextSteps": "Dispatched from source on 30th August; currently in surface transit (8–10 days). Consignment tracking shared with Hari and Rahul Singh; delivery expected in 24–48 hours."
+    },
+    {
+      "part": "Amaron Traction Battery Scrap Replacement",
+      "context": "Genie GS-90 Scissor Lift (Serial No. GS90D-588)",
+      "statusNextSteps": "Dead batteries (2023/24 Amaron) being removed and returned to depot. Core return credit required before releasing payment for fresh battery replacement."
+    },
+    {
+      "part": "Cylinder Head Gasket (1-Notch / Single Nose Specification)",
+      "context": "Model 450 Equipment (Serial No. 030077669)",
+      "statusNextSteps": "Requirement logged in CRM. Technician Praveen carrying the 1-notch gasket this evening or dispatching via express courier directly to Panipat for urgent installation."
+    },
+    {
+      "part": "Hydraulic Tilt Cylinder Assembly & Mast Hardware",
+      "context": "Bhiwani Site — Hyundai 3-Ton Boom Lift",
+      "statusNextSteps": "Tilt cylinder opened up on site. Technician deputation pending from Mishra Ji; replacement seal kit/cylinder hardware being organized."
+    },
+    {
+      "part": "Cylinder Safety Lock Pins & Rotary Seals",
+      "context": "J-6034 / 710 Boom Lift Fleet",
+      "statusNextSteps": "Lock pins sourced and dispatched from Delhi store. Rotary seals 50% fitted on site; balance seal consignment in transit to complete overhaul."
+    },
+    {
+      "part": "JCB 2040 Touch Pad Console / Keypad",
+      "context": "Korba Site — JCB 2040 Scissor Lift (Serial No. 3534)",
+      "statusNextSteps": "Operator Anil reported damaged keypad. Store team identifying exact JCB OEM part number for urgent procurement and courier dispatch."
+    },
+    {
+      "part": "Genie 1932 Limit Switches & Site Safety Decals (6-Machine Pack)",
+      "context": "Ambala / Chandigarh Fleet (Serial No. 21730)",
+      "statusNextSteps": "Limit switches installed; recalibration required. Set of pre-printed warning and operational decals for 6 machines handed to Ranjan for field application."
+    },
+    {
+      "part": "Heavy-Duty Axle Assembly Overhaul",
+      "context": "800 Boom Lift Fleet",
+      "statusNextSteps": "Failed local contractor fabrication aborted after parts smoked. Assembly being forwarded to Delhi central depot for precision OEM machining."
+    },
+    {
+      "part": "Heavy-Duty Boom Lift Tyres (100ft / 150ft Fleet)",
+      "context": "Client Fleet Site & Sanand / Dholera Sites",
+      "statusNextSteps": "Large tyre pending for over 1 month from Shiv Sir; tyre photos re-sent to avoid grounding. 2 tyres pending fitment at Dholera site."
+    },
+    {
+      "part": "Exhaust Silencer Tailpipe / Elbow Assembly & Wiring Cable",
+      "context": "150ft Boom Lift Fleet (Vishnu / Banarsi Site)",
+      "statusNextSteps": "Silencer elbow leaking exhaust onto boom. Banarsi actively repairing on site. Cable photo being forwarded to Pardeep Tomar for dispatch."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Mandatory Battery Core Surrender Prior to Procurement Payment (Old Battery Return Credit)",
+      "points": [
+        "100% Core Return Accountability: In accordance with financial policy, payment for replacement traction batteries will strictly not be released until old degraded battery cores are verified, removed from the machine, and handed over to the vendor for scrap credit.",
+        "Official Mail & CRM Induction: Field supervisors (e.g. Satendra Kumar) must raise a formal email indent and log dead battery serial numbers, manufacturing dates, and specific gravity logs into the CRM prior to processing requisitions.",
+        "Prevent Scrap Accumulation: Technicians must immediately de-install dead batteries rather than leaving them lying idle on client premises to prevent pilferage and electrolyte deterioration."
+      ]
+    },
+    {
+      "title": "Outstation Technician Movement & Task Communication Protocol",
+      "points": [
+        "Prior Notice for Technician Relocation: Moving technicians between operational hubs (e.g. pulling Anuj from Bangalore to Pune) must be coordinated in advance with site project leads to prevent leaving high-priority tasks (e.g. cell swaps) abandoned mid-way.",
+        "Mandatory WhatsApp Task Handover: When leaving or managing an active site, team leads must post a clear, written 4-point work summary on WhatsApp outlining pending jobs, required components, and coordination steps for the incoming technician or local team.",
+        "24/7 Operations Safeguards: Sites with 24/7 operations (such as Bangalore with a 23-battery deficit) must have technician coverage and vendor battery service alignment pre-scheduled."
+      ]
+    },
+    {
+      "title": "Immediate Ban on Uncertified Third-Party Field Fabrications",
+      "points": [
+        "Zero Tolerance for Uncertified Field Mechanics: Critical drivetrain, steering, and structural load components must NEVER be locally fabricated without engineering clearance. Local trial-and-error repairs (such as the 800 axle smoking failure) risk catastrophic damage.",
+        "Central Depot Machining Prerequisite: In cases of severe machining/axle breakdowns, components must be dispatched directly to the Delhi engineering depot for certified OEM precision repair rather than wasting funds on unbilled, failed field work."
+      ]
+    },
+    {
+      "title": "CRM Machine Registration & Technician Ticket Ownership",
+      "points": [
+        "CRM Validation Prerequisite: Every machine discussed in the daily breakdown meeting (e.g. Jamnagar T65 SN 539503, GS-90 SN 588) must be cross-checked and verified live in CRM by Jitendra, Dinesh, and Shiv before clearing field actions.",
+        "Personal Ticket Nomination: Field technicians (Banarsi, Vinod Pal, etc.) must ensure CRM tickets and breakdown reports are formally registered under their own name rather than defaulted colleagues (e.g. Ram Babu), ensuring accurate work attribution, incentive tracking, and audit compliance."
+      ]
+    },
+    {
+      "title": "Remote Technical Support via Live Video Calling",
+      "points": [
+        "Fast-Track Complex Troubleshooting: For intricate control faults, selector switch failures, or card communication drops (e.g. Machine 3046 / JCB control console), operators must immediately initiate a live video conference with senior specialists like Trilochan Ji.",
+        "Real-Time Component Inspection: Live video calling enables immediate visual inspection of relay terminals, wire color codes, and bypass requirements, resolving issues within hours instead of waiting for outstation travel."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Rahul Singh",
+      "task": "Follow up with Mishra Ji for immediate engineer dispatch to Bhiwani for Hyundai 3-ton tilt cylinder repair; coordinate Bangalore 4-point task handover on WhatsApp; track 3-ton battery arrival at Jamshedpur."
+    },
+    {
+      "person": "Dhruv Sharma",
+      "task": "Confirm vendor dispatch docket from Manish for PG Electroplast 2-ton battery pack; verify logistics status of Jamshedpur 3-ton battery consignment; oversee Bangalore 23-battery requisition."
+    },
+    {
+      "person": "Jitendra Budhauliya",
+      "task": "Ensure Jamnagar T65 (SN 539503) and GS-90 (SN 588) are updated in CRM; coordinate video call between site technician and Trilochan Ji for Machine 3046 selector button troubleshooting; track Delhi lock pins and rotary seals for J-6034."
+    },
+    {
+      "person": "Satendra Kumar",
+      "task": "De-install dead Amaron battery bank from GS 90 D 588, prepare old core return paperwork for vendor credit, and submit formal CRM replacement report today."
+    },
+    {
+      "person": "Ravikant",
+      "task": "Coordinate with technician Praveen to deliver 1-notch cylinder head gasket to Panipat tonight for Model 450 (SN 030077669) repair; arrange dispatch of damaged 800 axle to Delhi depot."
+    },
+    {
+      "person": "Pardeep Tomar",
+      "task": "Receive cable photo from site and integrate into system entry; dispatch required electrical cable and lock pin hardware with upcoming consignment."
+    },
+    {
+      "person": "Umesh Kumar",
+      "task": "Identify JCB 2040 touch pad part number for Korba site (SN 3534); coordinate Ambala Genie 1932 (SN 21730) limit calibration and handover warning decals to Ranjan."
+    },
+    {
+      "person": "Banarsi",
+      "task": "Complete on-site repair and alignment of exhaust silencer on 150ft boom lift to stop smoke discharge onto the boom; update CRM maintenance log under personal technician ID."
+    },
+    {
+      "person": "Vinod Pal",
+      "task": "Send cable photographs to Pardeep Tomar; escalate resolution of swapped medical insurance card with HR/Admin (Vinod Yadav card mix-up); obtain large tyre consignment status from Shiv Sir."
+    },
+    {
+      "person": "Trilochan Ji",
+      "task": "Conduct technical video call with field operator for Machine 3046 to provide step-by-step guidance on JCB selector toggle button and drive power drop troubleshooting."
+    }
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "id": "meet-2026-09-09",
+  "title": "09-09-2026",
+  "date": "2026-09-09",
+  "dateDisplay": "09-09-2026",
+  "dateFormatted": "09-09-2026",
+  "focus": "Mundra Z-30/Z-40 Downtime Escalation & 5-Day Breakdown Review Rule, Jamnagar JCB T65 Wiring Deterioration & Diagnostic Laptop Dispatch, Mundra JCB 4550 Wheel Separation Safety Hazard, JCB 2640 Remolded Tyre Rim Mismatch & 8–10 Unit Tyre Stock Buffer, Sanand Blue Star Local Hydraulic Oil Purchase, Toyota Reach Truck Cylinder Warranty & TVH Pulley Localization, Silvassa RT Harsh Floor Wheel Wear, and Strict CRM Ticket Enforcement (No Ticket, No Technician Dispatch)",
+  "isHoliday": false,
+  "holidayName": "",
+  "breakdowns": [
+    {
+      "site": "Mundra Fleet — Genie Z-30 & Z-40 Long-Term Grounding (>1 Month), Revenue Loss & Control Card Commissioning",
+      "issue": "Genie Z-30 (down since 2nd August, over 30 days) and Genie Z-40 grounded for over 1 month at Mundra, incurring an estimated company loss exceeding Rs. 3 Lakhs in idle rental revenue. Delay was driven by protracted trial-and-error diagnosis by field technicians (Pritam, Devinder, Raj Kishore) and delayed replacement card dispatch. Replacement control card was installed yesterday on Z-30 by Manish, but the machine failed main boom up/down operation due to deeply discharged battery banks.",
+      "action": "Technician Manish put Z-30 battery bank on full overnight charge; re-testing boom lift/lower functions today. For Genie Z-40, replacement motor sent from central depot arrived without RPM sensor; technician instructed to unbolt RPM sensor from old motor core and mount it onto new motor as per catalog separation. Dhruv Sharma instituted a mandatory company-wide rule: any machine down for >5 days will be reviewed twice daily by management.",
+      "status": "Z-30 Card Fitted & Under Re-test Post-Charge; Z-40 Motor Sensor Transfer Underway; 5-Day Twice-Daily Escalation Rule Enforced"
+    },
+    {
+      "site": "Jamnagar Site — JCB T65 Boom Lift (2024 Model) Severe Wiring Deterioration & Calibration Lockout",
+      "issue": "Brand new 2024 model JCB T65 boom lift grounded for 7 days. Outer PVC insulation on wiring harness is spontaneously cracking, disintegrating, and peeling off, exposing bare conductors and risking direct short circuits. Technician Deepak was deployed initially but lacked electrical calibration competency. Technician Pardeep Suthar arrived on site but is completely stalled due to lack of DLA (Data Link Adapter), diagnostic laptop, and matching marching joystick.",
+      "action": "Secondary diagnostic laptop and DLA interface tool located at Delhi head office/yard to be software-configured and dispatched via express courier to Pardeep Suthar today. Dinesh Babu instructed to issue a formal warranty claim notice to JCB OEM accompanied by photographic proof of defective PVC insulation. Satendra Kumar instructed to escalate directly to Dhruv Sharma if operational unblocking is not completed by 4:00 PM.",
+      "status": "7-Day Grounding Escalated; Diagnostic Laptop & DLA Express Consignment Active; JCB OEM Defect Notice Underway"
+    },
+    {
+      "site": "Mundra Fleet — JCB 4550 / 45ft Boom (Serial No. 2382/6231) Wheel Hub Separation Safety Incident",
+      "issue": "Critical safety hazard: front outer wheel assembly detached completely from the machine during movement. Machine previously suffered wheel loosening which was refitted without root-cause rectification. Wheel separation presents catastrophic machine tip-over and fatal workplace risk.",
+      "action": "Sushil Mishra and Dhruv Sharma ordered immediate grounding of equipment. Site team instructed to thoroughly inspect spindle, hub bearings, castellated nut, and split pin locking mechanism. Umesh Kumar directed to submit high-resolution video and photos immediately. Dinesh Babu instructed to lodge an urgent warranty breakdown ticket on the official JCB customer portal.",
+      "status": "Equipment Grounded; Spindle & Hub Locking Inspection Underway; Emergency JCB OEM Portal Claim Being Logged"
+    },
+    {
+      "site": "Sanand Site / Tata Micron — JCB 2640 Scissor Lift (Serial No. 3083224) Remolded Tyre Rim Mismatch",
+      "issue": "JCB 2640 scissor lift grounded awaiting tyre clearance. Out of 6 remolded tyres dispatched to site, 4 were mounted onto two working machines, but the remaining 2 remolded tyres have defective, oversized center bore and bolt circle dimensions, making rim fitment impossible.",
+      "action": "Defective remolded tyres and 4 worn-out scrap tyres (total 6 tyres) to be shipped back to central store. Store manager Pardeep Tomar instructed to dispatch 2 verified replacement tyres (OEM JCB or verified aftermarket) immediately to commission the equipment.",
+      "status": "Defective Remolded Rims Quarantined; 2 Replacement Tyres Dispatched; 6 Scrap/Defective Tyres Returning to Store"
+    },
+    {
+      "site": "Sanand Site — Blue Star Client Scissor Fleet (Supervisor Pravesh) Hydraulic Oil Purchase & Servicing",
+      "issue": "Client Blue Star demanded verified physical service records after questioning an interim verbal maintenance claim. Scissor lift periodic servicing stalled for 2–3 months due to dispute over local hydraulic oil quotation prices, threatening hydraulic pump failure and severe client escalation.",
+      "action": "Shiv Uniyal, Jitendra Budhauliya, and Imran Khan authorized supervisor Pravesh Yadav to execute immediate local purchase of required hydraulic oil barrels at local market rate. Pravesh instructed to collect valid GST invoices, finish full servicing across all Blue Star machines today, and provide signed maintenance logs to client.",
+      "status": "Local Procurement Authorized; Pravesh Sourcing Oil Today; Comprehensive Fleet Servicing Underway"
+    },
+    {
+      "site": "Sanand Site / Tata Micron — JCB 3246 (Machine 36051) Safety EC Master / Secondary PC Board Failure",
+      "issue": "JCB 3246 (SN 36051 / 3246) main drive and scissor functions operating normally, but auxiliary safety systems failed: safety horn inoperative, flashing beacon light inactive, and platform overload sensor display dead. Tata safety inspectors will red-tag and ground the unit if operated.",
+      "action": "Defect isolated to secondary EC Master PC board (main controller and 3 auxiliary relays tested OK; confirmed via temporary board swap from donor machine and video shared with Dinesh). Component confirmed under OEM warranty exchange; awaiting dispatch docket from vendor/OEM.",
+      "status": "EC Master Board Failure Confirmed & Video Logged; OEM Warranty Exchange Order Active; Safety Clearance Pending"
+    },
+    {
+      "site": "Samsung NCR-2 (Greater Noida) — Hyundai 20V-9 Forklift (Serial No. 1008) Tyre Pressing & Deployment",
+      "issue": "Hyundai 20V-9 forklift grounded for tyre replacement. Dispatched tyres were handed over to Rahul for hydraulic rim pressing.",
+      "action": "Pressed tyres ready at hydraulic workshop by 11:00 AM. Technician Hamid assigned to collect pressed tyres, deliver to Samsung NCR-2 site, assist/oversee fitment (estimated 30 mins), and subsequently proceed to LP16, Apex, and Vidya Polymer sites for pending maintenance calls.",
+      "status": "Pressed Tyres ETA 11:00 AM; Hamid Deployed for Fitment; Outstation Service Schedule Aligned"
+    },
+    {
+      "site": "Samsung Site (Gurgaon) — Toyota Reach Truck Mast Cylinder Breakdown & TVH Pulley Alternative",
+      "issue": "Toyota Reach Truck grounded for 7 days due to hydraulic mast cylinder leakage. Seal kit was sent from internal stock, but Toyota OEM rejected field rebuild and mandated full cylinder warranty replacement. Toyota refused on-site replacement from Gurgaon depot, agreeing only to ship replacement cylinder to site by Friday/Saturday.",
+      "action": "Sushil Mishra confirmed warranty approval through Toyota representative Mukesh. As TVH-sourced mast pulleys experience rapid failure, Dhruv Sharma instructed Hari to locate reliable alternative local suppliers for heavy-duty mast pulleys to cut procurement costs and improve component life.",
+      "status": "Warranty Cylinder Approved (Dispatch ETA Friday/Saturday); Hari Sourcing Alternative Pulley Vendors"
+    },
+    {
+      "site": "Silvassa Site — Reach Truck Drive Wheel Rapid Wear & Cracked Floor Conditions",
+      "issue": "Reach truck requiring frequent drive wheel replacements (site requested 4 drive wheels despite 1 wheel being replaced just 1 month ago). Severe floor cracks, pitting, and uneven concrete in client warehouse are shredding polyurethane wheels under load.",
+      "action": "Client confirmed warehouse floor re-laying will occur around Diwali (2 months). Dhruv instructed Jitendra to send formal reminder email documenting floor damage. Dispatched 2 drive wheels (1 for immediate installation, 1 kept on-site as buffer stock). Central store instructed to maintain 2-ton drive wheel buffer.",
+      "status": "2 Drive Wheels Ordered (1 Fitment + 1 On-Site Spare); Formal Floor Damage Notice Sent to Client; Store Stocking Buffer Initiated"
+    },
+    {
+      "site": "Bhiwadi Fleet (Saint-Gobain & Industrial Sites) — Machines 502, 504, 506 & Bent Piston Rod Overhaul",
+      "issue": "Four machines reported in breakdown at Bhiwadi: Machine 502 (Saint-Gobain) suffered burnt I-button converter; Machine 506 blew hydraulic line; 3-Ton machine grounded for 1 month due to binding cylinder piston rod; Machine 504 running in partial breakdown.",
+      "action": "Machine 502 I-button bypassed to restore operation immediately. Machine 506 hydraulic line cannibalized from idle donor machine to restore within 1 hour. Arun transported 3-ton cylinder piston rod to external lathe machinist to inspect and correct rod bending. Sushil Mishra and Jitendra instructed to map local site numbers (502, 504, 506) to CRM serial numbers.",
+      "status": "Machine 502 Bypassed & Operational; 506 Hose Cannibalized; Piston Rod Lathe Straightening in Progress; CRM Mapping Enforced"
+    },
+    {
+      "site": "Jammu Airport Site — JLG Machine (Serial No. 11122) Boom Swing Defect & CRM Location Rectification",
+      "issue": "JLG boom lift at Jammu Airport (SN 11122) facing boom swing malfunction. Supervisor Umesh mistakenly entered 'Bhuj / Gujarat' as location in CRM and submitted dummy '0000' hour meter reading.",
+      "action": "Jitendra Budhauliya corrected location and reopened ticket. Dhruv Sharma strictly prohibited dummy hour meter inputs, mandating operators to submit hour meter photo and direct contact numbers on all CRM tickets.",
+      "status": "CRM Ticket Corrected to Jammu; Operator Photo Awaited; Direct Engineer Coordination Initiated"
+    },
+    {
+      "site": "Sanand Site — Genie Z-45 (Serial No. 45902) Tyre Replacement & Tata Safety Clearance",
+      "issue": "Genie Z-45 (SN 45902) grounded for 8–10 days due to completely bald, worn-down tyres. Tata Micron safety marshals strictly banned machine from operating inside premises.",
+      "action": "Satendra Kumar confirmed replacement tyres scheduled for delivery today. Priority fitment mandated upon arrival to clear Tata safety gate and resume rental billing.",
+      "status": "8–10 Day Breakdown; New Tyres Arriving Today; Immediate Fitment & Safety Gate Re-entry Planned"
+    },
+    {
+      "site": "Mundra Site — Genie 4590 & JLG 660SJ Pump Failures",
+      "issue": "Genie 4590 experiencing repeated operational tripping; previously repaired pump failed under load. JLG 660SJ (SN 9539 / 95369) failing startup due to pump/fuel issues.",
+      "action": "New Genie 4590 replacement pump approved by Vishal Sir; procurement status being expedited. Pritam Chand on-site troubleshooting JLG 660SJ. Mantu to be dispatched to Mundra once Bay S-60 machine commissioning is completed.",
+      "status": "4590 Pump Purchase Approved; 660SJ Diagnostics Underway; Mantu Travel Aligned Post S-60 Completion"
+    },
+    {
+      "site": "Ambala & Dera Bassi Site — Slew Ring Breakdown & Technician Routing (Trilochan & Durgesh)",
+      "issue": "Machine at Ambala / Dera Bassi site grounded due to slew ring / ring gear breakdown.",
+      "action": "Durgesh travel ticket booked for tomorrow. Senior technician Trilochan traveling to Chandigarh; Dhruv instructed Trilochan to stop at Ambala / Dera Bassi en-route back to inspect slew ring. Hari to confirm site details.",
+      "status": "Durgesh Travel Booked; Trilochan Inspecting En-Route from Chandigarh; Site Verification Assigned to Hari"
+    }
+  ],
+  "parts": [
+    {
+      "part": "Diagnostic Laptop & DLA (Data Link Adapter) Interface",
+      "context": "Jamnagar JCB T65 Fleet & Field Service Team",
+      "statusNextSteps": "Office/Yard laptop being software-loaded and dispatched via express courier to technician Pardeep Suthar at Jamnagar for T65 recalibration."
+    },
+    {
+      "part": "Scissor Lift Tyres Buffer Stock (8–10 Units)",
+      "context": "Central Store Buffer Stock & Fleet-Wide Operations",
+      "statusNextSteps": "Dhruv Sharma mandated maintaining permanent stock of 8–10 scissor lift tyres. Shiv Uniyal preparing vendor pricing comparison across Camso, Pride, OEM, and imports."
+    },
+    {
+      "part": "JCB 2640 Replacement Tyres (2 Units)",
+      "context": "Sanand Fleet — JCB 2640 (SN 3083224)",
+      "statusNextSteps": "2 verified tyres (OEM JCB or verified aftermarket) being dispatched today to replace defective remolded rims with oversized bolt holes."
+    },
+    {
+      "part": "Hydraulic Oil (Fleet Grade Consumables)",
+      "context": "Sanand Blue Star Scissor Lift Fleet (Supervisor Pravesh)",
+      "statusNextSteps": "Local purchase authorized immediately for required barrel volume to perform full servicing across all Blue Star machines today."
+    },
+    {
+      "part": "Secondary EC Master PC Board",
+      "context": "Sanand Site — JCB 3246 Scissor Lift (Machine 36051)",
+      "statusNextSteps": "Under warranty exchange with OEM. Awaiting dispatch docket from supplier/OEM to replace defective board controlling horn, safety beacon, and load sensor."
+    },
+    {
+      "part": "Reach Truck Polyurethane Drive Wheels (2 Units)",
+      "context": "Silvassa Site — Reach Truck Fleet",
+      "statusNextSteps": "2 drive wheels ordered: 1 for immediate fitment to address floor-induced wear, 1 retained on-site as emergency buffer."
+    },
+    {
+      "part": "Alternative Heavy-Duty Mast Pulleys",
+      "context": "Toyota Reach Truck Fleet (Samsung Gurgaon Site)",
+      "statusNextSteps": "Existing TVH pulleys prone to premature wear. Hari tasked with sourcing durable, lower-cost alternative local suppliers for quoting."
+    },
+    {
+      "part": "Hydraulic Mast Lift Cylinder",
+      "context": "Toyota Reach Truck (Samsung Site — SN 71)",
+      "statusNextSteps": "Full warranty replacement approved by Toyota OEM (Mukesh/Pawan). Dispatch scheduled for Friday/Saturday to site."
+    },
+    {
+      "part": "Genie Z-40 Electric Drive Motor & RPM Sensor",
+      "context": "Mundra Fleet — Genie Z-40 Boom Lift",
+      "statusNextSteps": "Motor arrived from store without RPM sensor. Technician Manish to unbolt RPM sensor from old core and mount onto new motor as per catalog separation."
+    },
+    {
+      "part": "Genie 4590 Hydraulic / Function Pump",
+      "context": "Mundra Fleet — Genie 4590 Boom Lift",
+      "statusNextSteps": "New replacement pump purchase approved by Vishal Sir; store tracking order confirmation to replace failed reconditioned pump."
+    },
+    {
+      "part": "Industrial Traction Batteries & Replacement Cells",
+      "context": "Bangalore Fleet & Mundra Z-30/45ft Fleet",
+      "statusNextSteps": "1 Bangalore battery assembled via good cell swapping; 3 Exide cells ordered to build second bank. Mundra Z-30 battery on overnight charge."
+    },
+    {
+      "part": "Side Shifter Assembly & Mast Hardware",
+      "context": "Kamrej 3-Ton Machine & JK Paper Site",
+      "statusNextSteps": "Transporting side shifter from paper machine to Kamrej, and mast to JK Paper; parcel freight quotes being finalized today."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Mandatory 5-Day Breakdown Review Rule (Zero Tolerance for Prolonged Grounding)",
+      "points": [
+        "Twice-Daily Management Review: Any machine remaining grounded for more than 5 consecutive days will be subjected to mandatory twice-daily reviews until operational.",
+        "End to Technician Blame Shifting: Management, technical coordinators, and store heads must take proactive ownership of diagnostic deadlocks rather than allowing issues to drag for weeks under the pretext of technician inefficiency.",
+        "Revenue Protection: Long-term groundings like the Mundra Z-30/Z-40 (>1 month, >Rs. 3 Lakhs loss) represent unacceptable commercial leakage that must be caught within 48–72 hours."
+      ]
+    },
+    {
+      "title": "Strict CRM Ticket Enforcement ('No CRM Ticket, No Technician Dispatch')",
+      "points": [
+        "100% Daily Reconciliation: The physical breakdown log maintained by Jitendra Budhauliya must match open CRM tickets with zero discrepancies.",
+        "Technician Dispatch Block: Field supervisors (Rahul, Monu, etc.) must raise tickets directly on the CRM web/mobile portal; no technician or spares will be dispatched for unlogged breakdowns.",
+        "Accurate Ticket Metadata: Prohibit dummy entries (such as '0000' hour meters). Tickets must include clear hour meter photos and direct on-site operator contact numbers to facilitate smooth engineer coordination."
+      ]
+    },
+    {
+      "title": "Mandatory Video Camera Requirement for Daily Operations Meetings",
+      "points": [
+        "Mandatory Camera Activation: Effective immediately, all participants (field supervisors, engineers, coordinators, store managers) must keep video cameras turned ON throughout the daily morning meeting.",
+        "Eliminate Multi-Tasking & Inattention: Camera presence ensures active engagement, validates physical field/office location, and eliminates passive or absent attendees across mobile, metro, and yard environments.",
+        "Attendance Accountability: Supervisors failing to attend operational calls will face direct administrative follow-up."
+      ]
+    },
+    {
+      "title": "Scissor Lift Tyre Inventory Policy (Minimum 8–10 Buffer Stock)",
+      "points": [
+        "Permanent Central Buffer: Central store must always hold 8 to 10 verified scissor lift tyres in ready inventory to prevent fleet groundings.",
+        "Remolding Quality Assurance: Strictly verify rim bolt circle dimensions, center bores, and rubber adhesion before dispatch to eliminate incidents like the JCB 2640 oversized rim rejection.",
+        "Vendor Cost Matrix: Shiv Uniyal to deliver an exhaustive price comparison sheet across Camso/Kalpataru, Pride, OEM, and imported Chinese alternatives."
+      ]
+    },
+    {
+      "title": "Decisive Authorization for Preventive Maintenance & Servicing Consumables",
+      "points": [
+        "Zero Servicing Lapses: Disagreements over quotation pricing for standard consumables (e.g. hydraulic oil) must never delay scheduled machine servicing by months.",
+        "Immediate Local Purchase Mandate: When central logistics cannot deliver promptly, field supervisors must be authorized to execute local purchases with valid GST invoices to maintain fleet health and pass client safety audits."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Dhruv Sharma",
+      "task": "Enforce the twice-daily review rule for machines grounded >5 days; review Shiv's tyre price comparison sheet; monitor diagnostic laptop dispatch and Jamnagar JCB T65 resolution."
+    },
+    {
+      "person": "Jitendra Budhauliya",
+      "task": "Cross-check 100% of open site breakdowns against CRM tickets daily; enforce 'No CRM, No Dispatch' rule with supervisors; track Jammu Airport JLG ticket (SN 11122) and Mundra Z-40 motor installation."
+    },
+    {
+      "person": "Shiv Uniyal",
+      "task": "Compile supplier pricing comparison sheet for scissor lift tyres (Kalpataru, Pride, OEM, Imports); establish 8–10 unit store buffer; oversee local hydraulic oil procurement approval for Pravesh."
+    },
+    {
+      "person": "Pravesh Yadav",
+      "task": "Complete local purchase of required hydraulic oil today, collect proper GST bills, execute full servicing of the Blue Star scissor fleet, and provide signed maintenance records to client."
+    },
+    {
+      "person": "Pardeep Tomar",
+      "task": "Dispatch 2 replacement tyres for JCB 2640 (SN 3083224) immediately; retrieve 6 defective/scrap tyres from Sanand; format and dispatch head office diagnostic laptop and DLA tool to Jamnagar."
+    },
+    {
+      "person": "Pardeep Suthar",
+      "task": "Receive diagnostic laptop and DLA at Jamnagar, execute software update and calibration on JCB T65; send photos/report of deteriorating wiring to Dinesh."
+    },
+    {
+      "person": "Dinesh Babu",
+      "task": "Lodge formal warranty claim with JCB OEM for Jamnagar T65 defective PVC wiring harness; log urgent warranty ticket on JCB portal for Mundra 4550 detached wheel assembly."
+    },
+    {
+      "person": "Sushil Mishra",
+      "task": "Coordinate lathe inspection of bent cylinder piston rod for Bhiwadi machine; map Bhiwadi internal machine numbers (502, 504, 506) to CRM serial numbers; track Toyota warranty cylinder arrival."
+    },
+    {
+      "person": "Hari",
+      "task": "Contact Pawan/Mukesh for Toyota part numbers and source alternative local suppliers for heavy-duty mast pulleys; verify site details for Ambala/Dera Bassi."
+    },
+    {
+      "person": "Satendra Kumar",
+      "task": "Track delivery and fitment of replacement tyres for Sanand Genie Z-45 (SN 45902) to clear Tata safety gate; escalate Jamnagar T65 to Dhruv Sharma if unblocking plan not ready by 4:00 PM."
+    },
+    {
+      "person": "Umesh Kumar",
+      "task": "Submit detailed photos and video of the detached front wheel and spindle on Mundra JCB 4550; follow up on Genie 4590 new pump dispatch and overnight charging test for Z-30."
+    },
+    {
+      "person": "Trilochan Ji",
+      "task": "Inspect Ambala / Dera Bassi equipment en-route on return from Chandigarh; coordinate slew ring diagnosis with Durgesh."
+    }
+  ]
+}

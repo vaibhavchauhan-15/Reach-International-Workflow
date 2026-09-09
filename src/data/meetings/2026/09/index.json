@@ -2,8 +2,23 @@
   "year": "2026",
   "month": "09",
   "monthName": "September",
-  "meetingCount": 8,
+  "meetingCount": 9,
   "meetings": [
+    {
+      "id": "meet-2026-09-09",
+      "date": "2026-09-09",
+      "dateDisplay": "09-09-2026",
+      "dateFormatted": "09-09-2026",
+      "title": "09-09-2026",
+      "focus": "Mundra Z-30/Z-40 Downtime Escalation & 5-Day Breakdown Review Rule, Jamnagar JCB T65 Wiring Deterioration & Diagnostic Laptop Dispatch, Mundra JCB 4550 Wheel Separation Safety Hazard, JCB 2640 Remolded Tyre Rim Mismatch & 8–10 Unit Tyre Stock Buffer, Sanand Blue Star Local Hydraulic Oil Purchase, Toyota Reach Truck Cylinder Warranty & TVH Pulley Localization, Silvassa RT Harsh Floor Wheel Wear, and Strict CRM Ticket Enforcement (No Ticket, No Technician Dispatch)",
+      "isHoliday": false,
+      "holidayName": "",
+      "breakdownCount": 14,
+      "partsCount": 12,
+      "directivesCount": 5,
+      "actionItemsCount": 12,
+      "path": "/data/meetings/2026/09/09.json"
+    },
     {
       "id": "meet-2026-09-08",
       "date": "2026-09-08",

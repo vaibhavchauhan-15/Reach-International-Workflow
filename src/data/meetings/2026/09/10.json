@@ -1,0 +1,230 @@
+{
+  "id": "meet-2026-09-10",
+  "title": "10-09-2026",
+  "date": "2026-09-10",
+  "dateDisplay": "10-09-2026",
+  "dateFormatted": "10-09-2026",
+  "focus": "Vadodara 0841 Battery Cell Thermal Boiling & Cell Bypass Protocol, Micron 3-Machine Battery Cannibalization (2 Units Operational Today), Bhiwadi 504 Dual Hydraulic/Travel Lockout & 506/507 Plate Dispatch, Kota 2-Ton Battery PO & Client CCTV Safety Clearance, Goa Reach Truck Hydraulic Pump Replacement & 22-Year Battery Condemnation, Bhatinda Z-60 Harness Overheating Repair, Bemani Tyre Replacement & CRM Logging, and Strict Google Form Spares Enforcement ('No Form, No Dispatch')",
+  "isHoliday": false,
+  "holidayName": "",
+  "breakdowns": [
+    {
+      "site": "Vadodara Fleet — Machine 0841 (SN: 9FW-HK-HB108CF / 0841) Battery Cell Boiling & Steering Sensor Defect",
+      "issue": "Sole machine at Vadodara grounded since 8:00 PM last night, halting client warehouse operations. Operator reported severe battery cell boiling: upon pouring DM water, water immediately boils away with heavy smoke emission. Machine also requires 1 steering sensor (logged ~1 week ago in Google Form by Asim). Client calling continuously for restoration.",
+      "action": "Dhruv Sharma instructed field team to test bypassing the boiling cell immediately to restore travel and lift operations. Shiv Uniyal confirmed the steering sensor is already ordered and arriving at Delhi depot today or tomorrow for express dispatch. Shiv also noted Reach central yard holds a 3-ton battery bank from which healthy cells can be dispatched if bypass fails. Ravi Tiwari directed to send clear photos of the battery serial plate.",
+      "status": "Cell Bypass Test Underway; Steering Sensor In Transit to Delhi; Battery Plate Photo Awaited"
+    },
+    {
+      "site": "Tata Micron Site (Sanand) — 3 Reach Trucks Grounded & Battery Cell Cannibalization Protocol",
+      "issue": "Three reach trucks grounded at Micron due to battery failures, with 6 total bad/dead cells. Previous warranty claim discussions stalled. Supervisor Dheeraj Dubey cited lack of time as technician Deepak was assigned to CG Power project.",
+      "action": "Jitendra Budhauliya and Shiv Uniyal strictly directed Dheeraj to execute immediate battery cell interchange/cannibalization across the 3 units today. By extracting the 6 defective cells and consolidating all functional cells into 2 machines, 2 reach trucks can be restored to full operation immediately, leaving only 1 unit grounded pending cell procurement.",
+      "status": "Mandatory Cell Swap Ordered; 2 Machines Restored to Running Today; 1 Unit Quarantined for Spares"
+    },
+    {
+      "site": "Bhiwadi Fleet — Machines 507, 506 & 504 Multi-Unit Grounding & Diagnostic Isolation",
+      "issue": "Three machines down at Bhiwadi: Machines 507 and 506 grounded awaiting terminal connection plates (logged in Google Form by Asim). Machine 504 suffered complete dual-system lockout with neither hydraulics nor marching/travel functions operating.",
+      "action": "Shiv Uniyal confirmed MD order for 507 and 506 plates was executed yesterday; parts arriving at central store today for onward courier dispatch. For Machine 504, Sushil Mishra and technical supervisors are conducting diagnostic troubleshooting (checking main contactors, fuse blocks, and controller signals) to identify defective electrical/hydraulic components and extract part numbers.",
+      "status": "507/506 Spares Dispatch Today; Machine 504 Diagnostics Underway; Component Part Numbers Being Extracted"
+    },
+    {
+      "site": "Kota Fleet — 2-Ton Forklifts Battery Bank Deficit & CCTV Safety Camera Clearance",
+      "issue": "Two 2-ton machines operating at Kota with zero backup battery reserves (only 2 active batteries inside running units, creating high breakdown vulnerability). Additionally, client safety auditors mandated CCTV safety cameras before permitting full shop-floor clearance.",
+      "action": "Shiv Uniyal confirmed battery dimensions are verified; purchase order for new battery banks is being issued today. Sushil Mishra approved CCTV camera brackets and mechanical mounting so machines clear client safety audit.",
+      "status": "Battery Dimensions Verified & PO Being Released Today; CCTV Camera Mounting in Progress"
+    },
+    {
+      "site": "Goa Fleet — Reach Truck Hydraulic Pump Failure & 22-Year-Old Condemned Battery",
+      "issue": "Goa reach truck grounded due to hydraulic pump failure. Site inspection revealed the traction battery bank is 22 years old, severely degraded, unable to maintain voltage or electrolyte specific gravity under load.",
+      "action": "Imran Khan deploying technician Sajid to Goa with a replacement hydraulic pump assembly. Complete battery replacement authorized; formal procurement requisition initiated.",
+      "status": "Technician Sajid Travel Aligned; Replacement Pump Dispatched; Battery Replacement Requisition Approved"
+    },
+    {
+      "site": "Bhatinda Site — Genie Z-60 Boom Lift Chassis Wiring Harness Overheating",
+      "issue": "Genie Z-60 experiencing severe electrical wiring harness overheating on lower chassis/ground control bundle, risking melted insulation, short circuits, and intermittent signal shutdown.",
+      "action": "Satendra Kumar opened the harness protective ducting to isolate high-resistance splices, degraded wiring, and loose terminal lugs. Complete rewiring, lug crimping, and electrical load testing scheduled for completion today.",
+      "status": "Harness Disassembled; Rewiring & Thermal Load Testing Underway"
+    },
+    {
+      "site": "Bemani & Samsung Display Sites — Machine Tyre Pressing, CRM Ticket Rectification & Toyota RT Sensor",
+      "issue": "At Bemani, tyre change program underway (1 machine tyres pressed and fitted, second machine awaiting tyre change). Machine was operating without CRM ticket registration due to supervisor password issues with Dinesh. At Samsung Display, Toyota Reach Truck is operating on provisional duty pending arrival of steering/pulse sensor (Google Form submitted).",
+      "action": "Rahul Singh instructed to retrieve machine serial number immediately and register official CRM ticket. Pune breakdown tracking continues; Silvassa pending repairs carried forward. Samsung Toyota RT operating under continuous monitoring until express sensor arrives.",
+      "status": "Bemani Tyre Swaps in Progress; CRM Ticket Being Logged; Samsung Toyota RT Running under Monitoring"
+    },
+    {
+      "site": "Haldiram & JK Paper Sites — Machine 450 Spares Transit & 8-Ton Fleet Servicing",
+      "issue": "Haldiram 450 machine awaiting marching motor/hydraulic pump components. At JK Paper, parts for 8-ton machine delivered, but technicians were engaged in minor servicing of 8 order picker units.",
+      "action": "Shiv Uniyal confirmed Machine 450 spares are in active transit. Amit (Ahmedabad) placed on standby for deployment upon completion of order picker servicing. Ravi Tiwari assigned to execute 8-ton machine overhaul today using delivered parts.",
+      "status": "450 Spares In Transit; 8-Ton Machine Work Scheduled Today; Order Picker Servicing Wrapping Up"
+    },
+    {
+      "site": "Shivam Pandey Operational Fleet — 5-Ton Directional Seal Fitment & 2-Ton Phased Seat Overhaul",
+      "issue": "5-Ton forklift was temporarily running with damaged directional seal; replacement seal arrived and machine was halted for proper fitment. Additionally, 2-Ton machine operator seats are extensively torn with exposed metal frame, causing driver fatigue despite seat covers provided previously from Delhi.",
+      "action": "Shivam Pandey fitting new directional seal today to achieve full commissioning. For seat overhaul across 11 machines, Sushil Mishra instructed a phased 1-by-1 rotation to avoid grounding operating machines. Shivam confirmed 12 replacement covers are in stock on site.",
+      "status": "5-Ton Directional Seal Fitment Underway; Phased 1-by-1 Seat Refurbishment Active (12 Covers on Site)"
+    },
+    {
+      "site": "Jamnagar Fleet & Central Yard — JCB 2640 Spares, 4550 Tyres & Diagnostic Tooling",
+      "issue": "JCB 2640 scissor lift pending critical spares and tyres (reported limited store inventory). Jamnagar site awaiting diagnostic laptop and DLA interface tool for JCB T65 boom lift recalibration.",
+      "action": "Shiv Uniyal and Pardeep Tomar confirmed JCB 2640 parts orders are placed. 4550 tyres confirmed safely delivered to site. Diagnostic laptop and DLA adapter dispatched via morning train/courier to technician Pardeep Suthar. Payment for 2 battery sets released today.",
+      "status": "4550 Tyres Delivered; 2640 Spares Ordered; Jamnagar Laptop/DLA In Transit; Battery Payment Cleared"
+    },
+    {
+      "site": "Dulehra Site — Machine 120 Urgent Electrical Restoration & Technician Backup",
+      "issue": "Machine 120 grounded at Dulehra. Communication lag experienced due to strict client ban on mobile phones inside premises, leaving technician Rohit isolated.",
+      "action": "Imran Khan coordinating site visit for Sajid/Gulail to assist Rohit in completing electrical repairs and functional testing today.",
+      "status": "Field Engineer Backup Dispatched; Troubleshooting Underway"
+    }
+  ],
+  "parts": [
+    {
+      "part": "Steering Sensor (Cutting/Steering Assembly)",
+      "context": "Vadodara Fleet — Machine 0841 (SN: 9FW-HK-HB108CF / 0841)",
+      "statusNextSteps": "Google Form logged by Engineer Asim ~1 week ago. Part ordered by Shiv Uniyal, arriving Delhi depot today/tomorrow for express shipment to Vadodara."
+    },
+    {
+      "part": "Traction Battery Cells (2V Cells & Bypass Kit)",
+      "context": "Vadodara Machine 0841 & Central Store 3-Ton Buffer",
+      "statusNextSteps": "Defective boiling cell to be bypassed immediately on site; healthy 2V replacement cells to be harvested from 3-ton battery bank at Reach yard if required."
+    },
+    {
+      "part": "Terminal Connection Plates & Electrical Hardware",
+      "context": "Bhiwadi Fleet — Machines 507 & 506",
+      "statusNextSteps": "MD order placed yesterday. Spares arriving central store today for immediate courier dispatch to Sandeep Kumar at Bhiwadi."
+    },
+    {
+      "part": "Hydraulic Pump Assembly & New Traction Battery Bank",
+      "context": "Goa Fleet — Reach Truck",
+      "statusNextSteps": "Replacement hydraulic pump dispatched with technician Sajid. 22-year-old battery condemned; procurement sizing and formal requisition submitted."
+    },
+    {
+      "part": "2-Ton Industrial Battery Banks (2 Complete Sets)",
+      "context": "Kota Fleet — Material Handling Units",
+      "statusNextSteps": "Physical dimensions verified on site. Shiv Uniyal issuing formal purchase order today; advance payment cleared."
+    },
+    {
+      "part": "CCTV Safety Camera Kits & Mounting Brackets",
+      "context": "Kota Fleet — Client Audit Compliance",
+      "statusNextSteps": "Camera procurement approved. Sushil Mishra coordinating bracket fabrication and electrical harness integration to pass client safety inspection."
+    },
+    {
+      "part": "JCB 2640 Spares & Scissor Lift Replacement Tyres",
+      "context": "Jamnagar Fleet & Central Store Buffer",
+      "statusNextSteps": "Parts orders placed with supplier. Store stock buffer being replenished. JCB 4550 tyres confirmed delivered on site."
+    },
+    {
+      "part": "Diagnostic Laptop & DLA (Data Link Adapter) Interface",
+      "context": "Jamnagar Site — JCB T65 Boom Lift Calibration",
+      "statusNextSteps": "Configured diagnostic laptop and DLA interface tool dispatched via morning train/courier for technician Pardeep Suthar."
+    },
+    {
+      "part": "Directional Hydraulic Seal",
+      "context": "Shivam Pandey Fleet — 5-Ton Forklift",
+      "statusNextSteps": "Seal delivered to site. Technician fitting seal today to restore full operational clearance."
+    },
+    {
+      "part": "Operator Seat Cushioning Foam & Seat Covers (12 Units)",
+      "context": "Shivam Pandey Fleet — 2-Ton Forklifts (11 Machines)",
+      "statusNextSteps": "12 seat covers available on site. Phased 1-by-1 seat refurbishing rotation authorized to avoid fleet grounding."
+    },
+    {
+      "part": "Pulse / Steer Sensor",
+      "context": "Samsung Display Site (Gurgaon/NCR) — Toyota Reach Truck",
+      "statusNextSteps": "Google Form submitted by Rahul Singh. Express procurement initiated by central store; machine operating on light duty under monitoring."
+    },
+    {
+      "part": "Marching Motor & Hydraulic Pump Spares",
+      "context": "Haldiram Site — Machine 450",
+      "statusNextSteps": "Components ordered and currently in courier transit to site."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Strict Google Form Spares Procurement Policy ('No Google Form, No Spares Dispatch')",
+      "points": [
+        "Zero Verbal or Chat Dispatches: Store manager Pardeep Tomar and procurement team will strictly reject any parts requests submitted via personal phone calls, WhatsApp messages, or verbal requests.",
+        "Mandatory Form Compliance: Every spares requisition must be entered into the central Google Form with verified part numbers, machine serial number plate photos, and detailed failure symptoms.",
+        "End to Informal Exceptions: Field supervisors must adhere 100% to the digital requisition protocol to ensure inventory accuracy and prevent wrong part dispatches."
+      ]
+    },
+    {
+      "title": "Battery Cannibalization Strategy for Multi-Unit Site Groundings",
+      "points": [
+        "Immediate Fleet Restoration: On sites suffering multiple machine groundings due to partial cell failures (e.g. Micron 3 reach trucks with 6 bad cells), supervisors must immediately swap healthy cells into priority machines.",
+        "Maximize Operational Availability: Never leave an entire cluster grounded while waiting for fresh battery procurement; consolidate good cells to ensure maximum units (e.g. 2 out of 3) are operational today.",
+        "Quarantine Defective Units: The single machine holding the dead cells will remain quarantined pending fresh cell procurement or warranty settlement."
+      ]
+    },
+    {
+      "title": "Meeting Discipline, Prior Preparation & Mute Protocols",
+      "points": [
+        "Written Agenda Requirement: Site supervisors must write down all breakdown details, machine numbers, and spares requisitions prior to joining the morning meeting. Piecemeal recall during the call is prohibited.",
+        "Audio Discipline: Participants must keep microphones muted when not speaking to eliminate background shop-floor noise and echo.",
+        "Supervisory Attendance: All regional supervisors must attend daily morning meetings punctually. Absentees will face direct administrative review."
+      ]
+    },
+    {
+      "title": "Mandatory CRM Ticket Registration for All Fleet Interventions",
+      "points": [
+        "100% CRM Reconciliation: All machine breakdowns, tyre replacements, and servicing calls must have an active CRM ticket registered with accurate serial numbers.",
+        "Immediate Credential Escalation: Supervisors experiencing CRM login or password difficulties (e.g. Rahul Singh / Dinesh) must resolve access within 1 hour rather than leaving work unlogged."
+      ]
+    },
+    {
+      "title": "Phased 1-by-1 Maintenance Rotation for Wear & Tear Components",
+      "points": [
+        "Prevent Fleet Grounding: Large-scale refurbishments such as operator seats, tyre changes, and cosmetic repairs across multi-unit fleets must be scheduled 1 machine at a time.",
+        "Active Utilization: Operational machines must remain on client duty while individual assemblies are serviced and re-installed sequentially."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Ravi Tiwari",
+      "task": "Test battery cell bypass on Machine 0841 at Vadodara to restore operation; upload photo of battery serial plate; complete 8-ton JK Paper machine commissioning with Amit."
+    },
+    {
+      "person": "Pandit Dheeraj Dubey",
+      "task": "Execute immediate battery cell swap/cannibalization across the 3 Micron reach trucks today, ensuring 2 units are fully operational and 1 unit is quarantined."
+    },
+    {
+      "person": "Shiv Uniyal",
+      "task": "Track arrival of Vadodara steering sensor at Delhi depot and expedite onward dispatch; issue formal PO for Kota 2-ton battery banks today; inspect 3-ton yard battery for cell harvesting."
+    },
+    {
+      "person": "Sushil Mishra",
+      "task": "Supervise diagnostic troubleshooting on Machine 504 (hydraulics and travel failure); manage 1-by-1 seat overhaul program with Shivam Pandey; confirm Kota CCTV camera bracket mounting."
+    },
+    {
+      "person": "Jitendra Budhauliya",
+      "task": "Reconcile CRM tickets against physical site breakdown logs; verify execution of Micron battery cell consolidation today; monitor technician deployment to Goa."
+    },
+    {
+      "person": "Pardeep Tomar",
+      "task": "Strictly enforce 'No Google Form, No Dispatch' policy across all sites; track express transit of Jamnagar diagnostic laptop and DLA tool; expedite dispatch of Bhiwadi 507/506 plates."
+    },
+    {
+      "person": "Satendra Kumar",
+      "task": "Complete wiring harness overhaul, lug re-crimping, and electrical load testing on Genie Z-60 at Bhatinda; coordinate JCB 2640 parts delivery with central store."
+    },
+    {
+      "person": "Shivam Pandey",
+      "task": "Complete 5-ton forklift directional seal replacement today; initiate phased 1-by-1 seat refurbishing across the 11-machine fleet using 12 on-site covers."
+    },
+    {
+      "person": "Rahul Singh",
+      "task": "Resolve CRM login credentials with Dinesh and log official ticket for Bemani machine; supervise second machine tyre change; track Samsung Toyota RT pulse sensor delivery."
+    },
+    {
+      "person": "Sandeep Kumar",
+      "task": "Conduct electrical contactor and fuse testing on Machine 504; receive and mount 507/506 replacement plates upon arrival; oversee Kota camera installation."
+    },
+    {
+      "person": "Imran Khan",
+      "task": "Mobilize technician Sajid to Goa with replacement hydraulic pump assembly; submit formal requisition for Goa 22-year battery replacement; coordinate Dulehra Machine 120 support."
+    },
+    {
+      "person": "Asim",
+      "task": "Verify Google Form submissions for Vadodara steering sensor and Bhiwadi terminal plates; ensure accurate manufacturer part numbers are updated."
+    }
+  ]
+}

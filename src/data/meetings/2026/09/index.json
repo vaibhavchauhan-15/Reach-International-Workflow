@@ -2,8 +2,23 @@
   "year": "2026",
   "month": "09",
   "monthName": "September",
-  "meetingCount": 9,
+  "meetingCount": 10,
   "meetings": [
+    {
+      "id": "meet-2026-09-10",
+      "date": "2026-09-10",
+      "dateDisplay": "10-09-2026",
+      "dateFormatted": "10-09-2026",
+      "title": "10-09-2026",
+      "focus": "Vadodara 0841 Battery Cell Thermal Boiling & Cell Bypass Protocol, Micron 3-Machine Battery Cannibalization (2 Units Operational Today), Bhiwadi 504 Dual Hydraulic/Travel Lockout & 506/507 Plate Dispatch, Kota 2-Ton Battery PO & Client CCTV Safety Clearance, Goa Reach Truck Hydraulic Pump Replacement & 22-Year Battery Condemnation, Bhatinda Z-60 Harness Overheating Repair, Bemani Tyre Replacement & CRM Logging, and Strict Google Form Spares Enforcement ('No Form, No Dispatch')",
+      "isHoliday": false,
+      "holidayName": "",
+      "breakdownCount": 11,
+      "partsCount": 12,
+      "directivesCount": 5,
+      "actionItemsCount": 12,
+      "path": "/data/meetings/2026/09/10.json"
+    },
     {
       "id": "meet-2026-09-09",
       "date": "2026-09-09",

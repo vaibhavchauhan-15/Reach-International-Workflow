@@ -2,8 +2,23 @@
   "year": "2026",
   "month": "09",
   "monthName": "September",
-  "meetingCount": 10,
+  "meetingCount": 11,
   "meetings": [
+    {
+      "id": "meet-2026-09-11",
+      "date": "2026-09-11",
+      "dateDisplay": "11-09-2026",
+      "dateFormatted": "11-09-2026",
+      "title": "11-09-2026",
+      "focus": "Tata Micron 3 Reach Trucks Battery Cannibalization & Plant Safety Grounding, 100ft Boom Lift (SES 9002) Harness Delay & Unreported JCB Tyre Tear, Bhadrak 125 Cutting Sensor Damaged Bushing, Pravesh Site 43-Machine Fleet Census & Hydraulic Oil Allocation (Reach vs Cross-Rent Priority), Guwahati Genie 125 Starting Issue & Local Starter Motor Repairs (₹2,500/unit), Ravikant Z-135 (SN: 142462) Card Power Supply Failure & 450 Gasket Fitment, Jamnagar Wiped Diagnostic Laptop Escalation, Ban on Unauthorized Machine Serial Plate Alterations & Central Master Cross-Reference Sheet, and Corporate 5TB Cloud Data Backup Architecture",
+      "isHoliday": false,
+      "holidayName": "",
+      "breakdownCount": 9,
+      "partsCount": 11,
+      "directivesCount": 5,
+      "actionItemsCount": 12,
+      "path": "/data/meetings/2026/09/11.json"
+    },
     {
       "id": "meet-2026-09-10",
       "date": "2026-09-10",

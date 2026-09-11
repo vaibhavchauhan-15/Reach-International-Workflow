@@ -1,0 +1,213 @@
+{
+  "id": "meet-2026-09-11",
+  "title": "11-09-2026",
+  "date": "2026-09-11",
+  "dateDisplay": "11-09-2026",
+  "dateFormatted": "11-09-2026",
+  "focus": "Tata Micron 3 Reach Trucks Battery Cannibalization & Plant Safety Grounding, 100ft Boom Lift (SES 9002) Harness Delay & Unreported JCB Tyre Tear, Bhadrak 125 Cutting Sensor Damaged Bushing, Pravesh Site 43-Machine Fleet Census & Hydraulic Oil Allocation (Reach vs Cross-Rent Priority), Guwahati Genie 125 Starting Issue & Local Starter Motor Repairs (₹2,500/unit), Ravikant Z-135 (SN: 142462) Card Power Supply Failure & 450 Gasket Fitment, Jamnagar Wiped Diagnostic Laptop Escalation, Ban on Unauthorized Machine Serial Plate Alterations & Central Master Cross-Reference Sheet, and Corporate 5TB Cloud Data Backup Architecture",
+  "isHoliday": false,
+  "holidayName": "",
+  "breakdowns": [
+    {
+      "site": "Tata Micron Site (Sanand) — 3 Reach Trucks (SN: 2040 3362 518, 3362 413, 3240 3513 798) Grounded & Battery Cannibalization",
+      "issue": "All 3 reach trucks grounded at Tata Micron plant. Client safety auditors inspected check-sheets and red-flagged the units as safety violations because batteries hold charge for barely 2 hours, forcing intermittent halting. Supervisor Dheeraj Dubey previously claimed machines were working, but client revoked operation permits. Dheeraj cited delays due to vehicle unloading and gate pass hurdles. 8 replacement batteries are in transit arriving tomorrow.",
+      "action": "Dhruv Sharma and Jitendra Budhauliya strictly reprimanded Dheeraj for delaying battery swapping despite 4 consecutive meeting directives. Dheeraj ordered to immediately open battery banks on site, extract functional cells, and consolidate them into priority machines so at least 1–2 reach trucks resume operation within the hour. Technician Ambrish deployed to Micron to assist Dheeraj with gate passes, permits, and administrative backlog.",
+      "status": "Mandatory Cell Swap Underway on Site; 8 Batteries in Transit (Arriving Tomorrow); Technician Ambrish Dispatched"
+    },
+    {
+      "site": "Vinod / Banarsi Fleet — 100ft Boom Lift (SES 9002) 1-Month Harness Delay & Unreported Tyre Puncture/Accident Damage",
+      "issue": "100ft Boom Lift (SES 9002) has been awaiting a wiring harness replacement for over 1 month (logged in CRM and Google Form). Damaged wiring harness previously caused electronic control card failure. Additionally, Banarsi and Vinod requested tyre replacement, claiming machine came in 2022. Investigation revealed tyre was newly installed 6 months ago and sustained deep sidewall tearing from an on-site collision with a JCB / steel angle iron, which was kept hidden from management while operator communicated directly with Vinay.",
+      "action": "Management strictly reprimanded Banarsi for lack of field accountability and communication gaps. Pardeep Tomar instructed to expedite SES 9002 wiring harness procurement. Banarsi ordered to inspect tyre damage, submit Google Form with serial plate photos within 10 minutes, and establish direct supervisory control over all machine operators.",
+      "status": "Google Form & Damage Photos Ordered (10-Min Deadline); Harness Procurement Expedited; Operator Reporting Channel Rectified"
+    },
+    {
+      "site": "Bhadrak Site — Machine 125 (25) Cutting Sensor Damage from Worn Bushing",
+      "issue": "Machine 125 at Bhadrak suffered mechanical damage to its cutting sensor assembly caused by an excessively worn-out/cut bushing. Machine is operating impaired on only 2 cutting cycles, impacting site productivity.",
+      "action": "Banarsi verified Google Form and CRM complaint submission, and posted photos to the breakdown group. Central store (Pardeep Tomar) instructed to expedite dispatch of replacement cutting sensor and bushing kit.",
+      "status": "CRM Ticket & Google Form Verified; Photos Logged; Replacement Sensor & Bushing Dispatch in Progress"
+    },
+    {
+      "site": "Pravesh Operational Site — 43-Machine Fleet Census, Hydraulic Oil Allocation & Cross-Rent Servicing Protocol",
+      "issue": "Payment of ₹21,500 required for local hydraulic oil purchase (receiving voucher pending from Kaushal). Site fleet census stands at 43 machines: 35 JCB scissors, 6 JCB booms, 2 JLG booms (153/135), comprising 30 cross-rent machines and 13 Reach-owned machines. Site received 2 drums of hydraulic oil (Grade 32 and Grade 68) from central yard. Machines also lack Reach asset stickers (Pravesh using paper markers).",
+      "action": "Dinesh and Sushil Mishra issued strict directive: Dispatched hydraulic oil must be used exclusively to service Reach's 13 company-owned machines first. Cross-rent machines (30 units) will only be serviced after cross-rent vendor clearances and payment confirmations are formalized. Pravesh assigned personal accountability for every liter of oil (all dispenses must be logged in CRM to prevent leakage/theft). Machine stickers arriving with next spares consignment.",
+      "status": "₹21,500 Payment Verification Underway; 2 Oil Drums (Grade 32 & 68) Received; Own-Machine Servicing Prioritized over Cross-Rent"
+    },
+    {
+      "site": "Guwahati / Northeast Fleet — Genie 125 Starting Defect, 2-Month Overdue Fleet Servicing & Starter Motor Repair",
+      "issue": "Genie 125 had a starting failure; starter motor was replaced yesterday by Vinod, but neither supervisor Subhash nor Vinod registered the breakdown in CRM. Subhash found sitting in room at 10:30 AM making excuses about mobile restrictions. Entire site fleet (including 150ft and 135ft booms) is ~2 months overdue for periodic maintenance, running on degraded/burnt oil and clogged filters.",
+      "action": "Dhruv and Jitendra reprimanded Subhash. Subhash ordered to compile a handwritten master service chart listing each machine's serial number, current hour meter reading, and last service date/hours, and submit it today. Subhash instructed to log all CRM tickets during daily room intervals.",
+      "status": "Genie 125 Started; Handwritten Fleet Maintenance & Hour Meter Dossier Ordered Today; CRM Backlog Reconciliation Enforced"
+    },
+    {
+      "site": "Guwahati Workshop Depot — Local Starter Motor Refurbishment Program (4 Units)",
+      "issue": "4 failed starter motors accumulating on site. 1 unit is completely burnt out (unrepairable scrap), while 3 units have repairable faults (worn carbon brushes, grounding issues, commutator wear).",
+      "action": "Management rejected shipping unrepairable scrap to Delhi yard. Subhash directed to take the 3 repairable units to Guwahati local electrical workshop (cost approx ₹2,500 each for carbon brush/grounding overhaul). Supervisor must record estimated repair costs on paper, post to group, stamp repaired units with 'R' and repair date, and store as site buffer. Completely burnt starter to be quarantined/dispatched as scrap.",
+      "status": "3 Units Approved for Local Electrical Reconditioning (₹2,500 est.); 1 Unit Condemned; Repair Dates ('R-Date') to be Stamped on Bodies"
+    },
+    {
+      "site": "Ravikant / Praveen Fleet — Machine Z-135 (SN: 142462) Electronic Card Power Lockout & Machine 450 Gasket Fitment",
+      "issue": "Genie Z-135 (SN: 142462) grounded with complete electrical failure; technician Praveen diagnosed zero power supply reaching the control card, requiring diagnostic laptop connection. Serial number 142462 was missing from the CRM database. On Machine 450, engine gasket replacement was pending.",
+      "action": "Ravikant delivered replacement engine gasket to Praveen to complete Machine 450 assembly today. Jitendra instructed to verify machine serial number 142462, check serial plate photo on breakdown group, and register the unit into CRM immediately. Laptop connectivity to be arranged locally or via regional team.",
+      "status": "Machine 450 Gasket Fitment in Progress; SN 142462 CRM Entry Being Registered; Z-135 Control Card Diagnostics Underway"
+    },
+    {
+      "site": "Jamnagar Fleet — JCB T65 Diagnostic Tooling Dispatch Blunder (Formatted Laptop)",
+      "issue": "Diagnostic laptop dispatched to Jamnagar for technician Pradeep Suthar arrived completely wiped/formatted, lacking JCB Service Master diagnostic software. Pradeep spent entire morning struggling to download massive software packages over slow site connection, stalling JCB T65 boom lift calibration.",
+      "action": "Dhruv reprimanded Dinesh and yard tech team for gross negligence in sending unverified hardware to remote sites. Dinesh instructed to coordinate remote setup assistance and ensure future diagnostic dispatches are pre-installed and field-tested before courier handover.",
+      "status": "JCB Service Master Download in Progress at Jamnagar; Tool Dispatch Pre-Verification Protocol Enforced"
+    },
+    {
+      "site": "Micron & Agras Fleet Support — Deepak Jangra & Dheeraj Dubey Coordination & CG Power 4550",
+      "issue": "Communication breakdown between supervisor Dheeraj and technician Deepak led to vehicle detention penalties (₹3,000 transporter demurrage) and delayed maintenance. Deepak resolved minor issues (lights, horn, loose smoking battery terminal) on 4–6 vehicles at Agras yesterday. At CG Power, a 4550 scissor lift on the 2nd floor developed an operational defect.",
+      "action": "Dhruv and Jitendra ordered end to internal finger-pointing. Deepak directed to report to CG Power immediately to inspect Machine 4550 with Khemchand. Dheeraj instructed to provide daily work plans to technicians, manage gate passes proactively, and post all breakdowns to WhatsApp group and CRM.",
+      "status": "Deepak Mobilized to CG Power for Machine 4550; Agras 4–6 Machines Cleared; Demurrage Penalties Flagged for Administrative Review"
+    }
+  ],
+  "parts": [
+    {
+      "part": "Traction Battery Bank & 2V Cells (8 Replacement Sets)",
+      "context": "Tata Micron Site (Sanand) — Reach Trucks (3362 518, 3362 413, 3513 798)",
+      "statusNextSteps": "8 new batteries in courier transit, arriving tomorrow. Immediate cannibalization/cell interchange ordered today to power 1–2 machines while awaiting shipment."
+    },
+    {
+      "part": "Genie Z-100 / SES 9002 Main Wiring Harness",
+      "context": "Vinod / Banarsi Site — 100ft Boom Lift (SES 9002)",
+      "statusNextSteps": "Requisition pending over 1 month in Google Form; damaged harness caused prior card burnout. Central store (Pardeep Tomar) tracking supplier order for urgent dispatch."
+    },
+    {
+      "part": "100ft Boom Lift Industrial Heavy-Duty Tyre (Foam-Filled)",
+      "context": "Banarsi Fleet — 100ft Boom Lift (SES 9002)",
+      "statusNextSteps": "Replaced 6 months ago; damaged due to unreported JCB collision/cut. Banarsi submitting Google Form with photo evidence within 10 minutes for procurement clearance."
+    },
+    {
+      "part": "Cutting Sensor Assembly & Mechanical Bushing",
+      "context": "Bhadrak Site — Machine 125 (25)",
+      "statusNextSteps": "Bushing worn out causing sensor breakage; machine running on 2 cuts. Google Form and CRM logged; replacement sensor and bushing being dispatched by Delhi store."
+    },
+    {
+      "part": "Hydraulic Oil Drums (Grade 32 & Grade 68 — 2 Full Drums)",
+      "context": "Pravesh Fleet (43 Machines: 35 Scissors, 8 Booms)",
+      "statusNextSteps": "2 drums delivered from central store. ₹21,500 local oil purchase payment verified. Oil reserved strictly for 13 Reach-owned machines first."
+    },
+    {
+      "part": "Machine Asset Identity Stickers & Cross-Rent Marking Badges",
+      "context": "Pravesh Fleet (30 Cross-Rent & 13 Reach Units)",
+      "statusNextSteps": "Stickers arrived at Delhi store on 5th September. Pardeep Tomar instructed to dispatch immediately to replace handwritten paper markers."
+    },
+    {
+      "part": "Electric Starter Motors (Genie 125 & Reconditioning Spares)",
+      "context": "Guwahati Site (Subhash / Vinod) — Genie 125 & Site Buffer",
+      "statusNextSteps": "1 starter fitted on Genie 125 yesterday. 3 defective units being repaired at local Guwahati workshop (~₹2,500 each); 1 burnt unit condemned."
+    },
+    {
+      "part": "Engine Head Gasket Assembly",
+      "context": "Ravikant / Praveen Site — Machine 450",
+      "statusNextSteps": "Gasket received on site by Ravikant; delivered to Praveen for immediate fitment and commissioning today."
+    },
+    {
+      "part": "Electronic Control Card & Diagnostic Interface Cable",
+      "context": "Ravikant / Praveen Site — Genie Z-135 (SN: 142462)",
+      "statusNextSteps": "Card experiencing total power loss; Praveen connecting diagnostic tool to isolate power supply line vs internal board failure. SN 142462 being added to CRM."
+    },
+    {
+      "part": "JCB Service Master Software & Diagnostic Adapter (DLA)",
+      "context": "Jamnagar Site (Pardeep Suthar) — JCB T65 Boom Lift",
+      "statusNextSteps": "Laptop arrived formatted without software. Remote software installation and package download underway to enable T65 boom lift calibration today."
+    },
+    {
+      "part": "Genie Joystick Controller & Platform Level Sensor (135ft)",
+      "context": "Jatinder / Site Fleet — 135ft Booms (Part # 1003006 / 120SXG)",
+      "statusNextSteps": "Form submitted 1.5–2 months ago. Level sensor in stock awaiting joystick arrival from TVH/supplier for consolidated courier dispatch."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Strict Prohibition of Unauthorized Machine Serial Plate Alterations & Mandatory Master Cross-Reference Dossier",
+      "points": [
+        "Total Ban on Plate Swapping: Field teams, clients, and technicians are strictly barred from removing, replacing, or altering machine serial number plates on sites (flagged across ~20–22 units at Mundra, Madurai, Amrapali, Z-135, Z-45).",
+        "Central Master Reconciliation Sheet: Jitendra Budhauliya and Pradeep Tomar must immediately compile a unified Master Spreadsheet documenting: (1) Original OEM Chassis Serial Number, (2) Modified/Client Serial Plate Number, (3) Internal Reach Asset Number (e.g. B-102, 506), and (4) Site Location.",
+        "Dual CRM Display: In CRM, all modified machines must carry the original chassis serial number in brackets alongside client plate numbers so tickets, parts requisitions, and service histories remain fully traceable."
+      ]
+    },
+    {
+      "title": "Deployment of Centralized 5TB Corporate Cloud Storage (Google One / Cloud Backup)",
+      "points": [
+        "Prevention of Hardware Loss: Prompted by Shiv's laptop motherboard/SSD crash (loss of 2–2.5 GB/TB fleet records), Reach is transitioning from local physical hard drives to an enterprise cloud backup solution.",
+        "18-Month 5TB Free Tier: Jitendra's verified 5TB cloud space will be integrated under an official corporate master Google account.",
+        "Departmental Drive Structure: Dedicated automated sync folders will be created for Shiv Uniyal (Management), Pradeep Tomar (Store/Parts), Jitendra Budhauliya (Fleet Operations), and Dhruv Sharma (Executive), ensuring continuous background backup of all fleet spreadsheets, manuals, and CRM data."
+      ]
+    },
+    {
+      "title": "Clear Division Between Reach-Owned Fleet and Cross-Rent Asset Maintenance",
+      "points": [
+        "Reach Fleet Priority: On mixed sites (such as Pravesh's 43-machine yard with 13 Reach units and 30 cross-rent units), company-supplied consumables like hydraulic oil (Grades 32 & 68) and critical spares must be utilized 100% on Reach's own machines first.",
+        "Strict Cross-Rent Prerequisite: Cross-rent equipment maintenance and oil consumption will only be permitted after explicit written authorization from Dinesh / Mishra Sir confirming vendor payment clearance and contractual obligations."
+      ]
+    },
+    {
+      "title": "Mandatory Field Logging Discipline — 'Zero Tickets Pending Overnight'",
+      "points": [
+        "End of In-Room Idle Time: Technicians and supervisors (flagged with Subhash, Vinod, Dheeraj) must not sit idle in rooms during site hours.",
+        "Multi-Session CRM Logging: Supervisors must utilize room breaks (morning pre-departure, lunch, evening return) to log all breakdown tickets, hour meter readings, and parts requisitions in CRM.",
+        "100% Photo Documentation: Every mechanical failure, tyre cut, or damaged component must be photographed with clear serial plate visibility and posted to the official WhatsApp Breakdown Group."
+      ]
+    },
+    {
+      "title": "Demurrage & Gate Pass Administrative Accountability",
+      "points": [
+        "Penalty Recovery: Transporter detention fees and truck demurrage charges (e.g. ₹3,000 penalties at Micron/Agras) caused by lack of coordination or failure to secure advance gate passes will be audited and surcharged to responsible supervisory staff.",
+        "Advance Gate Pass Protocol: Gate pass renewals must be initiated 10 days before expiry; technicians must punch daily to prevent automatic cancellation under client 30-day non-activity safety rules."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Pandit Dheeraj Dubey",
+      "task": "Immediately execute battery cell cannibalization across the 3 Micron reach trucks to restore 1–2 machines to operational status today; eliminate vehicle unloading delays and resolve Micron gate pass documentation for Deepak, Khemchand, and Pradeep Suthar."
+    },
+    {
+      "person": "Jitendra Budhauliya",
+      "task": "Reconcile and compile the Master Cross-Reference Sheet for all 20–22 machines with altered serial plates (Mundra, Madurai, Z-135, Z-45); enter original serial numbers in CRM brackets; register Z-135 (SN: 142462) into CRM; configure corporate 5TB Google Cloud shared folders."
+    },
+    {
+      "person": "Dhruv Sharma",
+      "task": "Enforce operational discipline between site supervisors and mechanics; review transporter demurrage penalty liabilities at Micron/Agras; finalize company-wide master cloud storage architecture."
+    },
+    {
+      "person": "Banarsi",
+      "task": "Submit Google Form with photos and serial numbers for 100ft Boom Lift (SES 9002) damaged tyre within 10 minutes; establish direct supervisory control over machine operators; verify Bhadrak Machine 125 cutting sensor requisition."
+    },
+    {
+      "person": "Subhash",
+      "task": "Submit handwritten master fleet maintenance dossier listing all machine serial numbers, current hour meter readings, and last service dates today; log Genie 125 starter replacement ticket in CRM; coordinate local repair of 3 starter motors in Guwahati."
+    },
+    {
+      "person": "Pravesh",
+      "task": "Exercise strict custody over 2 dispatched hydraulic oil drums (Grade 32 & 68); log every liter consumed in CRM; prioritize servicing of 13 Reach-owned machines before touching 30 cross-rent machines; mount official Reach stickers upon arrival."
+    },
+    {
+      "person": "Deepak Jangra",
+      "task": "Deploy immediately to CG Power site to troubleshoot 2nd-floor Machine 4550 scissor lift with Khemchand; avoid unauthorized entry into Micron and complete induction paperwork for valid gate pass."
+    },
+    {
+      "person": "Pradeep Tomar",
+      "task": "Expedite procurement and shipment of 100ft SES 9002 wiring harness and Bhadrak cutting sensor/bushing; dispatch machine stickers to Pravesh; review 2-month pending Google Forms (Joystick 1003006 & 135ft sensor)."
+    },
+    {
+      "person": "Pardeep Suthar",
+      "task": "Complete JCB Service Master software installation on diagnostic laptop; perform electronic calibration and functional testing on JCB T65 boom lift; assist in serial plate reconciliation."
+    },
+    {
+      "person": "Ravikant & Praveen",
+      "task": "Complete engine head gasket installation on Machine 450 today; conduct diagnostic power checks on Genie Z-135 (SN: 142462) control card and isolate wiring fault."
+    },
+    {
+      "person": "Dinesh",
+      "task": "Audit all IT hardware and diagnostic laptops prior to dispatch to ensure pre-loaded OEM diagnostic suites; verify cross-rent vendor payment clearance before approving oil allocation at Pravesh's site."
+    },
+    {
+      "person": "Vinod",
+      "task": "Track delivery of SES 9002 wiring harness; assist Subhash in local starter motor electrical reconditioning; maintain CRM ticket logging for all Guwahati interventions."
+    }
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "id": "meet-2026-09-12",
+  "title": "12-09-2026",
+  "date": "2026-09-12",
+  "dateDisplay": "12-09-2026",
+  "dateFormatted": "12-09-2026",
+  "focus": "Lakhimpur Kumbhi Starter Motor Breakdown & Mayapuri Procurement Escalation, Bangalore Zoomlion 135ft OEM Warranty Portal Logging Blunder, Sanand 26-Tyre Transporter Freight Advance Hold-up & Client Credibility Risk, Banarsi Fleet 150ft Boom Filter Deprivation & Afternoon Fleet PM Mobilization, Fleet-Wide 2,000-Hour / 2-Year Hydraulic Overhaul Standard, Field Buffer Stock Management & Register Audit, Bhatinda Z-60/34 Rotary Basket Seal Sample Courier, Goa Hydraulic Pump Commissioning & Battery Load Test, and Non-Negotiable Google Form Spares Requisition Mandate",
+  "isHoliday": false,
+  "holidayName": "",
+  "breakdowns": [
+    {
+      "site": "Lakhimpur Kheri (Kumbhi) Site — Starter Motor Breakdown, CRM Form Rejection & Urgent Mayapuri Procurement",
+      "issue": "A boom lift machine at Kumbhi site has been grounded since 19th August due to a burnt/failed starter motor. Field technicians attended on 19th Aug but failed to remove or resolve the defective assembly. Imran Khan attempted multiple times to log the breakdown in CRM and submit a Google Form, but the portal persistently rejected the ticket due to an uncleared historic breakdown record from 19th August. Kumbhi is an isolated rural site with zero auto-electrical repair facilities, meaning local overhaul would require long-distance travel to Kanpur or Lucknow. Central store confirmed zero starter motors in stock.",
+      "action": "Jitendra Budhauliya resolved central store inventory tensions with Pardeep Tomar, confirmed stock is zero, and committed to urgently purchasing a replacement starter motor directly from the Mayapuri industrial spares market today for immediate express courier dispatch to Kumbhi. Imran instructed to coordinate CRM ticket clearance with administrative desk.",
+      "status": "Urgent Mayapuri Market Purchase Approved for Today; Express Courier to Kumbhi; CRM Ticket Validation Resolution Underway"
+    },
+    {
+      "site": "Bangalore Site — Zoomlion 135ft Boom Lift 2nd Warranty Service Stalled by OEM Portal Access Error",
+      "issue": "The 2nd periodic warranty maintenance for the Zoomlion 135ft boom lift has been stalled for over 1 month, despite all service kits, replacement filters, and maintenance fluids having arrived on site weeks ago. Zoomlion OEM service protocol strictly mandates that an official service request and complaint ticket be lodged on their dedicated OEM web portal before field service engineers are authorized to mobilize. Site attempts to file the portal request failed due to an IP/device location permission error ('मेरे लोकेशन से रिक्वेस्ट नहीं जा रहा था'), which had been flagged to Jitendra 10 days ago via screenshot but remained unresolved.",
+      "action": "Vaibhav Chauhan and Jitendra Budhauliya assigned to immediately bypass local browser restrictions, log into the Zoomlion warranty management portal via corporate systems, and submit the official service ticket today. Zoomlion regional service head to be contacted concurrently to dispatch service engineers immediately upon portal validation.",
+      "status": "Corporate IT (Vaibhav Chauhan) Submitting Portal Claim Today; Zoomlion Warranty Engineering Deployment Expedited"
+    },
+    {
+      "site": "Sanand Fleet (Tata / Micron & Regional Operations) — 26 Heavy-Duty Tyres Transporter Freight Payment Lockout & Client Credibility Risk",
+      "issue": "A consignment of 26 heavy-duty boom lift tyres allocated for Sanand was physically loaded and released by Delhi store, but the transport agency halted transit delivery because their freight advance payment was withheld by Sushil Mishra / corporate accounts. Field coordinators (Ram and site supervisors) had already given firm delivery commitments to client representatives ('आ जा रहा है, कल आ रहा है'), placing Reach's operational reliability and client goodwill under severe scrutiny.",
+      "action": "Sushil Mishra instructed to release the transporter freight voucher immediately today to lift the shipment hold. Pardeep Tomar and Ram directed to obtain the LR (Lorry Receipt) and GPS tracking link from the carrier to provide the client with verified arrival milestones.",
+      "status": "Freight Payment Clearance Mandated for Today; Transporter Hold to be Released; Client Delivery Timeline Reconciled"
+    },
+    {
+      "site": "Banarsi & Vinod Fleet — 150ft Boom Lift Service Kit Omission & Fleet Lubricant Mobilization",
+      "issue": "Periodic maintenance filter kits arrived for 5 site machines (including SFT and Zoomlion units), but the specialized filter kit for the 150ft boom lift was excluded. Bulk engine and hydraulic oil supply from the local distributor was temporarily held up due to payment delays, but was confirmed arriving after lunch today. Vinod voiced serious concern that the 150ft boom's hydraulic and return filters have not been changed in nearly 2 years, severely degrading hydraulic oil quality and risking hydraulic motor and pump cavitation.",
+      "action": "Technicians instructed to begin servicing the 5 covered machines immediately upon afternoon oil delivery. For the 150ft boom lift, Ram and Vinod instructed to re-send high-resolution photos clearly displaying the embossed OEM part numbers on the old filter bodies to Pardeep Tomar. Pardeep to cross-reference with suppliers and order an expedited kit today.",
+      "status": "5 Machines Servicing Post-Lunch Today; 150ft Filter OEM Part Number Photos Re-Sent to Pardeep Tomar for Immediate Sourcing"
+    },
+    {
+      "site": "Fleet-Wide Preventive Maintenance — 2,000-Hour / 2-Year Hydraulic System Overhaul Protocol",
+      "issue": "Audit revealed that routine site maintenance across multiple hubs has degraded into '80% superficial engine services' (merely replacing engine oil, 1 diesel filter, and 1 air filter). Critical high-pressure systems—including hydraulic tank suction strainers, return line filters, pilot line filters, and rotary table slew motor gear oil (2.0–2.5L)—are frequently bypassed, with several active machines operating up to 5 years on unreplaced hydraulic fluid.",
+      "action": "Management established an enforceable PM standard: Any machine surpassing 2,000 operating hours (or 2–3 calendar years of field deployment) must undergo full hydraulic fluid replacement, tank cleaning, and complete filter overhaul. Technicians must explicitly itemize suction filters, return filters, pilot filters, and rotary table gear oil in the Google Form rather than generic 'service kit' requests.",
+      "status": "Mandatory 2,000-Hour Overhaul Benchmark Enacted; Granular Filter Itemization Enforced in Google Form; Multi-Point Checklists Mandated"
+    },
+    {
+      "site": "Bhatinda Fleet — Genie Z-60 / 34 Rotary Basket Seal Hydraulic Leakage & Physical Sample Dispatch",
+      "issue": "Genie Z-60 / 34 boom lift at Bhatinda developed chronic hydraulic actuator leakage at the basket rotary joint, incurring recurring heavy local damage repair expenditures and platform instability. Central store does not stock the exact dimensional profile in Delhi.",
+      "action": "Site technician instructed to carefully extract the worn rotary basket seal, photograph its dimensional cross-section, and courier the physical sample to Pardeep Tomar at the Delhi central store today. Pardeep to match the seal with specialized industrial hydraulic vendors to supply high-durability replacements.",
+      "status": "Physical Seal Sample Being Couriered to Delhi Central Store; Specialized Hydraulic Seal Matching Assigned to Pardeep Tomar"
+    },
+    {
+      "site": "Goa & Dholera Operations — Reach Truck Hydraulic Pump Delivery, Battery Assessment & Flooring Coordination",
+      "issue": "At Goa site, the cross-rent / company reach truck has been awaiting a replacement hydraulic pump assembly to restore lifting operations. At Dholera site, ongoing industrial tile laying and plant civil works have created operational constraints, delaying work schedule formalization.",
+      "action": "Jitendra confirmed the hydraulic pump has successfully reached Goa. Technician Sajid is mobilized to mount and align the pump today, followed by immediate battery load testing. If cell voltage drops under load, a battery requisition form will be logged immediately. Jitendra to draft and publish the final technician deployment schedule for Dholera.",
+      "status": "Goa Hydraulic Pump Received; Sajid Mobilized for Fitment & Battery Test Today; Dholera Site Schedule Being Finalized"
+    },
+    {
+      "site": "Central Store Logistics & Inventory Control — Jammu Small Spares, Jamnagar Joystick Deficit & Google Form Mandate",
+      "issue": "Store runner Shukla ji departed Delhi before small hardware and electrical spares for Jammu could be consolidated. Field inquiries regarding missing joystick controllers for Jamnagar/Sanand were raised verbally. Pardeep Tomar reiterated that joysticks were completely stock-out at the central warehouse, which is why only the diagnostic laptop was dispatched.",
+      "action": "Pardeep Tomar extracting exact Jammu part numbers from catalog to assemble and courier remaining small spares immediately. Reaffirmed strict store protocol: Zero spares will be allocated or dispatched based on phone calls or WhatsApp chats; every single requirement must be backed by a verified Google Form submission.",
+      "status": "Jammu Small Spares Part Numbers Being Cataloged for Dispatch; Non-Negotiable Google Form Policy Re-Enforced Company-Wide"
+    }
+  ],
+  "parts": [
+    {
+      "part": "Electric Starter Motor Assembly",
+      "context": "Lakhimpur Kheri (Kumbhi) Site — Grounded Boom Lift",
+      "statusNextSteps": "Central store inventory exhausted. Jitendra Budhauliya procuring unit today from Mayapuri market for urgent express dispatch to Kumbhi site."
+    },
+    {
+      "part": "Zoomlion 135ft Periodic Maintenance Service Kit & Filter Pack",
+      "context": "Bangalore Site — Zoomlion 135ft Boom Lift",
+      "statusNextSteps": "All filters and service fluids received at Bangalore over 1 month ago. Servicing pending portal claim submission; Vaibhav Chauhan logging claim on Zoomlion OEM portal today."
+    },
+    {
+      "part": "Heavy-Duty Industrial Tyres (26 Units Consignment)",
+      "context": "Sanand Fleet (Tata / Micron & Regional Sites)",
+      "statusNextSteps": "26 tyres loaded and dispatched from Delhi, but delivery stalled by transporter due to unpaid freight advance. Sushil Mishra clearing payment voucher today to release shipment."
+    },
+    {
+      "part": "150ft Boom Lift Specialized Filter Kit (Engine, Diesel & Air)",
+      "context": "Banarsi & Vinod Fleet — 150ft Boom Lift",
+      "statusNextSteps": "Filter kit missing from recent site delivery. Ram and Vinod re-sending clear photographs of embossed OEM part numbers to Pardeep Tomar for expedited sourcing."
+    },
+    {
+      "part": "Hydraulic System Service Consumables (Suction Strainers, Return & Pilot Filters)",
+      "context": "Fleet-Wide 2,000-Hour Overhaul Program",
+      "statusNextSteps": "Mandatory requirement established for all machines exceeding 2,000 operating hours. Technicians instructed to log granular requirements in Google Form."
+    },
+    {
+      "part": "Rotary Table Slew Motor Gearbox Lubricant (2.0–2.5L per unit)",
+      "context": "Banarsi Fleet & Regional Hubs — Slew Drive Preventive Maintenance",
+      "statusNextSteps": "Oil level inspections and annual replacement mandated for slew drive gearboxes. Requisition to be added to site consumable requirements."
+    },
+    {
+      "part": "Basket Rotary Actuator Hydraulic Seal Kit",
+      "context": "Bhatinda Site — Genie Z-60 / 34 Boom Lift",
+      "statusNextSteps": "Site incurring heavy damage repair costs. Field technician extracting worn seal to courier physical sample to Delhi store for exact vendor profile matching."
+    },
+    {
+      "part": "Reach Truck Main Hydraulic Pump Assembly",
+      "context": "Goa Site — Reach Truck",
+      "statusNextSteps": "Pump arrived at Goa site. Technician Sajid mobilized today to execute mechanical installation and conduct battery performance evaluations."
+    },
+    {
+      "part": "Field Buffer Stock Assortment (Belts, Starter Motors, NO/NC Relays, Lift Pumps)",
+      "context": "Guwahati / Banarsi Workshop Depot",
+      "statusNextSteps": "Critical small parts buffer maintained on site to prevent night-shift downtime. Banarsi Yadav maintaining physical stock register; inventory audit photo to be submitted."
+    },
+    {
+      "part": "Jammu Small Electrical & Mechanical Spares",
+      "context": "Jammu Site Fleet",
+      "statusNextSteps": "Consignment missed morning runner departure. Pardeep Tomar cataloging part numbers today for next outbound courier package."
+    },
+    {
+      "part": "Multi-Axis Electronic Joystick Controller",
+      "context": "Jamnagar / Sanand Fleet",
+      "statusNextSteps": "Warehouse stock exhausted; only diagnostic laptop was dispatched. Pardeep Tomar tracking supplier backorder for restock."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Absolute Enforcement of Google Form Spares Requisition Protocol ('Zero Form, Zero Dispatch')",
+      "points": [
+        "Total Ban on Verbal Requisitions: Spares, consumables, and tooling will strictly NOT be dispatched or allocated based on telephone discussions, verbal agreements, or informal WhatsApp requests. Every request must be registered in the official Google Form.",
+        "Central Store Compliance: Store Manager Pardeep Tomar is authorized to reject any dispatch request lacking a validated Google Form ticket, ensuring complete inventory traceability and preventing audit discrepancies.",
+        "CRM Ticket Conflict Resolution: If historic uncleared breakdowns cause CRM or form rejections (as occurred at Kumbhi), supervisors must escalate immediately to administrative desk rather than delaying dispatches."
+      ]
+    },
+    {
+      "title": "Establishment of Mandatory 2,000-Hour / 2-Year Hydraulic & Transmission Overhaul Policy",
+      "points": [
+        "End to Superficial Servicing: Field servicing must transition away from superficial 80% engine-only oil/filter changes. Hydraulic and transmission systems represent the highest financial failure risk and must receive equal maintenance scrutiny.",
+        "Comprehensive Overhaul Scope: For all machines reaching 2,000 operational hours or 2–3 calendar years of field deployment, teams must execute: (1) Complete hydraulic fluid replacement and reservoir flushing, (2) Tank suction strainer cleaning/replacement, (3) Hydraulic return line filter replacement, (4) Pilot line filter replacement, and (5) Slew drive / rotary table gearbox oil replacement (2.0–2.5L).",
+        "Granular Requisitioning: Technicians must specify individual filter types (pilot, return, suction) in Google Forms rather than requesting generic service kits."
+      ]
+    },
+    {
+      "title": "Standardized Field Buffer Stock Management, Physical Register Auditing & Emergency Fleet Mutual-Aid",
+      "points": [
+        "Site Buffer Maintenance: Regional hubs and critical client sites must maintain a controlled buffer of high-failure minor consumables (fan belts, alternator belts, starter motors, NO/NC contactors, electric lift pumps, fuel feed pumps, and basket seals) to eliminate after-hours downtime.",
+        "Emergency Cross-Fleet Borrowing: Approved field practice: When emergency breakdowns occur outside supply hours, technicians may temporarily borrow compatible spares from neighboring allied fleets (e.g. RM / Chal), with mandatory replacement upon arrival of Delhi stock.",
+        "Physical Stock Register Custody: Site supervisor Banarsi Yadav must maintain an up-to-date physical ledger documenting every spare received from Delhi and installed on machines. Photo copies of the register must be submitted to central operations weekly."
+      ]
+    },
+    {
+      "title": "Transporter Freight Advance Discipline & Client Delivery Commitment Safeguards",
+      "points": [
+        "Zero Freight Lockouts: Accounts department (Sushil Mishra) must process advance freight payments for high-value logistics dispatches immediately upon vehicle loading to prevent transporter detention and consignment hold-ups.",
+        "Client Commitment Protocol: Supervisors and field staff are strictly prohibited from giving premature delivery arrival promises to clients until transporter LR numbers, freight payments, and active GPS tracking are formally verified."
+      ]
+    },
+    {
+      "title": "Zero-Tolerance Policy on OEM Warranty Service Delay (Zoomlion Portal Standard)",
+      "points": [
+        "Immediate IT Escalation: When OEM service portals present technical, IP, or credential errors, field supervisors must immediately escalate to corporate IT (Vaibhav Chauhan) within 2 hours of failure.",
+        "Pre-Service Readiness: Sites must never hold service kits idle for extended periods (such as the 1-month delay in Bangalore); OEM warranty interventions must be scheduled concurrently with parts delivery."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Jitendra Budhauliya",
+      "task": "Procure replacement starter motor from Mayapuri market today and dispatch urgently to Lakhimpur Kheri (Kumbhi); coordinate Zoomlion warranty portal logging with Vaibhav; finalize technician mobilization itinerary for Dholera site."
+    },
+    {
+      "person": "Pardeep Tomar",
+      "task": "Catalog exact part numbers for Jammu small spares for immediate courier; cross-reference 150ft filter OEM part numbers upon receipt of photos from Ram/Vinod; enforce strict Google Form validation for all central store dispatches."
+    },
+    {
+      "person": "Vaibhav Chauhan",
+      "task": "Access Zoomlion OEM warranty management portal from corporate network today, resolve site login/location error, and register official service ticket for Bangalore 135ft boom lift to trigger immediate OEM engineer deployment."
+    },
+    {
+      "person": "Sushil Mishra",
+      "task": "Immediately approve and release transporter freight advance payment for the 26 Sanand boom lift tyres to clear transit release; verify all pending vendor payments for lubricants and site spares."
+    },
+    {
+      "person": "Banarsi Yadav",
+      "task": "Oversee immediate post-lunch servicing of 5 machines upon lubricant arrival; photograph the physical site stock register and send an updated inventory audit report to Jitendra; oversee 150ft boom filter part number documentation."
+    },
+    {
+      "person": "Vinod",
+      "task": "Execute scheduled PM on 5 machines after lunch today; photograph and document exact OEM part numbers embossed on 150ft boom lift filters for Pardeep Tomar; log granular hydraulic and pilot filter requirements in Google Form."
+    },
+    {
+      "person": "Imran Khan",
+      "task": "Coordinate with system admin to clear the legacy 19th August breakdown ticket conflict in CRM; re-submit validated Google Form for Kumbhi starter motor; oversee site reception of Mayapuri replacement unit."
+    },
+    {
+      "person": "Ram",
+      "task": "Resend high-resolution photos of the 150ft boom lift filter part numbers to Pardeep Tomar; coordinate dispatch of the Genie Z-60 / 34 rotary basket seal physical sample from Bhatinda to Delhi store."
+    },
+    {
+      "person": "Sajid",
+      "task": "Complete mechanical mounting and alignment of replacement hydraulic pump on Goa reach truck today; conduct full battery voltage load test and log requisition if battery replacement is warranted."
+    }
+  ]
+}

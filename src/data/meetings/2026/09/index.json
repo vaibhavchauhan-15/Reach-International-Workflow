@@ -2,8 +2,23 @@
   "year": "2026",
   "month": "09",
   "monthName": "September",
-  "meetingCount": 11,
+  "meetingCount": 12,
   "meetings": [
+    {
+      "id": "meet-2026-09-12",
+      "date": "2026-09-12",
+      "dateDisplay": "12-09-2026",
+      "dateFormatted": "12-09-2026",
+      "title": "12-09-2026",
+      "focus": "Lakhimpur Kumbhi Starter Motor Breakdown & Mayapuri Procurement Escalation, Bangalore Zoomlion 135ft OEM Warranty Portal Logging Blunder, Sanand 26-Tyre Transporter Freight Advance Hold-up & Client Credibility Risk, Banarsi Fleet 150ft Boom Filter Deprivation & Afternoon Fleet PM Mobilization, Fleet-Wide 2,000-Hour / 2-Year Hydraulic Overhaul Standard, Field Buffer Stock Management & Register Audit, Bhatinda Z-60/34 Rotary Basket Seal Sample Courier, Goa Hydraulic Pump Commissioning & Battery Load Test, and Non-Negotiable Google Form Spares Requisition Mandate",
+      "isHoliday": false,
+      "holidayName": "",
+      "breakdownCount": 8,
+      "partsCount": 11,
+      "directivesCount": 5,
+      "actionItemsCount": 9,
+      "path": "/data/meetings/2026/09/12.json"
+    },
     {
       "id": "meet-2026-09-11",
       "date": "2026-09-11",

@@ -1,0 +1,190 @@
+{
+  "id": "meet-2026-09-15",
+  "title": "15-09-2026",
+  "date": "2026-09-15",
+  "dateDisplay": "15-09-2026",
+  "dateFormatted": "15-09-2026",
+  "focus": "Jamnagar JCB T65 (SN: 24 Model) Boom Deadlock Diagnostics, CAN Bus Integrity & Gwalior Resistor Failure Precedent, Hindon Airport Babu Lal Deployment & Gate Pass Serial Number Reconcile, Lapanga (Aditya Aluminium) 60ft Severe Hydraulic Leakage & Outside-Gate Unloading Contingency, Khurda 6034 Catastrophic Platform Vandalism & Stripped Console Investigation, Anuppur Genie Z-135 Engine Oil Depletion Critical Cranking Lockout, Sanand Tata/Micron Battery Installation & SVG Power Mobilization, Bhatinda 3455 Scissor Lift Joystick Power Failure, and Strict Pre-Transit Equipment Condition & Dispatch Sign-Off Mandate",
+  "isHoliday": false,
+  "holidayName": "",
+  "breakdowns": [
+    {
+      "site": "Jamnagar Reliance Plant — JCB T65 (2024 Model) Boom Lift Deadlock, CAN Bus Signal & Inline Resistor Diagnostics",
+      "issue": "At Jamnagar Reliance site, a 2024 auction JCB T65 boom lift has been completely immobilized because both Boom Up (elevation) and Boom Out (telescoping extension) functions are non-operational. Pardeep Suthar conducted software updates, error clearing, and full calibration, but the machine shows zero active Diagnostic Trouble Codes (DTC). Measurement across CAN bus C and D diagnostic terminals confirmed 60 Ohms resistance, proving the physical CAN backbone is healthy. In a decisive cross-wiring bench test, Pardeep plugged the active Swing solenoid connector into the Boom Up valve coil; operating the swing command successfully raised the boom, confirming the hydraulic valve bank and coils are intact and isolating the failure entirely to the electrical Boom Up control circuit. Jitendra Budhauliya highlighted an identical historical breakdown at Gwalior (handled with Tilakchand), where an inline signal resistance embedded in the wiring harness behind the proximity sensor had degraded, killing the Boom Up signal without triggering CAN fault codes. Furthermore, analysis of Pardeep's 2:49 minute diagnostic video revealed the platform emergency lowering system had previously been triggered under unexplained circumstances.",
+      "action": "Jitendra Budhauliya sending detailed harness wiring schematics, photos, and exact target ohm resistance values to Pardeep Suthar to test the proximity sensor harness resistor. With Pardeep's site gate entry permit expiring, Jitendra and Patil ji coordinating laptop gate clearance to enable remote diagnostic link. Pardeep to investigate why emergency lowering was triggered.",
+      "status": "Hydraulic Valves Verified Operational; Control Signal Failure Traced to Wiring Harness Resistor; Schematics Dispatched; Gate Permit & Laptop Diagnostics Under Coordination"
+    },
+    {
+      "site": "Hindon (Indan) Airport Site — Maintenance Mobilization & Serial Number 1380 System Conflict",
+      "issue": "Technicians Babu Lal and Sitaram mobilized to Hindon Airport to service standing Reach machines that have accumulated extensive preventive maintenance backlogs. However, site gate entry was halted because the reported machine serial number ('1380') could not be traced or validated in the central database, preventing Aadhaar-based airport security clearance.",
+      "action": "Khemchand flagged the discrepancy to Jitendra Budhauliya. Jitendra instructed to cross-reference equipment mobilization manifests, verify the true stamped chassis serial number, and submit verified technician Aadhaar credentials to airport authorities for entry authorization.",
+      "status": "Babu Lal & Sitaram Mobilized; Central Database Verification Underway to Resolve Stamped Serial Number vs Airport Manifest"
+    },
+    {
+      "site": "Lapanga Site (Aditya Aluminium, Sambalpur) — 60ft Boom Lift (SN: 3600) Massive Hydraulic Leakage & Roadside Overhaul",
+      "issue": "A 60ft boom lift (SN: 3600) arrived at the Aditya Aluminium plant in Lapanga (Jharsuguda/Sambalpur, Odisha) aboard an articulated transport trailer. Upon arrival, severe hydraulic oil leakage was discovered across the undercarriage and tracks. The client safety team rejected plant gate entry, stating the machine is aged and leaking, and ordered offloading outside the plant perimeter. Banarasi Yadav highlighted that offloading outside would force the leaking machine to march 2 to 3 kilometers across site terrain (with 1.5 to 2 km between Phase 1 and Phase 2), threatening catastrophic track drive motor burnout and severe hydraulic pump cavitation. Furthermore, once inside, arranging repair gate passes would be highly cumbersome.",
+      "action": "Management decided to keep the machine staged on the transport vehicle or immediately offload at a secure roadside bay outside the gate to conduct all hydraulic hose and seal repairs prior to gate entry. Jitendra Budhauliya booked train transit for specialized technician Vinod from Howrah to Jharsuguda/Sambalpur today to execute high-pressure hose replacement and hydraulic system sealing.",
+      "status": "Technician Vinod En Route via Train from Howrah; Pre-Entry Roadside Hydraulic Overhaul Approved; Client Gate Inspection Scheduled Post-Repair"
+    },
+    {
+      "site": "Khurda De-Mobilization Fleet — Machine 6034 Severe Upper Platform Console Vandalism & Stripped Electronics",
+      "issue": "Machine 6034 was de-mobilized from Khurda (managed under Ravi Tiwari's regional operations) and delivered to the central staging yard. Upon physical inspection by Anil Kumar, the machine was found completely vandalized and stripped of its entire upper control assembly: the primary proportional joystick, toggle switches, control box casing, and console bracket were totally missing, and the electronic circuit card harness had been ripped out and severed. The machine is completely inoperable and was accepted for transport without any reported transit damage or handover sign-off.",
+      "action": "Anil Kumar photographed the wrecked console and submitted evidence to senior management. Jitendra Budhauliya issued an immediate inquiry demand to Ravi Tiwari to explain how the unit was loaded, why no de-mobilization condition report was filed, and who authorized dispatching a stripped machine without securing components. Pardeep Tomar tasked with compiling replacement console bill of materials.",
+      "status": "Formal Equipment Damage & Theft Inquiry Initiated Against Khurda Site Custody; Ravi Tiwari Mandated to Submit Explanation; Spares Assessment Underway"
+    },
+    {
+      "site": "Anuppur Site — Genie Z-135 Engine Oil Depletion & Immediate Cranking Lockout Warning",
+      "issue": "Field technician Anil Kumar inspected the Genie Z-135 boom lift stationed at Anuppur and uncovered that the diesel engine crankcase oil level was completely depleted, falling far below the minimum safe dipstick threshold. Continued cranking or operating the unit in this condition would have resulted in catastrophic internal engine seizure and total prime mover failure.",
+      "action": "Anil Kumar enforced an immediate mechanical cranking lockout on the machine, strictly instructing site operator Rambabu and local supervisors that the engine must not be turned over under any circumstance until fresh engine oil (minimum 15-20L 15W-40) is replenished. Anil recorded and submitted a video documenting the dry dipstick and provided a detailed consumables and filters list to Jitendra for immediate local dispatch.",
+      "status": "Machine Cranking Locked Out; Site Operator Rambabu Warned; Video Documented; Lubricant Replenishment & Servicing Ordered"
+    },
+    {
+      "site": "Sanand Fleet (Tata / Micron) — Battery Bank Commissioning & SVG Power Unit Restoration",
+      "issue": "Critical boom and scissor lifts at the Tata / Micron project in Sanand were awaiting heavy-duty industrial traction batteries to replace degraded cells. Tyres and limit switches had reached the site yesterday.",
+      "action": "Khemchand and Imran Khan confirmed the replacement battery bank was successfully fitted and wired today. Two previously stalled machines are now fully powered and operational. With Sanand restored, technicians are mobilizing to attend scheduled maintenance at SVG Power and Blue Star facilities.",
+      "status": "Battery Installed; 2 Machines Successfully Commissioned; Field Crew Deployed to SVG Power & Blue Star"
+    },
+    {
+      "site": "Bhatinda Site — 3455 Scissor Lift Joystick Power Failure & Z-60 Rotary Basket Seal Matching",
+      "issue": "The 3455 scissor lift at Bhatinda has been out of service for an extended duration under severe client escalation. Pardeep Suthar arrived late at night to attend unit 6240 but was unable to reach the 3455 unit (located 5 km away). Initial diagnostics indicate the upper platform joystick controller has suffered total electrical power loss (zero indicator illumination), possibly due to a defective load cell sensor or wiring cut. Concurrently, the sample rotary basket seal for the Genie Z-60/34 is being matched by Delhi store.",
+      "action": "Satendra Kumar mobilized technician Gajendra to inspect the 3455 platform control wiring, check DC supply voltages to the joystick harness, and test load cell bypass circuits. Pardeep Tomar and Khemchand confirmed the replacement rotary basket seal is prepared for dispatch.",
+      "status": "Gajendra Mobilized to 3455 Platform for Electrical Diagnostics; Z-60 Rotary Basket Seal Fabricated & Ready for Transit"
+    },
+    {
+      "site": "Bangalore Fleet — Machine Engine Oil Local Procurement & Advance Disbursement",
+      "issue": "Scheduled maintenance on the Bangalore fleet required prompt replenishment of engine oil. Banarasi Yadav authorized the on-site operator to purchase fresh lubricants locally to prevent operational downtime.",
+      "action": "Banarasi forwarded the operator's verified bank account details, vendor cash receipt, and machine serial number to Jitendra Budhauliya. Jitendra processed the ₹1,000 disbursement through central accounts to reimburse the operator immediately.",
+      "status": "Local Oil Procured & Added to Machine; Operator Reimbursement Voucher Approved"
+    }
+  ],
+  "parts": [
+    {
+      "part": "Inline Wiring Harness Resistor Assembly",
+      "context": "Jamnagar Site — JCB T65 Boom Lift",
+      "statusNextSteps": "Signal resistor behind proximity sensor causing Boom Up failure; specifications and replacement harness dispatched."
+    },
+    {
+      "part": "Genie Z-135 Engine Oil (15W-40 High-Performance Lubricant)",
+      "context": "Anuppur Site — Genie Z-135 Boom Lift",
+      "statusNextSteps": "Crankcase severely depleted; emergency oil replenishment required prior to engine cranking."
+    },
+    {
+      "part": "Upper Platform Control Console Box & Joystick Assembly",
+      "context": "Central Fleet Stock (Ex-Khurda Unit 6034)",
+      "statusNextSteps": "Console completely vandalized/stripped; full upper control assembly and wiring harness required."
+    },
+    {
+      "part": "Hydraulic High-Pressure Hoses & Seal Kits",
+      "context": "Lapanga Site (Aditya Aluminium) — 60ft Boom Lift (SN: 3600)",
+      "statusNextSteps": "Critical undercarriage hydraulic leakage; technician Vinod carrying replacement hoses and sealing hardware."
+    },
+    {
+      "part": "Heavy-Duty Industrial Traction Battery Bank",
+      "context": "Sanand Fleet (Tata / Micron Sites)",
+      "statusNextSteps": "Batteries delivered and installed today; restored 2 grounded machines to full operation."
+    },
+    {
+      "part": "Genie Z-60/34 Rotary Basket Hydraulic Seal Kit",
+      "context": "Bhatinda Site — Genie Z-60/34 Boom Lift",
+      "statusNextSteps": "Custom seal profiled and packed by Pardeep Tomar and Khemchand for immediate courier."
+    },
+    {
+      "part": "3455 Scissor Lift Upper Joystick & Load Cell Sensor",
+      "context": "Bhatinda Site — 3455 Scissor Lift",
+      "statusNextSteps": "Joystick suffering complete electrical power loss; Gajendra testing harness and load cell."
+    },
+    {
+      "part": "Hindon Airport Fleet Periodic Maintenance Filter Kits",
+      "context": "Hindon Airport Site — Fleet Units",
+      "statusNextSteps": "Babu Lal and Sitaram carrying service kits to clear maintenance backlog upon serial number verification."
+    },
+    {
+      "part": "JCB 4550 Tyres & Wheel Fasteners",
+      "context": "Mundra Fleet — JCB 4550 (SN: 2382/623)",
+      "statusNextSteps": "Requisition confirmed; central store logistics coordinating transit."
+    },
+    {
+      "part": "Porter Courier Small Spares & Hardware Package",
+      "context": "Regional Fleet (Sardar Transit)",
+      "statusNextSteps": "Hardware dispatched via Porter courier service (₹450 voucher) for field mechanical repairs."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Mandatory De-Mobilization Condition Inspection & Custody Sign-Off",
+      "points": [
+        "Sign-off Required: In light of the catastrophic vandalism and stripped platform console on Khurda machine 6034, all regional supervisors are strictly prohibited from releasing off-hired equipment to transporters without a signed 10-point mechanical and physical condition handover report.",
+        "Transporter Accountability: Transporters must formally countersign for all platform controls, cables, and batteries before departure.",
+        "Immediate Photography: High-resolution photographs of upper and lower control consoles must be uploaded to operations groups prior to transit release."
+      ]
+    },
+    {
+      "title": "Pre-Start Engine Fluid Verification Mandate ('Zero Oil, Zero Crank')",
+      "points": [
+        "Physical Dipstick Check: Technicians and site operators must physically verify engine oil and coolant levels on dipsticks before every startup sequence.",
+        "Zero Cranking on Low Oil: Operating or attempting to crank machinery with depleted crankcases (as detected on the Anuppur Z-135) will result in disciplinary action against site personnel.",
+        "Operating Log: Oil top-ups must be entered into machine logbooks with hour meter readings."
+      ]
+    },
+    {
+      "title": "Pre-Entry Roadside Overhaul Protocol for Leaking Machines",
+      "points": [
+        "Gate Rejection Prevention: Machinery arriving at sensitive industrial client locations (such as Aditya Aluminium Lapanga) with active hydraulic leaks must never be marched or brought into plant gates.",
+        "Trailer / Bay Staging: Equipment must remain on the trailer or staged in a designated roadside bay for complete hydraulic restoration before plant security inspection.",
+        "Component Preservation: Long-distance marching with leaking hydraulic lines is strictly banned to prevent wheel drive motor and pump cavitation."
+      ]
+    },
+    {
+      "title": "Technical Escalation Protocol for Silent DTC Faults",
+      "points": [
+        "Systematic Diagnosis: When computerized boom lifts exhibit functional deadlocks without generating Diagnostic Trouble Codes (DTCs) (as observed on Jamnagar JCB T65), field technicians must systematically test terminating bus resistances, inspect inline harness resistors, and execute coil signal interchange tests rather than repeatedly clearing history.",
+        "Engineering Support: Consult central technical schematics (such as Gwalior precedent data) whenever telematics or LiveLink indicate silent lockouts."
+      ]
+    },
+    {
+      "title": "Central Equipment Serial Number Master Reconciliation",
+      "points": [
+        "Chassis Verification: Store and dispatch teams must verify that equipment serial numbers listed on gate pass documentation match physical chassis stamped plates precisely.",
+        "Gate Pass Readiness: Inconsistencies that prevent plant entry (such as Hindon Airport unit 1380) must be resolved with the corporate master register before dispatching personnel."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Jitendra Budhauliya",
+      "task": "Dispatch proximity sensor harness resistor schematics and target resistance specifications to Pardeep Suthar for Jamnagar JCB T65; issue formal damage inquiry to Ravi Tiwari regarding Khurda machine 6034; reconcile Hindon Airport machine serial number with Khemchand; process ₹1,000 lubricant reimbursement for Bangalore operator."
+    },
+    {
+      "person": "Pardeep Suthar",
+      "task": "Test harness inline resistor behind proximity sensor on Jamnagar JCB T65 using multimeter; investigate emergency lowering system trigger history; coordinate laptop gate pass entry with Patil ji."
+    },
+    {
+      "person": "Anil Kumar",
+      "task": "Maintain strict mechanical cranking lockout on Anuppur Z-135 until engine oil is replenished; compile complete bill of materials for vandalized Khurda 6034 platform console."
+    },
+    {
+      "person": "Vinod",
+      "task": "Travel via train from Howrah to Jharsuguda/Sambalpur; execute roadside hydraulic hose and seal replacement on Lapanga 60ft boom lift before machine marches or enters plant."
+    },
+    {
+      "person": "Banarasi Yadav",
+      "task": "Coordinate Lapanga roadside repair staging with Aditya Aluminium site management; follow up with Vinod upon arrival; ensure Bangalore machine engine oil service is completed."
+    },
+    {
+      "person": "Khemchand & Imran Khan",
+      "task": "Finalize SVG Power and Blue Star technician deployments following successful Sanand battery commissioning; verify correct serial number for Hindon Airport machines with Babu Lal."
+    },
+    {
+      "person": "Satendra Kumar",
+      "task": "Supervise Gajendra's electrical diagnostic inspection of Bhatinda 3455 scissor lift joystick; oversee dispatch and courier tracking of Genie Z-60 rotary basket seal."
+    },
+    {
+      "person": "Pardeep Tomar",
+      "task": "Package and courier Genie Z-60 rotary basket seal to Bhatinda; catalog replacement platform control components for machine 6034; verify Porter courier dispatches."
+    },
+    {
+      "person": "Ravi Tiwari",
+      "task": "Submit immediate formal investigation report detailing circumstances under which Khurda machine 6034 was loaded with a stripped platform console and torn wiring without site reporting."
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "id": "meet-2026-09-14",
+  "title": "14-09-2026",
+  "date": "2026-09-14",
+  "dateDisplay": "14-09-2026",
+  "dateFormatted": "14-09-2026",
+  "focus": "CDC Samsung 14-Day Cylinder In-Transit Delay Escalation, Korba JCB 3240 (SN: 3334220) Unreported 15-20 Day Breakdown Dispute & Operator Fleet Allocation Rule, JK Paper 5-Ton Forklift Hydraulic/Transmission Oil Cross-Contamination, Dahej 3-Ton Radiator Water Hose Rupture, Sanand JCB 2640 (SN: 83224) Tyres & Limit Switch Arrival, Mundra 860SJ (SN: 3195) Platform Basket Leveling Sensor Failure (8V Low Output), Bhatinda Z-60/3455 Spares & Delhi Stock Influx, Ambala Fleet 1932/3240/5390 Heavy Rain Cylinder Seal Fitment Hold, Panipat Z-135 Control Card Payment Clearance, and Mandatory Written Client Breakdown Notification Protocol",
+  "isHoliday": false,
+  "holidayName": "",
+  "breakdowns": [
+    {
+      "site": "CDC Samsung Site — Hydraulic Lift Cylinder 14-Day In-Transit Delay & Docket Escalation",
+      "issue": "A hydraulic cylinder for a PT machine at CDC Samsung site has been in breakdown status since 1st September (14 consecutive days of downtime completed today). Sushil Mishra stated that the cylinder was dispatched via courier on Friday from the Kalkaji Mandir transit hub, but delivery has exceeded committed timelines with no physical consignment received on site. Umesh Kumar escalated that site WhatsApp updates have recorded 12, 13, and now 14 days of downtime while operations remain paralyzed.",
+      "action": "Dhruv Sharma intervened, demanding the immediate provision of the courier docket number and tracking status. Dhruv scheduled a direct follow-up call at 12:00 PM with courier coordinators Ankur and Manish to track the consignment's current station and expedite same-day site delivery.",
+      "status": "Docket Tracking Assigned to Sushil Mishra; Dhruv Sharma Intervening at 12:00 PM for Immediate Transit Clearance"
+    },
+    {
+      "site": "Korba Plant — JCB 3240 (SN: 3334220) 15–20 Day Breakdown Dispute & Unassigned Fleet Operator Allocation",
+      "issue": "A client escalation message in the Korba group claimed a JCB 3240 scissor lift (SN: 3334220) has been grounded for 15 to 20 days due to a defective touchpad/platform controller. A sharp operational discrepancy emerged: Jitendra claimed technician Anil reported the machine was kept operational by swapping boards with other units and had only requested a replacement display, whereas Umesh Kumar asserted the unit has been non-functional since Anil visited 15 days ago. Furthermore, Korba operates 8 machines with only 2 assigned operators (6 units unassigned/client-operated), leading to unmonitored equipment degradation.",
+      "action": "Dhruv Sharma instituted a company-wide standard: retroactive verbal downtime claims from clients will strictly not be accepted; breakdown dates are legally binding only from the date of an official client email notification. To eliminate unmonitored downtime, Dhruv ordered the 6 unassigned machines divided equally between the 2 company operators (3 extra units each) to conduct mandatory 10-minute daily pre-shift inspections. Sushil Mishra confirmed the platform controller was ordered under warranty on Friday and is arriving today or tomorrow.",
+      "status": "Warranty Platform Controller Arriving Today/Tomorrow; 2 Operators Assigned Daily Pre-Shift Inspections on 6 Unassigned Units; Email-Date Breakdown Standard Enacted"
+    },
+    {
+      "site": "JK Paper Site — 5-Ton Forklift Transmission & Hydraulic Oil Cross-Contamination & Multi-Site Service Gap Audit",
+      "issue": "While the 8-ton forklift at JK Paper was successfully repaired and restored to service, the secondary 5-ton forklift suffered a critical breakdown due to internal transmission fluid mixing into the hydraulic oil reservoir, completely disabling hydraulic functions. Pardeep Tomar confirmed internal seals/valves cannot be salvaged locally and require a new replacement assembly. Fleet tracking by Ravi Tiwari revealed the machine had been cycled through Bijnor, Navsari, NR Agarwal, and JK Paper without receiving a comprehensive hydraulic or transmission overhaul since its initial Bijnor tenure.",
+      "action": "Dhruv Sharma ordered an immediate historical audit of the machine's maintenance logs from central records. Sushil Mishra and Ravi Tiwari tasked with retrieving cumulative service sheets to determine why periodic fluid and transmission overhauls were neglected across 4 project transfers. Pardeep Tomar tasked with procuring and expediting a replacement transmission/hydraulic assembly.",
+      "status": "8-Ton Machine Operational; 5-Ton Grounded Awaiting Replacement Assembly; Central Historical Service Log Audit Initiated"
+    },
+    {
+      "site": "Dahej Site — 3-Ton Diesel Forklift Radiator Water Hose Rupture & Mechanical Overhaul",
+      "issue": "At Dahej site, a 3-ton diesel forklift experienced sudden breakdown when the high-temperature water hose connecting the radiator to the engine/transmission ruptured under operating pressure, halting warehouse handling.",
+      "action": "Ravi Tiwari mobilized a local mechanical technician to procure and replace the reinforced coolant hose on site today. Deployment of the Kamrej shifter equipment remains queued until carrier vehicle availability is confirmed.",
+      "status": "Local Technician Attending Hose Replacement Today; Kamrej Shifter Awaiting Transport Logistics"
+    },
+    {
+      "site": "Sanand Fleet (Tata / Micron) — JCB 2640 (SN: 83224) Tyres & Limit Switch Arrival",
+      "issue": "JCB 2640 scissor lift (SN: 83224) at Sanand required 2 heavy-duty replacement drive tyres and an electronic limit switch. Dispatch had been temporarily delayed due to vendor payment reconciliation, which was cleared late last week.",
+      "action": "Sushil Mishra confirmed the tyres were released and dispatched from Delhi on Friday. Satendra Kumar and Pardeep Tomar instructed to verify site receipt today and immediately coordinate tyre fitment and limit switch calibration. Defective cable and old battery tray to be packed and returned to Delhi store on return transit.",
+      "status": "Tyres & Limit Switch Expected on Site Today; Technicians Mobilized for Immediate Fitment; Old Parts Return Enforced"
+    },
+    {
+      "site": "Mundra Port Fleet — 860SJ (SN: 3195) Platform Basket Leveling Sensor Voltage Drop (8V vs 12V) & TT Valve Bank Maintenance",
+      "issue": "JLG 860SJ boom lift (SN: 3195) at Mundra developed an auto-leveling malfunction where the basket tilts in one direction but locks when reversing. Multimeter testing revealed the electronic leveling card outputs only 8V instead of the required 12V. Separately, the TT machine valve bank was overhauled, cleaned, and is undergoing surface painting prior to deployment. Earlier weekend issues on the 50ft unit (tyre replacement, burst pipe, fuel starting) were successfully resolved on Saturday.",
+      "action": "Technician Sandeep arrived in Delhi and is being mobilized to Mundra to assist in electronic card replacement and mechanical commissioning. Replacement leveling card circuit sourced for immediate delivery.",
+      "status": "Sandeep Mobilizing to Mundra; Leveling Card Sourced; TT Valve Bank Re-Painting & Re-Installation in Progress"
+    },
+    {
+      "site": "Ambala & North Fleet — Genie 1932 (SN: BTD 11127) Overload Fault & 5390 Outdoor Cylinder Seal Weather Delay",
+      "issue": "Genie 1932 scissor lift (SN: BTD 11127) reported an overload warning trip, punch defect, and platform joystick control lockout; gate pass email was submitted to client Deepak for site clearance. Two JCB 3240 units (SN: 3362518 & 3362413) remain in breakdown. Unit 3513 (SN: 798) was revived using temporary battery. Scissor lift 5390 (SN: DS 5390 D 112) has worn main elevation cylinder seals; although replacement seal kits reached the site, the machine is stationed outdoors in the open yard where continuous heavy monsoon downpours prevent safe cylinder disassembly and seal installation.",
+      "action": "Dheeraj instructed to execute 1932 overload sensor calibration as soon as client gate approval clears. As soon as rainfall abates, Deepak and Dheeraj to hoist and reseal the 5390 main lift cylinder under dry tarp or workshop shelter.",
+      "status": "1932 Awaiting Client Gate Pass; 5390 Seal Kit On-Site Pending Weather Window for Open-Yard Installation"
+    },
+    {
+      "site": "Maruti Site — Spare Safety Sensor Recovery & Spray-Paint Exterior Reconditioning",
+      "issue": "Newly delivered fleet machines at Maruti had certain safety sensors and auxiliary side hardware uninstalled by the site supervisor due to narrow corridor clearances. These specialized sensors are in critical deficit across other operating fleets. Furthermore, machine exterior panels suffered transport scuffs and paint scratches.",
+      "action": "Sushil Mishra instructed Ravi Tiwari to contact supervisor Amit to immediately collect and secure all unbolted sensors so they can be re-allocated to active breakdown machines. Amit instructed to source matching aerosol spray paint locally for scuff touch-ups, while Delhi store prints and couriers corporate safety branding stickers.",
+      "status": "Sensor Inventory Retrieval Underway via Amit; Local Spray Painting Authorized; Delhi Dispatching Replacement Branding Decals"
+    },
+    {
+      "site": "Panipat & Anuppur Fleets — Z-135 Control Card Payment Clearance & Zero-PO Procurement Scrutiny",
+      "issue": "Panipat replacement electronic control card remains detained at the Mumbai vendor facility awaiting payment clearance. Investigation into historical Z-135/Z-125 card procurement (such as ST5507 for Jammu/Praveen) revealed cards were sourced without standardized PO generation or pricing records in central inventory. At Anuppur, the Z-135 machine is running temporarily using a computer interface cable bypass, but root-cause electrical instability remains unverified without video footage.",
+      "action": "Accounts instructed to release the Panipat card vendor payment today. Dhruv Sharma strictly prohibited receiving high-value electronic cards without formalized Purchase Orders. Jitendra to obtain technical diagnostic video from Anuppur to evaluate the cable bypass.",
+      "status": "Vendor Payment Clearance Processed Today; Zero-PO Receiving Strictly Banned; Anuppur Diagnostic Video Requested"
+    }
+  ],
+  "parts": [
+    {
+      "part": "Hydraulic Lift Cylinder Assembly",
+      "context": "CDC Samsung Site — PT Machine Breakdown (14 Days)",
+      "statusNextSteps": "Consignment in-transit from Kalkaji Mandir hub. Dhruv Sharma and Sushil Mishra tracking courier docket; same-day site delivery mandated."
+    },
+    {
+      "part": "JCB Scissor Platform Touchpad & Controller",
+      "context": "Korba Site — JCB 3240 (SN: 3334220)",
+      "statusNextSteps": "Processed under manufacturer warranty on Friday. Unit arriving today or tomorrow for immediate platform fitment."
+    },
+    {
+      "part": "5-Ton Forklift Transmission & Hydraulic Seal Assembly",
+      "context": "JK Paper Site — 5-Ton Forklift",
+      "statusNextSteps": "Internal fluid cross-contamination confirmed. Pardeep Tomar sourcing complete replacement assembly; central historical service logs under audit."
+    },
+    {
+      "part": "Reinforced High-Temperature Radiator Coolant Hose",
+      "context": "Dahej Site — 3-Ton Diesel Forklift",
+      "statusNextSteps": "Ruptured hose being replaced today by local mechanical technician."
+    },
+    {
+      "part": "JCB 2640 Heavy-Duty Drive Tyres (Pair) & Limit Switch",
+      "context": "Sanand Site — JCB 2640 (SN: 83224)",
+      "statusNextSteps": "Dispatched from Delhi Friday. Arrival and mounting scheduled today; defective cable and old tray to be returned to Delhi store."
+    },
+    {
+      "part": "860SJ Basket Auto-Leveling Electronic Control Card",
+      "context": "Mundra Port Fleet — JLG 860SJ (SN: 3195)",
+      "statusNextSteps": "Multimeter diagnostic confirmed 8V low output. Replacement card sourced; technician Sandeep mobilized to Mundra for fitment."
+    },
+    {
+      "part": "Genie 5390 Main Lift Cylinder Hydraulic Seal Kit",
+      "context": "Ambala Site — Scissor Lift (SN: DS 5390 D 112)",
+      "statusNextSteps": "Seal kit delivered to site; installation pending weather clearance due to open-yard heavy monsoon downpours."
+    },
+    {
+      "part": "OEM Safety Proximity & Clearance Sensors",
+      "context": "Maruti Site Fleet",
+      "statusNextSteps": "Sensors uninstalled during tight-space operation being retrieved by Amit for centralized breakdown buffer inventory."
+    },
+    {
+      "part": "8-Ton Forklift Heavy-Duty Rear Tyres",
+      "context": "Delhi Central Store Stock",
+      "statusNextSteps": "Vendor quotation under evaluation. Ravi Tiwari instructed to submit formal tyre dimensions and specifications in Google Form."
+    },
+    {
+      "part": "Z-135 Electronic Platform Control Card",
+      "context": "Panipat Site — Boom Lift Fleet",
+      "statusNextSteps": "Consignment detained at Mumbai supplier awaiting payment. Accounts releasing funds today for express courier release."
+    },
+    {
+      "part": "Scissor Lift Replacement Platform Baskets (11 Units)",
+      "context": "Bhatinda Site & Central Stock — 3455 Units",
+      "statusNextSteps": "Batch of 11 basket units arrived in Delhi warehouse stock today. Pardeep Tomar coordinating logistics allocation for Bhatinda."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Mandatory Written Breakdown Date Protocol ('No Email, No Historic Downtime Claim')",
+      "points": [
+        "Rejection of Verbal Claims: Client verbal assertions of retroactive downtime (e.g. 15–20 days at Korba) will strictly NOT be acknowledged for billing deductions or operational penalties unless backed by an official email sent on that date.",
+        "Legal Benchmark: The timestamp on the client's official logged breakdown email is the sole binding baseline recognized by Reach International management.",
+        "CRM Sync: Field supervisors must verify that every site email is entered into CRM within 2 hours of receipt."
+      ]
+    },
+    {
+      "title": "Mandatory Dual-Operator Daily Inspection Rota for Unassigned Fleet Units",
+      "points": [
+        "Equal Allocation: At multi-machine sites with limited company operators (such as Korba with 8 machines and 2 operators), unassigned machines must be divided equally among assigned operators.",
+        "Daily 10-Minute Pre-Shift Checks: Each operator must spend 10 minutes conducting pre-shift visual, battery, and fluid inspections on their allocated units every morning.",
+        "Early Fault Detection: Operators must report loose wiring, switch damage, or touchpad defects immediately to prevent minor maintenance from escalating into multi-week breakdowns."
+      ]
+    },
+    {
+      "title": "Strict PO and Valuation Protocol for Electronic Cards & High-Value Modules",
+      "points": [
+        "Zero-PO Prohibition: Absolute ban on receiving electronic control cards, controllers, or displays without a formal approved Purchase Order and registered unit valuation in central inventory.",
+        "Procurement Traceability: Central Store Manager Pardeep Tomar must register all incoming electronic modules with supplier details, invoice value, and target machine serial numbers before dispatch.",
+        "Returnable Item Scrutiny: Core/defective boards must be returned to Delhi store within 7 days of replacement for warranty exchange or vendor repair credit."
+      ]
+    },
+    {
+      "title": "Consignment Dispatch Verification & Real-Time Tracking Accountability",
+      "points": [
+        "Docket Mandate: Field dispatchers and logistics coordinators must obtain courier Lorry Receipts (LR) and docket tracking numbers immediately upon carrier pickup.",
+        "Verifiable Tracking: No shipment may be reported as 'dispatched' in daily meetings without verifiable docket numbers and estimated time of arrival (ETA) communicated to site engineers.",
+        "Logistics Escalation: Transporter delays exceeding 24 hours must be escalated to corporate accounts immediately."
+      ]
+    },
+    {
+      "title": "Pre-Transfer Fleet Service Log Compliance Across Project Deployments",
+      "points": [
+        "Service History Audit: Prior to re-routing heavy machinery across multiple client projects (as occurred with JK Paper's 5-ton forklift), operations must conduct a full service log review.",
+        "Mandatory Major PM: Any machine surpassing 1,500 cumulative hours across rotating sites must undergo a complete hydraulic fluid and transmission oil flush before mobilization to a new client site."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Dhruv Sharma",
+      "task": "Intervene at 12:00 PM on CDC Samsung cylinder courier delay with Ankur/Manish; review JK Paper 5-ton forklift service history across prior site deployments; audit electronic card PO records."
+    },
+    {
+      "person": "Sushil Mishra",
+      "task": "Procure courier docket tracking details for CDC Samsung cylinder; verify arrival of Sanand tyres and limit switch; process Mumbai vendor payment for Panipat Z-135 card."
+    },
+    {
+      "person": "Jitendra Budhauliya",
+      "task": "Reconcile Korba CRM ticket and enforce 10-minute daily operator inspection rota for 6 unassigned machines; coordinate Sandeep's deployment to Mundra; follow up on Anuppur diagnostic video."
+    },
+    {
+      "person": "Umesh Kumar",
+      "task": "Coordinate CDC Samsung site reception of hydraulic cylinder upon courier arrival; inspect Mundra 860SJ basket leveling card upon Sandeep's arrival; ensure Korba operators inspect unassigned machines."
+    },
+    {
+      "person": "Pardeep Tomar",
+      "task": "Plan logistics dispatch of Bhatinda 3455 baskets from Delhi stock; source replacement transmission/hydraulic assembly for JK Paper 5-ton forklift; ensure all electronic cards are logged with PO numbers."
+    },
+    {
+      "person": "Ravi Tiwari",
+      "task": "Compile and submit complete historical maintenance log for JK Paper 5-ton forklift; oversee Dahej radiator hose replacement; coordinate with Amit at Maruti to retrieve unbolted sensors and execute aerosol paint touch-ups."
+    },
+    {
+      "person": "Satendra Kumar",
+      "task": "Supervise tyre mounting and limit switch calibration on Sanand JCB 2640 (SN: 83224); package defective cable and old battery tray for return transit to Delhi store."
+    },
+    {
+      "person": "Pandit Dheeraj Dubey",
+      "task": "Obtain client Deepak's gate pass for Genie 1932 overload sensor recalibration; prepare Genie 5390 for cylinder seal replacement immediately upon rain clearance."
+    },
+    {
+      "person": "Amit (Maruti Site)",
+      "task": "Hand over uninstalled safety sensors to central stock buffer; purchase aerosol spray paint locally and repair exterior body scuffs on newly arrived machines."
+    }
+  ]
+}

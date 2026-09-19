@@ -1,0 +1,199 @@
+{
+  "id": "meet-2026-09-16",
+  "title": "16-09-2026",
+  "date": "2026-09-16",
+  "dateDisplay": "16-09-2026",
+  "dateFormatted": "16-09-2026",
+  "focus": "Jamnagar JCB T65 (SN: 65D) Base ECU/CCU Output Lockout Diagnostics & Wiring Preservation, Bijnor Hydraulic Line Rupture & Emergency Dispatch of Arun, CG Power JLG 2540 Shifting Battery Box & Platform Disconnection, Sandila 800-1 Cylinder Seal Transit & 12-Day Pin Machining, Gujarat Fleet Zero-Breakdown Drive (Mantu & Sandeep Deployment; Z-30 Restored), Bangalore–Hyderabad 45-Battery Consolidation, LGMG 6-Machine 300-Hour PM Filter Procurement, Sanand Yard Scrap Clearance & Storeroom De-Lease, and Genie Scissor TPI Emergency Lowering Wire Rectification",
+  "isHoliday": false,
+  "holidayName": "",
+  "breakdowns": [
+    {
+      "site": "Jamnagar Reliance Plant — JCB T65 (2024 Model) CCU/ECU Output Lockout Diagnostics & Anti-Harness Stripping Protocol",
+      "issue": "The 2024 JCB T65 boom lift at Jamnagar Reliance has been grounded for approximately one month. Pardeep Suthar completed official software updates per OEM recommendations, but the Boom Up and Telescopic Extend lockout persisted unchanged. Detailed electrical input/output diagnostics conducted by Pardeep proved that platform button signals successfully deliver 24V supply to the Chassis Control Unit (CCU / base ECU) input terminals for all boom elevation and telescoping functions. Furthermore, CCU outputs for Boom Down and Telescopic Retract function correctly, but the CCU outputs zero voltage for Boom Up and Telescopic Extend. Pardeep conducted coil integrity tests on the hydraulic directional control valve bank: disconnecting coil harnesses immediately triggers live CAN display fault codes, and reconnecting them immediately clears the faults, proving the valve coils and downstream wiring harnesses are fully continuous. When an OEM representative proposed peeling and cutting into the sealed wiring harness to test with an analog multimeter, Pardeep firmly objected, explaining that mutilating harness insulation on an advanced computerized CAN-bus machine causes permanent moisture ingress and degradation when the diagnostic display already verifies input/output states. Pardeep diagnosed a 95% certainty of internal CCU output driver failure.",
+      "action": "Sushil Mishra and Jitendra Budhauliya agreed that because the CCU is a high-cost electronic controller, an on-site cross-verification should be performed. Preetam or another qualified technician is being lined up via company gate pass clearance. In parallel, Pardeep Suthar submitted a formal diagnostic test report and will travel to Mumbai/Ahmedabad via train on Monday night/Tuesday.",
+      "status": "Fault Isolated to CCU/ECU Output Driver; Directional Coils & Inputs Verified Intact; Anti-Harness Stripping Protocol Enforced; Spares Cross-Verification & Preetam Gate Clearance Underway"
+    },
+    {
+      "site": "Bijnor Site (UP) — High-Pressure Hydraulic Pipe Breakdown & Emergency Deployment of Arun",
+      "issue": "A boom lift at the Bijnor (Uttar Pradesh) project suffered a major hydraulic pipe rupture, halting critical client lifting operations. The on-site operator attempted to unbolt and replace the elongated high-pressure line independently but was unable to loosen the fittings or manage the heavy hydraulic hose assembly without specialized assistance. Ravi Tiwari flagged that the breakdown was initially delayed in central CRM reporting while the operator struggled alone on-site.",
+      "action": "Jitendra Budhauliya and Vinay Singh evaluated technician proximity. With Pravesh engaged at another facility, Jitendra dispatched technician Arun from Delhi immediately via motorcycle/intercity transit (3 to 4 hours travel time). Jitendra transmitted GPS coordinates, client supervisor details, and the operator's contact to Arun.",
+      "status": "Technician Arun Dispatched to Bijnor; Hydraulic Pipe Overhaul in Progress; Immediate CRM Ticket Logging Mandated"
+    },
+    {
+      "site": "CG Power Site — JLG/JCB 2540 Scissor Lift Intermittent Shutoff & Shifting Battery Box Failure",
+      "issue": "The 2540 scissor lift at CG Power has been chronically unstable, operating for only 2 to 4 hours daily before abruptly cutting out. Satendra Kumar escalated that repeated logging across Google Forms, operations groups, and management calls had not yielded resolution. Diagnostic analysis revealed that the plastic molded battery housing and ground control box covers have cracked and loosened. As the machine travels across uneven floor joints or elevates its scissor pack, the loose battery box shifts laterally, causing battery cable disconnection and interlock tripping that immediately halts the machine at height. Additionally, platform basket mounting holes were misaligned and required re-machining, and 2 pivot axle pins are broken.",
+      "action": "Jitendra Budhauliya located an intact replacement battery box from spare fleet units at Delhi yard and approved immediate dispatch. Dinesh had previously lined up the warranty process for the joystick controller and controls with the OEM. Replacement axle pins are being ordered for precision machining.",
+      "status": "Replacement Battery Box Dispatched from Delhi Yard; Axle Pin Fabrication Initiated; OEM Warranty Joystick Replacement Lined Up"
+    },
+    {
+      "site": "Sandila Site — Boom Lift 800-1 (Assam Demobilization) Cylinder Seal Failure & 12-Day Custom Pin Fabrication",
+      "issue": "Unit 800-1, newly mobilized to Sandila following de-hire from an Assam project, operated for only 2 days before experiencing a severe hydraulic burst and cylinder seal blowout, grounding the unit for over a week under high client pressure. Sandeep Thakur confirmed that during the mechanical inspection, the main boom pivot pin was also found sheared/cracked.",
+      "action": "The replacement hydraulic cylinder seal kit was sourced from Delhi and dispatched via express railway transit. Jitendra Budhauliya requested exact micrometer pin dimensions from Swadesh to initiate custom machine shop fabrication. Pin turning, heat treatment, and precision machining will require 12 days. Sandeep Thakur is confirming dimensions on-site to start lathe work immediately.",
+      "status": "Cylinder Seal Kit in Transit via Express Rail; Exact Micrometer Dimensions Being Finalized for 12-Day Pin Machining"
+    },
+    {
+      "site": "Gujarat Fleet (Chunnilal Site) — Comprehensive Breakdown Audit & Mantu/Sandeep Zero-Downtime Mission",
+      "issue": "A detailed census of Chunnilal Patel's regional fleet identified 5 priority breakdown units requiring urgent mechanical and electrical restoration: (1) Genie Z-40: hydraulic drive motor mounted yesterday, undergoing final line connection; (2) Genie Z-30: successfully restored and commissioned yesterday evening (~6:30 PM) and returned to service; (3) Genie Z-34: fully operational; (4) JCB 3246 / 45 scissor (2024 model): severe battery degradation where batteries hold charge for under 1 hour despite 36-hour charging cycle; (5) Genie 4047 scissor: sluggish marching speed due to defective drive joystick and degraded 12V auxiliary battery; (6) Scissor 5390 & JCB 3240: fractured plastic battery and control housings; (7) Boom Lift 1350: hydraulic hose rupture; (8) JLG 860: engine power loss and excessive exhaust smoke.",
+      "action": "Jitendra Budhauliya and Pardeep Tomar deployed technicians Mantu and Sandeep to the site (arrived 9:00 AM) with a strict management mandate to achieve ZERO breakdowns by Monday/Tuesday. The workload was partitioned: 2 technicians dedicated to chronic breakdowns and 2 technicians assigned to running repairs. Mantu was assigned to troubleshoot the 860 diesel engine. A 6x 6V battery set is being swapped into the JCB 3246, and Sitaram submitted requisitions for the 4047 drive joystick and 12V battery.",
+      "status": "Mantu & Sandeep Deployed on Site; 2 Major + 2 Minor Split Team Established; Z-30 Operational; Battery Swaps & Zero-Breakdown Drive Underway"
+    },
+    {
+      "site": "Bangalore Fleet Yard — 45-Battery Inventory Audit & Hyderabad Strategic Transfer",
+      "issue": "Ravi Tiwari reported an accumulated stock of 45 idle traction batteries at the Bangalore yard dating from 2020-2021. Attempted individual cell reconditioning (Exide cell replacement) failed to produce reliable discharge capacity, leaving multiple southern machines constrained for power packs.",
+      "action": "Jitendra Budhauliya evaluated logistics between Bangalore and Hyderabad (~450-500 km). Jitendra initiated arrangements to transfer suitable battery sets to Hyderabad for centralized professional load testing, capacity re-matching, and deployment across active southern rental contracts.",
+      "status": "Bangalore–Hyderabad Transfer Route Finalized; 45 Batteries Scheduled for Transport & Centralized Load Testing"
+    },
+    {
+      "site": "Fleet-Wide PM — 6 New LGMG & Genie Machines 300-Hour Servicing & In-House Filter Fitment",
+      "issue": "Six newly commissioned machines in the fleet (including 2 LGMG units and Genie boom/scissor lifts) are approaching their critical 300-hour first periodic maintenance interval, requiring comprehensive engine, hydraulic, and fuel filter replacements to protect warranty compliance and engine longevity.",
+      "action": "Vinay Singh and Sushil Mishra coordinated with LGMG representative Salim and obtained filter quotations. Rather than incurring expensive external OEM labor charges, Reach management decided to purchase genuine OEM filter kits directly and execute all 300-hour preventive servicing using Reach's internal maintenance engineers.",
+      "status": "LGMG OEM Filter Quotations Approved; Service Kits in Procurement; In-House 300-Hour PM Servicing Scheduled"
+    },
+    {
+      "site": "Sanand Yard — Scrap Component Liquidation & Storeroom Rental De-Leasing",
+      "issue": "A rented storeroom in Sanand currently stores decommissioned scrap steel, exhausted batteries, and worn mechanical components from off-hired machines, incurring recurring monthly rental lease expenses without operational utility.",
+      "action": "Satendra Kumar proposed clearing the facility and auctioning the scrap. Jitendra Budhauliya authorized a complete scrap sale and yard clearance within one week. Reusable spare parts will be consolidated and dispatched to the central Delhi warehouse, after which the Sanand rental lease will be formally terminated.",
+      "status": "Scrap Sale Approved; 7-Day Liquidation & Warehouse Handover Scheduled to Eliminate Ongoing Rental Costs"
+    },
+    {
+      "site": "Regional Fleet — Genie Scissor Lift Emergency Lowering Cable TPI Rejection & 5-Minute Wire Fix",
+      "issue": "Pandit Dheeraj Dubey reported that a Genie scissor lift failed its mandatory Third Party Inspection (TPI) safety audit because the manual emergency lowering pull mechanism was completely inoperable. Inspection showed the internal actuator wire/cable had snapped, preventing the platform valves from opening during an emergency descent test.",
+      "action": "Although the wire replacement takes only 5 minutes, on-site technician Deepak was constrained by multiple simultaneous breakdowns. Jitendra Budhauliya instructed that the replacement wire specification be logged immediately on the central Google Sheet and dispatched so Deepak can restore TPI compliance without delay.",
+      "status": "Emergency Wire Logged on Google Sheet; Replacement Cable Dispatched for Immediate 5-Minute TPI Rectification"
+    }
+  ],
+  "parts": [
+    {
+      "part": "JCB T65 Base Chassis Control Unit (CCU / ECU Module)",
+      "context": "Jamnagar Reliance Site — JCB T65 (2024 Model)",
+      "statusNextSteps": "Internal CCU output driver failure verified (no output for Boom Up / Extend); cross-check by Preetam planned before ordering replacement."
+    },
+    {
+      "part": "Custom Heavy-Duty Pivot Pin (12-Day Machine Shop Fabrication)",
+      "context": "Sandila Site — Boom Lift 800-1 (Assam Demobilization)",
+      "statusNextSteps": "Pin cracked; micrometer dimensions being confirmed on-site by Sandeep Thakur and Swadesh for 12-day custom lathe turning."
+    },
+    {
+      "part": "High-Pressure Hydraulic Cylinder Seal Kit",
+      "context": "Sandila Site — Boom Lift 800-1",
+      "statusNextSteps": "Sourced and dispatched from Delhi via express railway transit; tracking actively."
+    },
+    {
+      "part": "Reinforced Battery Box & Ground Control Enclosure Assembly",
+      "context": "CG Power Site — JLG/JCB 2540 Scissor Lift (and Scissor 5390)",
+      "statusNextSteps": "Plastic covers fractured causing shifting and power cutoffs; intact replacement box dispatched from Delhi spare fleet."
+    },
+    {
+      "part": "6V Traction Battery Pack (6 Units) & 12V Auxiliary Battery",
+      "context": "Gujarat Fleet (Chunnilal Site) — JCB 3246 & Genie 4047 Scissors",
+      "statusNextSteps": "6x 6V batteries from Genie stock being installed on JCB 3246; 12V auxiliary battery requisition submitted by Sitaram."
+    },
+    {
+      "part": "Genie 4047 Proportional Drive Joystick Controller",
+      "context": "Gujarat Fleet — Genie 4047 Scissor Lift",
+      "statusNextSteps": "Requisition submitted by Sitaram to resolve slow drive speed; fast-track dispatch requested."
+    },
+    {
+      "part": "LGMG & Genie 300-Hour Periodic Maintenance Service Filter Kits",
+      "context": "Fleet-Wide — 6 Newly Commissioned LGMG and Genie Units",
+      "statusNextSteps": "Quotations finalized with LGMG representative Salim; internal maintenance crew to perform servicing upon delivery."
+    },
+    {
+      "part": "High-Pressure Hydraulic Line & Hose Assemblies",
+      "context": "Bijnor Site & Gujarat Fleet Boom Lift 1350",
+      "statusNextSteps": "Arun carrying replacement hose to Bijnor; burst hose on unit 1350 being measured for local/central replacement."
+    },
+    {
+      "part": "Manual Emergency Lowering Actuator Cable / Wire",
+      "context": "Regional Fleet — Genie Scissor Lift (Pandit Dheeraj Dubey Site)",
+      "statusNextSteps": "Actuator wire snapped causing TPI audit failure; logged on Google Sheet for rapid courier dispatch."
+    },
+    {
+      "part": "Hour & Mileage Telematics Reading Meters",
+      "context": "Gujarat Fleet — Units 860SJ and 800-1 Boom Lifts",
+      "statusNextSteps": "Requisitions assigned to Pardeep Tomar to furnish replacement hour meters for maintenance tracking."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Dual-Team Fleet Breakdown Partition & Zero-Downtime Mission",
+      "points": [
+        "Partitioned Responsibilities: On major project sites with multi-machine backlogs (e.g., Chunnilal's fleet), technicians must be divided into two specialized squads: Squad A (2 senior technicians) assigned exclusively to long-standing chronic breakdowns, and Squad B (2 technicians) assigned to swift running repairs.",
+        "Zero-Downtime Deadline: The Gujarat fleet must eliminate all machine breakdowns by Monday/Tuesday without exception.",
+        "Management Escalation: Technicians facing site resistance or material shortages must immediately escalate directly to Jitendra Budhauliya or Vinay Singh."
+      ]
+    },
+    {
+      "title": "Strict Anti-Insulation-Stripping Protocol on Computerized CAN-Bus Machinery",
+      "points": [
+        "Preserve Harness Integrity: Field engineers are strictly prohibited from stripping, cutting, or puncturing sealed wire insulation with multimeter probes on advanced computerized machinery (such as JCB T65).",
+        "Display Logic Utilization: Technicians must utilize native ECU display telemetry and coil terminal tests to determine input/output states rather than inflicting destructive physical damage to factory wiring looms.",
+        "Moisture Ingress Risk: Wire stripping breaches water-resistant coatings, leading to accelerated internal galvanic corrosion and irreversible intermittent faults."
+      ]
+    },
+    {
+      "title": "Permanent Client Gate Pass Personnel Conservation",
+      "points": [
+        "No Diversion of Approved Personnel: Technical staff holding active permanent security gate passes for major industrial facilities (such as Preetam at Mundra) must not be permanently reassigned to outstation breakdown duties.",
+        "Disruption Prevention: Diverting gate-pass-cleared engineers disrupts ongoing contract operations and necessitates weeks of re-verification and Aadhaar security clearances."
+      ]
+    },
+    {
+      "title": "Obsolete Yard Scrap Liquidation & Rental Expense Elimination",
+      "points": [
+        "Timely Disposal: Accumulated scrap steel, damaged body panels, and non-reconditionable batteries across rented regional storerooms (such as Sanand) must be auctioned off within 7 days.",
+        "Cost Control: Eliminate recurring room rental and warehousing leases immediately once scrap is cleared, with salvageable spare components consolidated into Delhi central inventory."
+      ]
+    },
+    {
+      "title": "Immediate Rectification of Statutory TPI Safety Audit Failures",
+      "points": [
+        "Priority Rectification: Safety-critical non-compliances that cause Third Party Inspection (TPI) failures—specifically manual emergency lowering systems—must be rectified within 24 hours.",
+        "Rapid Deployment: Even small 5-minute fixes (such as emergency lowering wires) must be logged on central Google Sheets and prioritized to prevent client safety grounding."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Jitendra Budhauliya",
+      "task": "Transmit site GPS coordinates and operator contact to Arun for Bijnor emergency dispatch; coordinate Bangalore-to-Hyderabad 45-battery transfer logistics; dispatch intact replacement battery box from Delhi yard to CG Power; authorize Sanand scrap sale within 7 days; line up Deepak for Mumbai deployment."
+    },
+    {
+      "person": "Ravi Tiwari",
+      "task": "Ensure Bijnor breakdown and hydraulic hose requirement are officially logged in CRM; oversee preparation and inventory verification of 45 batteries in Bangalore for Hyderabad transit."
+    },
+    {
+      "person": "Satendra Kumar",
+      "task": "Coordinate installation of Delhi replacement battery box and pin fabrication for CG Power 2540 scissor; execute Sanand yard scrap sale and lease termination within one week."
+    },
+    {
+      "person": "Pardeep Tomar",
+      "task": "Process central requisitions for Genie 4047 drive joystick and 12V auxiliary battery; arrange hour reading meters for 860 and 800-1; monitor daily breakdown progress with Chunnilal."
+    },
+    {
+      "person": "Vinay Singh",
+      "task": "Expedite delivery of 6-machine PM filter kits from LGMG representative Salim; track Arun's arrival and hydraulic repair progress at Bijnor; coordinate Sitaram's deployment."
+    },
+    {
+      "person": "Chunnilal Patel",
+      "task": "Direct Mantu and Sandeep to achieve zero breakdowns by Monday/Tuesday; complete 6x 6V battery retrofit on JCB 3246; confirm final testing of Z-40; report hose specs for unit 1350."
+    },
+    {
+      "person": "Sushil Mishra",
+      "task": "Coordinate secondary technical cross-check for Jamnagar JCB T65 CCU/ECU with Preetam; finalize internal PM service scheduling for the 6 new LGMG and Genie machines."
+    },
+    {
+      "person": "Pardeep Suthar",
+      "task": "Submit formal diagnostic dossier on Jamnagar JCB T65 CCU input/output findings; book train transit to depart Monday night/Tuesday to Mumbai/Ahmedabad."
+    },
+    {
+      "person": "Sandeep Thakur",
+      "task": "Obtain precise micrometer dimensions for Sandila 800-1 boom pivot pin from Swadesh to begin 12-day machine shop turning; take delivery of cylinder seal kit from express railway transit."
+    },
+    {
+      "person": "Pandit Dheeraj Dubey",
+      "task": "Ensure Genie scissor emergency lowering wire specification is logged on central Google Sheet; assist Deepak in completing 5-minute wire installation to achieve TPI clearance."
+    }
+  ]
+}

@@ -48,7 +48,18 @@ export function parseAnyDateToParts(dateStr) {
         }
     }
 
-    // 3. DD Month (YYYY) (e.g. "02 Sep 2026", "2 September 2026", "2nd Sept", "2 sept")
+    // 3. DD-MM or DD/MM or DD.MM (e.g. "02-09", "2/09", "2-9")
+    m = clean.match(/^(\d{1,2})[-/.](\d{1,2})$/);
+    if (m) {
+        const dayInt = parseInt(m[1], 10);
+        const monthInt = parseInt(m[2], 10);
+        const year = '2026';
+        if (monthInt >= 1 && monthInt <= 12 && dayInt >= 1 && dayInt <= 31) {
+            return buildParts(year, monthInt, dayInt);
+        }
+    }
+
+    // 4. DD Month (YYYY) (e.g. "02 Sep 2026", "2 September 2026", "2nd Sept", "2 sept")
     m = clean.match(/^(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+)(?:\s+(\d{4}))?$/i);
     if (m) {
         const dayInt = parseInt(m[1], 10);
@@ -61,7 +72,7 @@ export function parseAnyDateToParts(dateStr) {
         }
     }
 
-    // 4. Month DD (YYYY) (e.g. "September 2 2026", "Sep 02", "Sept 2nd")
+    // 5. Month DD (YYYY) (e.g. "September 2 2026", "Sep 02", "Sept 2nd")
     m = clean.match(/^([A-Za-z]+)\s+(\d{1,2})(?:st|nd|rd|th)?(?:\s+(\d{4}))?$/i);
     if (m) {
         const monthWord = m[1].toLowerCase();
@@ -74,7 +85,7 @@ export function parseAnyDateToParts(dateStr) {
         }
     }
 
-    // 5. Native Date parser fallback
+    // 6. Native Date parser fallback
     const d = new Date(clean);
     if (!isNaN(d.getTime())) {
         return buildParts(String(d.getFullYear()), d.getMonth() + 1, d.getDate());
@@ -241,6 +252,12 @@ export function formatMeetingSummary(meeting) {
         text += `--------------------------------------------------\n`;
         text += `• Office and general fleet operations remained closed on account of ${meeting.holidayName || 'Company Holiday'}.\n`;
         text += `• No daily operations breakdown or coordination meeting was conducted.\n\n`;
+    } else if (!meeting.breakdowns || meeting.breakdowns.length === 0) {
+        text += `--------------------------------------------------\n`;
+        text += `OPERATIONS STATUS: OFFICE OPEN • NO MEETING HELD\n`;
+        text += `--------------------------------------------------\n`;
+        text += `• Corporate offices, workshop maintenance, and site fleet operations were fully active and operational.\n`;
+        text += `• No daily operations breakdown or coordination meeting was conducted on this day.\n\n`;
     }
 
     if (meeting.breakdowns && meeting.breakdowns.length > 0) {
@@ -395,8 +412,10 @@ export function searchMeetings(query, searchIndex) {
         const itemVariationsLower = itemVariations.map(v => v.toLowerCase());
 
         // A. Direct exact/substring date variation match
-        if (itemVariationsLower.some(v => v === cleanQuery || v.includes(cleanQuery) || cleanQuery.includes(v))) {
-            score += 150;
+        if (itemVariationsLower.some(v => v === cleanQuery)) {
+            score += 300;
+        } else if (itemVariationsLower.some(v => v.includes(cleanQuery) || cleanQuery.includes(v))) {
+            score += 100;
         }
 
         // B. If query parsed as a structured date, compare day/month/year

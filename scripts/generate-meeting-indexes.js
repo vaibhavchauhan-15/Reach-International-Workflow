@@ -48,7 +48,18 @@ function parseAnyDateToParts(dateStr) {
         }
     }
 
-    // 3. DD Month (YYYY)
+    // 3. DD-MM or DD/MM or DD.MM (e.g. "02-09", "2/09", "2-9")
+    m = clean.match(/^(\d{1,2})[-/.](\d{1,2})$/);
+    if (m) {
+        const dayInt = parseInt(m[1], 10);
+        const monthInt = parseInt(m[2], 10);
+        const year = '2026';
+        if (monthInt >= 1 && monthInt <= 12 && dayInt >= 1 && dayInt <= 31) {
+            return buildParts(year, monthInt, dayInt);
+        }
+    }
+
+    // 4. DD Month (YYYY)
     m = clean.match(/^(\d{1,2})(?:st|nd|rd|th)?\s+([A-Za-z]+)(?:\s+(\d{4}))?$/i);
     if (m) {
         const dayInt = parseInt(m[1], 10);

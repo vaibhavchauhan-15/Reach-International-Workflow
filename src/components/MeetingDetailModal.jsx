@@ -92,6 +92,23 @@ export default function MeetingDetailModal({ selectedMeeting, setSelectedMeeting
                         </div>
                     )}
 
+                    {/* Office Open & Routine Operations (No Meeting Held) Banner */}
+                    {!selectedMeeting.isHoliday && (!selectedMeeting.breakdowns || selectedMeeting.breakdowns.length === 0) && (
+                        <div className="bg-sky-50/80 border border-sky-200/90 border-l-4 border-l-sky-600 rounded-xl p-4 shadow-xs">
+                            <div className="flex items-start gap-3">
+                                <span className="text-2xl flex-shrink-0">🏢</span>
+                                <div className="space-y-1">
+                                    <h2 className="text-sm sm:text-base font-extrabold text-sky-950">
+                                        Office & Fleet Operations Active — No Meeting Held
+                                    </h2>
+                                    <p className="text-xs text-sky-900/80 leading-relaxed font-medium">
+                                        Corporate offices, regional workshops, and site fleet operations were fully active and operational. No daily operations breakdown or coordination meeting was conducted on this day.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
                     {/* SECTION 1: Machine Breakdowns & Site Updates */}
                     {selectedMeeting.breakdowns && selectedMeeting.breakdowns.length > 0 && (
                         <section className="space-y-3">

@@ -2,13 +2,13 @@
   "years": [
     {
       "year": "2026",
-      "meetingCount": 22,
+      "meetingCount": 26,
       "months": [
         {
           "month": "09",
           "name": "September",
-          "meetingCount": 15,
-          "latestMeetingDate": "2026-09-15",
+          "meetingCount": 19,
+          "latestMeetingDate": "2026-09-19",
           "indexPath": "/data/meetings/2026/09/index.json"
         },
         {
@@ -21,10 +21,10 @@
       ]
     }
   ],
-  "totalMeetings": 22,
+  "totalMeetings": 26,
   "latestYear": "2026",
   "latestMonth": "09",
-  "latestMeetingId": "meet-2026-09-15",
+  "latestMeetingId": "meet-2026-09-19",
   "chronologicalSequence": [
     {
       "id": "meet-2026-08-25",
@@ -245,6 +245,46 @@
       "isHoliday": false,
       "holidayName": "",
       "path": "/data/meetings/2026/09/15.json"
+    },
+    {
+      "id": "meet-2026-09-16",
+      "date": "2026-09-16",
+      "dateDisplay": "16-09-2026",
+      "dateFormatted": "16-09-2026",
+      "title": "16-09-2026",
+      "isHoliday": false,
+      "holidayName": "",
+      "path": "/data/meetings/2026/09/16.json"
+    },
+    {
+      "id": "meet-2026-09-17",
+      "date": "2026-09-17",
+      "dateDisplay": "17-09-2026",
+      "dateFormatted": "17-09-2026",
+      "title": "17-09-2026",
+      "isHoliday": false,
+      "holidayName": "",
+      "path": "/data/meetings/2026/09/17.json"
+    },
+    {
+      "id": "meet-2026-09-18",
+      "date": "2026-09-18",
+      "dateDisplay": "18-09-2026",
+      "dateFormatted": "18-09-2026",
+      "title": "18-09-2026",
+      "isHoliday": false,
+      "holidayName": "",
+      "path": "/data/meetings/2026/09/18.json"
+    },
+    {
+      "id": "meet-2026-09-19",
+      "date": "2026-09-19",
+      "dateDisplay": "19-09-2026",
+      "dateFormatted": "19-09-2026",
+      "title": "19-09-2026",
+      "isHoliday": false,
+      "holidayName": "",
+      "path": "/data/meetings/2026/09/19.json"
     }
   ]
 }

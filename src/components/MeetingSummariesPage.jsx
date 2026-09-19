@@ -546,6 +546,23 @@ export default function MeetingSummariesPage({
                                     </div>
                                 )}
 
+                                {/* Office Open & Routine Operations (No Meeting Held) Banner */}
+                                {!fullMeetingDetail.isHoliday && (!fullMeetingDetail.breakdowns || fullMeetingDetail.breakdowns.length === 0) && (
+                                    <div className="bg-sky-50/80 border border-sky-200/90 border-l-4 border-l-sky-600 rounded-xl p-4 sm:p-5 mb-6 shadow-xs">
+                                        <div className="flex items-start sm:items-center gap-3">
+                                            <span className="text-2xl sm:text-3xl flex-shrink-0">🏢</span>
+                                            <div className="space-y-1">
+                                                <h2 className="text-sm sm:text-base font-extrabold text-sky-950">
+                                                    Office & Fleet Operations Active — No Meeting Held
+                                                </h2>
+                                                <p className="text-xs sm:text-sm text-sky-900/80 leading-relaxed font-medium">
+                                                    Corporate offices, regional workshops, and site fleet operations were fully active and operational. No daily operations breakdown or coordination meeting was conducted on this day.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
                                 {/* Clean Divider */}
                                 <hr className="border-border-light my-6 sm:my-8" />
 
@@ -1033,6 +1050,11 @@ export default function MeetingSummariesPage({
                                                     {meeting.actionItemsCount > 0 && (
                                                         <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-theme-action border border-emerald-100">
                                                             ✅ {meeting.actionItemsCount}
+                                                        </span>
+                                                    )}
+                                                    {meeting.breakdownCount === 0 && meeting.partsCount === 0 && meeting.actionItemsCount === 0 && !meeting.isHoliday && (
+                                                        <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-sky-50 text-sky-800 border border-sky-200">
+                                                            🏢 Office Open • No Meeting
                                                         </span>
                                                     )}
                                                 </div>

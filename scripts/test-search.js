@@ -36,7 +36,10 @@ const testQueries = [
     { query: '16 September', expectedDate: '2026-09-16' },
     { query: 'Bijnor', expectedCount: (c) => c > 0 },
     { query: 'Vishwakarma', expectedDate: '2026-09-17' },
-    { query: '17-09-2026', expectedDate: '2026-09-17' }
+    { query: '17-09-2026', expectedDate: '2026-09-17' },
+    { query: '19-09-2026', expectedDate: '2026-09-19' },
+    { query: '19 September', expectedDate: '2026-09-19' },
+    { query: '19 sept', expectedDate: '2026-09-19' }
 ];
 
 let allPassed = true;

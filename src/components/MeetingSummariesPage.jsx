@@ -351,6 +351,7 @@ export default function MeetingSummariesPage({
     // -------------------------------------------------------------
     const handleSelectMeeting = (meeting) => {
         if (meeting?.isHoliday) return;
+        if (meeting?.noMeetingHeld || (meeting?.breakdownCount === 0 && meeting?.partsCount === 0 && meeting?.actionItemsCount === 0)) return;
         if (meeting?.date) {
             const parts = meeting.date.split('-');
             if (parts.length >= 2) {
@@ -1001,6 +1002,41 @@ export default function MeetingSummariesPage({
                                                     </div>
                                                 </div>
                                                 <span className="text-[11px] font-semibold text-slate-400 self-start sm:self-auto">
+                                                    No Meeting Held
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+
+                                    const isNoMeetingHeld = meeting.noMeetingHeld || (!meeting.isHoliday && (
+                                        meeting.breakdownCount === 0 && meeting.partsCount === 0 && meeting.actionItemsCount === 0
+                                    ));
+
+                                    if (isNoMeetingHeld) {
+                                        return (
+                                            <div 
+                                                key={meeting.id} 
+                                                className="bg-white border border-border-light border-l-4 border-l-slate-300 rounded-xl p-3 sm:px-4 sm:py-3 shadow-card flex flex-col sm:flex-row sm:items-center justify-between gap-2 min-h-[52px] select-none flex-shrink-0 cursor-default"
+                                                style={{
+                                                    contentVisibility: 'auto',
+                                                    containIntrinsicSize: 'auto 52px',
+                                                }}
+                                            >
+                                                <div className="flex items-start sm:items-center gap-2.5 sm:gap-3.5 min-w-0 flex-1">
+                                                    <span className="text-xs sm:text-sm font-extrabold text-slate-900 min-w-[64px] flex-shrink-0">
+                                                        {shortDate}
+                                                    </span>
+                                                    <span className="text-slate-300 select-none hidden sm:inline">─</span>
+                                                    <div className="min-w-0 flex-1 flex items-center gap-2 flex-wrap">
+                                                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">
+                                                            🏢 Office Open • No Meeting Held
+                                                        </span>
+                                                        <p className="text-xs text-slate-500 font-medium truncate">
+                                                            {meeting.focus || 'Routine Operations Active'}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <span className="text-[11px] font-semibold text-slate-400 self-start sm:self-auto flex-shrink-0">
                                                     No Meeting Held
                                                 </span>
                                             </div>

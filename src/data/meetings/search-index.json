@@ -111,6 +111,7 @@
     "focus": "Office & Workshop Operations Open – Routine Site Operations, Fleet Mobilization & Preventive Maintenance Continued (No Daily Operations Meeting Held)",
     "isHoliday": false,
     "holidayName": "",
+    "noMeetingHeld": true,
     "breakdownCount": 0,
     "partsCount": 0,
     "directivesCount": 0,
@@ -185,6 +186,7 @@
     "focus": "Office & Workshop Operations Open – Routine Site Work & Equipment Monitoring Active (No Operations Meeting Held on Vishwakarma Puja Day)",
     "isHoliday": false,
     "holidayName": "",
+    "noMeetingHeld": true,
     "breakdownCount": 0,
     "partsCount": 0,
     "directivesCount": 0,
@@ -256,13 +258,13 @@
     "dateDisplay": "16-09-2026",
     "dateFormatted": "16-09-2026",
     "title": "16-09-2026",
-    "focus": "Office & Workshop Operations Open – Routine Site Operations, Fleet Mobilization & Preventive Maintenance Continued (No Daily Operations Meeting Held)",
+    "focus": "Jamnagar JCB T65 (SN: 65D) Base ECU/CCU Output Lockout Diagnostics & Wiring Preservation, Bijnor Hydraulic Line Rupture & Emergency Dispatch of Arun, CG Power JLG 2540 Shifting Battery Box & Platform Disconnection, Sandila 800-1 Cylinder Seal Transit & 12-Day Pin Machining, Gujarat Fleet Zero-Breakdown Drive (Mantu & Sandeep Deployment; Z-30 Restored), Bangalore–Hyderabad 45-Battery Consolidation, LGMG 6-Machine 300-Hour PM Filter Procurement, Sanand Yard Scrap Clearance & Storeroom De-Lease, and Genie Scissor TPI Emergency Lowering Wire Rectification",
     "isHoliday": false,
     "holidayName": "",
-    "breakdownCount": 0,
-    "partsCount": 0,
-    "directivesCount": 0,
-    "actionItemsCount": 0,
+    "breakdownCount": 9,
+    "partsCount": 10,
+    "directivesCount": 5,
+    "actionItemsCount": 10,
     "path": "/data/meetings/2026/09/16.json",
     "dateVariations": [
       "16-09-2026",
@@ -319,10 +321,39 @@
       "16092026",
       "20260916"
     ],
-    "sites": [],
-    "people": [],
-    "parts": [],
-    "keywords": "16-09-2026 2026-09-16 office workshop operations open routine site fleet mobilization preventive maintenance continued no daily meeting held 16-9-2026 16-09 16-9 16/09/2026 16 09 2026 16/9/2026 16/09 16/9 16.09.2026 16.9.2026 16.09 16.9 2026/09/16 2026-9-16 16 september september 16 september 2026 september 16 september 16 2026 september 16, 2026 16th september 16th 16th september 2026 september 16th september 16th 2026 september 16th, 2026 september 2026 16 sep sep 16 sep 2026 sep 16 sep 16 2026 sep 16, 2026 16th sep 16th sep 2026 sep 16th sep 16th 2026 sep 16th, 2026 sep 2026 16 sept sept 16 sept 2026 sept 16 sept 16 2026 sept 16, 2026 16th sept 16th sept 2026 sept 16th sept 16th 2026 sept 16th, 2026 sept 2026 16092026 20260916"
+    "sites": [
+      "Jamnagar Reliance Plant — JCB T65 (2024 Model) CCU/ECU Output Lockout Diagnostics & Anti-Harness Stripping Protocol",
+      "Bijnor Site (UP) — High-Pressure Hydraulic Pipe Breakdown & Emergency Deployment of Arun",
+      "CG Power Site — JLG/JCB 2540 Scissor Lift Intermittent Shutoff & Shifting Battery Box Failure",
+      "Sandila Site — Boom Lift 800-1 (Assam Demobilization) Cylinder Seal Failure & 12-Day Custom Pin Fabrication",
+      "Gujarat Fleet (Chunnilal Site) — Comprehensive Breakdown Audit & Mantu/Sandeep Zero-Downtime Mission",
+      "Bangalore Fleet Yard — 45-Battery Inventory Audit & Hyderabad Strategic Transfer",
+      "Fleet-Wide PM — 6 New LGMG & Genie Machines 300-Hour Servicing & In-House Filter Fitment",
+      "Sanand Yard — Scrap Component Liquidation & Storeroom Rental De-Leasing"
+    ],
+    "people": [
+      "Jitendra Budhauliya",
+      "Ravi Tiwari",
+      "Satendra Kumar",
+      "Pardeep Tomar",
+      "Vinay Singh",
+      "Chunnilal Patel",
+      "Sushil Mishra",
+      "Pardeep Suthar",
+      "Sandeep Thakur",
+      "Pandit Dheeraj Dubey"
+    ],
+    "parts": [
+      "JCB T65 Base Chassis Control Unit (CCU / ECU Module)",
+      "Custom Heavy-Duty Pivot Pin (12-Day Machine Shop Fabrication)",
+      "High-Pressure Hydraulic Cylinder Seal Kit",
+      "Reinforced Battery Box & Ground Control Enclosure Assembly",
+      "6V Traction Battery Pack (6 Units) & 12V Auxiliary Battery",
+      "Genie 4047 Proportional Drive Joystick Controller",
+      "LGMG & Genie 300-Hour Periodic Maintenance Service Filter Kits",
+      "High-Pressure Hydraulic Line & Hose Assemblies"
+    ],
+    "keywords": "16-09-2026 2026-09-16 jamnagar jcb t65 sn 65d base ecu ccu output lockout diagnostics wiring preservation bijnor hydraulic line rupture emergency dispatch of arun cg power jlg 2540 shifting battery box platform disconnection sandila 800-1 cylinder seal transit 12-day pin machining gujarat fleet zero-breakdown drive mantu sandeep deployment z-30 restored bangalore hyderabad 45-battery consolidation lgmg 6-machine 300-hour pm filter procurement sanand yard scrap clearance storeroom de-lease and genie scissor tpi lowering wire rectification 16-9-2026 16-09 16-9 16/09/2026 16 09 2026 16/9/2026 16/09 16/9 16.09.2026 16.9.2026 16.09 16.9 2026/09/16 2026-9-16 16 september september 16 september 2026 september 16 september 16 2026 september 16, 2026 16th september 16th 16th september 2026 september 16th september 16th 2026 september 16th, 2026 september 2026 16 sep sep 16 sep 2026 sep 16 sep 16 2026 sep 16, 2026 16th sep 16th sep 2026 sep 16th sep 16th 2026 sep 16th, 2026 sep 2026 16 sept sept 16 sept 2026 sept 16 sept 16 2026 sept 16, 2026 16th sept 16th sept 2026 sept 16th sept 16th 2026 sept 16th, 2026 sept 2026 16092026 20260916 reliance plant 2024 model anti-harness stripping protocol the boom lift at has been grounded for approximately one month pardeep suthar completed official software updates per oem recommendations but up telescopic extend persisted unchanged detailed electrical input conducted by proved that button signals successfully deliver 24v supply to chassis control unit terminals all elevation telescoping functions furthermore outputs down retract function correctly zero voltage coil integrity tests on directional valve bank disconnecting harnesses immediately triggers live can display fault codes reconnecting them clears faults proving coils downstream are fully continuous when an representative proposed peeling cutting into sealed harness test with analog multimeter firmly objected explaining mutilating insulation advanced computerized can-bus machine causes permanent moisture ingress degradation diagnostic already verifies states diagnosed 95 certainty internal driver failure sushil mishra jitendra budhauliya agreed because is high-cost electronic controller on-site cross-verification should be performed preetam or another qualified technician being lined via company gate pass in parallel submitted formal report will travel mumbai ahmedabad train monday night tuesday isolated inputs verified intact enforced spares underway site high-pressure pipe breakdown uttar pradesh project suffered major halting critical client lifting operations operator attempted unbolt replace elongated independently was unable loosen fittings manage heavy hose assembly without specialized assistance ravi tiwari flagged initially delayed central crm reporting while struggled alone vinay singh evaluated proximity pravesh engaged facility dispatched from delhi motorcycle intercity hours time transmitted gps coordinates supervisor details contact overhaul progress immediate ticket logging mandated intermittent shutoff chronically unstable operating only daily before abruptly out satendra kumar escalated repeated across google forms groups management calls had not yielded resolution analysis revealed plastic molded housing ground covers have cracked loosened as travels uneven floor joints elevates its pack loose shifts laterally causing cable interlock tripping halts height additionally basket mounting holes were misaligned required re-machining pivot axle pins broken located replacement spare units approved dinesh previously warranty process joystick controls ordered precision fabrication initiated assam demobilization custom newly mobilized following de-hire operated days experiencing severe burst blowout grounding over week under high pressure thakur confirmed during mechanical inspection main also found sheared kit sourced express railway requested exact micrometer dimensions swadesh initiate shop turning heat treatment require 12 confirming start lathe work rail finalized chunnilal comprehensive audit zero-downtime mission census patel regional identified priority requiring urgent restoration z-40 motor mounted yesterday undergoing final connection commissioned evening 30 returned service z-34 operational 3246 45 where batteries hold charge hour despite 36-hour charging cycle 4047 sluggish marching speed due defective degraded 12v auxiliary 5390 3240 fractured housings 1350 860 engine loss excessive exhaust smoke tomar deployed technicians arrived 00 am strict mandate achieve breakdowns workload partitioned dedicated chronic assigned running repairs troubleshoot diesel 6x 6v set swapped sitaram requisitions minor split team established swaps inventory strategic transfer reported accumulated stock idle traction dating 2020-2021 individual cell reconditioning exide failed produce reliable discharge capacity leaving multiple southern machines constrained packs logistics between 450-500 km arrangements suitable sets centralized professional load testing re-matching active rental contracts route scheduled transport fleet-wide new servicing in-house fitment six including lifts approaching their first periodic maintenance interval fuel replacements protect compliance longevity coordinated salim obtained quotations rather than incurring expensive external labor charges reach decided purchase genuine kits directly execute preventive using engineers component liquidation de-leasing rented currently stores decommissioned steel exhausted worn components off-hired recurring monthly lease expenses utility clearing auctioning authorized complete sale within reusable parts consolidated warehouse after which formally terminated 7-day handover eliminate ongoing costs rejection 5-minute fix pandit dheeraj dubey mandatory third party safety manual pull mechanism completely inoperable showed actuator snapped preventing valves opening descent although takes minutes deepak simultaneous instructed specification logged sheet so restore delay module no cross-check planned ordering heavy-duty tracking actively reinforced enclosure cutoffs scissors installed requisition proportional resolve slow fast-track crew perform upon delivery assemblies carrying measured local rapid courier mileage telematics reading meters 860sj furnish dual-team partition responsibilities sites multi-machine backlogs must divided two squads squad senior exclusively long-standing swift deadline exception escalation facing resistance material shortages escalate anti-insulation-stripping machinery preserve field strictly prohibited puncturing probes such logic utilization utilize native telemetry terminal determine inflicting destructive physical damage factory looms risk breaches water-resistant coatings leading accelerated galvanic corrosion irreversible personnel conservation diversion technical staff holding security passes industrial facilities mundra permanently reassigned outstation duties disruption prevention diverting gate-pass-cleared disrupts contract necessitates weeks re-verification aadhaar clearances obsolete expense elimination timely disposal damaged body panels non-reconditionable storerooms auctioned off cost room warehousing leases once cleared salvageable statutory failures safety-critical non-compliances cause specifically systems rectified 24 even small fixes wires sheets prioritized prevent transmit coordinate bangalore-to-hyderabad authorize ensure requirement officially oversee preparation verification installation termination arrange monitor expedite track arrival repair direct retrofit confirm specs secondary finalize scheduling submit dossier findings book depart obtain precise begin take assist completing"
   },
   {
     "id": "meet-2026-09-15",

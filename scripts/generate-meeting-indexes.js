@@ -339,6 +339,11 @@ async function generate() {
 
         const variations = generateAllDateVariations(meeting.date);
 
+        const isNoMeeting = !meeting.isHoliday && (
+            meeting.noMeetingHeld ||
+            (!meeting.breakdowns || meeting.breakdowns.length === 0)
+        );
+
         const completeMeetingObject = {
             id: meeting.id || `meet-${meeting.date}`,
             title: displayDate,
@@ -348,6 +353,7 @@ async function generate() {
             focus: meeting.focus || '',
             isHoliday: !!meeting.isHoliday,
             holidayName: meeting.holidayName || '',
+            ...(isNoMeeting ? { noMeetingHeld: true } : {}),
             breakdowns: meeting.breakdowns || [],
             parts: meeting.parts || [],
             directives: meeting.directives || [],
@@ -365,6 +371,7 @@ async function generate() {
             focus: completeMeetingObject.focus,
             isHoliday: completeMeetingObject.isHoliday,
             holidayName: completeMeetingObject.holidayName,
+            ...(isNoMeeting ? { noMeetingHeld: true } : {}),
             breakdownCount: completeMeetingObject.breakdowns.length,
             partsCount: completeMeetingObject.parts.length,
             directivesCount: completeMeetingObject.directives.length,
@@ -400,6 +407,7 @@ async function generate() {
             focus: completeMeetingObject.focus,
             isHoliday: completeMeetingObject.isHoliday,
             holidayName: completeMeetingObject.holidayName,
+            ...(isNoMeeting ? { noMeetingHeld: true } : {}),
             breakdownCount: completeMeetingObject.breakdowns.length,
             partsCount: completeMeetingObject.parts.length,
             directivesCount: completeMeetingObject.directives.length,

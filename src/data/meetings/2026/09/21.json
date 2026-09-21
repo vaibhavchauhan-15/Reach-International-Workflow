@@ -1,0 +1,197 @@
+{
+  "id": "meet-2026-09-21",
+  "title": "21-09-2026",
+  "date": "2026-09-21",
+  "dateDisplay": "21-09-2026",
+  "dateFormatted": "21-09-2026",
+  "focus": "Bhiwadi MHE Gearbox & Logic Controller Backlog, Bijnor Diesel Starting Failure & Arun Deployment, Bangalore 2-Ton Door Mechanism Lock & Anuj Transit, Bilari Toyota Engine Overheating, Mundra Fleet Multi-Unit Battery Depletion & JLG 800AJ Overheating, Korba Button Damage OEM Warranty Rejection, Howrah Severe Tyre Damage Escalation, Fleet-Wide Transport Missing Ignition Keys Penalty (₹500 Debit Mandate), Sanand Storeroom Battery Scrap Local Auction Protocol, and Critical Vendor & Operator Expense Payment Clearances",
+  "isHoliday": false,
+  "holidayName": "",
+  "breakdowns": [
+    {
+      "site": "Bhiwadi Site (MHE Fleet) — Units 502 & 510 Gearbox Failures, Controller 302 Long-Term Grounding, and AI Camera 507 Rectification",
+      "issue": "Bhiwadi reported active mechanical and electrical breakdowns across the material handling fleet: Unit 502 suffered a mechanical gearbox fault/leakage, and Unit 510 experienced severe gearbox wear and oil loss. In addition, Unit 302 remains grounded long-term due to an unresolved logic controller card failure that has persisted for months without replacement. On a positive note, AI safety camera unit 507 has been successfully repaired and returned to service.",
+      "action": "Sushil Mishra and the central maintenance team are organizing replacement gearbox parts and service mechanics for units 502 and 510. Procurement of the electronic controller card for unit 302 is being escalated with specialized electronics suppliers to finally restore the long-standing offline unit.",
+      "status": "AI Camera 507 Operational; Gearbox Replacements Sourced for Units 502 & 510; Controller 302 Requisition Expedited with Central Spares"
+    },
+    {
+      "site": "Bijnor Site (UP) — Hyundai Diesel Engine Starting Failure & Technician Arun Emergency Intercity Dispatch",
+      "issue": "A machine at the Bijnor project site experienced a complete diesel engine starting failure ('diesel starting problem, start nahi ho rahi'), with engine cooling and radiator fans also inoperable, bringing client site operations to a halt. On-site attempts by the operator failed to crank the engine.",
+      "action": "Technician Arun was immediately dispatched from Delhi / previous station to Bijnor via intercity transit to troubleshoot the starting circuit, inspect the starter solenoid/fuel pump, and restore the engine fan wiring to resume client work immediately.",
+      "status": "Technician Arun in Transit to Bijnor; Fuel Injection & Starting Circuit Overhaul Underway; Priority Site Re-commissioning Target Today"
+    },
+    {
+      "site": "Bangalore Fleet / Site — 2-Ton Reach Truck Mechanical Door/Mechanism Seizure Post-Load Cell Change & Anuj Night Deployment",
+      "issue": "At Bangalore, a 2-ton machine (Unit 29) underwent shell/load-cell replacement and operated reliably for 10 days, but has now developed a mechanical jam where the closure/door mechanism binds shut and fails to open properly ('band ho jata hai toh khulne mein dikkat hoti hai, khulta nahi hai'), leading to excessive mechanism resistance and high operational friction.",
+      "action": "Ravi Tiwari and Jitendra Budhauliya lined up senior technician Anuj for emergency intercity deployment. Ticket booking is underway today evening to dispatch Anuj on the night transit to Bangalore for urgent mechanical overhaul.",
+      "status": "Anuj Booked on Night Transit to Bangalore; Mechanical Lockout & Shell Binding Overhaul Scheduled Upon Arrival"
+    },
+    {
+      "site": "Bilari Site — Toyota Machine Severe Engine Overheating & Cooling Fan Inoperability during Local Mechanic Absence",
+      "issue": "A Toyota machine stationed at Bilari is experiencing severe engine overheating during operation ('machine heat ho rahi hai'). Inspection revealed the cooling fans are completely non-functional ('pankhe nahi chal rahe'). The designated local technician from Tarana has gone on extended leave and reported he cannot return for at least one week, leaving the site without on-site technical support.",
+      "action": "Imran Khan and Jitendra Budhauliya explored immediate alternatives: directing an available nearby roving technician or arranging emergency local third-party mechanical assistance to service the radiator fan motor, check electrical fuses/relays, and prevent cylinder head gasket blowout.",
+      "status": "Cooling Fan Inoperative; Cranking Prohibited during Overheating; Alternative Roving Technician / Local Electrician Deployment Assigned"
+    },
+    {
+      "site": "Mundra Fleet — Multi-Unit Chronic Breakdown Backlog (JCB 3240, A-45 Boom Lift, JLG 800AJ Overheating & Genie 4047)",
+      "issue": "Multiple breakdown units at the Mundra facility were audited: (1) JCB 3240 (SN: 83026) grounded for traction power requires a set of 4 batteries; (2) A-45 Boom Lift (SN: 3370441) has been out of service for an extended period due to dead boom batteries; (3) JLG 800AJ (SN: 169718) is suffering from engine overheating and intermittent starting problems; (4) Genie 4047 controls/drive are non-responsive or malfunctioning.",
+      "action": "Pradeep confirmed 4 batteries for JCB 3240 (SN: 83026) were dispatched and are arriving today. The boom battery bank for A-45 (SN: 3370441) was shipped two days ago and is due for installation today to end chronic downtime. Sitaram and technical crew instructed to troubleshoot JLG 800AJ cooling circuit/thermostat and verify Genie 4047 electrical controls.",
+      "status": "4 Batteries for 3240 Arriving Today; A-45 Battery Bank Sourced & In Delivery; 800AJ Engine Thermostat & Cooling Circuit Under Diagnosis; 4047 Controls Under Verification"
+    },
+    {
+      "site": "Korba Site — Operator Vandalism / Button Damage, OEM Warranty Rejection & Fast-Track Console Sourcing",
+      "issue": "The grounded machine at Korba had its warranty claim officially rejected by the OEM because physical inspection proved the control buttons and operator console were broken/vandalized through operator abuse rather than manufacturing defect.",
+      "action": "Reach management placed an emergency procurement order for a new replacement button control console. Central stores confirmed the new parts will arrive tomorrow and will be couriered to Korba immediately via express air/express road cargo.",
+      "status": "OEM Warranty Officially Rejected Due to Physical Abuse; New Control Console Sourced; Express Dispatch to Korba Tomorrow"
+    },
+    {
+      "site": "Howrah Site (WB) — Critical 1.5-Month Severe Tyre Deterioration Escalation & Structural Safety Hazard",
+      "issue": "The boom lift at Howrah has been operating with severely damaged, stripped tyres for over 1.5 months ('tyre ki toh halat kharab hai'). Vinod Pal reiterated that high-resolution photographs and serial numbers had been submitted to senior management repeatedly. The on-site operator has explicitly warned that continuing to operate on shredded tyres risks catastrophic rim damage, boom instability, and operator injury, and that running the unit is now entirely at company management's risk.",
+      "action": "Jitendra Budhauliya committed to escalating the purchase requisition with senior leadership (Dhrup Sir) today without further delay. Vinod Pal instructed to provide exact dimensional rim specifications to authorize immediate local purchase or express dispatch from central stores.",
+      "status": "High Safety Escalation; Operator Warning Issued; Emergency Tyre Purchase Authorization Escalated to Dhrup Sir Today"
+    },
+    {
+      "site": "Siliguri & Eastern Fleet — Pipe/Valve Overhaul (Pravesh On-Site), CRM Serial Number Mismatch & Haldia Service Backlog",
+      "issue": "At Siliguri, technician Pravesh arrived on-site and is dismantling the hydraulic valve/pipe assembly, but the machine cannot be properly logged in the CRM system because its serial number is missing or not displaying in the database. In Haldia, 100ft boom lift requires swing reducer/motor servicing while the 150ft boom will be serviced at month-end de-hire. Additionally, technician service report books are exhausted, preventing official maintenance sign-offs for Haldia and Bhadrak (150ft boom).",
+      "action": "Central IT/CRM administrators instructed to verify and update the Siliguri machine serial number to allow Pravesh's work order logging. Central stores is dispatching physical service report books to Banarsi/Vinod. Middle boom cylinder seal measurements for the 150ft boom will be taken from a dismantled cylinder to fabricate/procure seals prior to client release.",
+      "status": "Pravesh Active on Siliguri Valve/Pipe Repair; CRM Serial Master Database Correction Underway; Service Report Books Dispatched; 150ft Middle Boom Seal Sized"
+    },
+    {
+      "site": "Fleet Restorations & Outstation Mobility — Anuppur Z-135 Restored, JK Paper 5-Ton Operational, Pune RT Cleared & Dulhera-to-Rajkot Deployment",
+      "issue": "Fleet tracking confirmed major milestone restorations: (1) Anuppur Genie Z-135 starter motor replacement/repair was fully completed and unit returned to operation; (2) JK Paper 5-ton heavy forklift hydraulic/transmission overhaul completed successfully; (3) Pune Reach Truck (RT) operational issues resolved. In Gujarat, Sitaram completed work at Dulhera and is scheduled to mobilize to Rajkot, where 24-hour continuous operations rapidly wear out batteries.",
+      "action": "Restorations logged in central operations dashboard. Jitendra Budhauliya instructed Sitaram to complete remaining Dulhera checks and mobilize to Rajkot to inspect round-the-clock machine cycling and prevent battery premature burnout.",
+      "status": "Anuppur Z-135, JK Paper 5-Ton & Pune RT Formally Certified Operational; Sitaram Mobilizing from Dulhera to Rajkot for 24-Hour Duty Cycle Audit"
+    }
+  ],
+  "parts": [
+    {
+      "part": "JLG / JCB 502 & 510 Heavy-Duty Transmission Gearbox Assemblies",
+      "context": "Bhiwadi Site (MHE Fleet) — Units 502 & 510",
+      "statusNextSteps": "Severe mechanical gearbox fault and oil leakage; replacement parts and service technicians being arranged by central maintenance."
+    },
+    {
+      "part": "Electronic Logic Control Board (Card 302)",
+      "context": "Bhiwadi Devli / Warehouse Site — Unit 302",
+      "statusNextSteps": "Machine grounded long-term; procurement of new replacement electronic logic card escalated with specialized suppliers."
+    },
+    {
+      "part": "High-Capacity Industrial Deep-Cycle Traction Battery Set (4 Units)",
+      "context": "Mundra Fleet — JCB 3240 (SN: 83026)",
+      "statusNextSteps": "Confirmed dispatched by Pradeep from central store; arriving on-site today for immediate technician installation."
+    },
+    {
+      "part": "Heavy Boom Lift Traction Battery Bank (Set of 8)",
+      "context": "Mundra Fleet — A-45 Boom Lift (SN: 3370441)",
+      "statusNextSteps": "Dispatched two days ago; scheduled for installation today to clear chronic downtime."
+    },
+    {
+      "part": "OEM Operator Console Control Buttons & Push Switch Module",
+      "context": "Korba Site — Scissor Lift",
+      "statusNextSteps": "OEM warranty rejected due to physical operator damage; replacement buttons/switches arriving tomorrow at central stores for express forwarding."
+    },
+    {
+      "part": "Industrial Solid Foam-Filled Heavy-Duty Tyres",
+      "context": "Howrah Project Site (WB) — Boom Lift",
+      "statusNextSteps": "Tyres severely worn and stripped for 1.5 months; high-risk operation escalated to Dhrup Sir for immediate purchase clearance."
+    },
+    {
+      "part": "Diesel Engine Starter Solenoid & Radiator Fan Wiring Harness",
+      "context": "Bijnor Site (UP) — Hyundai Diesel Machine",
+      "statusNextSteps": "Arun in transit with diagnostic tools and wiring supplies to overhaul starting circuit and cooling fan."
+    },
+    {
+      "part": "Radiator Cooling Fan Motor & Temperature Sensor Relay",
+      "context": "Bilari Site — Toyota Machine",
+      "statusNextSteps": "Cooling fans non-operational causing severe engine overheating; alternative roving technician/electrician deployed while Tarana mechanic is on leave."
+    },
+    {
+      "part": "Emergency Manual Lowering Actuator Pull Wire / Cable",
+      "context": "Regional Fleet — Genie 19/20 Scissors",
+      "statusNextSteps": "Requisition entered in Google Sheet; actuator wire dispatched via Shukla ji for fitment by Anil Patel."
+    },
+    {
+      "part": "High-Pressure Hydraulic Directional Valve / Pipe Assembly",
+      "context": "Siliguri Site — Hydraulic Lift",
+      "statusNextSteps": "Pravesh on-site dismantling and servicing valve; CRM database being updated with missing serial number."
+    },
+    {
+      "part": "Middle Boom Cylinder Hydraulic Packing Seal Kit",
+      "context": "Eastern Fleet — 150ft Boom Lift",
+      "statusNextSteps": "Seal dimensions being measured from dismantled cylinder of identical machine for pre-procurement before end-of-month release."
+    },
+    {
+      "part": "Bina Site Load Cell Box Assembly",
+      "context": "Bina Fleet — Material Handling Equipment",
+      "statusNextSteps": "Payment approved; load cell box being staged and dispatched from central store."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Zero-Tolerance ₹500 Debit Cut Penalty for Missing Ignition & Cabinet Keys",
+      "points": [
+        "Systematic Mobilization Failure: Transporters and site supervisors (from Bangalore, Mumbai, Mundra) are consistently offloading machines at yards and new sites without their respective ignition keys, cabinet keys, or master switch keys (over 12 machines delivered keyless, including Bangalore and Mumbai consignments).",
+        "Non-Negotiable Debit Cut: Effective immediately, a mandatory debit deduction of ₹500 per missing key will be levied against the originating site supervisor or dispatcher for every machine dispatched without its operational keys.",
+        "Mandatory Pre-Transit Handover Checklist: Transporters must not sign bills of lading or movement challans unless physical keys are physically secured in a sealed envelope or tagged inside the battery compartment."
+      ]
+    },
+    {
+      "title": "Decentralized Local Scrap Battery Clearance to Eliminate Cargo Freight Overhead",
+      "points": [
+        "Ban on Scrapped Battery Intercity Transit: Returning depleted, unserviceable batteries from regional storerooms (such as Sanand) back to central Delhi incurs cargo transport freight costs that exceed the residual scrap value of the lead-acid batteries.",
+        "Centralized Inventory Census: Technicians must prepare a standardized inventory count across all sites distinguishing between 12V and 6V dead batteries.",
+        "Local Yard Auction & Clearance: All scrap batteries, obsolete tyres, and metal waste stored in rented rooms (such as Dheeraj's room in Sanand) must be auctioned locally on-site to recover scrap cash and immediately vacate leased storage spaces."
+      ]
+    },
+    {
+      "title": "Strict Ban on Machine Operation with Severely Damaged Tyres & Management Risk Protocol",
+      "points": [
+        "Critical Blowout Danger: Operating aerial work platforms and heavy lifts with gouged, cracked, or cord-exposed tyres (as in Howrah) poses severe rollover, rim deformation, and fatal site accidents.",
+        "Written Management Accountability: Technicians and operators must submit formal written risk notifications when client or management requests machine movement on compromised tyres. Emergency replacement must take precedence over continued billability."
+      ]
+    },
+    {
+      "title": "Expedited Settlement of Field Operator Fuel Advances & Essential Vendor Bills",
+      "points": [
+        "Worker Distress Prevention: Unapproved operator advances (such as Kanyakumari oil payment, where the operator's personal phone was held as collateral) severely disrupt fleet morale and field loyalty.",
+        "Vendor Relationship Protection: Monthly vendor invoices (such as Bajrang's ₹12,045 bill from August) must be cleared within 48 hours to prevent supplier walkouts, site confrontation, and material withholding."
+      ]
+    },
+    {
+      "title": "Mandatory Master CRM Serial Number Verification & Physical Service Logbooks",
+      "points": [
+        "Database Rectification: Equipment serial numbers must be verified in the master ERP/CRM system before field technician deployment (preventing logging deadlocks as seen with Pravesh at Siliguri).",
+        "Standardized Physical Report Books: Regional teams must maintain physical triplicate service report books on-site for both owned and cross-rented fleet units to prevent billing disputes and delayed invoicing."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Imran Khan",
+      "task": "Track Arun's progress and diagnostic findings on Bijnor diesel starting issue; follow up on emergency payment releases (Kanyakumari oil advance and Bajrang ₹12,045 invoice); compile 12V and 6V scrap battery counts across Sanand and eastern sites for local auctioning; formally record Anuppur Z-135 resolution in ERP."
+    },
+    {
+      "person": "Jitendra Budhauliya",
+      "task": "Implement ₹500 debit cut per missing key on Bangalore, Mumbai, and Mundra site dispatchers; clear purchase escalation with Dhrup Sir for Howrah replacement tyres; coordinate Anuj's ticket and night dispatch to Bangalore; track arrival and installation of Mundra batteries (JCB 3240 and A-45); direct Sitaram to mobilize to Rajkot following Dulhera completion."
+    },
+    {
+      "person": "Sushil Mishra",
+      "task": "Expedite gearbox spare assemblies for Bhiwadi units 502 & 510; source replacement logic controller card for Bhiwadi unit 302; verify completion of JK Paper 5-ton forklift and Pune RT; arrange temporary technician/auto-electrician support for Bilari Toyota cooling fan while Tarana mechanic is on leave; dispatch Bina load cell box."
+    },
+    {
+      "person": "Vinod Pal",
+      "task": "Provide exact rim dimensions and high-resolution damage photographs for Howrah tyres to central procurement; assist Pravesh in resolving Siliguri CRM serial number entry for valve repair; requisition new service report books for Haldia and Bhadrak maintenance logging; furnish 150ft middle boom seal dimensions to Pradeep store."
+    },
+    {
+      "person": "Dheeraj Dubey",
+      "task": "Hand over Genie 19/20 emergency lowering cable to Shukla ji; finalize count of scrap 12V and 6V batteries and obsolete tyres in Sanand rented room for immediate local sale; coordinate battery installation with newly arrived technician Anil Patel."
+    },
+    {
+      "person": "Umesh Kumar",
+      "task": "Supervise battery installation on Mundra JCB 3240 (SN: 83026) upon delivery today; stage A-45 boom lift for battery swap; oversee diagnostic check on JLG 800AJ engine overheating (SN: 169718) and confirm Genie 4047 operational status."
+    },
+    {
+      "person": "Pardeep Store",
+      "task": "Confirm dispatch and delivery tracking for Mundra batteries (4 units for 3240 and boom set for A-45); receive incoming Korba control button console tomorrow for immediate onward courier dispatch; issue service report books to eastern regional teams."
+    }
+  ]
+}

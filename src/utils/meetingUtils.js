@@ -252,6 +252,12 @@ export function formatMeetingSummary(meeting) {
         text += `--------------------------------------------------\n`;
         text += `• Office and general fleet operations remained closed on account of ${meeting.holidayName || 'Company Holiday'}.\n`;
         text += `• No daily operations breakdown or coordination meeting was conducted.\n\n`;
+    } else if (meeting.notRecorded) {
+        text += `--------------------------------------------------\n`;
+        text += `OPERATIONS STATUS: MEETING NOT RECORDED (INTERNET ISSUE)\n`;
+        text += `--------------------------------------------------\n`;
+        text += `• Daily operations review and equipment coordination meeting was conducted.\n`;
+        text += `• Meeting recording and transcript are unavailable due to internet/network connectivity issues.\n\n`;
     } else if (!meeting.breakdowns || meeting.breakdowns.length === 0) {
         text += `--------------------------------------------------\n`;
         text += `OPERATIONS STATUS: OFFICE OPEN • NO MEETING HELD\n`;
@@ -498,17 +504,17 @@ export function getChronologicalNavigation(currentDate, chronologicalSequence = 
     }
 
     const isoDate = normalizeDateToYYYYMMDD(currentDate);
-    const nonHolidayList = chronologicalSequence.filter(m => !m.isHoliday);
+    const navigableList = chronologicalSequence.filter(m => !m.isHoliday && !m.noMeetingHeld && !m.notRecorded);
     
-    const currentIndex = nonHolidayList.findIndex(m => 
+    const currentIndex = navigableList.findIndex(m => 
         m.date === isoDate || 
         m.id === `meet-${isoDate}` || 
         m.date === currentDate ||
         m.dateDisplay === currentDate
     );
 
-    const prevMeeting = currentIndex > 0 ? nonHolidayList[currentIndex - 1] : null;
-    const nextMeeting = currentIndex >= 0 && currentIndex < nonHolidayList.length - 1 ? nonHolidayList[currentIndex + 1] : null;
+    const prevMeeting = currentIndex > 0 ? navigableList[currentIndex - 1] : null;
+    const nextMeeting = currentIndex >= 0 && currentIndex < navigableList.length - 1 ? navigableList[currentIndex + 1] : null;
 
     return { prevMeeting, nextMeeting };
 }

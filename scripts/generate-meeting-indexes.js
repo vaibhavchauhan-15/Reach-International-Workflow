@@ -200,6 +200,10 @@ function extractKeywords(meeting) {
     addWords(meeting.dateFormatted);
     addWords(meeting.focus);
     addWords(meeting.holidayName);
+    if (meeting.notRecordedReason) addWords(meeting.notRecordedReason);
+    if (meeting.notRecorded) {
+        addWords('not recorded internet issue network connectivity');
+    }
 
     // Add all date variations
     const variations = generateAllDateVariations(meeting.date);
@@ -339,7 +343,8 @@ async function generate() {
 
         const variations = generateAllDateVariations(meeting.date);
 
-        const isNoMeeting = !meeting.isHoliday && (
+        const isNotRecorded = !!meeting.notRecorded;
+        const isNoMeeting = !meeting.isHoliday && !isNotRecorded && (
             meeting.noMeetingHeld ||
             (!meeting.breakdowns || meeting.breakdowns.length === 0)
         );
@@ -353,6 +358,7 @@ async function generate() {
             focus: meeting.focus || '',
             isHoliday: !!meeting.isHoliday,
             holidayName: meeting.holidayName || '',
+            ...(isNotRecorded ? { notRecorded: true, notRecordedReason: meeting.notRecordedReason || 'Internet issue' } : {}),
             ...(isNoMeeting ? { noMeetingHeld: true } : {}),
             breakdowns: meeting.breakdowns || [],
             parts: meeting.parts || [],
@@ -371,6 +377,7 @@ async function generate() {
             focus: completeMeetingObject.focus,
             isHoliday: completeMeetingObject.isHoliday,
             holidayName: completeMeetingObject.holidayName,
+            ...(isNotRecorded ? { notRecorded: true, notRecordedReason: completeMeetingObject.notRecordedReason } : {}),
             ...(isNoMeeting ? { noMeetingHeld: true } : {}),
             breakdownCount: completeMeetingObject.breakdowns.length,
             partsCount: completeMeetingObject.parts.length,
@@ -407,6 +414,7 @@ async function generate() {
             focus: completeMeetingObject.focus,
             isHoliday: completeMeetingObject.isHoliday,
             holidayName: completeMeetingObject.holidayName,
+            ...(isNotRecorded ? { notRecorded: true, notRecordedReason: completeMeetingObject.notRecordedReason } : {}),
             ...(isNoMeeting ? { noMeetingHeld: true } : {}),
             breakdownCount: completeMeetingObject.breakdowns.length,
             partsCount: completeMeetingObject.parts.length,
@@ -436,6 +444,8 @@ async function generate() {
             title: displayDate,
             isHoliday: !!meeting.isHoliday,
             holidayName: meeting.holidayName || '',
+            noMeetingHeld: !!meeting.noMeetingHeld,
+            notRecorded: !!meeting.notRecorded,
             path: `/data/meetings/${year}/${month}/${day}.json`
         });
     }

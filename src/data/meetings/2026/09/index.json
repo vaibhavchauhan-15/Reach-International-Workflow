@@ -2,8 +2,25 @@
   "year": "2026",
   "month": "09",
   "monthName": "September",
-  "meetingCount": 21,
+  "meetingCount": 22,
   "meetings": [
+    {
+      "id": "meet-2026-09-22",
+      "date": "2026-09-22",
+      "dateDisplay": "22-09-2026",
+      "dateFormatted": "22-09-2026",
+      "title": "22-09-2026",
+      "focus": "Daily Operations Meeting Conducted – Recording Unavailable Due to Internet & Network Connectivity Issues",
+      "isHoliday": false,
+      "holidayName": "",
+      "notRecorded": true,
+      "notRecordedReason": "Internet issue",
+      "breakdownCount": 0,
+      "partsCount": 0,
+      "directivesCount": 0,
+      "actionItemsCount": 0,
+      "path": "/data/meetings/2026/09/22.json"
+    },
     {
       "id": "meet-2026-09-21",
       "date": "2026-09-21",

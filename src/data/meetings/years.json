@@ -2,13 +2,13 @@
   "years": [
     {
       "year": "2026",
-      "meetingCount": 28,
+      "meetingCount": 29,
       "months": [
         {
           "month": "09",
           "name": "September",
-          "meetingCount": 21,
-          "latestMeetingDate": "2026-09-21",
+          "meetingCount": 22,
+          "latestMeetingDate": "2026-09-22",
           "indexPath": "/data/meetings/2026/09/index.json"
         },
         {
@@ -21,10 +21,10 @@
       ]
     }
   ],
-  "totalMeetings": 28,
+  "totalMeetings": 29,
   "latestYear": "2026",
   "latestMonth": "09",
-  "latestMeetingId": "meet-2026-09-21",
+  "latestMeetingId": "meet-2026-09-22",
   "chronologicalSequence": [
     {
       "id": "meet-2026-08-25",
@@ -34,6 +34,8 @@
       "title": "25-08-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/08/25.json"
     },
     {
@@ -44,6 +46,8 @@
       "title": "26-08-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/08/26.json"
     },
     {
@@ -54,6 +58,8 @@
       "title": "27-08-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/08/27.json"
     },
     {
@@ -64,6 +70,8 @@
       "title": "28-08-2026",
       "isHoliday": true,
       "holidayName": "Rakshabandhan",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/08/28.json"
     },
     {
@@ -74,6 +82,8 @@
       "title": "29-08-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/08/29.json"
     },
     {
@@ -84,6 +94,8 @@
       "title": "30-08-2026",
       "isHoliday": true,
       "holidayName": "Sunday (Weekly Off)",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/08/30.json"
     },
     {
@@ -94,6 +106,8 @@
       "title": "31-08-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/08/31.json"
     },
     {
@@ -104,6 +118,8 @@
       "title": "01-09-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/01.json"
     },
     {
@@ -114,6 +130,8 @@
       "title": "02-09-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/02.json"
     },
     {
@@ -124,6 +142,8 @@
       "title": "03-09-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/03.json"
     },
     {
@@ -134,6 +154,8 @@
       "title": "04-09-2026",
       "isHoliday": true,
       "holidayName": "Janmashtami",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/04.json"
     },
     {
@@ -144,6 +166,8 @@
       "title": "05-09-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/05.json"
     },
     {
@@ -154,6 +178,8 @@
       "title": "06-09-2026",
       "isHoliday": true,
       "holidayName": "Sunday (Weekly Off)",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/06.json"
     },
     {
@@ -164,6 +190,8 @@
       "title": "07-09-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/07.json"
     },
     {
@@ -174,6 +202,8 @@
       "title": "08-09-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/08.json"
     },
     {
@@ -184,6 +214,8 @@
       "title": "09-09-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/09.json"
     },
     {
@@ -194,6 +226,8 @@
       "title": "10-09-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/10.json"
     },
     {
@@ -204,6 +238,8 @@
       "title": "11-09-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/11.json"
     },
     {
@@ -214,6 +250,8 @@
       "title": "12-09-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/12.json"
     },
     {
@@ -224,6 +262,8 @@
       "title": "13-09-2026",
       "isHoliday": true,
       "holidayName": "Sunday (Weekly Off)",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/13.json"
     },
     {
@@ -234,6 +274,8 @@
       "title": "14-09-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/14.json"
     },
     {
@@ -244,6 +286,8 @@
       "title": "15-09-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/15.json"
     },
     {
@@ -254,6 +298,8 @@
       "title": "16-09-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/16.json"
     },
     {
@@ -264,6 +310,8 @@
       "title": "17-09-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": true,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/17.json"
     },
     {
@@ -274,6 +322,8 @@
       "title": "18-09-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": true,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/18.json"
     },
     {
@@ -284,6 +334,8 @@
       "title": "19-09-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/19.json"
     },
     {
@@ -294,6 +346,8 @@
       "title": "20-09-2026",
       "isHoliday": true,
       "holidayName": "Sunday (Weekly Off)",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/20.json"
     },
     {
@@ -304,7 +358,21 @@
       "title": "21-09-2026",
       "isHoliday": false,
       "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
       "path": "/data/meetings/2026/09/21.json"
+    },
+    {
+      "id": "meet-2026-09-22",
+      "date": "2026-09-22",
+      "dateDisplay": "22-09-2026",
+      "dateFormatted": "22-09-2026",
+      "title": "22-09-2026",
+      "isHoliday": false,
+      "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": true,
+      "path": "/data/meetings/2026/09/22.json"
     }
   ]
 }

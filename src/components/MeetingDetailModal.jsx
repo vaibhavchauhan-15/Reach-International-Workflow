@@ -92,8 +92,25 @@ export default function MeetingDetailModal({ selectedMeeting, setSelectedMeeting
                         </div>
                     )}
 
+                    {/* Meeting Conducted But Not Recorded (Internet Issue) Banner */}
+                    {selectedMeeting.notRecorded && (
+                        <div className="bg-amber-50/80 border border-amber-200/90 border-l-4 border-l-amber-500 rounded-xl p-4 shadow-xs">
+                            <div className="flex items-start gap-3">
+                                <span className="text-2xl flex-shrink-0">📶</span>
+                                <div className="space-y-1">
+                                    <h2 className="text-sm sm:text-base font-extrabold text-amber-950">
+                                        Daily Operations Meeting Conducted — Recording Unavailable Due to Internet Issue
+                                    </h2>
+                                    <p className="text-xs text-amber-900/80 leading-relaxed font-medium">
+                                        The daily operational fleet and site review was conducted as scheduled. However, due to local internet and network connectivity disruptions, the recording and transcription could not be captured.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    )}
+
                     {/* Office Open & Routine Operations (No Meeting Held) Banner */}
-                    {!selectedMeeting.isHoliday && (!selectedMeeting.breakdowns || selectedMeeting.breakdowns.length === 0) && (
+                    {!selectedMeeting.isHoliday && !selectedMeeting.notRecorded && (!selectedMeeting.breakdowns || selectedMeeting.breakdowns.length === 0) && (
                         <div className="bg-sky-50/80 border border-sky-200/90 border-l-4 border-l-sky-600 rounded-xl p-4 shadow-xs">
                             <div className="flex items-start gap-3">
                                 <span className="text-2xl flex-shrink-0">🏢</span>

@@ -351,6 +351,7 @@ export default function MeetingSummariesPage({
     // -------------------------------------------------------------
     const handleSelectMeeting = (meeting) => {
         if (meeting?.isHoliday) return;
+        if (meeting?.notRecorded) return;
         if (meeting?.noMeetingHeld || (meeting?.breakdownCount === 0 && meeting?.partsCount === 0 && meeting?.actionItemsCount === 0)) return;
         if (meeting?.date) {
             const parts = meeting.date.split('-');
@@ -547,8 +548,25 @@ export default function MeetingSummariesPage({
                                     </div>
                                 )}
 
+                                {/* Meeting Conducted But Not Recorded (Internet Issue) Banner */}
+                                {fullMeetingDetail.notRecorded && (
+                                    <div className="bg-amber-50/80 border border-amber-200/90 border-l-4 border-l-amber-500 rounded-xl p-4 sm:p-5 mb-6 shadow-xs">
+                                        <div className="flex items-start sm:items-center gap-3">
+                                            <span className="text-2xl sm:text-3xl flex-shrink-0">📶</span>
+                                            <div className="space-y-1">
+                                                <h2 className="text-sm sm:text-base font-extrabold text-amber-950">
+                                                    Daily Operations Meeting Conducted — Recording Unavailable Due to Internet Issue
+                                                </h2>
+                                                <p className="text-xs sm:text-sm text-amber-900/80 leading-relaxed font-medium">
+                                                    The daily operational fleet and site review was conducted as scheduled. However, due to local internet and network connectivity disruptions, the recording and transcription could not be captured.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
                                 {/* Office Open & Routine Operations (No Meeting Held) Banner */}
-                                {!fullMeetingDetail.isHoliday && (!fullMeetingDetail.breakdowns || fullMeetingDetail.breakdowns.length === 0) && (
+                                {!fullMeetingDetail.isHoliday && !fullMeetingDetail.notRecorded && (!fullMeetingDetail.breakdowns || fullMeetingDetail.breakdowns.length === 0) && (
                                     <div className="bg-sky-50/80 border border-sky-200/90 border-l-4 border-l-sky-600 rounded-xl p-4 sm:p-5 mb-6 shadow-xs">
                                         <div className="flex items-start sm:items-center gap-3">
                                             <span className="text-2xl sm:text-3xl flex-shrink-0">🏢</span>
@@ -1008,9 +1026,49 @@ export default function MeetingSummariesPage({
                                         );
                                     }
 
-                                    const isNoMeetingHeld = meeting.noMeetingHeld || (!meeting.isHoliday && (
+                                    if (meeting.notRecorded) {
+                                        return (
+                                            <div 
+                                                key={meeting.id} 
+                                                className="bg-white border border-border-light border-l-4 border-l-amber-500 rounded-xl p-3 sm:px-4 sm:py-3 shadow-card flex flex-col sm:flex-row sm:items-center justify-between gap-2 min-h-[52px] select-none flex-shrink-0 cursor-default"
+                                                style={{
+                                                    contentVisibility: 'auto',
+                                                    containIntrinsicSize: 'auto 52px',
+                                                }}
+                                            >
+                                                <div className="flex items-start sm:items-center gap-2.5 sm:gap-3.5 min-w-0 flex-1">
+                                                    <span className="text-xs sm:text-sm font-extrabold text-slate-900 min-w-[64px] flex-shrink-0">
+                                                        {shortDate}
+                                                    </span>
+                                                    <span className="text-slate-300 select-none hidden sm:inline">─</span>
+                                                    <div className="min-w-0 flex-1 flex items-center gap-2 flex-wrap">
+                                                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-amber-50 text-amber-900 font-bold text-xs border border-amber-200">
+                                                            <svg className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                                <line x1="1" y1="1" x2="23" y2="23"></line>
+                                                                <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
+                                                                <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
+                                                                <path d="M10.71 5.05A16 16 0 0 1 22.58 9"></path>
+                                                                <path d="M1.42 9a15.91 15.91 0 0 1 4.7-2.88"></path>
+                                                                <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
+                                                                <line x1="12" y1="20" x2="12.01" y2="20"></line>
+                                                            </svg>
+                                                            Meeting Not Recorded • Internet Issue
+                                                        </span>
+                                                        <p className="text-xs text-slate-500 font-medium truncate">
+                                                            {meeting.focus || 'Daily Operations Meeting Conducted – Recording Unavailable Due to Internet Issue'}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <span className="text-[11px] font-semibold text-amber-800/80 self-start sm:self-auto flex-shrink-0">
+                                                    Not Recorded
+                                                </span>
+                                            </div>
+                                        );
+                                    }
+
+                                    const isNoMeetingHeld = !meeting.notRecorded && (meeting.noMeetingHeld || (!meeting.isHoliday && (
                                         meeting.breakdownCount === 0 && meeting.partsCount === 0 && meeting.actionItemsCount === 0
-                                    ));
+                                    )));
 
                                     if (isNoMeetingHeld) {
                                         return (

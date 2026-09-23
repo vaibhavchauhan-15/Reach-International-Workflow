@@ -1,0 +1,237 @@
+{
+  "id": "meet-2026-09-23",
+  "title": "23-09-2026",
+  "date": "2026-09-23",
+  "dateDisplay": "23-09-2026",
+  "dateFormatted": "23-09-2026",
+  "focus": "Bhiwadi MHE Fleet Crisis (Unit 510 Converter Cover Burn, Unit 502 Prolonged Downtime, Unit 302 Controller Scrap Debate & Tyre Stock Requisition Freeze), Mundra 6-Machine Breakdown Surge (5390 Cross-Central Valve, 510 Boom, 45ft JCB Battery, Z-40 Release, JLG 800AJ & 600AJ Bucket Seal Blowout), Gujarat Manpower Logistics (Jamnagar T65 Laptop/DLA Dispatch from Sanand), Hyderabad 4-Day Axle Bearing & Angle Sensor Escalation, Vendor Payment Deadlock (₹8L Released vs ₹15L Parts Dispatch Threshold), Hyundai 8-Ton Post-Hub-Seal Gear Assembly Noise Investigation, 10-Ton MHE Battery Cell Degradation & Exide Supply Lead Time, Noida 143 Lithium/AGM Battery Mixing Hazard, Train 12446 Midnight Laptop Dispatch to Panipat, and Crane-Induced Tyre Damage Recovery Protocol",
+  "isHoliday": false,
+  "holidayName": "",
+  "breakdowns": [
+    {
+      "site": "Bhiwadi Site (MHE Fleet) — Unit 510 Converter C1 Cover Burn, Unit 502 Parts Backlog, Unit 302 Controller Scrapping Debate & O-Ring / Seatbelt Delays",
+      "issue": "Sandeep reported compounding equipment failures and severe parts delays across the Bhiwadi warehouse fleet: (1) Unit 510 suffered an electrical burn on its C1 converter cover today ('C1 cover urgent jo abhi aaj jala hai... stock me nahi hai'); (2) Unit 502 has remained grounded for 1.5 to 2 months post-overhaul waiting for transmission box parts ('chalne nahi de rahe hain, abhi tak uska part hi nahi aaya hai'); (3) Unit 302 remains unserviceable due to an unavailable electronic logic controller card, prompting Sandeep to question whether management should simply scrap/cut the machine ('is machine ko katwa lijiye? kya karegi ye machine yahan pe'); (4) Unit 503 is stalled awaiting controller O-rings, valve gaskets, and backup rings that have been requested repeatedly; (5) Safety items including lock-type retractable seat belts requested 6 months ago from Mukesh and 5-ton gas springs remain unfulfilled; (6) Front and rear wheel rims are severely bent/damaged and require transportation to Delhi for lathe rectification.",
+      "action": "Monu Verma and Shiv Uniyal mandated that Sandeep re-verify Google Form submissions and cross-reference WhatsApp group screenshot logs. Mukesh was instructed to inspect whether an OEM converter or standard machine converter with additional ventilation grilles should be installed on Unit 510. Central maintenance indicated 4 to 6 days lead time for controller O-rings and backup rings if stock is confirmed.",
+      "status": "Unit 504 Operational; Unit 510 Converter Enclosure Sourced; Unit 502 Box Parts Expedited; Unit 302 Card Procurement Under Final Review; Google Form Compliance Enforced"
+    },
+    {
+      "site": "Mundra Project Fleet — 6-Machine Breakdown Surge (Units 5390, 510 Boom, JCB 45ft, Genie Z-40, JLG 800AJ & JLG 600AJ Uncontrolled Bucket Rotation)",
+      "issue": "Chunni Lal flagged a critical surge with 6 machines in simultaneous breakdown at Mundra: (1) Unit 5390 suffered a broken cross-central hydraulic line/fitting ('pair pad gaya cross central wali ka') and has been failing repeatedly ('1 din, doosre din chalegi, teesre din break down'), prompting calls to de-hire or replace it; (2) Unit 510 Boom is incapacitated due to a structural boom mechanism failure; (3) JCB 45ft Boom lift received replacement batteries yesterday, but installation could not be completed prior to shift wrap-up; (4) Genie Z-40 stands released/parked while technicians lacked the bandwidth to commission it (standby unit deployed); (5) JLG 800AJ engine starting and overheating faults remain unresolved; (6) JLG 600AJ suffered a dangerous hydraulic cylinder seal blowout causing the aerial bucket/platform to rotate autonomously without operator joystick command ('iska bucket apne aap ghoom ja raha hai, seal kati hui hai').",
+      "action": "Jitendra Budhauliya and Sushil Mishra established a strict 1.5-hour deadline to restore Units 5390, 510, and JCB 45ft today. Devender is being mobilized to Mundra to expand the on-site technician strength to 3 personnel, while Sandeep's port gate pass is being expedited. JLG 600AJ bucket cylinder seal kit was requisitioned immediately.",
+      "status": "High-Priority Fleet Restoration; Units 5390, 510 & JCB 45ft Targeted for 90-Minute Re-commissioning; Devender Mobilizing; JLG 600AJ Bucket Cylinder Seal Requisitioned"
+    },
+    {
+      "site": "Jamnagar Site & Gujarat Hub — JCB T65 (65D) Calibration Lockout & Sanand-to-Jamnagar Diagnostic Logistics (Laptop, DLA & Controller)",
+      "issue": "The JCB T65 (SN: 65D) at Jamnagar remains grounded due to electronic controller lockout requiring software calibration. Sitaram was selected to mobilize to Jamnagar; however, he lacks experience on this 65ft model and requires software guidance. Crucial diagnostic assets—the designated laptop and DLA (Data Link Adapter black box with grey interface harness)—were left stored in Pradeep and Deepak's living quarters in Sanand. Concurrently, a replacement controller shipped yesterday from Delhi via Inter Cargo was arriving in Ahmedabad, requiring coordinated consolidation before delivery to Jamnagar.",
+      "action": "Khemchand instructed to enter Pradeep's Sanand room, locate the diagnostic laptop and DLA box with grey cable, photograph all items for maintenance records, collect the controller parcel from Inter Cargo upon arrival in Ahmedabad, and dispatch all 3 components via direct transport to Jamnagar today. Dheeraj/Khemchand coordinating transit.",
+      "status": "Diagnostic Laptop & DLA Located at Sanand; Inter Cargo Controller Arriving Ahmedabad Today; Combined 3-Piece Consignment En Route to Jamnagar"
+    },
+    {
+      "site": "Hyderabad Fleet — 4-Day Chronic Rear Axle Bearing Failure & Angle Sensor Inventory Reservation Lockout",
+      "issue": "A key fleet machine at Hyderabad has been out of service for 4 consecutive days due to severe mechanical grinding in the rear axle bearings and a complete failure of the steering angle sensor ('rear axle ke bearing me aawaz hai aur angle sensor kaam nahi kar raha'). Although one replacement angle sensor is physically available in central inventory, it has been pre-allocated to an external client/vendor commitment and cannot be diverted to Hyderabad.",
+      "action": "Sushil Mishra instructed to procure an additional angle sensor from external market suppliers immediately and dispatch heavy-duty axle bearings. Field mechanics instructed to dismantle the axle hub assembly, clean bearing races, and verify whether localized machining is required to prevent spindle shaft damage.",
+      "status": "4 Days Downtime; External Angle Sensor Sourcing Initiated; Hub & Axle Bearing Disassembly Underway"
+    },
+    {
+      "site": "Dual Hyundai 8-Ton Forklifts — Post-Hub-Seal Replacement Reassembly Gear Noise Investigation",
+      "issue": "Two Hyundai 8-ton heavy forklifts developed severe gear grinding and whining noises immediately after undergoing routine scheduled maintenance and hub oil seal replacement yesterday. Installing the original replacement seals required pulling out the planetary drive gears and wheel hub assemblies; technician reassembly error, misalignment, or improper bearing pre-load/backlash is strongly suspected since neither machine exhibited mechanical noise prior to service.",
+      "action": "Senior mechanical supervisors reached the customer site at 09:30 AM today to dismantle the wheel hubs, inspect planetary gear tooth contact patterns, verify spacer shims, and transmit detailed photographic evidence to central engineering for root-cause clearance.",
+      "status": "On-Site Mechanical Rectification Active (Arrived 09:30 AM); Planetary Gear Mesh & Hub Backlash Under Re-alignment; Photographic Audit in Progress"
+    },
+    {
+      "site": "Noida Sites (Sector 62 & Sector 143) — Sector 62 Grounding, Sector 143 Multi-Unit Failures & 80ft Boom Overload Sensor Fault",
+      "issue": "Multiple breakdowns were logged across Noida operational clusters: (1) Sector 62 reported 1 machine fully grounded; (2) Sector 143 reported 2 machines offline; (3) A newly deployed 80ft boom lift is continuously tripping into platform overload error, halting aerial functions and locking out boom elevation.",
+      "action": "Technician Rohit is active on-site. Senior technician Sitaram was directed to mobilize to Sector 143 to inspect the 80ft boom's platform load cells, test sensor harness continuity, clear diagnostic fault codes, and restore rated basket lifting capacity.",
+      "status": "Rohit Active On-Site; Sitaram Deployed for 80ft Boom Overload Recalibration; Sector 62 & 143 Diagnostics Underway"
+    },
+    {
+      "site": "Noida Sector 143 Fleet — Hazardous Lithium & Lead-Acid/AGM Battery Mixing on Sany J19T",
+      "issue": "A severe safety and technical anomaly was uncovered on a Sany J19T machine at Sector 143: technicians had installed 3 lithium batteries alongside 1 lead-acid / AGM battery in the same machine bank. This gross chemical and electrical incompatibility caused severe cell voltage imbalance—one lithium battery dropped catastrophically to 2.5V–3.0V while the lead-acid unit sat at ~5.5V–6.0V—threatening thermal runaway and battery destruction. The unit is fitted with an AGM-specific charger sourced from Mumbai equipment.",
+      "action": "Central technical management issued an immediate rebuke against mixing incompatible battery chemistries. Jitendra and Sushil ordered the immediate removal and quarantine of the mismatched batteries. A matching 6V AGM battery identified in Delhi spare stock is being mobilized to Sector 143 to standardize the bank with identical chemistry and voltage ratings.",
+      "status": "Critical Electrical Non-Compliance; Mismatched Batteries Quarantined; Compatible 6V AGM Battery Dispatched to Site"
+    },
+    {
+      "site": "TVX / Hyundai 10-Ton Forklift — 1-Month Battery Cell Degradation (50% Operational Uptime) & Exide Lead Time Crisis",
+      "issue": "The heavy 10-ton machine has suffered continuous operational failure for over 1 month and 10 days, operating only 12 out of 24 required hours per day due to chronic battery voltage drop under load. Three cells failed initially, and two additional cells have broken down, bringing total defective cells to 5. While 3 replacement Exide cells were sourced from Ahmedabad, long factory lead times from Exide's Kolkata manufacturing plant make individual cell swaps unsustainable.",
+      "action": "The 3 Ahmedabad cells will be fitted upon arrival today/tomorrow as an interim restoration. Concurrently, management approved the procurement of a complete, brand-new heavy-duty industrial traction battery bank. Field teams explicitly instructed not to procure 'Unique' brand batteries due to documented field reliability failures.",
+      "status": "3 Cells In Transit from Ahmedabad; Complete Battery Bank Replacement Approved; 'Unique' Brand Formally Blacklisted"
+    },
+    {
+      "site": "Panipat Project Site — Midnight Intercity Handover of Jammu Diagnostic Laptop via Train 12446 (Uttar Sampark Kranti Express)",
+      "issue": "A machine at Panipat requires urgent electronic logic card diagnostic checks, but the diagnostic laptop was deployed in Jammu with technician Praveen, who was temporarily unreachable due to cellular network outages, threatening a protracted diagnostic delay.",
+      "action": "Communications were successfully re-established with Praveen. Praveen was instructed to securely pack the diagnostic laptop and hand it over directly to the conductor/runner on Uttar Sampark Kranti Express (Train No. 12446), scheduled to depart Jammu at 09:45 PM tonight. The Panipat site coordinator will meet the train on the platform at 05:15 AM tomorrow morning to receive the laptop and initiate immediate machine diagnosis.",
+      "status": "Praveen Briefed on Train Handover; Train 12446 Schedule Logged (Dep Jammu 21:45, Arr Panipat 05:15); Platform Reception Team Assigned"
+    },
+    {
+      "site": "Korba Site Spares Transit & Ambala Technician Deployment (Durvesh)",
+      "issue": "The Korba project site requires urgent replacement parts requested by Trilochan that could not be supplied from central stock and were sourced from Jaipur yesterday. In Ambala, an active machine breakdown required physical technician intervention.",
+      "action": "Jaipur spares for Korba are scheduled to reach Delhi tomorrow; Trilochan, Sitaram, or Ambrish will be ticketed for night travel to Korba upon arrival. In Ambala, technician Durvesh was confirmed in transit and arriving within 1 to 1.5 hours to execute mechanical repairs. A separate JCB issue at Korba was resolved yesterday via telephone technical support.",
+      "status": "Durvesh Arriving Ambala Today; Korba Jaipur Spares Arriving Tomorrow; Travel Bookings Slated Post-Part Reception"
+    },
+    {
+      "site": "Jaisalmer Site & Sany / Lala Yard Fleet — JLG 660SJ Bucket Cylinder Seal Rupture & 4-Machine Refurbishment Rollout",
+      "issue": "A JLG 660SJ boom lift at Jaisalmer suffered a blown bucket hydraulic cylinder seal, halting boom operations and requiring immediate seal replacement. Separately, an audit of 4 machines acquired from Lala's yard confirmed progress: 1 machine is fully refurbished and operational, while the 2nd is slated for completion tomorrow.",
+      "action": "Jaisalmer site team instructed to submit cylinder packing dimensions immediately via Google Form / Google Sheet for express dispatch. Jitendra Budhauliya instructed yard coordinators to arrange transport trailers to load and dispatch the ready Lala yard machines to client sites immediately.",
+      "status": "Jaisalmer Cylinder Seal Google Form Submitted; 1st Lala Yard Unit Restored & Ready for Loading; 2nd Unit Re-commissioning Tomorrow"
+    }
+  ],
+  "parts": [
+    {
+      "part": "MHE Converter Enclosure & C1 Electrical Cover",
+      "context": "Bhiwadi Site (MHE Fleet) — Unit 510",
+      "statusNextSteps": "Converter C1 cover suffered severe electrical burn today; Mukesh verifying ventilation grille specs and preparing replacement assembly."
+    },
+    {
+      "part": "Transmission Gearbox Assembly & Mounting Box Components",
+      "context": "Bhiwadi Site (MHE Fleet) — Unit 502",
+      "statusNextSteps": "Machine grounded 1.5–2 months post-overhaul; central store expediting long-delayed box components to resume operation."
+    },
+    {
+      "part": "Electronic Logic Controller Card (Unit 302)",
+      "context": "Bhiwadi Devli / Warehouse Fleet — Unit 302",
+      "statusNextSteps": "Unresolved controller card unavailability; final procurement review underway to prevent unit condemnation or scrapping."
+    },
+    {
+      "part": "Controller Valve O-Rings, Backup Rings & Gasket Kits",
+      "context": "Bhiwadi Site (MHE Fleet) — Unit 503",
+      "statusNextSteps": "Requisition verified in technical group; central stores committed 4–6 day delivery window once Google Form entry is audited."
+    },
+    {
+      "part": "Heavy-Duty Front & Rear Wheel Rims",
+      "context": "Bhiwadi Fleet (MHE Forklifts)",
+      "statusNextSteps": "Rims damaged and deformed on site; arrangements underway to transport rims to specialized lathe facility in Delhi."
+    },
+    {
+      "part": "Retractable Locking Safety Seatbelts & 5-Ton Gas Springs",
+      "context": "Bhiwadi Fleet (MHE Forklifts)",
+      "statusNextSteps": "Seatbelts pending for 6 months from Mukesh; 5-ton gas springs requisitioned via Google Form for warehouse safety compliance."
+    },
+    {
+      "part": "Cross-Central Hydraulic Line & Fitting Assembly",
+      "context": "Mundra Fleet — Unit 5390",
+      "statusNextSteps": "Repeated rupture and line failure; replacement assembly to be installed within 1.5-hour target restoration window today."
+    },
+    {
+      "part": "Bucket Hydraulic Rotary Actuator / Cylinder Seal Kit",
+      "context": "Mundra Fleet — JLG 600AJ",
+      "statusNextSteps": "Seal failure causing uncommanded bucket rotation; emergency seal kit requisitioned from central hydraulics inventory."
+    },
+    {
+      "part": "JCB T65 Controller, Diagnostic Laptop & DLA Tool Cable",
+      "context": "Jamnagar Site / Sanand Storeroom — JCB T65 (65D)",
+      "statusNextSteps": "Laptop and DLA harness retrieved from Sanand room; Inter Cargo controller arriving Ahmedabad today; all 3 dispatched to Jamnagar."
+    },
+    {
+      "part": "Steering Angle Sensor & Heavy-Duty Rear Axle Bearing Set",
+      "context": "Hyderabad Fleet — Hydraulic Machine",
+      "statusNextSteps": "Machine down 4 days; axle bearings sourced; external procurement initiated for angle sensor due to central stock reservation."
+    },
+    {
+      "part": "Original Hub Oil Seals & Planetary Drive Spacers",
+      "context": "Hyundai 8-Ton Heavy Forklifts (Dual Units)",
+      "statusNextSteps": "Abnormal gear grinding post-service; on-site crew dismantling hubs to correct reassembly gear alignment and verify seal fitment."
+    },
+    {
+      "part": "Deep-Cycle 6V AGM Matching Traction Battery",
+      "context": "Noida Sector 143 — Sany J19T",
+      "statusNextSteps": "Emergency replacement to eliminate hazardous lithium/lead-acid mix; 6V AGM unit mobilized from central stores to balance bank."
+    },
+    {
+      "part": "Industrial Traction Battery Bank (Set of Exide Cells / Complete Pack)",
+      "context": "TVX / Hyundai 10-Ton Forklift",
+      "statusNextSteps": "5 cells dead after 1.3 months downtime; 3 Ahmedabad cells arriving today/tomorrow; new complete battery bank procurement authorized ('Unique' brand banned)."
+    },
+    {
+      "part": "Bucket Cylinder Packing Seal Kit",
+      "context": "Jaisalmer Site — JLG 660SJ",
+      "statusNextSteps": "Hydraulic bucket packing failed on site; dimensional specifications submitted in Google Sheet for immediate express dispatch."
+    },
+    {
+      "part": "Industrial Solid Heavy-Duty Foam-Filled Tyres",
+      "context": "Fleet-Wide Requisitions (Bhiwadi / Howrah / Pune)",
+      "statusNextSteps": "Tyre requisitions frozen pending ₹5 Lakh audit and crane-damage incident reports; Pune tyre consignment in 2,000 km road transit (approx. 1 week ETA)."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Strict Moratorium on Tyre Procurement Pending ₹5 Lakh Stock Census & Fitment Audit",
+      "points": [
+        "Procurement Freeze Enforcement: Senior leadership (Dhrup Sir & Sushil Mishra) enacted an absolute hold on all new tyre orders across all regional hubs. Over ₹5 Lakh worth of replacement tyres were dispatched previously without corresponding machine fitment records or physical scrap casings returned to stores.",
+        "Mandatory Consumption Census: No new tyre requisitions will be approved until site managers (including Sandeep at Bhiwadi) submit a comprehensive written report detailing: (a) exact machine serial numbers where previously received tyres were mounted, (b) current on-site usable tyre inventory, and (c) photographic evidence of old scrap tyres.",
+        "Transit Time Transparency: Dispatch of heavy tyres from Pune to eastern/regional yards spans over 2,000 kilometers and requires up to a full week by road transit; site teams must plan proactively rather than demanding emergency shipments at the point of catastrophic blowout."
+      ]
+    },
+    {
+      "title": "Zero-Tolerance Ban on Incompatible Battery Chemistry Mixing (Lithium vs AGM/Lead-Acid)",
+      "points": [
+        "Critical Electrical Hazard: Installing mismatched battery chemistries—such as combining 3 lithium batteries with 1 lead-acid / AGM battery as discovered on Sany J19T at Noida Sector 143—is strictly prohibited due to severe risks of cell reversal, charger failure, and thermal runaway.",
+        "Chemistry & Voltage Standardization: Field mechanics must ensure that all battery banks consist strictly of identical chemistry, capacity (Ah), and voltage ratings. Mismatched cells will cause premature degradation (e.g. lithium cell collapsing to 2.5V under AGM charging).",
+        "Disciplinary Repercussions: Any technician or supervisor who installs mismatched battery cells without prior written engineering sign-off will face disciplinary deductions and formal performance review."
+      ]
+    },
+    {
+      "title": "Mandatory Client Debit Invoicing for Third-Party & Crane-Induced Equipment Damage",
+      "points": [
+        "Eliminating Internal Damage Absorption: When field equipment suffers physical damage resulting from client mishandling, third-party crane slings, or contractor site negligence (such as the recent tyre slice caused by crane rigging), the cost must not be absorbed by Reach International.",
+        "Immediate Photographic Incident Protocol: Site operators and supervisors must photograph physical damage immediately, secure written acknowledgment from the client site engineer, and lodge an official incident report within 12 hours.",
+        "Formal Commercial Debit: Commercial billing teams must issue formal repair quotations and debit notes to clients for replacement tyres, bent rims, or structural repairs caused by client crane or rigging operations."
+      ]
+    },
+    {
+      "title": "Critical ₹15 Lakh Vendor Payment Threshold & Spares Dispatch Unblocking",
+      "points": [
+        "Vendor Credit Deadlock: Critical spare parts shipments from key vendors remain suspended due to unpaid invoices. While an ₹8 Lakh payment was released yesterday, suppliers have refused to release further consignments until total releases reach the mandatory ₹15 Lakh threshold.",
+        "Urgent 33-Invoice Clearance: Accounts and management must expedite clearance of 33 priority vendor payment requests (including Price and Bajruddin accounts) to restore credit lines and prevent operational paralysis across ongoing field breakages."
+      ]
+    },
+    {
+      "title": "Absolute Google Form Mandate for Spares Requisitions & Battery Brand Blacklisting",
+      "points": [
+        "Prohibition of Verbal Requests: Spare part requests communicated informally via phone calls or chat will not be acknowledged or processed. Every spare requirement must be formally submitted through the official Google Form with machine serial numbers, operating hours, and fault photos.",
+        "Blacklisting 'Unique' Brand Batteries: Procurement teams are strictly prohibited from purchasing or dispatching 'Unique' brand batteries to field sites due to chronic cell failures, poor voltage retention, and excessive breakdown frequency in industrial duty cycles."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Sushil Mishra",
+      "task": "Oversee on-site dismantling and gear backlash re-alignment on the two Hyundai 8-ton forklifts (9:30 AM team); procure external angle sensor and axle bearings for Hyderabad; coordinate Jaipur spares transit for Korba and ticket technician deployment; expedite JLG 600AJ and Jaisalmer 660SJ bucket cylinder seal kits."
+    },
+    {
+      "person": "Jitendra Budhauliya",
+      "task": "Enforce the 1.5-hour target restoration for Mundra Units 5390, 510, and JCB 45ft; coordinate Sitaram and Rohit across Noida Sector 62, 143, and 80ft boom overload recalibration; track platform handover of Jammu diagnostic laptop on Train 12446 to Panipat; oversee loading and dispatch of refurbished Lala yard machines."
+    },
+    {
+      "person": "Shiv Uniyal & Monu Verma",
+      "task": "Audit Google Form submissions against Bhiwadi requisitions (503 O-rings/gaskets, 510 converter cover, gas springs, seat belts); enforce tyre stock and consumption census to resolve the ₹5 Lakh procurement hold; expedite accounts coordination to reach the ₹15 Lakh vendor payment release milestone."
+    },
+    {
+      "person": "Khemchand & Dheeraj Dubey",
+      "task": "Locate the JCB T65 diagnostic laptop and DLA black box with grey cable in the Sanand room; capture verification photos; collect the Inter Cargo controller parcel in Ahmedabad; package and dispatch all 3 components via direct vehicle to Jamnagar today."
+    },
+    {
+      "person": "Praveen (Jammu Operator/Technician)",
+      "task": "Securely pack the diagnostic laptop and hand it over directly to the conductor/runner on Uttar Sampark Kranti Express (Train No. 12446) departing Jammu at 09:45 PM tonight; share runner contact details with the Panipat team for 05:15 AM platform reception."
+    },
+    {
+      "person": "Sandeep (Bhiwadi / Roving)",
+      "task": "Compile and submit a machine-wise tyre fitment ledger and physical scrap casing count for Bhiwadi to unlock tyre procurement; verify Google Form entries for 503 valve seals; prepare Unit 510 for converter cover installation."
+    },
+    {
+      "person": "Chunni Lal & Devender (Mundra)",
+      "task": "Execute emergency repairs on Unit 5390 cross-central valve, Unit 510 boom, and JCB 45ft battery bank within 1.5 hours; inspect JLG 600AJ bucket rotation seal; complete Sandeep's Mundra gate pass formalities."
+    },
+    {
+      "person": "Mukesh Spares",
+      "task": "Verify ventilation grille specifications and electrical mounting for Toyota/MHE Unit 510 converter enclosure; expedite long-pending supply of retractable locking seatbelts and 5-ton gas springs."
+    },
+    {
+      "person": "Trilochan & Durgesh",
+      "task": "Receive Jaipur spare parts for Korba upon arrival in Delhi tomorrow; finalize technician travel bookings; track Durvesh's on-site arrival and execution in Ambala."
+    },
+    {
+      "person": "Dhruv Sharma",
+      "task": "Authorize emergency payment releases to achieve the ₹15 Lakh vendor clearance threshold and unblock supplier shipments; review complete battery bank procurement quotes for the 10-ton forklift; approve Lala yard machine customer mobilizations."
+    }
+  ]
+}

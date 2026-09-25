@@ -414,10 +414,9 @@ export default function MeetingSummariesPage({
                 /* ========================================================= */
                 /* OPERATIONAL DOCUMENT VIEW                                 */
                 /* ========================================================= */
-                <div ref={pageContainerRef} className="flex-1 min-h-0 flex flex-col overflow-y-auto pb-12 w-full scroll-fade-top relative">
-                    <div className="top-blur-mask" aria-hidden="true" />
-                    <div className="pt-16 sm:pt-20 md:pt-20 px-3 sm:px-5 md:px-8 pb-12 flex justify-center meeting-document-outer">
-                    <div className="relative bg-white border border-border-light rounded-2xl p-4 sm:p-6 md:p-8 max-w-4xl w-full mx-auto shadow-card meeting-document-card">
+                <div ref={pageContainerRef} className="flex-1 min-h-0 flex flex-col overflow-y-auto w-full custom-scrollbar relative">
+                    <div className="pt-4 sm:pt-6 px-3 sm:px-6 lg:px-7 pb-12 flex justify-center meeting-document-outer">
+                    <div className="relative bg-white border border-border-light rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 max-w-7xl w-full mx-auto shadow-card meeting-document-card">
                         {/* Top Navigation & Action Row */}
                         <div className="flex items-center justify-between gap-3 pb-3 sm:pb-3.5 mb-4 sm:mb-5 border-b border-slate-100 no-print">
                             <button 
@@ -602,57 +601,61 @@ export default function MeetingSummariesPage({
                                             </span>
                                         </div>
                                         
-                                        <div className="flex flex-col gap-3 sm:gap-3.5 print:gap-2.5">
+                                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5 sm:gap-4 print:gap-2.5">
                                             {fullMeetingDetail.breakdowns.map((item, idx) => (
-                                                <div key={idx} className="breakdown-item bg-slate-50/70 border border-border-light border-l-4 border-l-theme-breakdown rounded-xl p-3.5 sm:p-4.5 text-xs sm:text-sm shadow-xs flex flex-col gap-2 transition-colors hover:bg-slate-50 print:bg-slate-50/90 print:border-slate-300 print:shadow-none print:break-inside-avoid print:p-3">
-                                                    <h3 className="text-xs sm:text-sm font-extrabold text-slate-900 flex items-center gap-2 pb-1.5 border-b border-slate-200/70 print:border-slate-300">
-                                                        <span className="w-2 h-2 rounded-full bg-theme-breakdown"></span>
-                                                        <span>{item.site}</span>
-                                                    </h3>
-                                                    
-                                                    <div className="space-y-1.5 text-xs sm:text-sm pt-0.5">
-                                                        {item.issue && (
-                                                            <p className="leading-relaxed">
-                                                                <span className="font-bold text-slate-800 mr-1.5">Issue:</span>
-                                                                <span className="text-slate-600">{item.issue}</span>
-                                                            </p>
-                                                        )}
+                                                <div key={idx} className="breakdown-item bg-slate-50/70 border border-border-light border-l-4 border-l-theme-breakdown rounded-xl p-3.5 sm:p-4.5 text-xs sm:text-sm shadow-xs flex flex-col justify-between gap-2.5 transition-colors hover:bg-slate-50/95 print:bg-slate-50/90 print:border-slate-300 print:shadow-none print:break-inside-avoid print:p-3">
+                                                    <div>
+                                                        <h3 className="text-xs sm:text-sm font-extrabold text-slate-900 flex items-center gap-2 pb-2 border-b border-slate-200/70 print:border-slate-300">
+                                                            <span className="w-2 h-2 rounded-full bg-theme-breakdown flex-shrink-0"></span>
+                                                            <span className="leading-snug">{item.site}</span>
+                                                        </h3>
+                                                        
+                                                        <div className="space-y-1.5 text-xs sm:text-sm pt-2">
+                                                            {item.issue && (
+                                                                <p className="leading-relaxed">
+                                                                    <span className="font-bold text-slate-800 mr-1.5">Issue:</span>
+                                                                    <span className="text-slate-600">{item.issue}</span>
+                                                                </p>
+                                                            )}
 
-                                                        {item.action && (
-                                                            <p className="leading-relaxed">
-                                                                <span className="font-bold text-slate-800 mr-1.5">Action:</span>
-                                                                <span className="text-slate-600">{item.action}</span>
-                                                            </p>
-                                                        )}
+                                                            {item.action && (
+                                                                <p className="leading-relaxed">
+                                                                    <span className="font-bold text-slate-800 mr-1.5">Action:</span>
+                                                                    <span className="text-slate-600">{item.action}</span>
+                                                                </p>
+                                                            )}
 
-                                                        {item.logistics && (
-                                                            <p className="leading-relaxed">
-                                                                <span className="font-bold text-slate-800 mr-1.5">Logistics:</span>
-                                                                <span className="text-slate-600">{item.logistics}</span>
-                                                            </p>
-                                                        )}
+                                                            {item.logistics && (
+                                                                <p className="leading-relaxed">
+                                                                    <span className="font-bold text-slate-800 mr-1.5">Logistics:</span>
+                                                                    <span className="text-slate-600">{item.logistics}</span>
+                                                                </p>
+                                                            )}
 
-                                                        {item.clarification && (
-                                                            <p className="leading-relaxed">
-                                                                <span className="font-bold text-slate-800 mr-1.5">Clarification:</span>
-                                                                <span className="text-slate-600">{item.clarification}</span>
-                                                            </p>
-                                                        )}
+                                                            {item.clarification && (
+                                                                <p className="leading-relaxed">
+                                                                    <span className="font-bold text-slate-800 mr-1.5">Clarification:</span>
+                                                                    <span className="text-slate-600">{item.clarification}</span>
+                                                                </p>
+                                                            )}
 
-                                                        {item.status && (
-                                                            <p className="leading-relaxed">
-                                                                <span className="font-bold text-slate-800 mr-1.5">Status:</span>
-                                                                <span className="text-slate-700 font-semibold">{item.status}</span>
-                                                            </p>
-                                                        )}
-
-                                                        {item.pendingIssue && (
-                                                            <p className="leading-relaxed">
-                                                                <span className="font-bold text-amber-900 mr-1.5">Pending Issue:</span>
-                                                                <span className="text-amber-800 font-medium">{item.pendingIssue}</span>
-                                                            </p>
-                                                        )}
+                                                            {item.pendingIssue && (
+                                                                <p className="leading-relaxed">
+                                                                    <span className="font-bold text-amber-900 mr-1.5">Pending Issue:</span>
+                                                                    <span className="text-amber-800 font-medium">{item.pendingIssue}</span>
+                                                                </p>
+                                                            )}
+                                                        </div>
                                                     </div>
+
+                                                    {item.status && (
+                                                        <div className="pt-2 border-t border-slate-200/60 mt-1">
+                                                            <p className="text-xs leading-relaxed">
+                                                                <span className="font-bold text-slate-700 mr-1.5">Status:</span>
+                                                                <span className="text-slate-900 font-semibold">{item.status}</span>
+                                                            </p>
+                                                        </div>
+                                                    )}
                                                 </div>
                                             ))}
                                         </div>
@@ -712,7 +715,7 @@ export default function MeetingSummariesPage({
                                             </span>
                                         </div>
                                         
-                                        <div className="space-y-3 print:space-y-2.5">
+                                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5 print:gap-2.5">
                                             {fullMeetingDetail.directives.map((directive, idx) => (
                                                 <div key={idx} className="directive-item bg-amber-50/70 border border-amber-200/80 border-l-4 border-l-theme-directive rounded-xl p-3.5 sm:p-4.5 shadow-xs space-y-2 print:bg-amber-50/60 print:border-amber-300 print:shadow-none print:break-inside-avoid print:p-3">
                                                     <h3 className="text-xs sm:text-sm font-extrabold text-amber-950 flex items-center gap-1.5">
@@ -744,7 +747,7 @@ export default function MeetingSummariesPage({
                                             </span>
                                         </div>
                                         
-                                        <div className="space-y-3 sm:space-y-3.5 print:space-y-2.5">
+                                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5 sm:gap-4 print:gap-2.5">
                                             {fullMeetingDetail.actionItems.map((item, idx) => {
                                                 const taskPoints = item.task
                                                     ? item.task.split(';').map(t => t.trim()).filter(Boolean)
@@ -757,30 +760,30 @@ export default function MeetingSummariesPage({
                                                 return (
                                                     <div 
                                                         key={idx} 
-                                                        className="action-item bg-emerald-50/40 border border-emerald-200/80 border-l-4 border-l-theme-action rounded-xl p-3.5 sm:p-4 shadow-2xs hover:bg-emerald-50/70 hover:shadow-xs transition-all flex flex-col sm:flex-row sm:items-start gap-2.5 sm:gap-4 print:bg-emerald-50/40 print:border-emerald-300 print:shadow-none print:break-inside-avoid print:p-3"
+                                                        className="action-item bg-emerald-50/40 border border-emerald-200/80 border-l-4 border-l-theme-action rounded-xl p-3.5 sm:p-4 shadow-2xs hover:bg-emerald-50/70 hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 print:bg-emerald-50/40 print:border-emerald-300 print:shadow-none print:break-inside-avoid print:p-3"
                                                     >
                                                         {/* Person Info Badge */}
-                                                        <div className="flex items-center gap-2 sm:w-48 md:w-56 flex-shrink-0">
+                                                        <div className="flex items-center gap-2.5 pb-2 border-b border-emerald-200/60 flex-shrink-0">
                                                             <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-emerald-100/90 text-emerald-900 font-extrabold text-xs flex items-center justify-center border border-emerald-300/60 shadow-2xs flex-shrink-0">
                                                                 {initials}
                                                             </span>
-                                                            <div className="flex flex-col min-w-0">
-                                                                <span className="text-xs sm:text-sm font-extrabold text-slate-900 leading-tight">
+                                                            <div className="flex items-center justify-between gap-2 min-w-0 flex-1">
+                                                                <span className="text-xs sm:text-sm font-extrabold text-slate-900 leading-tight truncate">
                                                                     {item.person}
                                                                 </span>
-                                                                <span className="text-[10px] sm:text-[11px] font-semibold text-emerald-800">
-                                                                    {taskPoints.length > 1 ? `${taskPoints.length} Action Points` : 'Assigned Owner'}
+                                                                <span className="text-[10px] sm:text-[11px] font-semibold text-emerald-800 bg-emerald-100/80 px-2 py-0.5 rounded-md flex-shrink-0">
+                                                                    {taskPoints.length > 1 ? `${taskPoints.length} Points` : 'Owner'}
                                                                 </span>
                                                             </div>
                                                         </div>
 
                                                         {/* Task List / Content */}
-                                                        <div className="flex-1 min-w-0 pt-0.5 sm:pt-0">
+                                                        <div className="min-w-0 pt-0.5">
                                                             {taskPoints.length > 1 ? (
                                                                 <ul className="space-y-1.5 list-none">
                                                                     {taskPoints.map((point, pIdx) => (
                                                                         <li key={pIdx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-700 leading-relaxed font-medium">
-                                                                            <span className="text-theme-action font-bold mt-0.5 select-none text-xs">▪</span>
+                                                                            <span className="text-theme-action font-bold mt-0.5 select-none text-xs flex-shrink-0">▪</span>
                                                                             <span>{point}</span>
                                                                         </li>
                                                                     ))}
@@ -862,7 +865,7 @@ export default function MeetingSummariesPage({
                 /* ARCHIVE DASHBOARD VIEW                                    */
                 /* ========================================================= */
                 <div 
-                    className="flex-1 min-h-0 max-w-5xl mx-auto w-full flex flex-col px-3 sm:px-5 md:px-8 pt-3 sm:pt-4 pb-2 sm:pb-3 gap-2 sm:gap-2.5 overflow-hidden"
+                    className="flex-1 min-h-0 max-w-7xl mx-auto w-full flex flex-col px-3 sm:px-6 lg:px-7 pt-3 sm:pt-4 pb-2 sm:pb-3 gap-2.5 overflow-hidden"
                     onWheel={handleDashboardWheel}
                 >
                     {/* 1. Sleek, Compact Heading Bar */}
@@ -984,9 +987,7 @@ export default function MeetingSummariesPage({
                                         setIsCardsScrolled(scrolled);
                                     }
                                 }}
-                                className={`flex-1 min-h-0 overflow-y-auto flex flex-col gap-2 pt-0.5 pr-1.5 sm:pr-2 pb-8 overscroll-contain scroll-smooth focus:outline-none focus-visible:ring-1 focus-visible:ring-theme-breakdown/30 rounded-xl transition-[mask-image] duration-200 ${
-                                    isCardsScrolled ? 'scroll-fade-top' : ''
-                                }`}
+                                className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-2.5 pt-0.5 pb-4 pr-1 sm:pr-2 overscroll-contain scroll-smooth focus:outline-none focus-visible:ring-1 focus-visible:ring-theme-breakdown/30 custom-scrollbar"
                                 style={{
                                     WebkitOverflowScrolling: 'touch',
                                     willChange: 'scroll-position',
@@ -999,27 +1000,50 @@ export default function MeetingSummariesPage({
                                         return (
                                             <div 
                                                 key={meeting.id} 
-                                                className="bg-white border border-border-light border-l-4 border-l-amber-500 rounded-xl p-3 sm:px-4 sm:py-3 shadow-card flex flex-col sm:flex-row sm:items-center justify-between gap-2 min-h-[52px] select-none flex-shrink-0"
+                                                className="bg-amber-50/30 border border-amber-200/80 border-l-4 border-l-amber-500 rounded-xl p-3 sm:px-5 sm:py-3 shadow-card flex flex-col sm:flex-row sm:items-center justify-between gap-2 min-h-[52px] select-none flex-shrink-0"
                                                 style={{
                                                     contentVisibility: 'auto',
                                                     containIntrinsicSize: 'auto 52px',
                                                 }}
                                             >
-                                                <div className="flex items-center gap-2.5 sm:gap-3.5">
-                                                    <span className="text-xs sm:text-sm font-extrabold text-slate-900 min-w-[64px] flex-shrink-0">
-                                                        {shortDate}
+                                                {/* Mobile Top Row */}
+                                                <div className="flex sm:hidden items-center justify-between gap-2 pb-1 border-b border-amber-200/60">
+                                                    <div className="flex items-center gap-1.5">
+                                                        <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+                                                        <span className="text-xs font-black text-slate-900 tracking-tight">
+                                                            {shortDate}
+                                                        </span>
+                                                    </div>
+                                                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-amber-100 text-amber-900 border border-amber-300/80">
+                                                        Operations Closed
                                                     </span>
-                                                    <span className="text-slate-300 select-none">─</span>
-                                                    <div className="flex items-center gap-2">
-                                                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-amber-100/90 text-amber-900 font-extrabold text-xs">
+                                                </div>
+
+                                                {/* Desktop Content & Mobile Focus */}
+                                                <div className="flex items-center gap-3 md:gap-4 min-w-0 flex-1">
+                                                    {/* Date Label (Desktop Only) */}
+                                                    <div className="hidden sm:flex items-center gap-2 min-w-[105px] flex-shrink-0">
+                                                        <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+                                                        <span className="text-xs sm:text-sm font-black text-slate-900">
+                                                            {shortDate}
+                                                        </span>
+                                                    </div>
+
+                                                    {/* Separator (Desktop Only) */}
+                                                    <span className="text-amber-300 select-none hidden sm:inline">│</span>
+
+                                                    <div className="flex items-center gap-2 min-w-0 flex-1 flex-wrap">
+                                                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-amber-100 text-amber-950 font-bold text-xs border border-amber-300/70 shadow-2xs">
                                                             🎉 Holiday: {meeting.holidayName || 'Holiday'}
                                                         </span>
-                                                        <span className="text-xs text-slate-400 font-medium hidden md:inline">
-                                                            (Operations Closed)
+                                                        <span className="text-xs text-amber-900/70 font-medium">
+                                                            Official holiday — offices & fleet operations closed
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <span className="text-[11px] font-semibold text-slate-400 self-start sm:self-auto">
+
+                                                {/* Desktop Status Pill */}
+                                                <span className="hidden sm:inline-flex text-[11px] font-bold px-2.5 py-1 rounded-md bg-amber-100/80 text-amber-900 border border-amber-200 flex-shrink-0">
                                                     No Meeting Held
                                                 </span>
                                             </div>
@@ -1030,20 +1054,41 @@ export default function MeetingSummariesPage({
                                         return (
                                             <div 
                                                 key={meeting.id} 
-                                                className="bg-white border border-border-light border-l-4 border-l-amber-500 rounded-xl p-3 sm:px-4 sm:py-3 shadow-card flex flex-col sm:flex-row sm:items-center justify-between gap-2 min-h-[52px] select-none flex-shrink-0 cursor-default"
+                                                className="bg-amber-50/20 border border-amber-200/80 border-l-4 border-l-amber-500 rounded-xl p-3 sm:px-5 sm:py-3 shadow-card flex flex-col sm:flex-row sm:items-center justify-between gap-2 min-h-[52px] select-none flex-shrink-0 cursor-default"
                                                 style={{
                                                     contentVisibility: 'auto',
                                                     containIntrinsicSize: 'auto 52px',
                                                 }}
                                             >
-                                                <div className="flex items-start sm:items-center gap-2.5 sm:gap-3.5 min-w-0 flex-1">
-                                                    <span className="text-xs sm:text-sm font-extrabold text-slate-900 min-w-[64px] flex-shrink-0">
-                                                        {shortDate}
+                                                {/* Mobile Top Row */}
+                                                <div className="flex sm:hidden items-center justify-between gap-2 pb-1 border-b border-amber-200/60">
+                                                    <div className="flex items-center gap-1.5">
+                                                        <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+                                                        <span className="text-xs font-black text-slate-900 tracking-tight">
+                                                            {shortDate}
+                                                        </span>
+                                                    </div>
+                                                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-amber-100 text-amber-900 border border-amber-300/80">
+                                                        Internet Issue
                                                     </span>
-                                                    <span className="text-slate-300 select-none hidden sm:inline">─</span>
-                                                    <div className="min-w-0 flex-1 flex items-center gap-2 flex-wrap">
-                                                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-amber-50 text-amber-900 font-bold text-xs border border-amber-200">
-                                                            <svg className="w-3.5 h-3.5 text-amber-600 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                </div>
+
+                                                {/* Desktop Content & Mobile Focus */}
+                                                <div className="flex items-start sm:items-center gap-3 md:gap-4 min-w-0 flex-1">
+                                                    {/* Date Label (Desktop Only) */}
+                                                    <div className="hidden sm:flex items-center gap-2 min-w-[105px] flex-shrink-0">
+                                                        <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+                                                        <span className="text-xs sm:text-sm font-black text-slate-900">
+                                                            {shortDate}
+                                                        </span>
+                                                    </div>
+
+                                                    {/* Separator (Desktop Only) */}
+                                                    <span className="text-amber-300 select-none hidden sm:inline">│</span>
+
+                                                    <div className="min-w-0 flex-1 flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2">
+                                                        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-amber-100/90 text-amber-950 font-bold text-xs border border-amber-300/70 w-fit flex-shrink-0">
+                                                            <svg className="w-3.5 h-3.5 text-amber-700 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                                                 <line x1="1" y1="1" x2="23" y2="23"></line>
                                                                 <path d="M16.72 11.06A10.94 10.94 0 0 1 19 12.55"></path>
                                                                 <path d="M5 12.55a10.94 10.94 0 0 1 5.17-2.39"></path>
@@ -1052,14 +1097,16 @@ export default function MeetingSummariesPage({
                                                                 <path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path>
                                                                 <line x1="12" y1="20" x2="12.01" y2="20"></line>
                                                             </svg>
-                                                            Meeting Not Recorded • Internet Issue
+                                                            <span>Meeting Not Recorded</span>
                                                         </span>
-                                                        <p className="text-xs text-slate-500 font-medium truncate">
-                                                            {meeting.focus || 'Daily Operations Meeting Conducted – Recording Unavailable Due to Internet Issue'}
+                                                        <p className="text-xs text-slate-600 font-medium truncate">
+                                                            {meeting.focus || 'Conducted as scheduled; recording unavailable due to network disruption.'}
                                                         </p>
                                                     </div>
                                                 </div>
-                                                <span className="text-[11px] font-semibold text-amber-800/80 self-start sm:self-auto flex-shrink-0">
+
+                                                {/* Desktop Status Pill */}
+                                                <span className="hidden sm:inline-flex text-[11px] font-bold px-2.5 py-1 rounded-md bg-amber-100/80 text-amber-900 border border-amber-200 flex-shrink-0">
                                                     Not Recorded
                                                 </span>
                                             </div>
@@ -1074,27 +1121,50 @@ export default function MeetingSummariesPage({
                                         return (
                                             <div 
                                                 key={meeting.id} 
-                                                className="bg-white border border-border-light border-l-4 border-l-slate-300 rounded-xl p-3 sm:px-4 sm:py-3 shadow-card flex flex-col sm:flex-row sm:items-center justify-between gap-2 min-h-[52px] select-none flex-shrink-0 cursor-default"
+                                                className="bg-slate-50/50 border border-border-light border-l-4 border-l-slate-400 rounded-xl p-3 sm:px-5 sm:py-3 shadow-card flex flex-col sm:flex-row sm:items-center justify-between gap-2 min-h-[52px] select-none flex-shrink-0 cursor-default"
                                                 style={{
                                                     contentVisibility: 'auto',
                                                     containIntrinsicSize: 'auto 52px',
                                                 }}
                                             >
-                                                <div className="flex items-start sm:items-center gap-2.5 sm:gap-3.5 min-w-0 flex-1">
-                                                    <span className="text-xs sm:text-sm font-extrabold text-slate-900 min-w-[64px] flex-shrink-0">
-                                                        {shortDate}
+                                                {/* Mobile Top Row */}
+                                                <div className="flex sm:hidden items-center justify-between gap-2 pb-1 border-b border-slate-200/60">
+                                                    <div className="flex items-center gap-1.5">
+                                                        <span className="w-2 h-2 rounded-full bg-slate-400"></span>
+                                                        <span className="text-xs font-black text-slate-900 tracking-tight">
+                                                            {shortDate}
+                                                        </span>
+                                                    </div>
+                                                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-200/70 text-slate-700 border border-slate-300">
+                                                        Operations Active
                                                     </span>
-                                                    <span className="text-slate-300 select-none hidden sm:inline">─</span>
-                                                    <div className="min-w-0 flex-1 flex items-center gap-2 flex-wrap">
-                                                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 font-bold text-xs border border-slate-200">
-                                                            🏢 Office Open • No Meeting Held
+                                                </div>
+
+                                                {/* Desktop Content & Mobile Focus */}
+                                                <div className="flex items-start sm:items-center gap-3 md:gap-4 min-w-0 flex-1">
+                                                    {/* Date Label (Desktop Only) */}
+                                                    <div className="hidden sm:flex items-center gap-2 min-w-[105px] flex-shrink-0">
+                                                        <span className="w-2 h-2 rounded-full bg-slate-400"></span>
+                                                        <span className="text-xs sm:text-sm font-black text-slate-900">
+                                                            {shortDate}
+                                                        </span>
+                                                    </div>
+
+                                                    {/* Separator (Desktop Only) */}
+                                                    <span className="text-slate-300 select-none hidden sm:inline">│</span>
+
+                                                    <div className="min-w-0 flex-1 flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2">
+                                                        <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-slate-100 text-slate-700 font-bold text-xs border border-slate-300/80 w-fit flex-shrink-0">
+                                                            🏢 Office Open • Routine Fleet Operations
                                                         </span>
                                                         <p className="text-xs text-slate-500 font-medium truncate">
-                                                            {meeting.focus || 'Routine Operations Active'}
+                                                            {meeting.focus || 'Routine site operations, fleet mobilization & preventive maintenance continued.'}
                                                         </p>
                                                     </div>
                                                 </div>
-                                                <span className="text-[11px] font-semibold text-slate-400 self-start sm:self-auto flex-shrink-0">
+
+                                                {/* Desktop Status Pill */}
+                                                <span className="hidden sm:inline-flex text-[11px] font-bold px-2.5 py-1 rounded-md bg-slate-100 text-slate-500 border border-slate-200 flex-shrink-0">
                                                     No Meeting Held
                                                 </span>
                                             </div>
@@ -1105,56 +1175,82 @@ export default function MeetingSummariesPage({
                                         <div 
                                             key={meeting.id} 
                                             onClick={() => handleSelectMeeting(meeting)}
-                                            className="bg-white border border-border-light border-l-4 border-l-theme-breakdown rounded-xl p-3 sm:px-4 sm:py-3.5 shadow-card hover:shadow-card-hover hover:-translate-y-0.5 cursor-pointer transition-all duration-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3 group min-h-[52px] flex-shrink-0"
+                                            className="bg-white border border-border-light border-l-4 border-l-theme-breakdown rounded-xl p-3 sm:px-5 sm:py-3.5 shadow-card hover:shadow-card-hover hover:-translate-y-0.5 cursor-pointer transition-all duration-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4 group min-h-[58px] sm:min-h-[54px] flex-shrink-0"
                                             style={{
                                                 contentVisibility: 'auto',
-                                                containIntrinsicSize: 'auto 52px',
+                                                containIntrinsicSize: 'auto 64px',
                                             }}
                                         >
-                                            <div className="flex items-start sm:items-center gap-2.5 sm:gap-3.5 min-w-0 flex-1">
-                                                {/* Date Label */}
-                                                <span className="text-xs sm:text-sm font-extrabold text-slate-900 min-w-[64px] flex-shrink-0 group-hover:text-theme-breakdown transition-colors">
-                                                    {shortDate}
+                                            {/* MOBILE TOP BAR (Hidden on sm+) */}
+                                            <div className="flex sm:hidden items-center justify-between gap-2 pb-1 border-b border-slate-100/80">
+                                                <div className="flex items-center gap-1.5">
+                                                    <span className="w-2 h-2 rounded-full bg-theme-breakdown"></span>
+                                                    <span className="text-xs font-black text-slate-900 tracking-tight group-hover:text-theme-breakdown transition-colors">
+                                                        {shortDate}
+                                                    </span>
+                                                </div>
+                                                <span className="inline-flex items-center gap-1 text-[11px] font-bold text-theme-breakdown group-hover:translate-x-0.5 transition-transform">
+                                                    View Report
+                                                    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-theme-breakdown" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                                    </svg>
                                                 </span>
+                                            </div>
 
-                                                {/* Dash Separator */}
-                                                <span className="text-slate-300 select-none hidden sm:inline">─</span>
+                                            {/* DESKTOP LEFT + MIDDLE (On mobile: focus gets full width!) */}
+                                            <div className="flex items-start sm:items-center gap-3 md:gap-4 min-w-0 flex-1">
+                                                {/* Date Label (Desktop Only) */}
+                                                <div className="hidden sm:flex items-center gap-2 min-w-[105px] flex-shrink-0">
+                                                    <span className="w-2 h-2 rounded-full bg-theme-breakdown"></span>
+                                                    <span className="text-xs sm:text-sm font-black text-slate-900 group-hover:text-theme-breakdown transition-colors">
+                                                        {shortDate}
+                                                    </span>
+                                                </div>
+
+                                                {/* Separator (Desktop Only) */}
+                                                <span className="text-slate-200 select-none hidden sm:inline">│</span>
 
                                                 {/* Focus Description / Summary */}
                                                 <div className="min-w-0 flex-1">
-                                                    <p className="text-xs sm:text-sm text-slate-700 font-medium group-hover:text-slate-900 leading-snug line-clamp-1 sm:line-clamp-2">
+                                                    <p className="text-xs sm:text-sm text-slate-700 font-medium group-hover:text-slate-950 leading-relaxed line-clamp-2">
                                                         {meeting.focus || 'Operational Meeting & Fleet Review'}
                                                     </p>
                                                 </div>
                                             </div>
 
-                                            {/* Mini Badges & Chevron CTA */}
-                                            <div className="flex items-center justify-between sm:justify-end gap-2 flex-shrink-0 pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-100">
-                                                <div className="flex items-center gap-1.5 flex-wrap">
+                                            {/* METRIC BADGES & CHEVRON */}
+                                            <div className="flex items-center justify-between sm:justify-end gap-2.5 flex-shrink-0 pt-1.5 sm:pt-0">
+                                                <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
                                                     {meeting.breakdownCount > 0 && (
-                                                        <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-50 text-theme-breakdown border border-blue-100">
-                                                            🔧 {meeting.breakdownCount}
+                                                        <span className="text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-md bg-blue-50 text-theme-breakdown border border-blue-200/80 shadow-2xs flex items-center gap-1">
+                                                            <span>🔧</span>
+                                                            <span>{meeting.breakdownCount}</span>
+                                                            <span className="hidden md:inline font-semibold text-[10px] text-blue-600">Breakdowns</span>
                                                         </span>
                                                     )}
                                                     {meeting.partsCount > 0 && (
-                                                        <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-teal-50 text-theme-parts border border-teal-100">
-                                                            📦 {meeting.partsCount}
+                                                        <span className="text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-md bg-teal-50 text-theme-parts border border-teal-200/80 shadow-2xs flex items-center gap-1">
+                                                            <span>📦</span>
+                                                            <span>{meeting.partsCount}</span>
+                                                            <span className="hidden md:inline font-semibold text-[10px] text-teal-600">Parts</span>
                                                         </span>
                                                     )}
                                                     {meeting.actionItemsCount > 0 && (
-                                                        <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-emerald-50 text-theme-action border border-emerald-100">
-                                                            ✅ {meeting.actionItemsCount}
-                                                        </span>
-                                                    )}
-                                                    {meeting.breakdownCount === 0 && meeting.partsCount === 0 && meeting.actionItemsCount === 0 && !meeting.isHoliday && (
-                                                        <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-sky-50 text-sky-800 border border-sky-200">
-                                                            🏢 Office Open • No Meeting
+                                                        <span className="text-[10px] sm:text-[11px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-theme-action border border-emerald-200/80 shadow-2xs flex items-center gap-1">
+                                                            <span>✅</span>
+                                                            <span>{meeting.actionItemsCount}</span>
+                                                            <span className="hidden md:inline font-semibold text-[10px] text-emerald-600">Actions</span>
                                                         </span>
                                                     )}
                                                 </div>
 
-                                                <span className="text-theme-breakdown text-sm font-bold transition-transform group-hover:translate-x-1 pl-1">
-                                                    →
+                                                {/* Desktop CTA Arrow */}
+                                                <span className="hidden sm:inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-50 group-hover:bg-blue-50 text-slate-400 group-hover:text-theme-breakdown border border-slate-200/70 group-hover:border-blue-200 transition-all duration-200 group-hover:translate-x-0.5">
+                                                    <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                                    </svg>
                                                 </span>
                                             </div>
                                         </div>

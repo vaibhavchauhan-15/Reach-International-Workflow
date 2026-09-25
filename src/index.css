@@ -219,3 +219,82 @@
   }
 }
 
+/* ========================================================= */
+/* PRESENTATION & ANNOTATION STYLES                          */
+/* ========================================================= */
+@keyframes laserPulse {
+  0%, 100% {
+    transform: translate(-50%, -50%) scale(1);
+    box-shadow: 0 0 10px #ef4444, 0 0 22px #ef4444, 0 0 35px #dc2626;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    box-shadow: 0 0 16px #ef4444, 0 0 32px #ef4444, 0 0 48px #dc2626;
+  }
+}
+
+@keyframes laserRingAnim {
+  0% {
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+  }
+}
+
+.laser-pointer-dot {
+  position: fixed;
+  width: 14px;
+  height: 14px;
+  border-radius: 9999px;
+  background-color: #ef4444;
+  border: 2px solid #ffffff;
+  pointer-events: none;
+  z-index: 9999;
+  animation: laserPulse 1.2s ease-in-out infinite;
+  will-change: left, top, transform;
+}
+
+.laser-click-ring {
+  position: fixed;
+  width: 28px;
+  height: 28px;
+  border-radius: 9999px;
+  border: 2px solid rgba(239, 68, 68, 0.9);
+  pointer-events: none;
+  z-index: 9998;
+  animation: laserRingAnim 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Inline Text Selection Highlight Styles */
+mark.text-hl-yellow {
+  background-color: rgba(253, 224, 71, 0.55);
+  color: inherit;
+  border-radius: 3px;
+  padding: 1px 3px;
+}
+
+mark.text-hl-green {
+  background-color: rgba(134, 239, 172, 0.55);
+  color: inherit;
+  border-radius: 3px;
+  padding: 1px 3px;
+}
+
+mark.text-hl-cyan {
+  background-color: rgba(103, 232, 249, 0.55);
+  color: inherit;
+  border-radius: 3px;
+  padding: 1px 3px;
+}
+
+mark.text-hl-pink {
+  background-color: rgba(249, 168, 212, 0.55);
+  color: inherit;
+  border-radius: 3px;
+  padding: 1px 3px;
+}
+
+

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { 
     fetchYearsIndex, 
     fetchMonthIndex, 
@@ -17,6 +18,7 @@ import {
     normalizeDateToYYYYMMDD
 } from '../utils/meetingUtils';
 import MeetingShareMenu from './MeetingShareMenu';
+import PresentationOverlay from './PresentationOverlay';
 
 export default function MeetingSummariesPage({ 
     searchQuery = '', 
@@ -49,10 +51,67 @@ export default function MeetingSummariesPage({
     const [showScrollTop, setShowScrollTop] = useState(false);
     const [isCardsScrolled, setIsCardsScrolled] = useState(false);
     const [isDocScrolled, setIsDocScrolled] = useState(false);
+    const [isPresentationMode, setIsPresentationMode] = useState(false);
+    const [selectionPopup, setSelectionPopup] = useState(null);
 
     const pageContainerRef = useRef(null);
+    const documentCardRef = useRef(null);
     const cardsContainerRef = useRef(null);
     const copyTimeoutRef = useRef(null);
+
+    // Text selection quick-highlighter handler
+    const handleDocumentSelection = useCallback(() => {
+        if (typeof window === 'undefined') return;
+        const selection = window.getSelection();
+        if (!selection || selection.isCollapsed) {
+            setSelectionPopup(null);
+            return;
+        }
+        const text = selection.toString().trim();
+        if (!text) {
+            setSelectionPopup(null);
+            return;
+        }
+
+        try {
+            const range = selection.getRangeAt(0);
+            const rect = range.getBoundingClientRect();
+            if (rect.width > 0 && rect.height > 0) {
+                setSelectionPopup({
+                    x: Math.max(90, Math.min(window.innerWidth - 90, rect.left + rect.width / 2)),
+                    y: rect.top - 10,
+                    range: range.cloneRange(),
+                    text
+                });
+            }
+        } catch {
+            setSelectionPopup(null);
+        }
+    }, []);
+
+    const applyTextHighlight = useCallback((color) => {
+        if (!selectionPopup?.range) return;
+        try {
+            const range = selectionPopup.range;
+            if (color === 'clear') {
+                const container = range.commonAncestorContainer;
+                const mark = container.nodeType === 1 ? container.closest('mark') : container.parentElement?.closest('mark');
+                if (mark) {
+                    const parent = mark.parentNode;
+                    while (mark.firstChild) parent.insertBefore(mark.firstChild, mark);
+                    parent.removeChild(mark);
+                }
+            } else {
+                const mark = document.createElement('mark');
+                mark.className = `text-hl-${color} transition-colors`;
+                range.surroundContents(mark);
+            }
+            window.getSelection()?.removeAllRanges();
+        } catch (e) {
+            console.warn('Text highlight wrap:', e);
+        }
+        setSelectionPopup(null);
+    }, [selectionPopup]);
 
     // -------------------------------------------------------------
     // Navbar Reset Coordination
@@ -64,6 +123,8 @@ export default function MeetingSummariesPage({
             updateSearchQuery('');
             setIsCardsScrolled(false);
             setIsDocScrolled(false);
+            setIsPresentationMode(false);
+            setSelectionPopup(null);
             if (cardsContainerRef.current) {
                 cardsContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
             }
@@ -195,9 +256,11 @@ export default function MeetingSummariesPage({
         window.scrollTo({ top: 0, behavior: 'smooth' });
     }, [selectedMeetingMeta]);
 
-    // Reset document scroll state when switching meetings
+    // Reset document scroll state & presentation mode when switching meetings
     useEffect(() => {
         setIsDocScrolled(false);
+        setIsPresentationMode(false);
+        setSelectionPopup(null);
     }, [selectedMeetingMeta]);
 
     // Track scroll for floating back-to-top button & card list scroll fade mask
@@ -434,21 +497,45 @@ export default function MeetingSummariesPage({
                             setIsDocScrolled(scrolled);
                         }
                     }}
-                    className="flex-1 min-h-0 flex flex-col overflow-y-auto w-full custom-scrollbar relative"
+                    className={`flex flex-col overflow-y-auto w-full custom-scrollbar transition-all duration-200 ${
+                        isPresentationMode
+                            ? 'fixed inset-0 z-40 bg-stage-bg'
+                            : 'flex-1 min-h-0 relative'
+                    }`}
                 >
-                    {/* Cloud Effect: Top Scroll Frosted Blur Mask */}
+                    {/* Cloud Effect: Top Scroll Frosted Blur Mask (hidden in presentation mode) */}
+                    {!isPresentationMode && (
+                        <div 
+                            className={`top-blur-mask transition-opacity duration-200 ${isDocScrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} 
+                            aria-hidden="true" 
+                        />
+                    )}
+                    <div className={`px-2.5 sm:px-4 md:px-6 lg:px-8 pb-12 flex justify-center meeting-document-outer ${
+                        isPresentationMode ? 'pt-4 sm:pt-6' : 'pt-3 sm:pt-5'
+                    }`}>
                     <div 
-                        className={`top-blur-mask transition-opacity duration-200 ${isDocScrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} 
-                        aria-hidden="true" 
-                    />
-                    <div className="pt-3 sm:pt-5 px-2.5 sm:px-4 md:px-6 lg:px-8 pb-12 flex justify-center meeting-document-outer">
-                    <div className="relative bg-white border border-border-light rounded-2xl p-3.5 sm:p-6 md:p-8 lg:p-10 max-w-[1440px] w-full mx-auto shadow-card meeting-document-card">
+                        ref={documentCardRef}
+                        onMouseUp={handleDocumentSelection}
+                        onTouchEnd={handleDocumentSelection}
+                        className="relative bg-white border border-border-light rounded-2xl p-3.5 sm:p-6 md:p-8 lg:p-10 max-w-[1440px] w-full mx-auto shadow-card meeting-document-card"
+                    >
+                        {/* Presentation Canvas & Toolbar Overlay */}
+                        {isPresentationMode && (
+                            <PresentationOverlay
+                                containerRef={pageContainerRef}
+                                contentRef={documentCardRef}
+                                onClose={() => setIsPresentationMode(false)}
+                                meetingTitle={selectedMeetingMeta?.dateFormatted || 'Daily Meeting Report'}
+                            />
+                        )}
+
                         {/* Top Navigation & Action Row */}
                         <div className="flex items-center justify-between gap-3 pb-3 sm:pb-3.5 mb-4 sm:mb-5 border-b border-slate-100 no-print">
                             <button 
                                 type="button"
                                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold bg-white text-slate-700 hover:text-slate-900 hover:bg-slate-100/80 border border-border-light active:scale-95 transition-all cursor-pointer shadow-2xs"
                                 onClick={() => {
+                                    setIsPresentationMode(false);
                                     setSelectedMeetingMeta(null);
                                     setFullMeetingDetail(null);
                                     scrollToTop();
@@ -459,8 +546,24 @@ export default function MeetingSummariesPage({
                                 <span>← Daily Meeting Report</span>
                             </button>
 
-                            {/* Action Buttons: Share & Copy */}
+                            {/* Action Buttons: Present, Share & Copy */}
                             <div className="flex items-center gap-1.5 sm:gap-2">
+                                {/* Presentation Mode Toggle Button */}
+                                <button
+                                    type="button"
+                                    onClick={() => setIsPresentationMode(prev => !prev)}
+                                    className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer shadow-xs active:scale-95 ${
+                                        isPresentationMode
+                                            ? 'bg-rose-600 hover:bg-rose-500 text-white shadow-rose-200'
+                                            : 'bg-gradient-to-r from-ribbon-4 to-ribbon-3 hover:opacity-95 text-white shadow-cyan-200'
+                                    }`}
+                                    title={isPresentationMode ? 'Exit Presentation Mode (Esc)' : 'Start Presentation Mode (P)'}
+                                    aria-label={isPresentationMode ? 'Exit Presentation Mode' : 'Start Presentation Mode'}
+                                >
+                                    <span className="text-xs sm:text-sm">{isPresentationMode ? '✕' : '▶'}</span>
+                                    <span className="font-extrabold">{isPresentationMode ? 'Exit' : 'Present'}</span>
+                                </button>
+
                                 {/* Share Button & Popover */}
                                 <MeetingShareMenu 
                                     meeting={fullMeetingDetail} 
@@ -1342,6 +1445,62 @@ export default function MeetingSummariesPage({
                     <polyline points="18 15 12 9 6 15"></polyline>
                 </svg>
             </button>
+
+            {/* Inline Text Selection Quick-Highlight Floating Popup */}
+            {selectionPopup && typeof document !== 'undefined' && createPortal(
+                <div 
+                    className="fixed z-[9995] -translate-x-1/2 -translate-y-full mb-1 flex items-center gap-1.5 p-1.5 bg-slate-900/95 text-white rounded-xl shadow-2xl border border-slate-700/80 backdrop-blur-md animate-fade-in select-none"
+                    style={{ left: `${selectionPopup.x}px`, top: `${selectionPopup.y}px` }}
+                >
+                    <span className="text-[10px] font-extrabold text-slate-400 pl-1 uppercase tracking-wider">Highlight:</span>
+                    <button 
+                        type="button" 
+                        onClick={() => applyTextHighlight('yellow')}
+                        className="w-5 h-5 rounded-full bg-yellow-400 hover:scale-115 transition-transform border border-white/40 cursor-pointer shadow-xs"
+                        title="Highlight Yellow"
+                        aria-label="Highlight Yellow"
+                    />
+                    <button 
+                        type="button" 
+                        onClick={() => applyTextHighlight('green')}
+                        className="w-5 h-5 rounded-full bg-emerald-400 hover:scale-115 transition-transform border border-white/40 cursor-pointer shadow-xs"
+                        title="Highlight Green"
+                        aria-label="Highlight Green"
+                    />
+                    <button 
+                        type="button" 
+                        onClick={() => applyTextHighlight('cyan')}
+                        className="w-5 h-5 rounded-full bg-cyan-400 hover:scale-115 transition-transform border border-white/40 cursor-pointer shadow-xs"
+                        title="Highlight Cyan"
+                        aria-label="Highlight Cyan"
+                    />
+                    <button 
+                        type="button" 
+                        onClick={() => applyTextHighlight('pink')}
+                        className="w-5 h-5 rounded-full bg-pink-400 hover:scale-115 transition-transform border border-white/40 cursor-pointer shadow-xs"
+                        title="Highlight Pink"
+                        aria-label="Highlight Pink"
+                    />
+                    <div className="w-[1px] h-3.5 bg-slate-700 mx-0.5" />
+                    <button 
+                        type="button" 
+                        onClick={() => applyTextHighlight('clear')}
+                        className="px-2 py-0.5 text-[11px] font-bold text-slate-300 hover:text-white rounded hover:bg-slate-800 transition-colors cursor-pointer"
+                        title="Remove Highlight"
+                    >
+                        Clear
+                    </button>
+                    <button 
+                        type="button" 
+                        onClick={() => setSelectionPopup(null)}
+                        className="px-1 text-slate-400 hover:text-white text-xs cursor-pointer"
+                        title="Close popup"
+                    >
+                        ✕
+                    </button>
+                </div>,
+                document.body
+            )}
         </div>
     );
 }

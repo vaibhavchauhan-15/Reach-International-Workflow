@@ -3,13 +3,13 @@ import { createPortal } from 'react-dom';
 
 /**
  * PresentationOverlay Component
- * PowerPoint-style presentation mode with:
- * - 60fps Laser Pointer with click pulse
- * - Wide text highlighter brush
- * - Fine-point drawing pen
- * - Stroke eraser & undo/clear
- * - Scroll-anchored HTML5 Canvas layer
- * - Floating dark-glass presenter toolbar
+ * PowerPoint-style presentation mode adhering strictly to Reach International Design System:
+ * - 60fps Laser Pointer: Native OS cursor is hidden so the glowing red laser dot IS the cursor
+ * - Realistic SVG Chisel-tip Highlighter cursor & smooth translucent brush
+ * - Realistic SVG Metallic Nib Pen cursor & precision ink drawing
+ * - Realistic SVG Rubber Block Eraser cursor & stroke removal
+ * - Crisp white backdrop-blur floating toolbar with Reach International tokens
+ * - Top presentation info banner with keyboard shortcuts helper
  * - Keyboard shortcuts (P, H, D, E, F, Ctrl+Z, Esc)
  */
 export default function PresentationOverlay({
@@ -20,10 +20,10 @@ export default function PresentationOverlay({
 }) {
     // Tool states
     const [activeTool, setActiveTool] = useState('pointer'); // 'pointer' | 'highlighter' | 'pen' | 'eraser'
-    const [activeColor, setActiveColor] = useState('#facc15'); // Yellow for highlighter, Red for pen default
+    const [activeColor, setActiveColor] = useState('#facc15'); // Yellow for highlighter, Red/Blue for pen default
     const [isToolbarMinimized, setIsToolbarMinimized] = useState(false);
-    const [isFullscreen, setIsFullscreen] = useState(Boolean(document.fullscreenElement));
-    const [showColorPicker, setShowColorPicker] = useState(false);
+    const [showTopBanner, setShowTopBanner] = useState(true);
+    const [isFullscreen, setIsFullscreen] = useState(Boolean(typeof document !== 'undefined' && document.fullscreenElement));
 
     // Laser pointer coordinate states
     const [laserPos, setLaserPos] = useState({ x: -100, y: -100, visible: false });
@@ -38,19 +38,19 @@ export default function PresentationOverlay({
     const currentStrokeRef = useRef(null);
     const animFrameRef = useRef(null);
 
-    // Color swatches
+    // Color swatches (aligned with Reach International Palette & high visibility)
     const HIGHLIGHT_COLORS = [
-        { name: 'Yellow', hex: '#facc15', label: 'Yellow Highlight' },
-        { name: 'Cyan', hex: '#22d3ee', label: 'Cyan Highlight' },
-        { name: 'Green', hex: '#4ade80', label: 'Green Highlight' },
-        { name: 'Pink', hex: '#f472b6', label: 'Pink Highlight' }
+        { name: 'Yellow', hex: '#facc15', label: 'Neon Yellow' },
+        { name: 'Cyan', hex: '#06b6d4', label: 'Cyan Teal' },
+        { name: 'Green', hex: '#10b981', label: 'Emerald Green' },
+        { name: 'Pink', hex: '#f43f5e', label: 'Rose Pink' }
     ];
 
     const PEN_COLORS = [
-        { name: 'Red', hex: '#ef4444', label: 'Red Ink' },
-        { name: 'Blue', hex: '#3b82f6', label: 'Blue Ink' },
-        { name: 'Emerald', hex: '#10b981', label: 'Emerald Ink' },
-        { name: 'Amber', hex: '#f59e0b', label: 'Amber Ink' }
+        { name: 'Navy', hex: '#0f2537', label: 'Brand Navy' },
+        { name: 'Blue', hex: '#0066cc', label: 'Reach Blue' },
+        { name: 'Red', hex: '#ef4444', label: 'Alert Red' },
+        { name: 'Emerald', hex: '#10b981', label: 'Success Green' }
     ];
 
     const activeSwatches = activeTool === 'pen' ? PEN_COLORS : HIGHLIGHT_COLORS;
@@ -82,6 +82,27 @@ export default function PresentationOverlay({
     }, []);
 
     // -------------------------------------------------------------
+    // Laser Mode: Hide Native Cursor Over Presentation Stage & Body
+    // -------------------------------------------------------------
+    useEffect(() => {
+        const container = containerRef?.current;
+        const isLaser = activeTool === 'pointer';
+
+        if (isLaser) {
+            container?.classList.add('cursor-laser-tool');
+            document.body?.classList.add('cursor-laser-tool');
+        } else {
+            container?.classList.remove('cursor-laser-tool');
+            document.body?.classList.remove('cursor-laser-tool');
+        }
+
+        return () => {
+            container?.classList.remove('cursor-laser-tool');
+            document.body?.classList.remove('cursor-laser-tool');
+        };
+    }, [activeTool, containerRef]);
+
+    // -------------------------------------------------------------
     // Canvas Redraw Logic
     // -------------------------------------------------------------
     const redrawCanvas = useCallback(() => {
@@ -103,7 +124,7 @@ export default function PresentationOverlay({
             ctx.lineJoin = 'round';
 
             if (stroke.tool === 'highlighter') {
-                ctx.globalAlpha = 0.42;
+                ctx.globalAlpha = 0.45;
                 ctx.lineWidth = stroke.width || 24;
                 ctx.strokeStyle = stroke.color;
             } else {
@@ -171,7 +192,17 @@ export default function PresentationOverlay({
         }
 
         const handlePointerMove = (e) => {
-            setLaserPos({ x: e.clientX, y: e.clientY, visible: true });
+            // Hide laser dot when hovering over presenter toolbar or top banner so
+            // the user gets standard natural pointer cursor for clicking buttons
+            const isOverControls = Boolean(
+                e.target.closest('.presentation-toolbar') || 
+                e.target.closest('.presentation-top-banner')
+            );
+            setLaserPos({
+                x: e.clientX,
+                y: e.clientY,
+                visible: !isOverControls
+            });
         };
 
         const handlePointerLeave = () => {
@@ -179,8 +210,8 @@ export default function PresentationOverlay({
         };
 
         const handleClick = (e) => {
-            // Ignore clicks on floating toolbar
-            if (e.target.closest('.presentation-toolbar')) return;
+            // Ignore clicks on floating toolbar or banner
+            if (e.target.closest('.presentation-toolbar') || e.target.closest('.presentation-top-banner')) return;
 
             const newRing = { id: Date.now() + Math.random(), x: e.clientX, y: e.clientY };
             setLaserRings(prev => [...prev.slice(-4), newRing]);
@@ -222,7 +253,6 @@ export default function PresentationOverlay({
         isDrawingRef.current = true;
 
         if (activeTool === 'eraser') {
-            // Erase any stroke near coords
             eraseStrokeAt(coords);
             return;
         }
@@ -272,9 +302,9 @@ export default function PresentationOverlay({
         redrawCanvas();
     };
 
-    // Eraser helper: remove any stroke within 20px radius
+    // Eraser helper: remove any stroke within 24px radius
     const eraseStrokeAt = (coords) => {
-        const radius = 20;
+        const radius = 24;
         const initialCount = strokesRef.current.length;
         strokesRef.current = strokesRef.current.filter(stroke => {
             return !stroke.points.some(pt => {
@@ -310,7 +340,23 @@ export default function PresentationOverlay({
         if (tool === 'highlighter' && !HIGHLIGHT_COLORS.some(c => c.hex === activeColor)) {
             setActiveColor('#facc15');
         } else if (tool === 'pen' && !PEN_COLORS.some(c => c.hex === activeColor)) {
-            setActiveColor('#ef4444');
+            setActiveColor('#0066cc');
+        }
+    };
+
+    // Cursor class resolution for canvas
+    const getCanvasCursorClass = () => {
+        switch (activeTool) {
+            case 'pointer':
+                return 'cursor-laser-tool pointer-events-auto';
+            case 'highlighter':
+                return 'cursor-highlighter-tool pointer-events-auto';
+            case 'pen':
+                return 'cursor-pen-tool pointer-events-auto';
+            case 'eraser':
+                return 'cursor-eraser-tool pointer-events-auto';
+            default:
+                return 'cursor-default pointer-events-none';
         }
     };
 
@@ -356,11 +402,7 @@ export default function PresentationOverlay({
                 onPointerMove={handlePointerMove}
                 onPointerUp={handlePointerUp}
                 onPointerCancel={handlePointerUp}
-                className={`absolute inset-0 z-30 select-none ${
-                    activeTool === 'pointer' 
-                        ? 'pointer-events-none' 
-                        : 'pointer-events-auto cursor-crosshair'
-                }`}
+                className={`absolute inset-0 z-30 select-none ${getCanvasCursorClass()}`}
                 style={{
                     touchAction: activeTool === 'pointer' ? 'pan-y' : 'none'
                 }}
@@ -392,7 +434,55 @@ export default function PresentationOverlay({
                 document.body
             ))}
 
-            {/* 3. Floating Presenter Toolbar (Portal to Body) */}
+            {/* 3. Top Presentation Info Banner with Shortcuts Cheat-Sheet */}
+            {showTopBanner && typeof document !== 'undefined' && createPortal(
+                <aside
+                    className="presentation-top-banner fixed top-3 left-1/2 -translate-x-1/2 z-[9980] select-none transition-all duration-200"
+                    role="region"
+                    aria-label="Presentation shortcuts banner"
+                >
+                    <div className="flex items-center gap-2 sm:gap-3 px-3.5 py-1.5 rounded-full bg-white/95 text-slate-700 border border-slate-200/90 shadow-card backdrop-blur-md text-xs font-semibold">
+                        <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse flex-shrink-0" />
+                        <span className="font-extrabold text-brand-navy truncate max-w-[160px] sm:max-w-xs">{meetingTitle}</span>
+                        
+                        <div className="hidden sm:flex items-center gap-2 pl-2 border-l border-slate-200 text-[11px] text-slate-500">
+                            <span className="flex items-center gap-1">
+                                <kbd className="px-1.5 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-700 font-mono font-bold">P</kbd>
+                                <span>Pointer</span>
+                            </span>
+                            <span className="flex items-center gap-1">
+                                <kbd className="px-1.5 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-700 font-mono font-bold">H</kbd>
+                                <span>Highlight</span>
+                            </span>
+                            <span className="flex items-center gap-1">
+                                <kbd className="px-1.5 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-700 font-mono font-bold">D</kbd>
+                                <span>Pen</span>
+                            </span>
+                            <span className="flex items-center gap-1">
+                                <kbd className="px-1.5 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-700 font-mono font-bold">E</kbd>
+                                <span>Eraser</span>
+                            </span>
+                            <span className="flex items-center gap-1">
+                                <kbd className="px-1.5 py-0.5 rounded bg-slate-100 border border-slate-200 text-slate-700 font-mono font-bold">Esc</kbd>
+                                <span>Exit</span>
+                            </span>
+                        </div>
+
+                        <button
+                            type="button"
+                            onClick={() => setShowTopBanner(false)}
+                            className="text-slate-400 hover:text-slate-700 p-0.5 rounded-full transition-colors cursor-pointer"
+                            title="Dismiss top shortcut helper"
+                            aria-label="Dismiss banner"
+                        >
+                            ✕
+                        </button>
+                    </div>
+                </aside>,
+                document.body
+            )}
+
+            {/* 4. Floating Presenter Toolbar (Portal to Body) */}
             {typeof document !== 'undefined' && createPortal(
                 <aside 
                     className="presentation-toolbar fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-[9990] select-none transition-all duration-200"
@@ -400,101 +490,106 @@ export default function PresentationOverlay({
                     aria-label="Presentation controls"
                 >
                     {isToolbarMinimized ? (
-                        /* Minimized Floating Dot */
+                        /* Minimized Floating Pill */
                         <button
                             type="button"
                             onClick={() => setIsToolbarMinimized(false)}
-                            className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-slate-900/90 text-white border border-slate-700/80 shadow-2xl backdrop-blur-md hover:bg-slate-800 transition-all active:scale-95 cursor-pointer text-xs font-bold"
+                            className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-white/95 text-slate-800 border border-slate-200 shadow-card hover:shadow-hover backdrop-blur-md transition-all active:scale-95 cursor-pointer text-xs font-bold"
                             title="Expand Presentation Toolbar"
                         >
                             <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse"></span>
-                            <span>Presenting</span>
+                            <span className="text-brand-navy">Presenting</span>
                             <span className="text-slate-400 text-[10px]">▲</span>
                         </button>
                     ) : (
-                        /* Full Ergonomic Toolbar */
-                        <div className="flex items-center gap-1 sm:gap-1.5 p-1.5 sm:p-2 rounded-2xl bg-slate-900/95 text-white border border-slate-700/80 shadow-2xl backdrop-blur-xl max-w-[95vw] overflow-x-auto scrollbar-none">
-                            {/* Drag / Title Grip */}
-                            <div className="hidden md:flex items-center gap-2 pl-2 pr-1 text-slate-400 text-xs font-bold border-r border-slate-700/60 mr-1 flex-shrink-0">
-                                <span className="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
-                                <span className="text-[11px] text-slate-300 font-extrabold truncate max-w-[130px]">{meetingTitle}</span>
+                        /* Full Ergonomic Toolbar Aligned with Reach International Design System */
+                        <div className="flex items-center gap-1 sm:gap-2 p-1.5 sm:p-2 rounded-2xl bg-white/95 text-slate-800 border border-slate-200/90 shadow-card hover:shadow-hover backdrop-blur-xl max-w-[96vw] overflow-x-auto scrollbar-none">
+                            {/* Presenter Status Grip */}
+                            <div className="hidden sm:flex items-center gap-2 pl-2 pr-1 text-slate-500 text-xs font-bold border-r border-slate-200 mr-0.5 flex-shrink-0">
+                                <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-pulse shadow-xs shadow-rose-500/40"></span>
+                                <span className="text-[11px] text-brand-navy font-extrabold uppercase tracking-wide">Presenter</span>
                             </div>
 
                             {/* Laser Pointer Tool */}
                             <button
                                 type="button"
                                 onClick={() => handleSelectTool('pointer')}
-                                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer min-h-[40px] min-w-[40px] justify-center ${
+                                className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer min-h-[42px] min-w-[42px] justify-center ${
                                     activeTool === 'pointer'
-                                        ? 'bg-rose-600 text-white shadow-md'
-                                        : 'text-slate-300 hover:text-white hover:bg-slate-800/80'
+                                        ? 'bg-rose-50 text-rose-700 border border-rose-300 ring-2 ring-rose-400/25 shadow-xs font-extrabold'
+                                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-transparent'
                                 }`}
                                 title="Laser Pointer (P)"
                                 aria-label="Laser Pointer"
                             >
-                                <span className="text-sm">🔴</span>
+                                <span className="w-2.5 h-2.5 rounded-full bg-rose-500 shadow-xs shadow-rose-500/50 flex-shrink-0"></span>
                                 <span className="hidden sm:inline">Pointer</span>
+                                <kbd className="hidden md:inline text-[9px] px-1 py-0.2 rounded bg-slate-100 border border-slate-200 text-slate-500">P</kbd>
                             </button>
 
                             {/* Highlighter Tool */}
                             <button
                                 type="button"
                                 onClick={() => handleSelectTool('highlighter')}
-                                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer min-h-[40px] min-w-[40px] justify-center ${
+                                className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer min-h-[42px] min-w-[42px] justify-center ${
                                     activeTool === 'highlighter'
-                                        ? 'bg-amber-500 text-slate-950 shadow-md font-extrabold'
-                                        : 'text-slate-300 hover:text-white hover:bg-slate-800/80'
+                                        ? 'bg-amber-50 text-amber-900 border border-amber-300 ring-2 ring-amber-400/25 shadow-xs font-extrabold'
+                                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-transparent'
                                 }`}
                                 title="Highlighter (H)"
                                 aria-label="Highlighter"
                             >
-                                <span className="text-sm">🖍️</span>
+                                <span className="text-base leading-none">🖍️</span>
                                 <span className="hidden sm:inline">Highlight</span>
+                                <kbd className="hidden md:inline text-[9px] px-1 py-0.2 rounded bg-slate-100 border border-slate-200 text-slate-500">H</kbd>
                             </button>
 
                             {/* Pen / Draw Tool */}
                             <button
                                 type="button"
                                 onClick={() => handleSelectTool('pen')}
-                                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer min-h-[40px] min-w-[40px] justify-center ${
+                                className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer min-h-[42px] min-w-[42px] justify-center ${
                                     activeTool === 'pen'
-                                        ? 'bg-blue-600 text-white shadow-md'
-                                        : 'text-slate-300 hover:text-white hover:bg-slate-800/80'
+                                        ? 'bg-sky-50 text-sky-900 border border-sky-300 ring-2 ring-sky-400/25 shadow-xs font-extrabold'
+                                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-transparent'
                                 }`}
                                 title="Pen / Underline (D)"
                                 aria-label="Pen"
                             >
-                                <span className="text-sm">✏️</span>
+                                <span className="text-base leading-none">✏️</span>
                                 <span className="hidden sm:inline">Pen</span>
+                                <kbd className="hidden md:inline text-[9px] px-1 py-0.2 rounded bg-slate-100 border border-slate-200 text-slate-500">D</kbd>
                             </button>
 
                             {/* Eraser Tool */}
                             <button
                                 type="button"
                                 onClick={() => handleSelectTool('eraser')}
-                                className={`flex items-center gap-1 px-2 sm:px-2.5 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer min-h-[40px] min-w-[40px] justify-center ${
+                                className={`flex items-center gap-1.5 px-2.5 sm:px-3 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer min-h-[42px] min-w-[42px] justify-center ${
                                     activeTool === 'eraser'
-                                        ? 'bg-slate-700 text-white shadow-md ring-1 ring-white/30'
-                                        : 'text-slate-400 hover:text-white hover:bg-slate-800/80'
+                                        ? 'bg-slate-100 text-slate-900 border border-slate-300 ring-2 ring-slate-400/25 shadow-xs font-extrabold'
+                                        : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100 border border-transparent'
                                 }`}
                                 title="Eraser (E)"
                                 aria-label="Eraser"
                             >
-                                <span className="text-sm">🧹</span>
+                                <span className="text-base leading-none">🧹</span>
+                                <span className="hidden sm:inline">Eraser</span>
+                                <kbd className="hidden md:inline text-[9px] px-1 py-0.2 rounded bg-slate-100 border border-slate-200 text-slate-500">E</kbd>
                             </button>
 
                             {/* Color Selector (for Pen / Highlighter) */}
                             {(activeTool === 'highlighter' || activeTool === 'pen') && (
-                                <div className="flex items-center gap-1 pl-1 border-l border-slate-700/60 flex-shrink-0">
+                                <div className="flex items-center gap-1.5 px-2 py-1 bg-slate-50 rounded-xl border border-slate-200/90 flex-shrink-0 animate-fade-in">
                                     {activeSwatches.map(swatch => (
                                         <button
                                             key={swatch.hex}
                                             type="button"
                                             onClick={() => setActiveColor(swatch.hex)}
-                                            className={`w-6 h-6 rounded-full border-2 transition-all cursor-pointer ${
+                                            className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full border-2 transition-all cursor-pointer ${
                                                 activeColor === swatch.hex
-                                                    ? 'scale-115 border-white shadow-sm'
-                                                    : 'border-transparent opacity-70 hover:opacity-100'
+                                                    ? 'scale-115 border-slate-800 shadow-xs ring-1 ring-slate-400'
+                                                    : 'border-white/80 opacity-75 hover:opacity-100 hover:scale-105'
                                             }`}
                                             style={{ backgroundColor: swatch.hex }}
                                             title={swatch.label}
@@ -504,12 +599,15 @@ export default function PresentationOverlay({
                                 </div>
                             )}
 
+                            {/* Divider */}
+                            <div className="w-[1px] h-6 bg-slate-200 mx-0.5 flex-shrink-0" />
+
                             {/* Undo Button */}
                             <button
                                 type="button"
                                 onClick={handleUndo}
                                 disabled={strokeCount === 0}
-                                className="p-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800/80 active:scale-95 disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer min-h-[40px] min-w-[40px] flex items-center justify-center flex-shrink-0"
+                                className="p-2 sm:p-2.5 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 active:scale-95 disabled:opacity-30 disabled:pointer-events-none transition-all cursor-pointer min-h-[42px] min-w-[42px] flex items-center justify-center flex-shrink-0 border border-transparent hover:border-slate-200"
                                 title="Undo Stroke (Ctrl+Z)"
                                 aria-label="Undo Stroke"
                             >
@@ -524,10 +622,10 @@ export default function PresentationOverlay({
                                 <button
                                     type="button"
                                     onClick={handleClearAll}
-                                    className="px-2 py-1 text-[11px] font-bold text-slate-400 hover:text-rose-400 hover:bg-slate-800/80 rounded-lg transition-colors cursor-pointer flex-shrink-0"
+                                    className="px-2.5 py-1 text-[11px] font-bold text-rose-600 hover:text-rose-700 hover:bg-rose-50 border border-rose-200/80 rounded-xl transition-all cursor-pointer flex-shrink-0"
                                     title="Clear All Annotations"
                                 >
-                                    Clear
+                                    Clear ({strokeCount})
                                 </button>
                             )}
 
@@ -535,7 +633,7 @@ export default function PresentationOverlay({
                             <button
                                 type="button"
                                 onClick={toggleFullscreen}
-                                className="p-2 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800/80 active:scale-95 transition-all cursor-pointer min-h-[40px] min-w-[40px] flex items-center justify-center flex-shrink-0"
+                                className="p-2 sm:p-2.5 rounded-xl text-slate-600 hover:text-slate-900 hover:bg-slate-100 active:scale-95 transition-all cursor-pointer min-h-[42px] min-w-[42px] flex items-center justify-center flex-shrink-0 border border-transparent hover:border-slate-200"
                                 title="Toggle Fullscreen (F)"
                                 aria-label="Toggle Fullscreen"
                             >
@@ -560,7 +658,7 @@ export default function PresentationOverlay({
                             <button
                                 type="button"
                                 onClick={() => setIsToolbarMinimized(true)}
-                                className="p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800/80 transition-all cursor-pointer min-h-[40px] min-w-[40px] flex items-center justify-center flex-shrink-0"
+                                className="p-2 rounded-xl text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-all cursor-pointer min-h-[42px] min-w-[36px] flex items-center justify-center flex-shrink-0"
                                 title="Minimize Toolbar"
                                 aria-label="Minimize Toolbar"
                             >
@@ -571,9 +669,9 @@ export default function PresentationOverlay({
                             <button
                                 type="button"
                                 onClick={onClose}
-                                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-rose-600 hover:bg-rose-500 active:scale-95 text-white font-extrabold text-xs transition-all shadow-md cursor-pointer min-h-[40px] ml-1 flex-shrink-0"
-                                title="Exit Presentation (Esc)"
-                                aria-label="Exit Presentation"
+                                className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-rose-600 hover:bg-rose-500 active:scale-95 text-white font-extrabold text-xs transition-all shadow-xs cursor-pointer min-h-[42px] ml-1 flex-shrink-0"
+                                title="Exit Presentation Mode (Esc)"
+                                aria-label="Exit Presentation Mode"
                             >
                                 <span>✕</span>
                                 <span className="hidden sm:inline">Exit</span>

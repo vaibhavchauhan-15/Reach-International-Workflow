@@ -1449,43 +1449,43 @@ export default function MeetingSummariesPage({
             {/* Inline Text Selection Quick-Highlight Floating Popup */}
             {selectionPopup && typeof document !== 'undefined' && createPortal(
                 <div 
-                    className="fixed z-[9995] -translate-x-1/2 -translate-y-full mb-1 flex items-center gap-1.5 p-1.5 bg-slate-900/95 text-white rounded-xl shadow-2xl border border-slate-700/80 backdrop-blur-md animate-fade-in select-none"
+                    className="fixed z-[9995] -translate-x-1/2 -translate-y-full mb-2 flex items-center gap-1.5 px-3 py-1.5 bg-white/95 text-slate-800 rounded-xl shadow-card border border-slate-200/90 backdrop-blur-md animate-fade-in select-none"
                     style={{ left: `${selectionPopup.x}px`, top: `${selectionPopup.y}px` }}
                 >
-                    <span className="text-[10px] font-extrabold text-slate-400 pl-1 uppercase tracking-wider">Highlight:</span>
+                    <span className="text-[10px] font-extrabold text-slate-500 uppercase tracking-wider">Highlight:</span>
                     <button 
                         type="button" 
                         onClick={() => applyTextHighlight('yellow')}
-                        className="w-5 h-5 rounded-full bg-yellow-400 hover:scale-115 transition-transform border border-white/40 cursor-pointer shadow-xs"
+                        className="w-5 h-5 rounded-full bg-yellow-400 hover:scale-115 active:scale-95 transition-transform border border-amber-300 cursor-pointer shadow-2xs"
                         title="Highlight Yellow"
                         aria-label="Highlight Yellow"
                     />
                     <button 
                         type="button" 
                         onClick={() => applyTextHighlight('green')}
-                        className="w-5 h-5 rounded-full bg-emerald-400 hover:scale-115 transition-transform border border-white/40 cursor-pointer shadow-xs"
+                        className="w-5 h-5 rounded-full bg-emerald-400 hover:scale-115 active:scale-95 transition-transform border border-emerald-300 cursor-pointer shadow-2xs"
                         title="Highlight Green"
                         aria-label="Highlight Green"
                     />
                     <button 
                         type="button" 
                         onClick={() => applyTextHighlight('cyan')}
-                        className="w-5 h-5 rounded-full bg-cyan-400 hover:scale-115 transition-transform border border-white/40 cursor-pointer shadow-xs"
+                        className="w-5 h-5 rounded-full bg-cyan-400 hover:scale-115 active:scale-95 transition-transform border border-cyan-300 cursor-pointer shadow-2xs"
                         title="Highlight Cyan"
                         aria-label="Highlight Cyan"
                     />
                     <button 
                         type="button" 
                         onClick={() => applyTextHighlight('pink')}
-                        className="w-5 h-5 rounded-full bg-pink-400 hover:scale-115 transition-transform border border-white/40 cursor-pointer shadow-xs"
+                        className="w-5 h-5 rounded-full bg-pink-400 hover:scale-115 active:scale-95 transition-transform border border-pink-300 cursor-pointer shadow-2xs"
                         title="Highlight Pink"
                         aria-label="Highlight Pink"
                     />
-                    <div className="w-[1px] h-3.5 bg-slate-700 mx-0.5" />
+                    <div className="w-[1px] h-3.5 bg-slate-200 mx-1" />
                     <button 
                         type="button" 
                         onClick={() => applyTextHighlight('clear')}
-                        className="px-2 py-0.5 text-[11px] font-bold text-slate-300 hover:text-white rounded hover:bg-slate-800 transition-colors cursor-pointer"
+                        className="px-2 py-0.5 text-[11px] font-bold text-slate-600 hover:text-rose-600 rounded hover:bg-slate-100 transition-colors cursor-pointer"
                         title="Remove Highlight"
                     >
                         Clear
@@ -1493,7 +1493,7 @@ export default function MeetingSummariesPage({
                     <button 
                         type="button" 
                         onClick={() => setSelectionPopup(null)}
-                        className="px-1 text-slate-400 hover:text-white text-xs cursor-pointer"
+                        className="px-1 text-slate-400 hover:text-slate-700 text-xs font-bold cursor-pointer transition-colors"
                         title="Close popup"
                     >
                         ✕

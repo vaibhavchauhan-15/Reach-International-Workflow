@@ -48,6 +48,7 @@ export default function MeetingSummariesPage({
     const [copySuccess, setCopySuccess] = useState(false);
     const [showScrollTop, setShowScrollTop] = useState(false);
     const [isCardsScrolled, setIsCardsScrolled] = useState(false);
+    const [isDocScrolled, setIsDocScrolled] = useState(false);
 
     const pageContainerRef = useRef(null);
     const cardsContainerRef = useRef(null);
@@ -62,6 +63,7 @@ export default function MeetingSummariesPage({
             setFullMeetingDetail(null);
             updateSearchQuery('');
             setIsCardsScrolled(false);
+            setIsDocScrolled(false);
             if (cardsContainerRef.current) {
                 cardsContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
             }
@@ -185,10 +187,17 @@ export default function MeetingSummariesPage({
     const scrollToTop = useCallback(() => {
         if (selectedMeetingMeta && pageContainerRef.current) {
             pageContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+            setIsDocScrolled(false);
         } else if (cardsContainerRef.current) {
             cardsContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
+            setIsCardsScrolled(false);
         }
         window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, [selectedMeetingMeta]);
+
+    // Reset document scroll state when switching meetings
+    useEffect(() => {
+        setIsDocScrolled(false);
     }, [selectedMeetingMeta]);
 
     // Track scroll for floating back-to-top button & card list scroll fade mask
@@ -200,6 +209,9 @@ export default function MeetingSummariesPage({
 
             if (cardsContainerRef.current) {
                 setIsCardsScrolled(cardsContainerRef.current.scrollTop > 4);
+            }
+            if (pageContainerRef.current) {
+                setIsDocScrolled(pageContainerRef.current.scrollTop > 4);
             }
         };
 
@@ -414,9 +426,23 @@ export default function MeetingSummariesPage({
                 /* ========================================================= */
                 /* OPERATIONAL DOCUMENT VIEW                                 */
                 /* ========================================================= */
-                <div ref={pageContainerRef} className="flex-1 min-h-0 flex flex-col overflow-y-auto w-full custom-scrollbar relative">
-                    <div className="pt-4 sm:pt-6 px-3 sm:px-6 lg:px-7 pb-12 flex justify-center meeting-document-outer">
-                    <div className="relative bg-white border border-border-light rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10 max-w-7xl w-full mx-auto shadow-card meeting-document-card">
+                <div 
+                    ref={pageContainerRef} 
+                    onScroll={(e) => {
+                        const scrolled = e.currentTarget.scrollTop > 4;
+                        if (scrolled !== isDocScrolled) {
+                            setIsDocScrolled(scrolled);
+                        }
+                    }}
+                    className="flex-1 min-h-0 flex flex-col overflow-y-auto w-full custom-scrollbar relative"
+                >
+                    {/* Cloud Effect: Top Scroll Frosted Blur Mask */}
+                    <div 
+                        className={`top-blur-mask transition-opacity duration-200 ${isDocScrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} 
+                        aria-hidden="true" 
+                    />
+                    <div className="pt-3 sm:pt-5 px-2.5 sm:px-4 md:px-6 lg:px-8 pb-12 flex justify-center meeting-document-outer">
+                    <div className="relative bg-white border border-border-light rounded-2xl p-3.5 sm:p-6 md:p-8 lg:p-10 max-w-[1440px] w-full mx-auto shadow-card meeting-document-card">
                         {/* Top Navigation & Action Row */}
                         <div className="flex items-center justify-between gap-3 pb-3 sm:pb-3.5 mb-4 sm:mb-5 border-b border-slate-100 no-print">
                             <button 
@@ -601,9 +627,9 @@ export default function MeetingSummariesPage({
                                             </span>
                                         </div>
                                         
-                                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5 sm:gap-4 print:gap-2.5">
+                                        <div className="flex flex-col gap-3.5 sm:gap-4 print:gap-2.5">
                                             {fullMeetingDetail.breakdowns.map((item, idx) => (
-                                                <div key={idx} className="breakdown-item bg-slate-50/70 border border-border-light border-l-4 border-l-theme-breakdown rounded-xl p-3.5 sm:p-4.5 text-xs sm:text-sm shadow-xs flex flex-col justify-between gap-2.5 transition-colors hover:bg-slate-50/95 print:bg-slate-50/90 print:border-slate-300 print:shadow-none print:break-inside-avoid print:p-3">
+                                                <div key={idx} className="breakdown-item w-full bg-slate-50/70 border border-border-light border-l-4 border-l-theme-breakdown rounded-xl p-3.5 sm:p-4.5 text-xs sm:text-sm shadow-xs flex flex-col justify-between gap-2.5 transition-colors hover:bg-slate-50/95 print:bg-slate-50/90 print:border-slate-300 print:shadow-none print:break-inside-avoid print:p-3">
                                                     <div>
                                                         <h3 className="text-xs sm:text-sm font-extrabold text-slate-900 flex items-center gap-2 pb-2 border-b border-slate-200/70 print:border-slate-300">
                                                             <span className="w-2 h-2 rounded-full bg-theme-breakdown flex-shrink-0"></span>
@@ -715,9 +741,9 @@ export default function MeetingSummariesPage({
                                             </span>
                                         </div>
                                         
-                                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5 print:gap-2.5">
+                                        <div className="flex flex-col gap-3.5 print:gap-2.5">
                                             {fullMeetingDetail.directives.map((directive, idx) => (
-                                                <div key={idx} className="directive-item bg-amber-50/70 border border-amber-200/80 border-l-4 border-l-theme-directive rounded-xl p-3.5 sm:p-4.5 shadow-xs space-y-2 print:bg-amber-50/60 print:border-amber-300 print:shadow-none print:break-inside-avoid print:p-3">
+                                                <div key={idx} className="directive-item w-full bg-amber-50/70 border border-amber-200/80 border-l-4 border-l-theme-directive rounded-xl p-3.5 sm:p-4.5 shadow-xs space-y-2 print:bg-amber-50/60 print:border-amber-300 print:shadow-none print:break-inside-avoid print:p-3">
                                                     <h3 className="text-xs sm:text-sm font-extrabold text-amber-950 flex items-center gap-1.5">
                                                         <span>{directive.title}</span>
                                                     </h3>
@@ -747,7 +773,7 @@ export default function MeetingSummariesPage({
                                             </span>
                                         </div>
                                         
-                                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3.5 sm:gap-4 print:gap-2.5">
+                                        <div className="flex flex-col gap-3 sm:gap-3.5 print:gap-2.5">
                                             {fullMeetingDetail.actionItems.map((item, idx) => {
                                                 const taskPoints = item.task
                                                     ? item.task.split(';').map(t => t.trim()).filter(Boolean)
@@ -760,7 +786,7 @@ export default function MeetingSummariesPage({
                                                 return (
                                                     <div 
                                                         key={idx} 
-                                                        className="action-item bg-emerald-50/40 border border-emerald-200/80 border-l-4 border-l-theme-action rounded-xl p-3.5 sm:p-4 shadow-2xs hover:bg-emerald-50/70 hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 print:bg-emerald-50/40 print:border-emerald-300 print:shadow-none print:break-inside-avoid print:p-3"
+                                                        className="action-item w-full bg-emerald-50/40 border border-emerald-200/80 border-l-4 border-l-theme-action rounded-xl p-3.5 sm:p-4 shadow-2xs hover:bg-emerald-50/70 hover:shadow-xs transition-all flex flex-col justify-between gap-2.5 print:bg-emerald-50/40 print:border-emerald-300 print:shadow-none print:break-inside-avoid print:p-3"
                                                     >
                                                         {/* Person Info Badge */}
                                                         <div className="flex items-center gap-2.5 pb-2 border-b border-emerald-200/60 flex-shrink-0">
@@ -865,7 +891,7 @@ export default function MeetingSummariesPage({
                 /* ARCHIVE DASHBOARD VIEW                                    */
                 /* ========================================================= */
                 <div 
-                    className="flex-1 min-h-0 max-w-7xl mx-auto w-full flex flex-col px-3 sm:px-6 lg:px-7 pt-3 sm:pt-4 pb-2 sm:pb-3 gap-2.5 overflow-hidden"
+                    className="flex-1 min-h-0 max-w-[1440px] mx-auto w-full flex flex-col px-2.5 sm:px-4 md:px-6 lg:px-8 pt-3 sm:pt-4 pb-2 sm:pb-3 gap-2.5 overflow-hidden"
                     onWheel={handleDashboardWheel}
                 >
                     {/* 1. Sleek, Compact Heading Bar */}
@@ -987,13 +1013,20 @@ export default function MeetingSummariesPage({
                                         setIsCardsScrolled(scrolled);
                                     }
                                 }}
-                                className="flex-1 min-h-0 overflow-y-auto flex flex-col gap-2.5 pt-0.5 pb-4 pr-1 sm:pr-2 overscroll-contain scroll-smooth focus:outline-none focus-visible:ring-1 focus-visible:ring-theme-breakdown/30 custom-scrollbar"
+                                className="flex-1 min-h-0 overflow-y-auto pr-1 sm:pr-2 overscroll-contain scroll-smooth focus:outline-none focus-visible:ring-1 focus-visible:ring-theme-breakdown/30 custom-scrollbar relative"
                                 style={{
                                     WebkitOverflowScrolling: 'touch',
                                     willChange: 'scroll-position',
                                 }}
                             >
-                                {(isSearching ? searchResults : (monthData?.meetings || [])).map((meeting) => {
+                                {/* Cloud Effect: Top Scroll Frosted Blur Mask */}
+                                <div 
+                                    className={`top-blur-mask transition-opacity duration-200 ${isCardsScrolled ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} 
+                                    aria-hidden="true" 
+                                />
+
+                                <div className="flex flex-col gap-2.5 pt-0.5 pb-4">
+                                    {(isSearching ? searchResults : (monthData?.meetings || [])).map((meeting) => {
                                     const shortDate = formatDateDDMMYYYY(meeting.date || meeting.dateDisplay || meeting.dateFormatted || meeting.title);
                                     
                                     if (meeting.isHoliday) {
@@ -1270,7 +1303,8 @@ export default function MeetingSummariesPage({
                                     </div>
                                 )}
                             </div>
-                        )}
+                        </div>
+                    )}
 
                         {/* Empty Search State */}
                         {isSearching && searchResults.length === 0 && (

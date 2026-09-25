@@ -1,0 +1,192 @@
+{
+  "id": "meet-2026-09-25",
+  "title": "25-09-2026",
+  "date": "2026-09-25",
+  "dateDisplay": "25-09-2026",
+  "dateFormatted": "25-09-2026",
+  "focus": "Noida Sector 143 Limit Switch & Bending Rod Dispatches, Chronic 2-Month Central Stockout of Load Cell Displays (Jaisalmer & 60-100 Fleet Stoppage Warning), Jamnagar 6-Machine Periodic Service Oil Approvals & LGMG Filter Lineup, Jamnagar Diagnostic Laptop Delivery Failure via Courier, Sanand 2022 Zoomlion Scissor Lithium-Ion Battery Charger & Cell Compatibility Hazard, Mumbai JCB 1932 (SN: 3571591) Melted 5-Fuse Box & Wiring Harness Sourcing via Jaipur, Korba Gate Pass Breakdown Stoppage & Transport Delay, JCB Fleet Filter Procurement & Lubricant Sanction, Commercial Tyre Replacement Machine Release & Trailer Evacuation, Ambala Load Cell & Diagnostic Kit Mobilization, and Unpaid Vendor Accounts Escalation against Mishra Ji",
+  "isHoliday": false,
+  "holidayName": "",
+  "breakdowns": [
+    {
+      "site": "Noida Sector 143 Fleet Operations — Limit Switch & Mounting Rod Shortage Dispute",
+      "issue": "Noida Sector 143 fleet operations required 8 limit switches and fabrication mounting rods ('8 dande') for 2 machines (4 per machine: '1 me 4, 2 machines me 8 chahiye na'). Field technicians Rohit and Sita Ram previously transported only 2 rods because a motorbike could not physically balance 8 long poles. Field coordinators demanded immediate dispatch of the remaining 6 rods and switches, while central store reported stock depletion.",
+      "action": "Store Manager Pardeep Tomar instructed Umesh to order additional limit switch rod bending from the external fabrication workshop ('bending se bol do, aur banwa lo'). Arranged a Porter commercial bike/vehicle with formal rider verification and Rohit's counter-signature to securely transport the remaining 6 limit switch rods to Sector 143.",
+      "logistics": "Porter on-demand transport engaged with mandatory handover signatures by Rohit / Sita Ram.",
+      "status": "Active Coordination — 2 Rods Delivered, 6 Remaining; Bending Fabrication Requisitioned; Porter Dispatch Arranged"
+    },
+    {
+      "site": "Central Fleet Operations & Jaisalmer Site — 2-Month Chronic Stockout of Load Cell Displays & Fleet Stoppage Risk",
+      "issue": "Central store announced that digital Load Cell display indicators have been completely out of stock for the past two months ('Load cell display pichle 2 mahine se stock me nahi hai'). Multiple requisitions for heavy boom lifts (60-100 series) and the Jaisalmer site remain unfulfilled. Pardeep issued a stern alert that machines requiring load cell recalibration will be forced into complete operational breakdown ('machine breakdown karna chaho to kar do, stock me nahi hai') due to lack of top management procurement sanction.",
+      "action": "Urgent operational escalation submitted to executive management (Dhruv Sharma / Finance Desk) to immediately approve supplier purchase orders and release funds for genuine load cell display units.",
+      "clarification": "Pardeep Tomar highlighted that formal requisitions were logged 2 months ago; non-action at management level is now directly jeopardizing high-tonnage client rentals.",
+      "status": "Critical Inventory Alert — Zero Stock for 2 Months; Jaisalmer & 60-100 Requisitions Stalled; Executive Escalation Pending"
+    },
+    {
+      "site": "Jamnagar ('Gram Nagar') Refinery Fleet — 6-Machine Scheduled Service, Oil Sanction & Missing Diagnostic Laptop",
+      "issue": "(1) Six operational machines deployed at Jamnagar have reached service intervals and require urgent periodic preventive maintenance (engine oil and filter changes). (2) Diagnostic laptop, specialized calibration tools, and spare components dispatched 5 days ago have failed to reach the Jamnagar site because the courier boy was unable to deliver the material on site ('ladka saman pahunchane me aksham'). Local technician Mailal / site personnel are stranded without calibration tools.",
+      "action": "Jitendra Budhauliya confirmed that engine oil procurement payment was approved and posted in the operations group. Mishra Ji instructed to expedite dispatch of OEM LGMG filters and coordinate with local suppliers for auxiliary filter purchase once funds clear. Mishra Ji held accountable to track the stranded courier boy and ensure the diagnostic laptop and tools reach site immediately.",
+      "logistics": "Express courier tracking initiated to trace and recover the laptop consignment for immediate handover to Jamnagar site engineers.",
+      "status": "Service Pending — Oil Payment Approved; LGMG Filters in Transit; Courier Boy Delivery Follow-up Escalated to Mishra Ji"
+    },
+    {
+      "site": "Sanand Project Site — 2022 Zoomlion Scissor Lift Lithium-Ion Battery Charger & Cell Diagnostics",
+      "issue": "Site supervisor at Sanand requested a battery charger and reported weak battery cells on a 2022 Zoomlion scissor lift. Technical investigation revealed the machine is equipped with advanced Lithium-ion battery technology rather than conventional lead-acid batteries. The site inquired about using a generic or makeshift charger, which poses severe electrical fire, cell destruction, and voiding risks ('lithium battery hai usme, machine 2022 ki hai, mehenga part hai').",
+      "action": "Technical specialists Pritam Singh and Sita Ram issued strict technical guidance prohibiting unauthorized chargers on lithium-ion packs. Store team posted OEM Zoomlion specifications in the operations group to evaluate quotation, exact part numbers, and OEM compatibility before dispatching an expensive genuine lithium charger.",
+      "pendingIssue": "Verification required on whether individual lithium cells are recoverable or whether a complete replacement battery module is required under OEM terms.",
+      "status": "Under Technical Review — Lithium-Ion Compatibility Audit; Generic Charger Strictly Prohibited; OEM Zoomlion Quote Pending"
+    },
+    {
+      "site": "Mumbai Operational Fleet — JCB 1932 (SN: 3571591) Melted 5-Fuse Electrical Box & Jaipur Harness Supply",
+      "issue": "The Mumbai JCB 1932 scissor lift (SN: 3571591) remains out of service following catastrophic internal melting of its 5-fuse main terminal box ('box pura jala hua hai, usme fuse lag nahi pa rahe, 5 fuse ka hai'). Site technician Ranjan confirmed the electrical terminals cannot seat fuses securely. In addition, the machine requires a main wiring harness replacement.",
+      "action": "Store Manager Pardeep Tomar verified that the replacement wiring harness and electrical components are being traced and dispatched from the Jaipur regional depot ('Jaipur se nikal raha hai'). Mumbai technician Deepak instructed to prepare the unit for installation as soon as the consignment arrives.",
+      "status": "Breakdown — Burned 5-Fuse Box; Jaipur Depot Dispatch in Progress; Deepak on Standby for Fitment"
+    },
+    {
+      "site": "Korba Project Site — Material Transport Blocked Due to Missing Gate Pass",
+      "issue": "Following the previous day's emergency hydraulic hose replacement on Unit 1200 at Korba, the scheduled movement of follow-up maintenance spares and tools was paralyzed because site gate passes were not prepared ('gate pass nahi bana... aaj ka din to chala gaya'). The logistics driver and technician remained stranded without entry authorization.",
+      "action": "Satendra Kumar directed to immediately interface with Korba site management to generate the official gate pass without further delay and clear the vehicle and maintenance consignment into the plant.",
+      "status": "Logistics Delay — Gate Pass Omission; Satendra Instructed to Expedite Gate Entry Permits Immediately"
+    },
+    {
+      "site": "JCB Boom & Scissor Fleet — Engine & Hydraulic Filter Lineup for Periodic Servicing",
+      "issue": "Multiple JCB and LGMG machines across project sites are due for 250h/500h oil and filter service. While central store has processed filter requisitions, deliveries to store have experienced transit lag (only 1 filter arrived yesterday).",
+      "action": "Central store confirmed that complete filter packages (air, oil, hydraulic) for JCB and LGMG platforms are being released from regional suppliers, with balance items to be procured locally by site engineers upon immediate payment release.",
+      "status": "Spares Mobilization — Filter Consignments in Regional Transit; Local Purchase Authorized Upon Payment"
+    },
+    {
+      "site": "Fleet Evacuation & Trailer Transit — Tyre Replacement Resolution & 2-Machine Transport Stoppage",
+      "issue": "A grounded machine that suffered heavy tyre damage had its tyre repaired/replaced, but remained immobilized awaiting transport clearance. Additional trailer capacity was required to evacuate 2 heavy machines from the staging area.",
+      "action": "Pardeep and Umesh verified that tyre mounting was successfully completed. Trailers were mobilized, machines loaded, and trailers cleared for outbound highway transit, with additional transport organized for the second unit.",
+      "status": "Resolved & Dispatched — Tyre Replaced; Trailer Loading Completed; Outbound Transit Initiated"
+    },
+    {
+      "site": "Ambala Project Site — Load Cell Electronic Package & Diagnostic Laptop Handover",
+      "issue": "An operational unit at Ambala has developed a load cell defect that was delayed in formal reporting by site staff. The unit requires a complete load cell sensor assembly, diagnostic laptop interface, and accompanying commercial tax invoice/delivery challan.",
+      "action": "Logistics instructed to package the diagnostic laptop and billing documents. Dispatch of the replacement load cell is conditioned upon immediate payment clearance from the accounts desk.",
+      "status": "Staged for Dispatch — Awaiting Accounts Payment Release & Accompanying Billing Invoices"
+    },
+    {
+      "site": "Accounts & Finance Operations — Severe Vendor Payment Bottlenecks & Escalation to Mishra Ji",
+      "issue": "Operations team expressed severe frustration regarding chronic vendor payment stalls across critical spare suppliers ('1 paisa nahi aaya, 4-5 din ho gaye'). Crucial replacement parts, seal kits, and diagnostic items are withheld by vendors pending payment clearances ('bina paise ke thodi maal aata hai'). Pardeep Tomar clarified that store responsibilities end at raising formal Purchase Orders, and vendor payment delays rest squarely with Mishra Ji and finance approvals.",
+      "action": "Leadership directed that all unpaid vendor payment dockets be handed directly to Mishra Ji for immediate processing and bank clearance today.",
+      "status": "Administrative Escalation — Vendor Bills Handed to Mishra Ji for Immediate Sanction and Fund Transfer"
+    }
+  ],
+  "parts": [
+    {
+      "part": "Limit Switch Mounting Rods & Poles (8 Units)",
+      "context": "Noida Sector 143 Fleet (2 Machines)",
+      "statusNextSteps": "2 units transported via bike; balance 6 units sent for workshop bending fabrication and Porter commercial dispatch with counter-signature."
+    },
+    {
+      "part": "Digital Load Cell Display Indicators",
+      "context": "Jaisalmer Site & 60-100 Heavy Boom Fleet",
+      "statusNextSteps": "Chronic 2-month central store stockout; urgent supplier PO escalation submitted to executive finance desk to prevent widespread machine lockouts."
+    },
+    {
+      "part": "Zoomlion Lithium-Ion Battery Charger & Replacement Cells",
+      "context": "Sanand Site (2022 Zoomlion Scissor Lift)",
+      "statusNextSteps": "Generic chargers strictly prohibited due to fire hazards; OEM Zoomlion quotation and technical compatibility review underway in operations group."
+    },
+    {
+      "part": "JCB 1932 5-Fuse Terminal Box Assembly",
+      "context": "Mumbai Fleet (SN: 3571591)",
+      "statusNextSteps": "Severe thermal meltdown; replacement fuse terminal box and wiring harness traced and sourced via Jaipur regional depot."
+    },
+    {
+      "part": "JCB 1932 Main Electrical Wiring Harness",
+      "context": "Mumbai Fleet (SN: 3571591)",
+      "statusNextSteps": "En route from Jaipur; technician Deepak on standby at Mumbai to execute wiring replacement upon delivery."
+    },
+    {
+      "part": "LGMG & JCB Periodic Service Filter Kits (Air, Oil, Hydraulic)",
+      "context": "Jamnagar Refinery Fleet (6 Machines)",
+      "statusNextSteps": "Engine oil payment posted in group; OEM filter consignments in transit from regional distributors, balance to be procured locally."
+    },
+    {
+      "part": "Diagnostic Programming Laptop & DLA Calibration Adapter",
+      "context": "Jamnagar ('Gram Nagar') Refinery Fleet",
+      "statusNextSteps": "Courier delivery failed on site; Mishra Ji tasked with tracking the courier boy and executing direct site handover."
+    },
+    {
+      "part": "Diagnostic Laptop & Load Cell Assembly",
+      "context": "Ambala Project Site",
+      "statusNextSteps": "Staged for dispatch; pending finance payment release and accompanying tax invoice/challan."
+    },
+    {
+      "part": "Heavy Equipment Pneumatic / Foam-Filled Tyre",
+      "context": "Fleet Maintenance / Evacuation Yard",
+      "statusNextSteps": "Tyre successfully replaced and mounted; machine cleared, loaded on trailer, and dispatched for highway transit."
+    },
+    {
+      "part": "Fabricated Limit Switch Extension Brackets",
+      "context": "Noida Sector 143 Workshop",
+      "statusNextSteps": "External metal bending vendor commissioned to fabricate additional batches to rebuild central store buffer stock."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Mandatory Compatibility Verification for Lithium-Ion Battery Charging Systems",
+      "points": [
+        "Strict OEM Protocol: Under no circumstances may generic or lead-acid battery chargers be connected to lithium-ion equipment (e.g. Sanand Zoomlion 2022). Unmatched voltage/charging algorithms risk cell thermal runaway and expensive electronic damage.",
+        "Quotation & Part Number Verification: Technicians must verify exact manufacturer part numbers and obtain OEM quotations before ordering charging accessories for advanced lithium platforms."
+      ]
+    },
+    {
+      "title": "Standardized Spare Transport & Handover Accountability",
+      "points": [
+        "Vehicle Weight & Volume Feasibility: Long components (such as 8-stick limit switch assemblies) must not be overloaded onto two-wheelers. Porter or light commercial vehicles must be booked when items exceed safe motorcycle carry dimensions.",
+        "Counter-Signature Protocols: Couriers and site recipients (e.g. Rohit at Sector 143) must provide written receipt acknowledgments to eliminate disputes regarding missing quantities."
+      ]
+    },
+    {
+      "title": "Escalation Protocol for Vendor Payment Delays & Part Withholding",
+      "points": [
+        "Separation of Duties: Store personnel are responsible for issuing Purchase Orders (PO); payment processing and vendor invoice management rest with site managers and accounts desk (Mishra Ji).",
+        "Real-Time Communication on Operations Groups: Spares status, part numbers, and payment receipts must be shared in official WhatsApp groups rather than personal offline messages to maintain accountability."
+      ]
+    },
+    {
+      "title": "Site Gate Pass Preparation Mandate Before Transport Dispatch",
+      "points": [
+        "Advance Permitting: Gate passes for incoming equipment, maintenance personnel, and spare parts (e.g. Korba site) must be drafted and approved at least 24 hours in advance to prevent carrier idle charges and operational day losses.",
+        "Logistics Synchronization: Transport drivers must not depart central staging without confirming that destination site entry gate passes are active and valid."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Pardeep Tomar",
+      "task": "Manage bending vendor for Noida Sector 143 limit switch rods; coordinate with executive management to release purchase order for load cell displays; update status on JCB 1932 harness dispatch from Jaipur; review Zoomlion lithium charger OEM quotes."
+    },
+    {
+      "person": "Umesh Kumar",
+      "task": "Finalize Porter booking with verified rider handover for remaining 6 limit switch rods to Sector 143; coordinate transport and driver allocation for Korba site; confirm trailer dispatch for evacuated tyre-repaired machines; monitor group communications."
+    },
+    {
+      "person": "Jitendra Budhauliya",
+      "task": "Follow up on engine oil payment clearance for Jamnagar 6-machine service; instruct Mishra Ji on LGMG filter arrival; enforce strict prohibition against makeshift chargers on Sanand lithium scissor lift; track Ambala load cell and laptop readiness."
+    },
+    {
+      "person": "Mishra Ji",
+      "task": "Immediately clear pending vendor payment files stalling critical spare releases; locate and contact the courier boy holding the Jamnagar diagnostic laptop consignment; confirm ETA of LGMG filters for Jamnagar refinery service."
+    },
+    {
+      "person": "Pritam Singh & Sita Ram",
+      "task": "Provide technical evaluation on Sanand Zoomlion 2022 lithium-ion charging circuit and battery health; provide specifications for genuine Zoomlion charger; assist with electronic diagnostics."
+    },
+    {
+      "person": "Satendra Kumar",
+      "task": "Expedite Korba site gate pass generation immediately to prevent further vehicle detention; manage driver assignments and equipment loading for outward machine transport."
+    },
+    {
+      "person": "Deepak (Mumbai Service Engineer)",
+      "task": "Prepare JCB 1932 (SN: 3571591) for installation of replacement 5-fuse terminal box and main wiring harness upon arrival of the Jaipur consignment."
+    },
+    {
+      "person": "Finance & Accounts Desk (Dhruv Sharma)",
+      "task": "Process urgent fund releases for supplier invoices to unblock load cell display procurement, Jamnagar filter consignments, and Ambala electronic spares."
+    }
+  ]
+}

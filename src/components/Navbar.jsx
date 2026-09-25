@@ -50,7 +50,7 @@ const Navbar = React.memo(function Navbar({
             className="app-header relative w-full bg-white border-b border-border-light shadow-xs z-30 flex-shrink-0 select-none transition-all"
             role="banner"
         >
-            <div className="h-14 sm:h-16 px-3 sm:px-6 lg:px-7 max-w-7xl mx-auto flex items-center justify-between gap-2.5 sm:gap-4">
+            <div className="h-16 px-2.5 sm:px-4 md:px-6 lg:px-8 max-w-[1440px] w-full mx-auto flex items-center justify-between gap-3 sm:gap-4">
                 {/* Mobile Expanded Back Button */}
                 {isMobileExpanded && (
                     <button
@@ -80,7 +80,7 @@ const Navbar = React.memo(function Navbar({
                     <img 
                         src="/logo.png" 
                         alt="Reach International — Reaching All Heights" 
-                        className="h-8 sm:h-9 md:h-10 lg:h-11 w-auto max-w-[115px] sm:max-w-[190px] md:max-w-[230px] lg:max-w-[270px] object-contain transition-transform duration-200 group-hover:opacity-95"
+                        className="h-9 sm:h-10 w-auto max-w-[160px] sm:max-w-[220px] object-contain transition-transform duration-200 group-hover:opacity-95"
                         loading="eager"
                         decoding="async"
                     />
@@ -91,7 +91,7 @@ const Navbar = React.memo(function Navbar({
                     <div className={`relative flex items-center transition-all duration-200 ${
                         isMobileExpanded 
                             ? 'w-full flex-1' 
-                            : 'flex-1 max-w-[210px] min-[380px]:max-w-[240px] sm:flex-none sm:ml-auto sm:max-w-none sm:w-72 md:w-80 lg:w-96'
+                            : 'flex-1 max-w-[210px] min-[380px]:max-w-[240px] sm:flex-none sm:ml-auto sm:w-80'
                     }`}>
                         <svg className="absolute left-3 text-slate-400 pointer-events-none w-4 h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                             <circle cx="11" cy="11" r="8"></circle>

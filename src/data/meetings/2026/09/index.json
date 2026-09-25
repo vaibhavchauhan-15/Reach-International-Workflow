@@ -2,8 +2,23 @@
   "year": "2026",
   "month": "09",
   "monthName": "September",
-  "meetingCount": 24,
+  "meetingCount": 25,
   "meetings": [
+    {
+      "id": "meet-2026-09-25",
+      "date": "2026-09-25",
+      "dateDisplay": "25-09-2026",
+      "dateFormatted": "25-09-2026",
+      "title": "25-09-2026",
+      "focus": "Noida Sector 143 Limit Switch & Bending Rod Dispatches, Chronic 2-Month Central Stockout of Load Cell Displays (Jaisalmer & 60-100 Fleet Stoppage Warning), Jamnagar 6-Machine Periodic Service Oil Approvals & LGMG Filter Lineup, Jamnagar Diagnostic Laptop Delivery Failure via Courier, Sanand 2022 Zoomlion Scissor Lithium-Ion Battery Charger & Cell Compatibility Hazard, Mumbai JCB 1932 (SN: 3571591) Melted 5-Fuse Box & Wiring Harness Sourcing via Jaipur, Korba Gate Pass Breakdown Stoppage & Transport Delay, JCB Fleet Filter Procurement & Lubricant Sanction, Commercial Tyre Replacement Machine Release & Trailer Evacuation, Ambala Load Cell & Diagnostic Kit Mobilization, and Unpaid Vendor Accounts Escalation against Mishra Ji",
+      "isHoliday": false,
+      "holidayName": "",
+      "breakdownCount": 10,
+      "partsCount": 10,
+      "directivesCount": 4,
+      "actionItemsCount": 8,
+      "path": "/data/meetings/2026/09/25.json"
+    },
     {
       "id": "meet-2026-09-24",
       "date": "2026-09-24",

@@ -61,8 +61,8 @@ export default function MeetingDetailModal({ selectedMeeting, setSelectedMeeting
                 </div>
 
                 {/* Modal Body */}
-                <div className="p-4 sm:p-6 overflow-y-auto space-y-6 scroll-fade-top relative">
-                    <div className="top-blur-mask" aria-hidden="true" />
+                <div className="p-4 sm:p-6 overflow-y-auto space-y-6 relative custom-scrollbar">
+                    <div className="top-blur-mask top-blur-mask-white" aria-hidden="true" />
                     {/* Header Details */}
                     <div className="border-b border-border-light pb-4">
                         <div className="text-xs sm:text-sm text-slate-700 mb-1 flex flex-wrap gap-1.5">

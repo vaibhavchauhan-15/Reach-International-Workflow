@@ -2,8 +2,23 @@
   "year": "2026",
   "month": "09",
   "monthName": "September",
-  "meetingCount": 23,
+  "meetingCount": 24,
   "meetings": [
+    {
+      "id": "meet-2026-09-24",
+      "date": "2026-09-24",
+      "dateDisplay": "24-09-2026",
+      "dateFormatted": "24-09-2026",
+      "title": "24-09-2026",
+      "focus": "ACS Cross-Rental JCB S1932E (SN: 11127) Key Switch Destruction & Operator Damage Warranty Exclusion, JCB 4550 (SN: 3083093) Preventive Electrical Overhaul, Zoomlion ZS14 (SN: N000063) Scissor Charger Failure & Manish Mobilization, Mumbai JCB 1932 (SN: 3571591) Burned Fuse Box Replacement, Jabalpur Unit 510 Bucket Rotation Breakdown & Rambabu Survey Deployment, Korba Unit 1200 Hydraulic Hose Burst, Noida Influx (22-Machine PDI & Commissioning Mobilization, Sector 143 AGM Batteries & 80ft Boom Overload Audit), Jaisalmer Hydraulic Seal Withholding Due to Unpaid Vendor Bills, Bijnor Starter Motor Dispatch Verification (Babu Lal), Jamnagar JCB T65 Pritam Evening Calibration Transit, Panipat Train Laptop Handover & Govind Recall, Mundra JDT Starting Failure, and Para Site Wire Recovery to Delhi",
+      "isHoliday": false,
+      "holidayName": "",
+      "breakdownCount": 15,
+      "partsCount": 11,
+      "directivesCount": 5,
+      "actionItemsCount": 10,
+      "path": "/data/meetings/2026/09/24.json"
+    },
     {
       "id": "meet-2026-09-23",
       "date": "2026-09-23",

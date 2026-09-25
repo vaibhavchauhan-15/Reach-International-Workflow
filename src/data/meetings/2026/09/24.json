@@ -1,0 +1,240 @@
+{
+  "id": "meet-2026-09-24",
+  "title": "24-09-2026",
+  "date": "2026-09-24",
+  "dateDisplay": "24-09-2026",
+  "dateFormatted": "24-09-2026",
+  "focus": "ACS Cross-Rental JCB S1932E (SN: 11127) Key Switch Destruction & Operator Damage Warranty Exclusion, JCB 4550 (SN: 3083093) Preventive Electrical Overhaul, Zoomlion ZS14 (SN: N000063) Scissor Charger Failure & Manish Mobilization, Mumbai JCB 1932 (SN: 3571591) Burned Fuse Box Replacement, Jabalpur Unit 510 Bucket Rotation Breakdown & Rambabu Survey Deployment, Korba Unit 1200 Hydraulic Hose Burst, Noida Influx (22-Machine PDI & Commissioning Mobilization, Sector 143 AGM Batteries & 80ft Boom Overload Audit), Jaisalmer Hydraulic Seal Withholding Due to Unpaid Vendor Bills, Bijnor Starter Motor Dispatch Verification (Babu Lal), Jamnagar JCB T65 Pritam Evening Calibration Transit, Panipat Train Laptop Handover & Govind Recall, Mundra JDT Starting Failure, and Para Site Wire Recovery to Delhi",
+  "isHoliday": false,
+  "holidayName": "",
+  "breakdowns": [
+    {
+      "site": "ACS Client Site (Cross-Rental Fleet) — JCB S1932E (SN: 11127 / JP-11127) Key Switch Destruction & Operator Damage Dispute",
+      "issue": "A cross-rental JCB scissor lift Model S1932E (SN: 11127 / JP-11127) deployed at the ACS client site without a Reach International operator has suffered complete functional breakdown. The operator-side ignition key switch / key fitment assembly was completely destroyed due to rough and unauthorized operator handling ('isiki key switch poori tarah kharab ho chuki hai, breakdown hi hai'). A formal requisition was submitted via Google Form; however, the breakdown highlighted recurring friction regarding client operator abuse on dry-lease/cross-rental equipment.",
+      "action": "Jitendra Budhauliya instructed to review the Google Form ticket and dispatch a replacement key switch assembly. Concurrently, leadership mandated an explicit warranty policy directive: broken ignition switches on cross-rental machines will not be entertained for OEM warranty claims because manufacturers reject physical destruction caused by external operators; costs must be charged to the client.",
+      "status": "Breakdown — Key Switch Destroyed; Google Form Submitted; Replacement Key Switch Requisitioned; OEM Warranty Exclusion Flagged"
+    },
+    {
+      "site": "Internal Fleet / Canter Operations — JCB 4550 Boom/Canter (SN: 3083093) Chronic Key Switch Defect & Preventive Overhaul Warning",
+      "issue": "Company-owned JCB 4550 boom lift / canter unit (SN: 3083093) is currently operating on site ('running par hai'), but has been operating with a defective key switch and deteriorated electrical connection that was photographed and reported two months ago. Site personnel warned that operating with a compromised electrical switch risks catastrophic failure during active lifting operations ('isme kisi ko dalna hi padega na sir, nahi baad me koi dikkat ho gayi to problem ho jayegi').",
+      "action": "Maintenance coordination directed to procure and allocate a genuine replacement JCB key switch assembly immediately and schedule an on-site technician visit before the machine experiences an unrecoverable hard stoppage.",
+      "status": "Operational Under Observation (Running); Historical Defect Logged (2 Months Old); Preventive Electrical Rectification Scheduled"
+    },
+    {
+      "site": "Zoomlion Scissor Lift Fleet — Model ZS14 (SN: N000063) On-Board Battery Charger Failure",
+      "issue": "A Zoomlion electric scissor lift Model ZS14 (Serial Number: N000063) experienced a sudden operational breakdown due to complete charging system failure ('charging nahi ho rahi hai'). The unit is unable to draw charging current from the site power source, leaving traction batteries depleted and immobilizing the platform.",
+      "action": "Senior specialist technician Manish was mobilized immediately to the site to inspect the internal battery charger, verify input AC mains voltage, test charger diodes/rectifiers, and restore charging functionality.",
+      "status": "Breakdown — Charger System Failure; Manish Deployed to Site for Immediate Diagnosis"
+    },
+    {
+      "site": "Mumbai Operational Fleet — JCB 1932 (SN: 3571591) Main Electrical Fuse Box Meltdown & Terminal Damage",
+      "issue": "A JCB 1932 electric scissor lift (SN: 3571591) at the Mumbai project site suffered an electrical burnout in its primary fuse box enclosure ('iska fuse box jo hota hai na, wo jal gaya hai thoda thoda, usme fuse lag nahi pa rahe'). Heat deformation prevents replacement fuses from seating securely into the fuse block terminals, causing complete power circuit interruption. The breakdown was logged in CRM / Google Form.",
+      "action": "Jitendra Budhauliya assigned Mumbai service technician Deepak to attend the unit, diagnose the underlying electrical current surge, remove the charred fuse block, and wire in a complete replacement fuse box assembly.",
+      "status": "Breakdown — Burned Fuse Box; Ticket Logged in CRM; Assigned to Deepak for Fuse Box Replacement"
+    },
+    {
+      "site": "Jabalpur Project Site — Unit 510 Aerial Basket Rotation Lockout & Dual-Machine Technical Survey Mobilization",
+      "issue": "Unit 510 at Jabalpur is grounded due to a complete failure of the aerial platform basket rotation mechanism ('iska bucket nahi ghoom raha hai'). In addition to Unit 510, a second machine deployed at the Jabalpur site requires a formal mechanical and electrical survey to assess operational wear, structural condition, and preventative maintenance needs. The issue was logged in CRM.",
+      "action": "Field service engineer Rambabu was scheduled for immediate deployment to Jabalpur to execute the dual-machine comprehensive survey, inspect hydraulic rotary actuators/valves on Unit 510, and restore platform rotation.",
+      "status": "Breakdown — Platform Rotation Locked; Rambabu Slated for Jabalpur Deployment & Dual Machine Survey"
+    },
+    {
+      "site": "Korba Project Site — Unit 1200 High-Pressure Hydraulic Hose Rupture & Auxiliary Lowering Pending",
+      "issue": "Unit 1200 at Korba suffered a catastrophic high-pressure hydraulic hose rupture ('1200 ka pipe fat gaya hai'), causing hydraulic fluid loss and immediate cessation of boom elevation. In addition, an auxiliary emergency lowering mechanism fault on a second Korba unit remains pending resolution ('1 neeche jaane wala pending hai') while Unit 34-220 remains unserviced.",
+      "action": "Emergency replacement hydraulic hose assembly requisitioned for express dispatch to Korba. Technician travel plan coordinated in conjunction with incoming spare consignments arriving from Delhi and Jaipur.",
+      "status": "Breakdown — High-Pressure Hose Rupture; Replacement Hydraulic Hose Requisitioned; Travel Coordination Ongoing"
+    },
+    {
+      "site": "Bandra / Mundra Fleet — JCB Scissor Lift 4046 (SN: 3571554) Intermittent Diagnostic Fault Codes",
+      "issue": "A JCB electric scissor lift Model 4046 (Serial Number: 3571554) experienced recurrent electronic fault codes flashing intermittently on the operator control unit ('jo code aate rehte hain... kal to dikhata'), causing platform interlock lockouts and operator hesitation.",
+      "action": "Technicians instructed to record diagnostic trouble codes (DTC), verify CAN-bus cable continuity, inspect control card connectors, and conduct full load cycle tests to prevent sudden operational cut-offs.",
+      "status": "Breakdown / Intermittent Cut-out — Diagnostic Fault Codes Active; Sensor Harness & Error Log Audit Underway"
+    },
+    {
+      "site": "Noida Fleet Clusters (Sector 62, Sector 143 & Yard) — 22-Machine Influx PDI Mobilization, Sector 143 AGM Batteries & 80ft Boom Sensor Resolution",
+      "issue": "High-density operational activities were logged across Noida clusters: (1) Sector 62 machine reported breakdown with technician deployed today; (2) Sector 143 requires 2 deep-cycle AGM batteries to prevent impending stoppage ('breakdown to filhal nahi hai, lekin battery jayegi to hi wo chal payegi'); (3) Previous day's 80ft boom lift platform overload sensor fault at Sector 143 was resolved, with Sector 62 unit undergoing active recalibration; (4) A major consignment of 22 incoming machines arrived at the Noida central yard requiring Pre-Delivery Inspection (PDI), functional testing, and site commissioning.",
+      "action": "Umesh Kumar and Ambrish deployed technicians to Sector 62; two 6V AGM batteries dispatched to Sector 143 as recorded in Google Sheet. A dedicated workshop engineering team was assigned to initiate systematic PDI and commissioning on the 22 new incoming machines before client mobilizations.",
+      "status": "High Operational Activity; 2 AGM Batteries Dispatched to Sector 143; Sector 62 Technician Active; 22-Unit PDI & Commissioning Initiated"
+    },
+    {
+      "site": "Panipat Project Site Logistics — Midnight Train Handover of Diagnostic Laptop via Train & Govind Recall",
+      "issue": "The critical diagnostic laptop required for machine logic card troubleshooting at Panipat was in transit via passenger train (courier/conductor handover, with arrival scheduled around 02:00 AM / 1 hour remaining). Meanwhile, technician Govind is stationed at Panipat awaiting relief and redeployment.",
+      "action": "Shiv Uniyal directed to issue immediate instructions recalling Govind back to base. Panipat site personnel coordinated to receive the diagnostic laptop upon train arrival so logic card programming can commence without delay.",
+      "status": "Laptop Consignment Arriving via Train; Handover Coordinated; Govind Recalled to Base"
+    },
+    {
+      "site": "Jaisalmer Project Site — Replacement Hydraulic Cylinder Seals Withheld Due to Unpaid Vendor Bills",
+      "issue": "Mechanical refurbishment of the Jaisalmer project machine was successfully completed; however, final commissioning is paralyzed due to lack of hydraulic cylinder seals ('seal nahi hai apne paas'). The vendor refused to dispatch replacement seal kits because previous supply invoices remain unpaid by accounts ('vendor keh raha hai payment nahi bana... payment karvao pehle').",
+      "action": "Management escalated the vendor payment bottleneck to accounts/finance with instructions to release supplier payments immediately so hydraulic seal kits can be dispatched to Jaisalmer without further project downtime.",
+      "status": "Work Stalled Pending Spares; Hydraulic Seals Withheld by Supplier; Urgent Vendor Payment Clearance Escalated"
+    },
+    {
+      "site": "Bijnor Site Fleet — Diesel Engine Starter Motor Dispatch Verification & Babu Lal Stock Check",
+      "issue": "The diesel engine starter motor required to restore the grounded Bijnor machine was pending verification. Field supervisors reported conflicting information regarding whether the starter was dispatched from Pune or Delhi stores ('kal tak to gaya tha... kisne bheja, pata nahi').",
+      "action": "Jitendra Budhauliya instructed to contact Babu Lal at the central yard immediately to audit dispatch registers, verify outward gate passes, and confirm courier tracking details for the Bijnor starter motor.",
+      "status": "Dispatch Verification in Progress; Babu Lal Contacted to Audit Starter Motor Consignment"
+    },
+    {
+      "site": "Mundra Port Fleet — Sudesh JDT Starting Failure & Multi-Unit Operational Review (5390, 600AJ, Z-40, 45ft)",
+      "issue": "A new stoppage was reported at Mundra: Sudesh's JDT machine is failing to start ('JDT start nahi ho rahi hai'), compounded by disputes over vendor/operator billing and payment release ('payment bana hua hai ya nahi'). Concurrently, review of yesterday's multi-machine breakdown confirmed strong progress: Unit 5390 hydraulic line replaced and operational; JLG 600AJ bucket cylinder seal replaced; Genie Z-40 operational; JCB 45ft battery replacement completed and machine running. JLG 800AJ inspection remains pending.",
+      "action": "Clarify payment status with accounts; deploy Mundra technician to troubleshoot the JDT electrical starting circuit, test starter motor solenoid, and complete the diagnostic check on JLG 800AJ.",
+      "status": "JDT Starting Failure Under Investigation; Payment Query Escalated; Units 5390, 600AJ, Z-40 & 45ft Verified Operational"
+    },
+    {
+      "site": "Jamnagar Site — JCB T65 (65D) Electronic Controller Calibration & Pritam Evening Travel Mobilization",
+      "issue": "The JCB T65 boom lift (SN: 65D) at Jamnagar requires advanced electronic controller programming and base calibration. While the diagnostic laptop, DLA adapter, and replacement controller were consolidated yesterday, an experienced calibration engineer was required on site.",
+      "action": "Senior engineer Pritam's train travel was confirmed for this evening. Pritam will arrive at Jamnagar tomorrow morning to interface the diagnostic tool, load machine firmware, calibrate boom angles, and clear controller lockout.",
+      "status": "Travel Confirmed; Pritam Departing This Evening for Jamnagar T65 Calibration"
+    },
+    {
+      "site": "Hyderabad Site Fleet — 3-Ton JK Paper Machine Breakdown (Controller 0309) & Ongoing Rear Axle Bearing Fitment",
+      "issue": "A 3-ton machine stationed at JK Paper Hyderabad is down awaiting parts following logic controller replacement (0309 installed by Aamir). Separately, the heavy machine with rear axle bearing grinding reported yesterday remains under active mechanical servicing.",
+      "action": "Spares team instructed to expedite required peripheral parts for the JK Paper 3-ton machine. Hyderabad field mechanics instructed to finalize axle hub bearing pre-load adjustments and conduct functional road testing.",
+      "status": "Active Repair; JK Paper 3-Ton Spares Expedited; Rear Axle Bearing Replacement Ongoing"
+    },
+    {
+      "site": "Site Assets & Structural Overhauls — Para Wire Evacuation to Delhi, Khandefit Center Rotary Shutdown Planning & Wait Pass Engine Overhaul",
+      "issue": "Several long-term asset management updates were reviewed: (1) At Para site, decommissioned electrical wires stored at a rental premises must be evacuated immediately as the landlord requested clearance; (2) Khandefit machine will operate through 30th September, after which it will be de-hired for major overhaul (custom bushes fabricated, center rotary joint rebuild prepared); (3) Engine pulled out on Wait Pass unit for major engine overhaul; (4) Bilari and Vapi machines confirmed fully operational.",
+      "action": "Vinod Pal instructed to coordinate transportation to ship the Para site wires to Delhi storage. Maintenance schedule finalized for Khandefit center rotary rebuild starting 1st October.",
+      "status": "Operational Clearance; Para Wire Freight to Delhi Arranged; Khandefit Overhaul Scheduled for 30-Sep"
+    }
+  ],
+  "parts": [
+    {
+      "part": "JCB Replacement Key Switch Assemblies (Ignition Barrel & Key Sets)",
+      "context": "Cross-Rental Fleet (ACS S1932E SN: 11127), JCB 4550 (SN: 3083093) & CG Power Site",
+      "statusNextSteps": "Key switches destroyed by operator abuse; Google Forms submitted. OEM warranty replacement denied; central stores procuring heavy-duty switches under strict allocation."
+    },
+    {
+      "part": "JCB 1932 Main Electrical Fuse Box Assembly",
+      "context": "Mumbai Operational Fleet — JCB 1932 (SN: 3571591)",
+      "statusNextSteps": "Fuse box suffered terminal burnout and melting; replacement fuse box block and fuse set dispatched to technician Deepak for on-site fitment."
+    },
+    {
+      "part": "High-Pressure Hydraulic Hose Assembly (Unit 1200)",
+      "context": "Korba Project Site — Unit 1200",
+      "statusNextSteps": "Hydraulic hose ruptured under working pressure; replacement hose assembly sourced from central stores for express dispatch to Korba."
+    },
+    {
+      "part": "Deep-Cycle 6V AGM Traction Batteries (Set of 2)",
+      "context": "Noida Sector 143 Fleet",
+      "statusNextSteps": "Required to stabilize machine battery bank and prevent downtime; logged in Google Sheet and dispatched from Delhi regional stock."
+    },
+    {
+      "part": "Diesel Engine Starter Motor Consignment",
+      "context": "Bijnor Project Site",
+      "statusNextSteps": "Required for diesel starting system; Babu Lal auditing yard dispatch slips and courier records to confirm dispatch tracking."
+    },
+    {
+      "part": "Hydraulic Cylinder Packing / Seal Kits",
+      "context": "Jaisalmer Project Site",
+      "statusNextSteps": "Refurbishment completed but cylinder reassembly stalled due to missing seals; vendor dispatch blocked by unpaid bills; urgent accounts clearance escalated."
+    },
+    {
+      "part": "Zoomlion On-Board Battery Charger / Power Rectifier Unit",
+      "context": "Zoomlion ZS14 Scissor Lift (SN: N000063)",
+      "statusNextSteps": "Machine failing to draw charge; technician Manish inspecting internal charging components and input power on site."
+    },
+    {
+      "part": "Electronic Logic Controller & Auxiliary Harness (Controller 0309)",
+      "context": "Hyderabad Site — JK Paper 3-Ton Machine",
+      "statusNextSteps": "Auxiliary part pending post-controller installation by Aamir; central spares team coordinating express courier."
+    },
+    {
+      "part": "Pre-Delivery Inspection (PDI) Consumables & Commissioning Kits (22 Machines)",
+      "context": "Noida Central Yard / Incoming Fleet",
+      "statusNextSteps": "22 incoming machines undergoing receiving audit, battery commissioning, fluid checks, and pre-deployment safety certification."
+    },
+    {
+      "part": "Fabricated Center Rotary Bushes & Rotary Joint Overhaul Kit",
+      "context": "Khandefit Project Fleet",
+      "statusNextSteps": "Custom bushes successfully fabricated at central workshop; assembly staged for installation during scheduled shutdown after 30th September."
+    },
+    {
+      "part": "Heavy-Duty Rear Axle Bearing Set & Spindle Shims",
+      "context": "Hyderabad Fleet — Hydraulic Machine",
+      "statusNextSteps": "Field mechanics actively installing replacement bearing cups and races to eliminate grinding noise and restore smooth axle rotation."
+    }
+  ],
+  "directives": [
+    {
+      "title": "OEM Warranty Exclusion on Physically Damaged Key Switches & Cross-Rental Operator Liability",
+      "points": [
+        "Rejection of Operator Damage Claims: Key switch assemblies broken or sheared by operator force on cross-rental machines (such as ACS S1932E) will not be entertained or replaced under OEM manufacturer warranty. OEM inspectors routinely reject warranty claims for broken ignition tumblers and fractured switches caused by external operator violence.",
+        "Cross-Rental Client Accountability: When equipment is rented on a dry-lease basis (without Reach International operators), site supervisors must conduct a joint condition audit at handover. Any physical damage to switches, joysticks, or consoles must be formally billed back to the client or rental agency via debit note.",
+        "Strict Physical Verification: Central inventory will not release replacement key switches without verified photographic proof and formal Google Form logging to prevent untracked inventory leakage."
+      ]
+    },
+    {
+      "title": "Zero-Tolerance Protocol on Delayed Vendor Payments Halting Critical Spares Dispatches",
+      "points": [
+        "Elimination of Procurement Blockades: As demonstrated by the Jaisalmer hydraulic seal deadlock and Mundra JDT delays, critical field repairs must not be paralyzed by delayed accounts processing.",
+        "Prioritized Spare Parts Invoicing: The finance and accounts desk must maintain an active whitelist for critical machine part suppliers and ensure timely payment releases to protect vendor credit lines and prevent parts withholding.",
+        "Supervisor Status Visibility: Site managers and field technicians must be kept informed of payment clearance statuses through CRM/ERP logs to avoid conflicting field reports and vendor friction."
+      ]
+    },
+    {
+      "title": "Mandatory Pre-Delivery Inspection (PDI) & Commissioning Audit for New Fleet Influx (22 Machines)",
+      "points": [
+        "Strict Inward Quality Inspection: With 22 machines received at the Noida hub, no equipment may be deployed to client sites without completing a rigorous Pre-Delivery Inspection (PDI) checklist covering electrical integrity, hydraulic pressures, emergency stop circuits, tyre condition, and charger calibration.",
+        "Standardized Commissioning Certification: Field coordinators (Ambrish, Umesh) must sign off on official commissioning sheets before any unit is loaded for outward dispatch."
+      ]
+    },
+    {
+      "title": "Rigorous Google Form Compliance for All Electrical & Mechanical Breakdowns",
+      "points": [
+        "Universal Submission Mandate: Requisitions for fuse boxes, key switches, hydraulic lines, and batteries must be logged through official Google Form / CRM portals with machine serial number, operating hours, and photo evidence.",
+        "Elimination of Verbal Requests: Verbal requests over telephone calls will not be prioritized by central dispatch."
+      ]
+    },
+    {
+      "title": "Site Space Clearance & Decommissioned Material Retrieval Mandate",
+      "points": [
+        "Removal of Obsolete Inventory: Old electrical cables, rejected wires, and decommissioned machine components stored at temporary rental accommodations (e.g. Para site) must be consolidated and freighted to Delhi central stores immediately upon landlord notification.",
+        "Protection Against Loss & Landlord Disputes: Site teams must not abandon company materials at third-party premises, preventing storage disputes and loss of reusable materials."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Jitendra Budhauliya",
+      "task": "Contact Babu Lal at the yard immediately to track and confirm starter motor dispatch to Bijnor; dispatch technician Manish to Zoomlion ZS14 (SN: N000063) for charging circuit repair; assign Deepak to inspect Mumbai JCB 1932 (SN: 3571591) and install replacement fuse box; coordinate Rambabu's deployment for Jabalpur Unit 510 bucket rotation repair and dual machine survey; enforce key switch warranty debit policy for cross-rental units."
+    },
+    {
+      "person": "Shiv Uniyal",
+      "task": "Coordinate the immediate return / recall of technician Govind from Panipat; monitor train schedule for midnight platform handover of the diagnostic laptop consignment to Panipat site team; arrange transportation to freight old storage wires from Para site to Delhi central stores."
+    },
+    {
+      "person": "Umesh Kumar",
+      "task": "Deploy qualified JCB mechanic to attend JCB 1932 breakdown; coordinate technician allocations for Noida Sector 62 repair, Sector 143 AGM battery fitment, and PDI commissioning for 22 newly arrived machines; obtain status clearance on vendor payment bottlenecks (Jaisalmer seals & Mundra JDT)."
+    },
+    {
+      "person": "Pandit Dheeraj Dubey",
+      "task": "Update breakdown logs across CRM and Google Sheets for ACS S1932E (SN: 11127), JCB 4550 (SN: 3083093), and Mumbai 3571591; audit all incoming Google Forms for required photos and serial numbers; track spares dispatch ETA for Hyderabad JK Paper 3-ton unit."
+    },
+    {
+      "person": "Vinod Pal",
+      "task": "Coordinate with the Para site operator and property owner to pack and load the stored old electrical wires onto transport destined for Delhi central warehouse."
+    },
+    {
+      "person": "Pritam (Senior Service Engineer)",
+      "task": "Board the evening scheduled transit to Jamnagar; mobilize with diagnostic laptop, DLA adapter, and replacement controller to perform electronic calibration and commissioning on JCB T65 (SN: 65D)."
+    },
+    {
+      "person": "Deepak (Mumbai Service Engineer)",
+      "task": "Attend JCB 1932 (SN: 3571591) at Mumbai site; isolate the short circuit cause, remove the charred fuse box, and wire the replacement fuse box assembly into the main harness."
+    },
+    {
+      "person": "Rambabu (Field Service Engineer)",
+      "task": "Mobilize to Jabalpur site to execute comprehensive technical surveys on both machines and repair the aerial bucket rotation failure on Unit 510."
+    },
+    {
+      "person": "Manish (Zoomlion Specialist)",
+      "task": "Attend Zoomlion ZS14 scissor lift (SN: N000063); diagnose charger input voltage, internal rectifiers, and charging safety interlocks to restore battery charging functionality."
+    },
+    {
+      "person": "Accounts & Finance Desk (Dhruv Sharma / Procurement)",
+      "task": "Expedite urgent vendor payment release to unblock hydraulic seal kit dispatch for Jaisalmer; resolve payment status inquiry regarding Mundra JDT; ensure uninterrupted credit lines for critical replacement parts."
+    }
+  ]
+}

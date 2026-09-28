@@ -1,0 +1,193 @@
+{
+  "id": "meet-2026-09-28",
+  "title": "28-09-2026",
+  "date": "2026-09-28",
+  "dateDisplay": "28-09-2026",
+  "dateFormatted": "28-09-2026",
+  "focus": "Korba JCB 3240 Platform Controller 1-Month Warranty Breakdown & Dedicated JCB Escalation Protocol, Zoomlion Scissor Deep Discharge Diagnosis vs Faulty Charger Misconception, JK Paper 3-Ton Forklift Mast & Side Shifter 48-Hour Dispatch Commitment, Surat Sardarji Workshop Crane Motor Rewinding Delay, 2x New Hyundai 2-Ton Forklifts Deployment (Lucknow & Patna) & CRM Warranty Onboarding, Comprehensive CRM Multi-Site Breakdown Audit (Bellary, Haldia, Jammu, Jamnagar, Jabalpur, Mumbai, Patna, Bhuj, Tapi, Panipat), Bellary 3-Machine Rectification & Saint-Gobain 4 PM Review, Bhatinda Digital Load Cell Supplier Follow-up, and Depot Scrap Battery Disposal Mobilization",
+  "isHoliday": false,
+  "holidayName": "",
+  "breakdowns": [
+    {
+      "site": "Korba Project Site — JCB 3240 Electric Scissor Lift (Warranty) 28-Day Platform Controller Breakdown",
+      "issue": "A JCB 3240 electric scissor lift deployed under rental contract at Korba has been completely immobilized since 1st September (28 days downtime) due to a defective upper platform controller (PCON) and contactor failure. The machine is actively covered under OEM manufacturer warranty. A complaint was logged on 10th September and part requisition raised on 14th September; however, JCB distributor reported zero stock and failed to provide delivery timelines. Dhruv Sharma strongly reprimanded the service desk for tolerating a month-long breakdown on a warranty machine without high-level escalation.",
+      "action": "Dinesh assigned full individual ownership of JCB warranty cases. Mandated to post daily reminder email screenshots to the dedicated JCB leadership group (Archit, Prashant, Panchal, Vishal) and attend an urgent 10:30 AM joint review meeting with JCB management to force emergency dispatch of the controller.",
+      "status": "Critical Warranty Escalation — 28-Day Downtime; JCB Supplier Stockout; Dinesh Assigned Sole Daily Escalation Protocol"
+    },
+    {
+      "site": "Zoomlion Scissor Lift Fleet — Battery Bank Deep Discharge Misdiagnosed as Charger Breakdown",
+      "issue": "A Zoomlion scissor lift reported as experiencing on-board charger breakdown was investigated on-site by technician Manish. The diagnostic revealed the charger hardware was completely intact; the traction battery pack had suffered severe deep discharge, and unauthorized personnel had altered the internal charging profile parameters, preventing the display from initiating charging cycles. The incident highlighted technical misdiagnosis in the field that almost caused an unnecessary, expensive charger purchase.",
+      "action": "Manish coordinated with Zoomlion technical support, restored the factory charging profile, and successfully revived the battery pack to full operational capacity. Shiv Uniyal and Dhruv Sharma directed engineering staff to document the root cause and inspect charger settings before logging hardware replacements. Pardeep Tomar instructed to explore cost-effective sourcing for one buffer charger in central stock.",
+      "status": "Resolved & Operational — Charger Restored via Profile Reconfiguration; Deep Discharge Protocol Documented"
+    },
+    {
+      "site": "Palsana Site & JK Paper Unit — 3-Ton Forklift Mast Overhaul & Dedicated Transit Commitment",
+      "issue": "Following previous discussions regarding the 3-ton warehouse forklift sent without a side shifter and the Toyota forklift at JK Paper suffering severe mast friction cutting, the dismantled mast and side shifter assembly remained at central staging awaiting refurbishment and transport finalization.",
+      "action": "Sushil Mishra committed to assigning workshop personnel to complete mechanical cleaning, rust treatment, and servicing today. Transport desk and Rahul instructed to load the consignment on a dedicated freight vehicle today, guaranteeing on-site arrival within 48 hours (by 30th September).",
+      "logistics": "Dedicated transport vehicle mobilized; dimensions and gross weight finalized for outbound freight.",
+      "status": "Active Workshop Servicing — Cleaning Underway; 48-Hour On-Site Dispatch Deadline Set by Sushil Mishra"
+    },
+    {
+      "site": "Central Fleet Yard / Surat Sardarji Workshop — 3-Ton Crane Motor Rewinding & Clamp Machining Stagnation",
+      "issue": "The 3-ton transport crane vehicle remains out of commission for over 3 days because its drive/hydraulic motor and cylinder mounting clamp plates sent to Sardarji's external workshop in Surat have not been returned. Inspection revealed neither the rewinding nor the clamp fabrication has been completed.",
+      "action": "Sushil Mishra directed to escalate directly with the Surat workshop management today to expedite motor winding testing, collect machined plates, and schedule technician remounting without further delay.",
+      "status": "Immobilized — Sardarji Workshop Delay; Zero Progress Reported; Direct Management Escalation Underway"
+    },
+    {
+      "site": "Fleet Expansion & Material Handling — 2x Brand New Hyundai 2-Ton Forklifts Commissioned (Lucknow & Patna)",
+      "issue": "Two brand-new Hyundai 2-ton diesel/electric forklifts equipped with new heavy-duty clamp attachments have been inducted into the Reach International fleet. Unit 1 has arrived safely at Lucknow; Unit 2 is en route to Patna.",
+      "action": "Dhruv Sharma instructed Hari and the CRM operations desk to immediately register both forklifts into CRM, secure pre-delivery inspection (PDI) records, and establish warranty and periodic servicing schedules to safeguard OEM manufacturer warranty terms.",
+      "status": "Fleet Induction — Lucknow Delivered, Patna in Transit; Immediate CRM Warranty Registration Mandated"
+    },
+    {
+      "site": "Bellary Mining / Industrial Site — 3-Machine Breakdown Rectification & Saint-Gobain Alignment",
+      "issue": "Three heavy machines remain immobilized at the Bellary site: Unit 502 (gearbox breakdown), Unit 510 (torque converter failure), and Unit 3002 (unrepairable electronic control card).",
+      "action": "Gearbox spares for Unit 502 arrived on site and active fitment is underway today. Unit 510 torque converter was sent to vendor Batra for ring machining. Unit 3002 replacement card quotation finalized; Dhruv Sharma scheduled a 4:00 PM management coordination call with Saint-Gobain client representatives.",
+      "status": "Under Active Rectification — Unit 502 Reassembly Underway; Unit 510 Machining; 4 PM Saint-Gobain Meeting Scheduled"
+    },
+    {
+      "site": "CRM Breakdown Register Comprehensive Audit — Multi-Site Operational Status Review",
+      "issue": "A comprehensive live review of open CRM breakdown tickets was conducted by Vaibhav Chauhan with field management, identifying unclosed resolved tickets, delayed part dispatches, and single-engineer assignment limitations:",
+      "action": "Status updates verified across 18 regional project machines: (1) Bellary Forklift #59 (Shiv & Dharmendra working; dual-engineer CRM assignment escalated to Rahul). (2) Haldia S100 (tyres on order, 5-6 days ETA; 15-core local harness deployed). (3) Vapi ATD7 (confirmed closed; test record removed). (4) Jammu S125 (Praveen coordinating site visit). (5) Jamnagar T65 & Z62 (Preetam Chand servicing Z62; T65 engine overheating investigation underway; Rs 5,000-7,000 diesel advance sanctioned). (6) Jabalpur Unit 510 (Ram Babu arrived on site; bucket rotation repair underway). (7) Mumbai JCB 1932 SN: 3571591 (Deepak completed fuse box & harness fitment; machine operational; CRM closure pending). (8) Patna 800AJ (fully commissioned; CRM closure pending). (9) Bellary Unit #59 (parts arrived on site). (10) Jaisalmer 660 (Govind completed repairs; machine running). (11) Greater Noida SGS 1930 (battery, GCON, charger, and PCON replaced; machine running). (12) Korba ST 2446E (PCON installed; Trilochan instructed to close ticket). (13) Greater Noida S1932E (hydraulic pipe replaced; operational). (14) Golaghat Assam 120SSJ (bucket swing fixed by Veenu; operational). (15) Greater Noida A100 (repaired and running). (16) Ambala B182 (starting problem resolved; load cell pending). (17) Tapi #650 Units 4984/3345/9411/7117 (steering unit leakage fixed on 2 units, balance under observation). (18) Panipat Z45 (starting issue & circuit breaker resolved; ticket closed).",
+      "status": "CRM Live Review Completed — 8 Resolved Tickets Verified for System Closure; Field Engineering Follow-ups Assigned"
+    },
+    {
+      "site": "Hyderabad Fleet Operations — Genie 45/25 Front Axle Seal Spares Transit & Tyre Delivery",
+      "issue": "Genie 45/25 boom lift in Hyderabad undergoing front axle oil seal overhaul and replacement tyres.",
+      "action": "Sushil Mishra and Jitendra Budhauliya confirmed replacement axle seals and tyres were dispatched and are arriving on site today or tomorrow; technician mobilization confirmed.",
+      "status": "Spares in Transit — Arrival Expected Today/Tomorrow; Technician on Standby for Hub Fitment"
+    },
+    {
+      "site": "Central Depot & Field Sites — Battery Shortage, Registry Control & Scrap Clearance",
+      "issue": "(1) Sector 143 Genie scissor lift running temporarily while awaiting arrival of new 4-battery AGM bank. (2) Mohali/Chandigarh Unit 4550 experienced battery terminal failure (cleaned and video documented; Manish assigned). (3) Accumulated scrap batteries at central depot obstructing fire safety hydrants pending price negotiation.",
+      "action": "Satendra Kumar and Preetam Chand instructed to finalize scrap recycler rates and clear all obsolete batteries before evening. Manish assigned to inspect Chandigarh Unit 4550 battery performance.",
+      "status": "Active Management — Chandigarh Unit Assigned; Depot Scrap Clearance Under Final Negotiation"
+    },
+    {
+      "site": "Bhatinda Project Site & Accounts Desk — Digital Load Cell Vendor Commercial Follow-up",
+      "issue": "Digital load cell dispatches for 4 machines at Bhatinda remain withheld pending vendor call connection and payment confirmations.",
+      "action": "Jitendra Budhauliya re-dialing vendor today to resolve communication gap and confirm bank remittance details with finance desk.",
+      "status": "Commercial Follow-up — Supplier Direct Call Scheduled Today to Release 4 Bhatinda Sensors"
+    }
+  ],
+  "parts": [
+    {
+      "part": "JCB 3240 Upper Platform Controller (PCON) & Contactor Assembly",
+      "context": "Korba Project Site (JCB Scissor Lift)",
+      "statusNextSteps": "Under OEM warranty; 28-day delay; Dinesh escalating daily with JCB management (Archit/Panchal) to force stock release."
+    },
+    {
+      "part": "Toyota 3-Ton Forklift Mast Assembly & Side Shifter",
+      "context": "JK Paper & Palsana Project Sites",
+      "statusNextSteps": "Cleaning and servicing concluding today; dedicated transport vehicle booked; guaranteed 48-hour delivery timeline."
+    },
+    {
+      "part": "3-Ton Crane Drive/Hydraulic Motor & Cylinder Clamp Plates",
+      "context": "Surat Sardarji Workshop / JK Paper Unit",
+      "statusNextSteps": "Motor rewinding and plate machining stalled; direct executive follow-up initiated to complete testing and collection."
+    },
+    {
+      "part": "Zoomlion Scissor Lift Battery Charger (48V / High-Frequency)",
+      "context": "Central Store Buffer Stock Requisition",
+      "statusNextSteps": "Field unit restored via profile reset; store team instructed to evaluate cost-effective vendor sources for 1 standby stock unit."
+    },
+    {
+      "part": "Bellary Unit 502 Gearbox Replacement Gears & Bearings",
+      "context": "Bellary Mining Fleet",
+      "statusNextSteps": "Spares delivered to site; technician on site executing mechanical reassembly and test run."
+    },
+    {
+      "part": "Bellary Unit 510 Torque Converter Ring Spares",
+      "context": "Bellary Mining Fleet / Vendor Batra",
+      "statusNextSteps": "Torque converter unit at vendor facility for precision ring machining; follow-up scheduled today."
+    },
+    {
+      "part": "Bellary Unit 3002 Main Electronic Control Card",
+      "context": "Bellary Mining Fleet",
+      "statusNextSteps": "Card deemed unrepairable; formal replacement quotation processed; Saint-Gobain 4 PM meeting to finalize order."
+    },
+    {
+      "part": "Genie 45/25 Front Axle Oil Seals & Replacement Tyres",
+      "context": "Hyderabad Fleet Operations",
+      "statusNextSteps": "Material in transit; delivery expected today/tomorrow; local technician assigned to replace seals and mount tyres."
+    },
+    {
+      "part": "E4 FPS Wiring Harness & Electronic Control Cards (10-Item Package)",
+      "context": "Sandila Project Site",
+      "statusNextSteps": "3 of 10 items received in central stock; part numbers being cross-referenced; supplier payment release pending."
+    },
+    {
+      "part": "Haldia S100 Heavy Equipment Tyres & 15-Core Wiring Harness",
+      "context": "Haldia Project Site",
+      "statusNextSteps": "Tyres ordered (ETA 5-6 days); 15-core specialized harness dispatched locally to restore electrical circuits."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Strict Warranty Escalation Protocol for OEM Equipment (JCB / Zoomlion)",
+      "points": [
+        "Zero Tolerance for Inactive Warranty Breakdowns: Rental machines under OEM warranty must never sit unattended for weeks. Dedicated warranty handlers (Dinesh) must send formal daily reminders, maintain written audit trails, and post correspondence screenshots to senior management groups.",
+        "Management Intervention Threshold: If an OEM distributor or dealer fails to provide tracking details within 48 hours of ticket placement, the issue must be escalated immediately to executive management (Archit/Panchal)."
+      ]
+    },
+    {
+      "title": "Mandatory Technical Root-Cause Verification Before Ordering Electrical Parts",
+      "points": [
+        "In-Depth Diagnostic First: Field engineers must conduct systematic diagnostic checks (voltage drop, deep discharge, profile settings) before concluding an expensive electronic assembly (such as a charger or controller) is damaged.",
+        "Prevent Misdiagnosis Costs: Misclassifying deep discharge as a dead charger wastes operational funds and prolongs customer downtime. Technicians must consult OEM technical manuals and verify charging parameters."
+      ]
+    },
+    {
+      "title": "New Fleet Induction & CRM Warranty Compliance Mandate",
+      "points": [
+        "Immediate CRM Onboarding: Newly purchased equipment (e.g. Hyundai 2-Ton Forklifts) must be registered in CRM on the date of physical receipt, complete with serial numbers, delivery challans, and attachment specifications.",
+        "Service & Warranty Protection: Commissioning checklists and PDI certificates must be uploaded immediately to guarantee complete OEM warranty protection."
+      ]
+    },
+    {
+      "title": "CRM Breakdown Ticket Lifecycle & Field Engineer Accountability",
+      "points": [
+        "Timely System Closure: Service engineers and mechanics must close resolved CRM complaint tickets within 24 hours of machine handoff. Central coordinators must conduct bi-weekly audits to eliminate backlog.",
+        "Dual-Engineer Allocation Protocol: CRM workflow team to review and enable multi-engineer assignment capability for complex overhauls requiring joint technician teams."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Dhruv Sharma",
+      "task": "Lead JCB senior management warranty escalation meeting for Korba 3240 controller; host 4:00 PM Saint-Gobain client call regarding Bellary Unit 3002 card; sanction advance diesel funds for Jamnagar technician Preetam Chand."
+    },
+    {
+      "person": "Jitendra Budhauliya",
+      "task": "Execute direct phone follow-up with Bhatinda load cell supplier to finalize dispatch; coordinate Sandila E4 FPS control card and harness stock intake; oversee CRM complaint ticket closures across field sites."
+    },
+    {
+      "person": "Sushil Mishra",
+      "task": "Enforce 48-hour transit commitment for JK Paper 3-ton forklift mast and side shifter; pursue Surat Sardarji workshop for completion of crane motor rewinding and clamp plates; attend JCB warranty review."
+    },
+    {
+      "person": "Pardeep Tomar",
+      "task": "Cross-check part numbers and stock intake for Sandila E4 FPS cards and harness; supervise workshop boys cleaning the JK Paper mast; evaluate quotations for a backup stock charger."
+    },
+    {
+      "person": "Dinesh",
+      "task": "Act as sole responsible coordinator for JCB warranty cases; post daily reminder email screenshots on JCB executive group; drive emergency release of Korba 3240 PCON and pending stock controllers."
+    },
+    {
+      "person": "Shiv Uniyal",
+      "task": "Document Zoomlion charger profile misdiagnosis and battery deep discharge recovery procedure for technical guidance; oversee depot scrap battery commercial clearance."
+    },
+    {
+      "person": "Vaibhav Chauhan",
+      "task": "Update CRM complaint register with verified resolved tickets (Mumbai 1932, Patna 800AJ, Jaisalmer 660, Panipat Z45, Bhadrak S125); coordinate multi-engineer assignment feature with Rahul."
+    },
+    {
+      "person": "Satendra Kumar & Preetam Chand",
+      "task": "Finalize central depot scrap battery sales before evening to clear fire line violations; execute periodic servicing and engine overheating diagnostics on Jamnagar refinery T65 boom lift."
+    },
+    {
+      "person": "Hari / CRM Operations Desk",
+      "task": "Register the 2 newly delivered Hyundai 2-ton forklifts (Lucknow & Patna) into CRM with complete serial numbers, PDI checklists, and warranty tracking schedules."
+    }
+  ]
+}

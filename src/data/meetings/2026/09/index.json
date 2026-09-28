@@ -2,8 +2,23 @@
   "year": "2026",
   "month": "09",
   "monthName": "September",
-  "meetingCount": 27,
+  "meetingCount": 28,
   "meetings": [
+    {
+      "id": "meet-2026-09-28",
+      "date": "2026-09-28",
+      "dateDisplay": "28-09-2026",
+      "dateFormatted": "28-09-2026",
+      "title": "28-09-2026",
+      "focus": "Korba JCB 3240 Platform Controller 1-Month Warranty Breakdown & Dedicated JCB Escalation Protocol, Zoomlion Scissor Deep Discharge Diagnosis vs Faulty Charger Misconception, JK Paper 3-Ton Forklift Mast & Side Shifter 48-Hour Dispatch Commitment, Surat Sardarji Workshop Crane Motor Rewinding Delay, 2x New Hyundai 2-Ton Forklifts Deployment (Lucknow & Patna) & CRM Warranty Onboarding, Comprehensive CRM Multi-Site Breakdown Audit (Bellary, Haldia, Jammu, Jamnagar, Jabalpur, Mumbai, Patna, Bhuj, Tapi, Panipat), Bellary 3-Machine Rectification & Saint-Gobain 4 PM Review, Bhatinda Digital Load Cell Supplier Follow-up, and Depot Scrap Battery Disposal Mobilization",
+      "isHoliday": false,
+      "holidayName": "",
+      "breakdownCount": 10,
+      "partsCount": 10,
+      "directivesCount": 4,
+      "actionItemsCount": 9,
+      "path": "/data/meetings/2026/09/28.json"
+    },
     {
       "id": "meet-2026-09-27",
       "date": "2026-09-27",

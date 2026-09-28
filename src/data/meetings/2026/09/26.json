@@ -1,0 +1,184 @@
+{
+  "id": "meet-2026-09-26",
+  "title": "26-09-2026",
+  "date": "2026-09-26",
+  "dateDisplay": "26-09-2026",
+  "dateFormatted": "26-09-2026",
+  "focus": "Order Picker Battery Procurement Closure Pre-Lunch, Palsana 3-Ton Forklift Missing Side Shifter & JK Paper Toyota Mast Cutting Overhaul, Dedicated Heavy Transport Sizing (Weight & Dimensions), Hyderabad Genie 45/25 Front Axle Chronic 15-Day Oil Leakage Hazard, Sardarji Workshop 3-Ton Crane Motor Rewinding & Cylinder Clamp Plate Machining Follow-up, Fleet Battery Registry Audit & Fire Hydrant Scrap Battery Disposal Clearance, Noida Sector 143 Genie Scissor 4-AGM Battery Conversion & Voltage Collapse Rectification, Bhatinda Digital Load Cell Vendor Payment Standoff, Diagnostic Laptop Mobilization for Post-Departure Faults, Kochi Hydraulic Hose Rupture Local Resolution, and Jamnagar Refinery Security Gate Pass Entry for 6-Machine Periodic Maintenance",
+  "isHoliday": false,
+  "holidayName": "",
+  "breakdowns": [
+    {
+      "site": "Palsana Project Site & JK Paper Unit — 3-Ton Warehouse Forklift Side Shifter Absence & Toyota Mast Friction Damage",
+      "issue": "(1) A 3-ton forklift dispatched from the warehouse to the Palsana site went without PRC forks and side shifter, paralyzing operations and triggering recurring client escalations. (2) At the JK Paper site, a Toyota forklift mast is rubbing and severely cutting into metal during travel ('ragad ke chal raha hai, cut gaya hai'), risking catastrophic mast shearing if operated further.",
+      "action": "Store and service teams mobilized to dismantle the mast and side shifter assembly from an older decommissioned unit. Dedicated workshop boys assigned to clean, chemically treat, and service the mast prior to shipping. Due to steep third-party freight quotes, Umesh and transport desk were instructed to measure exact dimensions and gross weight immediately to contract a dedicated vehicle.",
+      "logistics": "Dedicated transport vehicle required for heavy mast and shifter assembly; dimensions and weight being finalized for booking.",
+      "status": "Urgent Mobilization — Mast Servicing & Cleaning Underway; Dimensions/Weight Required for Dedicated Vehicle Booking"
+    },
+    {
+      "site": "Hyderabad Fleet Operations — Genie 45/25 Articulated Boom Lift Front Axle Severe Oil Leakage",
+      "issue": "A Genie boom lift (Model 45/25 / 45/50 series) deployed at Hyderabad has been operating with a severe front axle oil seal leak for over 15 days. The site operator tied a cloth around the front axle hub to absorb oil and kept the machine running ('kapda bandh ke operator chala raha hai, 15 din se zyada ho gaya'). Continuing to run the machine risks catastrophic wheel bearing seizure, differential failure, and major safety hazards.",
+      "action": "Serial number verification prioritized with Ravi Tiwari. Emergency order and dispatch of front axle oil seals and hub rebuild kit initiated; operator instructed to halt hazardous running immediately pending technician overhaul.",
+      "status": "Critical Mechanical Alert — 15-Day Chronic Axle Leakage; Serial Number Verification & Emergency Seal Replacement Initiated"
+    },
+    {
+      "site": "Central Fleet Yard / Sardarji External Workshop — 3-Ton Crane Motor Overhaul & Cylinder Clamp Plates",
+      "issue": "A 3-ton transport crane vehicle has remained immobilized for 3 days awaiting return of its drive/hydraulic motor sent out for rewinding to Sardarji's workshop. Cylinder mounting plates and clamp assemblies were also removed for machining (Rs 200 plate repair + clamp fitment). Operational follow-up stalled due to lack of direct coordination with the vendor.",
+      "action": "Management acquired vendor direct contact to follow up immediately with Sardarji, expedite motor rewinding assembly, inspect clamp plates, and complete vehicle remounting today.",
+      "status": "Immobilized 3 Days — Motor at Rewinding Workshop; Clamp Plates in Machining; Direct Vendor Escalation Initiated"
+    },
+    {
+      "site": "Noida Sector 143 Fleet — Genie Electric Scissor Lift (2940/3240 Class) Battery Bank Voltage Collapse & Chemistry Mismatch",
+      "issue": "Scissor lift at Sector 143 experienced recurring tripping and voltage collapse to 2.5V–3.0V under load after full charging. Technical inspection revealed an improper chemistry mix: 3 AGM batteries paired with 1 conventional lead-acid battery, charged via an incompatible heavy-duty charger. These batteries were secondhand units transferred from Mumbai after servicing 23+ sites and have completed their useful lifecycle. Replacing only 1 or 2 batteries will quickly degrade new cells due to imbalance.",
+      "action": "Technical leadership (Shiv Uniyal) mandated replacing the entire bank of 4 batteries with a brand-new, matched AGM battery set rather than piecemeal replacement. Charger settings/model to be verified to match AGM charging curves.",
+      "status": "Operational Stoppage — Battery Bank Imbalance (3 AGM + 1 Lead Acid); Full 4-Battery AGM Replacement Approved"
+    },
+    {
+      "site": "Central Warehouse & Depot Operations — Battery Fleet Registry Audit & Scrap Battery Fire Hydrant Clearance",
+      "issue": "(1) Fleet operations experiencing recurring battery shortages (7 active units running, Unit #16 battery repeatedly failing; minimum 2 new batteries urgently requested). Field managers failed to submit comprehensive serial numbers and commissioning dates. (2) Scrap dead batteries accumulated at depot are stacked near the fire safety pipeline. Scrap recyclers are stalling collection due to dropping scrap lead prices in Delhi NCR. Fire safety inspectors are conducting frequent rounds and issuing strict notices against pipeline obstruction.",
+      "action": "Central store ordered an immediate mandatory battery registry (logging brand, serial number, commission date, and machine number for all 6-7 batteries in service) before releasing new stock. Scrap vendor instructed to lift old batteries immediately regardless of current scrap market rates to eliminate fire compliance violations.",
+      "status": "Compliance & Asset Alert — Battery Registry Mandated; Scrap Lead Price Drop Stalling Pickup; Urgent Fire Line Clearance Ordered"
+    },
+    {
+      "site": "Bhatinda Project Site & Multi-Depot Fleet — Digital Load Cell Delivery Freeze Over Vendor Payment Stoppage",
+      "issue": "Digital load cell sensor packages earmarked for 4 machines at Bhatinda and additional depots remain frozen. The vendor has refused to dispatch sensors without advance payment clearance following the expiry of earlier agreement terms. Project team was forced to manually generate calibration certificates because vendor support ceased.",
+      "action": "Accounts desk (Dhruv Sharma / Mishra Ji) instructed to immediately release approved supplier funds to clear vendor deadlock and secure urgent dispatch of the 4 Bhatinda load cells.",
+      "status": "Commercial Standoff — 4 Load Cells Withheld by Vendor; Expired Agreement; Accounts Payment Release Escalated"
+    },
+    {
+      "site": "Field Diagnostics & Fleet Electronic Troubleshooting — Laptop Retention & Post-Departure Machine Breakdowns",
+      "issue": "Critical diagnostic programming laptop was retained by technician Parveen for over a week to a month without systematic utilization. Immediately upon his departure from site, equipment suffered breakdown. Another machine at Folder/Dozotikka reported electronic control faults right after technician movement, requiring laptop redeployment.",
+      "action": "Mandated strict protocol for centralized diagnostic laptop handovers. Diagnostic kit to be retrieved and mobilized immediately to scan and rectify electronic fault codes on the grounded unit.",
+      "status": "Diagnostic Equipment Coordination — Laptop Redeployment Required for Post-Departure Breakdowns; Turnover Protocol Enforced"
+    },
+    {
+      "site": "Kochi Project Site — Operational Machine Hydraulic Line Burst",
+      "issue": "A heavy hydraulic pressure hose ruptured on an operational machine deployed at the Kochi site, grounding the platform.",
+      "action": "Site operator mobilized to remove the ruptured hydraulic pipe locally and coordinate rapid crimping or replacement to avoid transit wait times from central store.",
+      "status": "Breakdown Under Repair — Hydraulic Pipe Ruptured; Local Operator Mobilized for Removal and Hose Crimping"
+    },
+    {
+      "site": "Jamnagar ('Gram Nagar') Refinery Fleet — Gate Entry Clearance & 6-Machine Periodic Overhaul Mobilization",
+      "issue": "Periodic preventive servicing (oil and filter overhauls) for 6 heavy boom lifts at Jamnagar refinery is awaiting security gate entry pass approvals for technicians and specialized tools (laptop, DLA adapter, calibration kits).",
+      "action": "Satendra Kumar confirmed official entry application email submitted; entry clearance expected by evening. Dispatched mechanical fitters stationed and ready to initiate comprehensive servicing and DLA calibration as soon as security badges are issued.",
+      "status": "Entry Authorization Pending — Security Email Submitted; Approval Expected by Evening; Fitters & Calibration Kits on Standby"
+    },
+    {
+      "site": "Central Procurement & Operations Desk — Order Picker Battery Purchase Order & Daily Progress Reporting",
+      "issue": "(1) Order picker battery requisition requires immediate closure. (2) Daily operational progress reports were halted, causing visibility gap for top management on active fleet repairs.",
+      "action": "Purchase order for the order picker battery finalized with supplier before lunch hours. Daily reporting restored with mandatory daily site status submissions.",
+      "status": "In Progress — Order Picker Battery PO Finalized Pre-Lunch; Daily Reporting Protocol Reactivated"
+    }
+  ],
+  "parts": [
+    {
+      "part": "Toyota 3-Ton Forklift Mast Assembly & Side Shifter",
+      "context": "JK Paper & Palsana Project Sites",
+      "statusNextSteps": "Mast and side shifter salvaged from older unit, serviced, and cleaned; dimensions and gross weight being finalized for dedicated transport vehicle."
+    },
+    {
+      "part": "Genie 45/25 Front Axle Oil Seal Kit & Drivetrain Lubricant",
+      "context": "Hyderabad Fleet Operations",
+      "statusNextSteps": "Serial number verification in progress; emergency seal kit to be dispatched to halt hazardous operation and prevent hub seizure."
+    },
+    {
+      "part": "Genie Scissor Lift AGM 6V/12V Deep Cycle Batteries (Set of 4)",
+      "context": "Noida Sector 143 Fleet (Unit 2940/3240 Class)",
+      "statusNextSteps": "Full 4-battery AGM replacement bank approved to eliminate lead-acid chemistry mismatch and rectify voltage collapse to 2.5V."
+    },
+    {
+      "part": "Order Picker Heavy-Duty Traction Battery Set",
+      "context": "Central Warehouse / Logistics Staging",
+      "statusNextSteps": "Purchase order finalized with vendor before lunch hours for immediate replenishment."
+    },
+    {
+      "part": "Digital Load Cell Sensor Units (4 Assemblies)",
+      "context": "Bhatinda Project Sites & Heavy Boom Fleet",
+      "statusNextSteps": "Consignment withheld at vendor facility pending payment clearance; accounts desk tasked with immediate fund transfer."
+    },
+    {
+      "part": "3-Ton Crane Hydraulic/Drive Motor & Cylinder Mounting Plates",
+      "context": "Central Fleet Yard / Sardarji Workshop",
+      "statusNextSteps": "Motor undergoing rewinding; cylinder clamp plates machined (Rs 200); direct vendor escalation underway for assembly."
+    },
+    {
+      "part": "Diagnostic Calibration Laptop & DLA Adapter Kit",
+      "context": "Jamnagar Refinery & Field Breakdowns",
+      "statusNextSteps": "Security gate pass mail submitted; staged for entry approval at Jamnagar refinery for 6-machine maintenance and electronic calibration."
+    },
+    {
+      "part": "High-Pressure Hydraulic Hose Assembly",
+      "context": "Kochi Project Site",
+      "statusNextSteps": "Ruptured pipe dismantled by site operator; local hydraulic crimping and reinstallation underway to minimize downtime."
+    },
+    {
+      "part": "Scrap Lead-Acid Decommissioned Batteries (Batch Lot)",
+      "context": "Central Yard Fire Hydrant Zone",
+      "statusNextSteps": "Immediate collection mandated with scrap recyclers despite Delhi price drop to clear fire pipeline obstructions."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Strict Prohibition of Mixing Battery Chemistries & Full Bank Replacement Rule",
+      "points": [
+        "Prohibition of Mixed Chemistries: Technicians must never mix AGM (Absorbent Glass Mat) and flooded Lead-Acid batteries in the same battery bank (as observed at Noida Sector 143). Differences in internal resistance and charging profiles lead to rapid cell destruction, severe voltage sag, and charger malfunction.",
+        "Complete Bank Replacement: When traction batteries have completed extensive field service (such as multi-site Bombay fleet units), replace all 4 batteries simultaneously. Piecemeal replacement of 1-2 batteries will destroy new batteries within weeks."
+      ]
+    },
+    {
+      "title": "Mandatory Central Battery Registry & Fleet Asset Tracking",
+      "points": [
+        "Comprehensive Battery Audit: Central store and site supervisors must maintain a complete battery log recording battery brand, model, serial numbers, commissioning date, and assigned machine serial number for all operational units before requisitioning replacements.",
+        "Scrap Disposal Compliance: Scrap and condemned batteries must never be stored near fire hydrant lines or emergency exits. Scrap dealers must be mobilized immediately to prevent statutory fire safety non-compliance."
+      ]
+    },
+    {
+      "title": "Pre-Dispatch Dimensional & Weight Assessment for Heavy Consignments",
+      "points": [
+        "Logistics Planning: Bulky assemblies such as forklift masts, counterweights, and side shifters must be measured for precise dimensional envelope (L x W x H) and gross weight before booking transport to optimize freight costs and eliminate transporter refusal.",
+        "Workshop Quality Check: Decommissioned parts salvaged for reuse must undergo thorough chemical cleaning, rust removal, and functional inspection by designated workshop staff before outbound dispatch."
+      ]
+    },
+    {
+      "title": "Resolution Protocol for Commercial Vendor Payment Deadlocks",
+      "points": [
+        "Timely Vendor Fund Release: Critical safety and diagnostic components (such as Bhatinda digital load cells) must not be stalled due to administrative payment delays; finance desk must prioritize vendor clearances on scheduled payment cycles.",
+        "Diagnostic Equipment Custody: Diagnostic laptops and OEM calibration adapters are shared corporate assets and must not be retained by individual technicians for extended periods without management clearance."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Dhruv Sharma",
+      "task": "Finalize purchase order and fund release for order picker battery before lunch; clear pending accounts payment for Bhatinda load cell vendor; coordinate freight logistics for heavy mast transit to Palsana."
+    },
+    {
+      "person": "Sushil Mishra",
+      "task": "Expedite vendor payments for load cells and external machining; coordinate with Sardarji's workshop for return of rewound 3-ton crane motor and cylinder clamp plates; follow up on battery procurement quotes."
+    },
+    {
+      "person": "Umesh Kumar",
+      "task": "Obtain exact dimensions and gross weight for the Palsana 3-ton forklift mast and side shifter; book dedicated transport vehicle; track Noida Sector 143 4-battery AGM replacement dispatch; arrange scrap battery lifting from fire line."
+    },
+    {
+      "person": "Shiv Uniyal",
+      "task": "Enforce uniform AGM battery specifications on Noida Sector 143 scissor lift; inspect charger compatibility; oversee workshop technicians cleaning and servicing the JK Paper Toyota mast prior to dispatch."
+    },
+    {
+      "person": "Ravi Tiwari",
+      "task": "Confirm exact serial number and model of Hyderabad Genie 45/25 boom lift; arrange immediate dispatch of front axle oil seals; follow up on machine axle repair."
+    },
+    {
+      "person": "Shivam Pandey",
+      "task": "Maintain battery registry sheet across active machines; contact scrap lead vendors to clear obsolete batteries from depot fire lines today; liaise with field operators on daily reporting."
+    },
+    {
+      "person": "Satendra Kumar",
+      "task": "Track Jamnagar refinery entry gate pass approval mail expected by evening; mobilize fitters, diagnostic laptop, and DLA kits for immediate 6-machine servicing upon entry clearance."
+    },
+    {
+      "person": "Kochi Site Operator / Field Team",
+      "task": "Dismantle ruptured hydraulic hose on Kochi machine; get hose crimped and refitted locally to restore machine operation without downtime."
+    }
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "id": "meet-2026-09-30",
+  "title": "30-09-2026",
+  "date": "2026-09-30",
+  "dateDisplay": "30-09-2026",
+  "dateFormatted": "30-09-2026",
+  "focus": "Fleet Operational Review & 80ft Boom Lift Activation, Maharashtra / Vapi 1-Ton Electric Breakdown (Blank Display & Sluggish Drive), Bellary Unit 502 Gearbox Spares Fitment & Mandatory CRM Cost/Part Ledger Directive, Quantitative Battery Testing Protocol (Specific Gravity & Voltage Under Load vs Premature 'Dead Battery' Claims), Greater Noida SGS 1930 Battery Chemistry Mismatch (3 AGM + 1 Flooded) & Unit 600 Manifold Leak, Rajkot 4550 Scissor Lift Client Dehire Escalation (1.5–2 Month Delay in Batteries & Limit Switch), Machine Dehire Repercussions (Bombay D65 & Purba Delayed Spares), Anuppur Pressure Sensor & Valve Express Rail Dispatch to Ram Babu, Korba 1200 Engine Starter Overhaul & Overnight Burst Pipe Replacement, Jamnagar Field Purchase Billing Freeze & Wholesale Mundra 100L Oil/Water Procurement, Sanand Induction of 4x Brand New 1932 Scissor Lifts (PDI & Commissioning Protocol), and Depot Scrap Battery Valuation & Tire Logistics to Delhi HQ",
+  "isHoliday": false,
+  "holidayName": "",
+  "breakdowns": [
+    {
+      "site": "Maharashtra / Vapi Project Site — 1-Ton Electric Warehouse Equipment Electrical Immobilization & Speed Malfunction",
+      "issue": "A 1-ton electric machine deployed at Vapi (Maharashtra) suffered an electrical breakdown. The operator console/display is completely blank ('display me kuch nahi aa raha hai') and the machine refuses to start. In addition, another unit at the site is experiencing drive sluggishness and control code errors ('code kaam nahi kar raha, speed slow bol rahe').",
+      "action": "Electrical service technician assigned to test the main fuse line, ignition key switch circuit, DC-DC converter, and traction controller error codes today to restore operational status.",
+      "status": "Electrical Breakdown — Display Blank & Machine Dead; Traction Controller Diagnostic Underway"
+    },
+    {
+      "site": "Bellary Mining Fleet — Unit 502 Gearbox Parts Delivery & Mandatory CRM Cost/Part Ledger Directive",
+      "issue": "Unit 502 gearbox replacement gears and bearings arrived on site after transit delay, along with additional spares delivered yesterday. Reassembly is commencing today. However, management noticed that historical repair records in CRM lack part details and rupee costs, leaving zero visibility into total vehicle lifecycle expenditures after 3 months.",
+      "action": "Field engineers instructed to finish mechanical fitment today. Sushil Mishra and Dhruv Sharma directed that CRM must reflect the complete parts list and exact total expenditure (parts, labor, freight) for Unit 502.",
+      "status": "Under Fitment — Unit 502 Spares Arrived On-Site; Full CRM Cost & Part Value Logging Mandated"
+    },
+    {
+      "site": "Greater Noida Project Fleet — SGS 1930 (Unit 21732) Battery Chemistry Mismatch & Unit 600 Manifold Oil Leak",
+      "issue": "(1) Greater Noida SGS 1930 scissor lift (Unit 21732) is failing due to an erratic battery bank. Investigation revealed an improper mismatch of 3 AGM batteries paired with 1 flooded/water battery cannibalized from an old unit. Central stock only has 1 AGM battery available, which cannot balance the bank. (2) Greater Noida 600 boom lift has an active oil leak from the hydraulic manifold; Bahadurgarh 3246 manifold leak also remains partially unrectified.",
+      "action": "Dispatched service team to Noida today with strict mandate that no machine shall remain grounded. Sourcing 2 matched AGM batteries approved to restore 21732. Hydraulic service team dispatched to inspect manifold seals on Unit 600.",
+      "status": "Active Rectification — Technicians Mobilized to Noida; 2 AGM Batteries Sourced; Manifold Leak Overhaul Underway"
+    },
+    {
+      "site": "Rajkot Project Site — 4550 Scissor Lift Client Dehire Escalation (1.5–2 Month Battery & Limit Switch Procurement Delay)",
+      "issue": "Major operational escalation: a 4550 scissor lift at Rajkot project site was officially DEHIRED and released by the client because Reach International failed to deliver 4 replacement batteries and a limit switch for weeks. A mechanic had visited a week ago and swapped batteries between machines as a temporary stopgap, but without proper new parts the machine sat idle until the client cancelled the rental contract. Imran Khan and Subash had repeatedly raised this in WhatsApp groups and meetings. Management criticized the procurement pipeline for tolerating 1.5 to 2-month parts delays (reminiscent of Purba site spares arriving months late).",
+      "action": "The dehired 4550 unit must be redeployed to another site immediately. An urgent requisition for a full set of 4 brand-new batteries and limit switch was authorized with strict zero-delay dispatch instructions ('hafta 10 din ka time mat mangna').",
+      "status": "Client Dehire Escalation — 4550 Released by Client due to Prolonged Spares Delay; Immediate 4-Battery Dispatch for Redeployment"
+    },
+    {
+      "site": "Bombay Project Site / Heavy Fleet — Machine Dehire Over Chronic 1-Month Parts Procurement Stagnation",
+      "issue": "Another major client dehire reported on a Bombay machine (D65 / heavy equipment). The machine was dehired and lost revenue after waiting over a month for purchase orders and dispatches to clear. Delays were attributed to vendor payment stalls, order classification errors (logging urgent breakdown parts as routine requirements in Google Sheets), and supplier lead times.",
+      "action": "Dhruv Sharma emphasized that while supplier terms (JCB, etc.) are constrained, internal purchase delays and failure to classify breakdown parts with top urgency in CRM are causing heavy commercial damage. Internal procurement SLA slashed.",
+      "status": "Revenue Loss — Bombay Machine Dehired; 1-Month Procurement Cycle Condemned; Direct Purchase Escalation Mandated"
+    },
+    {
+      "site": "Anuppur Project Site — Machine Sensor Requisition & Express Rail Dispatch to Ram Babu",
+      "issue": "Senior engineer Ram Babu requested critical replacement pressure sensors and a hydraulic valve to complete machine overhaul at Anuppur. Dispatch was delayed due to late night train schedules.",
+      "action": "Central store confirmed pressure sensor and valve were dispatched via express train cargo this morning. Ram Babu alerted to receive consignment at the station and initiate fitment immediately upon arrival.",
+      "status": "In Transit — Pressure Sensors & Hydraulic Valve Dispatched via Train; Ram Babu on Standby at Anuppur"
+    },
+    {
+      "site": "Korba Site & Fleet Operations — 1200 Engine Starter Failure & Hydraulic Pressure Pipe Overnight Repair",
+      "issue": "(1) Machine 1200 at Korba/Podavali suffered an engine starter motor breakdown; field mechanic opened the starter to attempt refurbishment or replacement. (2) High-pressure hydraulic pipe burst during night shift operations, disabling hydraulic functions.",
+      "action": "Mechanic fabricated and crimped a replacement high-pressure hydraulic pipe overnight for immediate fitment. Central workshop alerted to arrange starter motor repair/replacement if local overhaul fails.",
+      "status": "Emergency Repair — Ruptured Hydraulic Pipe Replaced Overnight; Engine Starter Overhaul in Progress"
+    },
+    {
+      "site": "Jamnagar Refinery Operations — Field Purchase Invoicing Freeze & Bulk Mundra Procurement Directive (100L Oil & Water)",
+      "issue": "Local vendor invoices submitted from Jamnagar (Preetam Chand, Mantu, Chunnilal) totaling Rs 12,000 to Rs 15,000 remain blocked. Technicians bought hydraulic pipes, fittings, and oil locally at high retail prices and submitted bills 2 days late without machine serial numbers, item descriptions, or photos. In addition, machines need 100 liters of hydraulic oil and 100 liters of battery distilled water.",
+      "action": "Management froze unverified bills. Field staff instructed that Mundra hub (25 km away) must be utilized for bulk wholesale procurement of 100L hydraulic oil and 100L battery water at discounted industrial prices instead of expensive piecemeal retail buys. All local purchases must receive advance phone authorization and instant photo uploads with machine serial numbers.",
+      "status": "Financial Compliance — Retail Bills Frozen; Mandated Bulk Purchase of 100L Oil & Water from Mundra Hub"
+    },
+    {
+      "site": "Sanand Project Depot — Delivery & Commissioning of 4x Brand New 1932 Electric Scissor Lifts (PDI Protocol)",
+      "issue": "Four brand-new 1932 electric scissor lifts arrived at the Sanand depot on 25th September. Technicians had not yet executed Pre-Delivery Inspections (PDI), sticker branding, or commissioning reports before releasing them for site deployment.",
+      "action": "Site supervisor Dheeraj instructed to immediately conduct thorough PDI, verify electrical cutoffs, tire condition, safety decals/stickers, and submit signed commissioning reports to CRM before machines are deployed on client sites.",
+      "status": "Fleet Induction — 4 New 1932 Scissor Lifts at Sanand; Comprehensive PDI & Commissioning Enforced"
+    },
+    {
+      "site": "Central Depot / Regional Fleets — Scrap Battery Lead Valuation & Obsolete Tire Freight to Delhi HQ",
+      "issue": "Large inventory of scrap dead batteries and decommissioned tires (90-series boom tires and scissor lift solid tires) accumulated at regional depots. Technicians inquired about next steps.",
+      "action": "Pardeep Tomar and Subash instructed technicians to document quantities on paper and courier all scrap/usable tires to Delhi headquarters immediately. For scrap batteries, technicians must survey local recyclers for prevailing scrap lead rates and submit quotes before disposal.",
+      "status": "Asset Logistics — Scrap Tires Couriered to Delhi HQ; Local Scrap Battery Market Price Survey Mandated"
+    }
+  ],
+  "parts": [
+    {
+      "part": "AGM 6V/12V Deep Cycle Batteries (Matched Set of 2-4)",
+      "context": "Greater Noida SGS 1930 / Unit 21732",
+      "statusNextSteps": "Sourcing approved to replace mismatched flooded water battery and balance 3-AGM bank."
+    },
+    {
+      "part": "Rajkot 4550 Scissor Lift Battery Pack (Set of 4) & Limit Switch",
+      "context": "Rajkot Project Fleet (Scissor Lift 4550)",
+      "statusNextSteps": "Urgent purchase & express dispatch authorized for machine redeployment following client dehire."
+    },
+    {
+      "part": "Bellary Unit 502 Gearbox Gears, Bearings & Fasteners",
+      "context": "Bellary Mining Fleet",
+      "statusNextSteps": "Arrived on site; reassembly underway; total cost and part details being logged in CRM."
+    },
+    {
+      "part": "Anuppur Hydraulic Pressure Sensors & Control Valve",
+      "context": "Anuppur Project Fleet (Ram Babu)",
+      "statusNextSteps": "Dispatched via express train cargo this morning; fitment scheduled upon station arrival."
+    },
+    {
+      "part": "Machine 1200 Engine Starter Motor & High-Pressure Hydraulic Hose",
+      "context": "Korba Project Fleet",
+      "statusNextSteps": "Burst hose re-crimped overnight; starter motor undergoing bench testing and servicing."
+    },
+    {
+      "part": "Industrial Hydraulic Oil (100 Liters) & Battery Distilled Water (100 Liters)",
+      "context": "Jamnagar Refinery Operations / Mundra Wholesale Hub",
+      "statusNextSteps": "Bulk procurement from Mundra hub sanctioned to avoid high local retail prices."
+    },
+    {
+      "part": "Specialized Wiring Harnesses & Dual Pressure Sensors",
+      "context": "Ambala / Amogpur Project Sites",
+      "statusNextSteps": "Dispatched via overnight rail express; transit tracking updated in CRM."
+    },
+    {
+      "part": "Genie Door Lock & Latch Mechanism Complete Assembly",
+      "context": "Greater Noida Depot / Rohit",
+      "statusNextSteps": "Complete lock assembly dispatched to replace failed spring mechanism."
+    },
+    {
+      "part": "Pre-Delivery Inspection (PDI) Kits & Reach International Branding Decals",
+      "context": "Sanand Project Depot / Dheeraj",
+      "statusNextSteps": "Mandatory fitment on 4 new 1932 scissor lifts prior to site mobilization."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Mandatory Quantitative Battery Diagnostic Standards (Gravity & Loaded Voltage)",
+      "points": [
+        "No Verbal 'Dead Battery' Claims: Field engineers (Ambreesh, etc.) are strictly forbidden from verbally declaring battery banks dead without scientific proof. Every technician must record specific gravity across all cells using a hydrometer, open-circuit voltage, and voltage under load.",
+        "Single-Visit Completion: Diagnostics must be conducted and logged into CRM during the first site visit. Double visits due to incomplete initial checks will be penalized as operational negligence."
+      ]
+    },
+    {
+      "title": "CRM Financial Transparency & Lifecycle Part Ledger Mandate",
+      "points": [
+        "Comprehensive Cost Tracking: For every major overhaul (e.g. Bellary 502), the service desk must log every replacement part, unit value, and labor/machining expense directly into CRM.",
+        "Post-Repair Auditability: Eliminate the recurring issue where management has zero visibility into vehicle repair history and total rupee expenditure 3 months after work completion."
+      ]
+    },
+    {
+      "title": "Root-Cause Audit on Spares Delays Leading to Client Machine Dehires",
+      "points": [
+        "Elimination of 1.5–2 Month Delivery Lags: Dehires at Rajkot (4550) and Bombay (D65) caused by delayed batteries and limit switches represent unacceptable operational failure.",
+        "Breakdown Requisition Tagging: Critical breakdown parts must NEVER be logged as routine passive store requests. Spares must be expedited with strict daily dispatch tracking."
+      ]
+    },
+    {
+      "title": "Strict Local Purchase Control & Wholesale Industrial Hub Consolidation",
+      "points": [
+        "Centralized Sourcing Discipline: Field technicians are barred from making retail vendor purchases exceeding petty cash limits without prior telephone approval.",
+        "Wholesale Consolidation: Consumables like hydraulic oil and battery water must be bulk-purchased from industrial hubs (Mundra) rather than expensive local retail shops. All bills must carry machine serial numbers, part photographs, and prompt WhatsApp submissions."
+      ]
+    },
+    {
+      "title": "Pre-Delivery Inspection (PDI) Mandate for New Fleet Arrivals",
+      "points": [
+        "Commissioning Before Customer Handoff: Brand new units (such as the 4 1932 scissor lifts at Sanand) must undergo thorough PDI, functional safety verification, and company branding decals before leaving the yard.",
+        "Signed Certification: Commissioning checklists must be formally signed and uploaded into CRM to safeguard OEM warranty."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Jitendra Budhauliya",
+      "task": "Enforce the quantitative battery testing protocol with Ambreesh; expedite procurement of 2 AGM batteries for Greater Noida 1930; cross-reference local Jamnagar bills with machine serial numbers before approving payment."
+    },
+    {
+      "person": "Sushil Mishra",
+      "task": "Supervise electrical fault diagnosis on Vapi 1-ton unit; oversee CRM cost logging for Bellary Unit 502 overhaul; review PDI and commissioning reports for 4 new 1932 scissor lifts at Sanand."
+    },
+    {
+      "person": "Dhruv Sharma",
+      "task": "Lead high-level audit on parts delivery lead times to prevent recurring machine dehires (Rajkot/Bombay); enforce CRM lifecycle expenditure logging with finance and IT desks."
+    },
+    {
+      "person": "Imran Khan",
+      "task": "Coordinate immediate dispatch of 4 batteries and limit switch to Rajkot for redeployment; assist Greater Noida team with AGM battery allocation."
+    },
+    {
+      "person": "Subash Kumar Singh",
+      "task": "Track train cargo arrivals for Anuppur pressure sensors, Ambala harness, and Purba spares; survey scrap battery market prices across regional depots."
+    },
+    {
+      "person": "Pardeep Tomar",
+      "task": "Dispatch 2 AGM batteries and Genie door lock assembly to Greater Noida (Rohit); coordinate freight courier of scrap tires to Delhi HQ."
+    },
+    {
+      "person": "Dheeraj (Sanand Supervisor)",
+      "task": "Complete rigorous PDI, affix Reach International branding decals, and submit signed commissioning certificates for all 4 new 1932 scissor lifts."
+    },
+    {
+      "person": "Preetam Chand & Mantu (Jamnagar)",
+      "task": "Halt ad-hoc retail purchases; execute bulk purchase of 100L hydraulic oil and 100L battery distilled water from Mundra hub; provide machine serial numbers for pending bills."
+    },
+    {
+      "person": "Ram Babu (Anuppur)",
+      "task": "Collect pressure sensors and valve from express train parcel; execute fitment and system commissioning on site."
+    }
+  ]
+}

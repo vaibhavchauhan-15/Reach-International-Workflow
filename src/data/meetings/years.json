@@ -2,8 +2,15 @@
   "years": [
     {
       "year": "2026",
-      "meetingCount": 37,
+      "meetingCount": 41,
       "months": [
+        {
+          "month": "10",
+          "name": "October",
+          "meetingCount": 4,
+          "latestMeetingDate": "2026-10-04",
+          "indexPath": "/data/meetings/2026/10/index.json"
+        },
         {
           "month": "09",
           "name": "September",
@@ -21,10 +28,10 @@
       ]
     }
   ],
-  "totalMeetings": 37,
+  "totalMeetings": 41,
   "latestYear": "2026",
-  "latestMonth": "09",
-  "latestMeetingId": "meet-2026-09-30",
+  "latestMonth": "10",
+  "latestMeetingId": "meet-2026-10-04",
   "chronologicalSequence": [
     {
       "id": "meet-2026-08-25",
@@ -469,6 +476,54 @@
       "noMeetingHeld": false,
       "notRecorded": false,
       "path": "/data/meetings/2026/09/30.json"
+    },
+    {
+      "id": "meet-2026-10-01",
+      "date": "2026-10-01",
+      "dateDisplay": "01-10-2026",
+      "dateFormatted": "01-10-2026",
+      "title": "01-10-2026",
+      "isHoliday": false,
+      "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
+      "path": "/data/meetings/2026/10/01.json"
+    },
+    {
+      "id": "meet-2026-10-02",
+      "date": "2026-10-02",
+      "dateDisplay": "02-10-2026",
+      "dateFormatted": "02-10-2026",
+      "title": "02-10-2026",
+      "isHoliday": true,
+      "holidayName": "Gandhi Jayanti",
+      "noMeetingHeld": false,
+      "notRecorded": false,
+      "path": "/data/meetings/2026/10/02.json"
+    },
+    {
+      "id": "meet-2026-10-03",
+      "date": "2026-10-03",
+      "dateDisplay": "03-10-2026",
+      "dateFormatted": "03-10-2026",
+      "title": "03-10-2026",
+      "isHoliday": false,
+      "holidayName": "",
+      "noMeetingHeld": false,
+      "notRecorded": false,
+      "path": "/data/meetings/2026/10/03.json"
+    },
+    {
+      "id": "meet-2026-10-04",
+      "date": "2026-10-04",
+      "dateDisplay": "04-10-2026",
+      "dateFormatted": "04-10-2026",
+      "title": "04-10-2026",
+      "isHoliday": true,
+      "holidayName": "Sunday (Weekly Off)",
+      "noMeetingHeld": false,
+      "notRecorded": false,
+      "path": "/data/meetings/2026/10/04.json"
     }
   ]
 }

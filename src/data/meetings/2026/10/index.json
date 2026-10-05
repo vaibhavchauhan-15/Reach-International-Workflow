@@ -1,0 +1,68 @@
+{
+  "year": "2026",
+  "month": "10",
+  "monthName": "October",
+  "meetingCount": 4,
+  "meetings": [
+    {
+      "id": "meet-2026-10-04",
+      "date": "2026-10-04",
+      "dateDisplay": "04-10-2026",
+      "dateFormatted": "04-10-2026",
+      "title": "04-10-2026",
+      "focus": "Weekly Official Holiday (Sunday) – Corporate Offices & Fleet Operations Closed",
+      "isHoliday": true,
+      "holidayName": "Sunday (Weekly Off)",
+      "breakdownCount": 0,
+      "partsCount": 0,
+      "directivesCount": 0,
+      "actionItemsCount": 0,
+      "path": "/data/meetings/2026/10/04.json"
+    },
+    {
+      "id": "meet-2026-10-03",
+      "date": "2026-10-03",
+      "dateDisplay": "03-10-2026",
+      "dateFormatted": "03-10-2026",
+      "title": "03-10-2026",
+      "focus": "Sanand Genie Z-45 Height Limit Switch Breakdown & VIP Plant Lockdown Parking/Overhaul Logistics (Units 150, 125, 100), Mundra A-45 Boom Lift Chronic 2.5-Hour Stoppage & 8-Battery Surya Pack Allocation (Serial 3370441 / Unit 5390), Mundra JLG 800AJ Spares Rejection & Client Dehire Threat (Corroded Non-OEM Spares vs Supplier Payment Delays), Mundra Z-40 Hydraulic Pump Sourcing & Gate Pass PF Number Bottleneck, Metro Fleet 4550 & 3240 Battery Scarcity Escalation (Rahul Singh), Regional Spares Overhauls (Bhiwani Vikas Deployment & Haldiram Spares), Field Vendor Debt Crisis (Rs 50,000 Local Dues & Technician Reimbursements), and Winter Uniform Jacket Sourcing Directive",
+      "isHoliday": false,
+      "holidayName": "",
+      "breakdownCount": 6,
+      "partsCount": 9,
+      "directivesCount": 4,
+      "actionItemsCount": 8,
+      "path": "/data/meetings/2026/10/03.json"
+    },
+    {
+      "id": "meet-2026-10-02",
+      "date": "2026-10-02",
+      "dateDisplay": "02-10-2026",
+      "dateFormatted": "02-10-2026",
+      "title": "02-10-2026",
+      "focus": "Official Gazetted Holiday (Gandhi Jayanti) – Corporate Offices & Fleet Operations Closed",
+      "isHoliday": true,
+      "holidayName": "Gandhi Jayanti",
+      "breakdownCount": 0,
+      "partsCount": 0,
+      "directivesCount": 0,
+      "actionItemsCount": 0,
+      "path": "/data/meetings/2026/10/02.json"
+    },
+    {
+      "id": "meet-2026-10-01",
+      "date": "2026-10-01",
+      "dateDisplay": "01-10-2026",
+      "dateFormatted": "01-10-2026",
+      "title": "01-10-2026",
+      "focus": "Tata Project Genie S-65 Emergency Operation Failure & Threat of Machine Dehire/Blacklisting (Serial S6015D-364), Bahadurgarh Premature Battery Dead Cell Escalation (Surya Battery 44.5V Load & Warranty Claim), Jamnagar S-65 Boom Lift 40-Day Chronic Breakdown Debrief & Wiring Water Ingress Root Cause Analysis (Software Reflash, BCM Swapping & DTC 1299 Diagnostic), Kharkhoda Intermittent Stoppage Follow-up, Rajkot 12–14 Limit Switch & Materials Sourcing Authorization, Regional Workforce Realignment (Ranjan Stationed at Jamnagar, 4 Technicians in Mundra Shift System), and Strict Overtime Authorization & Biometric Punching Reporting Policy",
+      "isHoliday": false,
+      "holidayName": "",
+      "breakdownCount": 5,
+      "partsCount": 7,
+      "directivesCount": 4,
+      "actionItemsCount": 7,
+      "path": "/data/meetings/2026/10/01.json"
+    }
+  ]
+}

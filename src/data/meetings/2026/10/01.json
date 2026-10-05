@@ -1,0 +1,153 @@
+{
+  "id": "meet-2026-10-01",
+  "title": "01-10-2026",
+  "date": "2026-10-01",
+  "dateDisplay": "01-10-2026",
+  "dateFormatted": "01-10-2026",
+  "focus": "Tata Project Genie S-65 Emergency Operation Failure & Threat of Machine Dehire/Blacklisting (Serial S6015D-364), Bahadurgarh Premature Battery Dead Cell Escalation (Surya Battery 44.5V Load & Warranty Claim), Jamnagar S-65 Boom Lift 40-Day Chronic Breakdown Debrief & Wiring Water Ingress Root Cause Analysis (Software Reflash, BCM Swapping & DTC 1299 Diagnostic), Kharkhoda Intermittent Stoppage Follow-up, Rajkot 12–14 Limit Switch & Materials Sourcing Authorization, Regional Workforce Realignment (Ranjan Stationed at Jamnagar, 4 Technicians in Mundra Shift System), and Strict Overtime Authorization & Biometric Punching Reporting Policy",
+  "isHoliday": false,
+  "holidayName": "",
+  "breakdowns": [
+    {
+      "site": "Tata Project Site — Genie S-65 Telescopic Boom Lift Emergency Safety Test Failure & Client Blacklisting Ultimatum (Serial S6015D-364)",
+      "issue": "Client and Tata Safety auditors issued a strict ultimatum after Genie S-65 (Model S-65, Serial S6015D-364) failed the mandatory site emergency safety inspection. Site management warned that if the emergency system is not rectified immediately, the unit will be permanently evicted from the site and debarred from any re-inspection ('agar ye sahi nahi hui to usko bahar kar dunga dubara pass nahi karunga'). The emergency operation engages momentarily and trips after a few seconds, while auxiliary basket rotation fails completely ('emergency kaam kar rahi hai to thodi der karti hai, uske baad band ho jaati hai aur emergency se basket rotate hoti hi nahi hai').",
+      "action": "Urgent technical deployment ordered. Because Manish Patel is immobilized with fever, Pardeep Suthar and Deepak were assigned to mobilize to the Tata project site immediately to inspect the auxiliary power unit (APU), emergency bypass latching circuit, basket rotate proportional valves, and control box switches.",
+      "logistics": "Direct technician dispatch organized; emergency bypass valve and relay components placed on high priority.",
+      "clarification": "The machine has experienced recurring electrical issues since inception; Tata Safety mandates flawless auxiliary descent and basket rotation prior to issuing site work permits.",
+      "status": "Critical Escalation — Emergency Safety Audit Failure; Tata Site Eviction Ultimatum; Immediate Service Mobilization Underway",
+      "pendingIssue": "Successful rectification of auxiliary basket rotation and clearing formal Tata Safety re-certification."
+    },
+    {
+      "site": "Bahadurgarh Project Site — Premature Battery Dead Cell Failure & Voltage Collapse Dispute (Surya 44.5V Bank)",
+      "issue": "Sitaram reported that a brand new set of 2 Surya traction batteries installed on a machine at Bahadurgarh exactly one month ago (on the 2nd of the previous month) has already suffered catastrophic failure after only 5 operational days. One battery has completely died (0V / dead cell), causing total battery bank voltage across 6 batteries to plummet to 44.5V under load ('1 battery poori dead hai aur 6 battery se 44.5V ja rahe hain load pe').",
+      "action": "Pardeep Suthar confirmed that defective internal cell connections can occur in manufacturing batches with Surya batteries. Sitaram verified that the diagnostic battery report and Google Form have been completed. Jitendra Budhauliya instructed that a formal warranty claim replacement email be dispatched to the manufacturer immediately with the test report attached.",
+      "logistics": "Dead Surya battery to be held for OEM manufacturer warranty collection; replacement battery pack to be allocated upon claim verification.",
+      "clarification": "Pardeep agreed that since the unit operated only 5 days and an engineer verified the dead cell on-site, warranty replacement must be processed officially without delay.",
+      "status": "Warranty Escalation — 1 Dead Cell & Low 44.5V Loaded Voltage; Formal OEM Surya Replacement Email & Google Form Filed",
+      "pendingIssue": "Manufacturer warranty approval and delivery of replacement traction batteries."
+    },
+    {
+      "site": "Jamnagar Project Site — S-65 Boom Lift 40-Day Chronic Breakdown Debrief & Wiring Water Ingress Root Cause Resolution",
+      "issue": "Detailed operational debrief conducted on the 40-day chronic immobilization of the Jamnagar S-65 boom lift (grounded since 19/26 August; Deepak deployed 3 Sept for 3 days; Pradeep deployed 9-10 Sept with laptop; BCM sent 22 Sept; Preetam deployed 26 Sept). The unit suffered complete motion failure where main boom elevation and telescoping functions were paralyzed ('main boom up nahi ho raha tha, reverse telescope nahi ho raha tha'). Successive technician visits failed to identify the root cause because the machine display did not register diagnostic error codes until the BCM was replaced (triggering DTC 1299).",
+      "action": "Preetam Chand conducted an exhaustive continuity check of the entire boom sensor harness and discovered that the pre-sensor harness conduit was completely filled with water, which had severed one internal wire and short-circuited signals. Root cause confirmed: the machine had been pressure-washed under a shed without waterproofing electronic harness enclosures. Broken wires were re-soldered and sealed, BCM software was flashed for both ground and platform controllers, and full hydraulic functions were restored.",
+      "logistics": "Ground console display push-button and platform emergency push-button (which had fallen out) to be replaced; complete rust treatment, degreasing, and cosmetic touch-up mandated before technician departure.",
+      "clarification": "Management highlighted that electronic controllers and DTC error codes cannot be blindly relied upon when physical water contamination and wire severance exist.",
+      "status": "Rectified & Commissioned — 40-Day Breakdown Resolved; Water-Damaged Harness Repaired; Cosmetic Painting & Button Replacement Underway",
+      "pendingIssue": "Permanent gate pass issuance for technician Ranjan at Jamnagar; fitting replacement push buttons."
+    },
+    {
+      "site": "Kharkhoda Project Site — Intermittent Equipment Halting & Site Reporting Discrepancy",
+      "issue": "Breakdown reported with intermittent operational halting ('kabhi chali ja rahi hai, kabhi khadi ho ja rahi hai'). However, when Sitaram contacted site supervisor Kajal over consecutive mornings, site personnel stated the machine was operating smoothly and that no technician visit was required, only for stoppages to recur in the evening.",
+      "action": "Sitaram instructed to maintain close communication with site coordinators and dispatch a field technician if evening stoppage recurs.",
+      "logistics": "Local technician placed on standby for emergency site visit.",
+      "clarification": "Technicians instructed that intermittent faults must be tracked actively before they result in complete equipment stoppage.",
+      "status": "Monitoring — Intermittent Stoppage Cycle; Site Coordination Maintained",
+      "pendingIssue": "Confirmation of uninterrupted full-shift machine operation."
+    },
+    {
+      "site": "Sanand Project Depot — Minor Fleet Maintenance & Filter Requisitions (Unit 6034, Booms & Scissor Lift)",
+      "issue": "Two boom lifts and one scissor lift at Sanand depot require routine maintenance. One boom lift has an unresolved battery charging circuit issue, and a 32-series scissor lift has a jerky/faulty joystick controller. Additionally, Machine 6034 is awaiting hydraulic and engine service filters.",
+      "action": "Manish Patel dispatched to inspect the charging circuitry and replace the faulty scissor lift joystick. Requisition for Machine 6034 filters and JCB boom lift spares submitted via Google Form to Pradeep and Dinesh for immediate processing.",
+      "logistics": "Filter kits and replacement joystick dispatched from depot storage.",
+      "status": "Under Maintenance — Manish Patel on Site; Google Form Filter Requisitions Submitted",
+      "pendingIssue": "Joystick calibration and completion of filter service on Unit 6034."
+    }
+  ],
+  "parts": [
+    {
+      "part": "Genie S-65 Auxiliary Emergency Motor Relay & Bypass Valve Assembly",
+      "context": "Tata Project Site (Boom Lift S6015D-364)",
+      "statusNextSteps": "Urgent technical inspection and fitment to clear Tata Safety audit."
+    },
+    {
+      "part": "Surya Heavy-Duty 6V Traction Batteries (Warranty Claim Replacement)",
+      "context": "Bahadurgarh Project Fleet",
+      "statusNextSteps": "Google Form and loaded voltage report submitted; formal warranty replacement email dispatched to Surya."
+    },
+    {
+      "part": "Boom Control Module (BCM) & Pre-Sensor Wiring Harness Kit",
+      "context": "Jamnagar S-65 Overhaul Fleet",
+      "statusNextSteps": "Installed and calibrated on site; water-damaged wiring repaired and waterproofed."
+    },
+    {
+      "part": "Ground Console Display & Platform Emergency Push-Button Assemblies",
+      "context": "Jamnagar S-65 Fleet",
+      "statusNextSteps": "Sourced for installation to complete machine cosmetic and mechanical restoration."
+    },
+    {
+      "part": "Machine 6034 Complete Engine & Hydraulic Filter Service Kit",
+      "context": "Sanand Project Depot",
+      "statusNextSteps": "Requisition logged in Google Form; awaiting dispatch approval from Pradeep and Dinesh."
+    },
+    {
+      "part": "Proportional Drive/Lift Joystick Controller (32-Series Scissor Lift)",
+      "context": "Sanand Project Fleet",
+      "statusNextSteps": "Allocated to Manish Patel for fitment on jerky scissor lift."
+    },
+    {
+      "part": "Height Limit Switches (12–14 Pieces) & Tubular Extensions (Dande)",
+      "context": "Sanand Depot to Rajkot Transfer",
+      "statusNextSteps": "Material staged at Sanand; dispatch scheduled for 3rd/5th October following Vinay Singh confirmation."
+    }
+  ],
+  "directives": [
+    {
+      "title": "Tata & High-Risk Client Safety Inspection Protocol",
+      "points": [
+        "Zero-Defect Safety Standard: Genie S-65 and all MEWPs undergoing safety audits at client sites (specifically Tata) must have secondary emergency descent, emergency APU, and basket rotation fully operational before presenting to client safety inspectors.",
+        "Proactive Pre-Audit Checklist: Field teams must test emergency controls under full load in the yard or prior to inspection to prevent client eviction and contractual blacklisting."
+      ]
+    },
+    {
+      "title": "Technical Lessons from Jamnagar 40-Day Breakdown (Wiring & Sensor Integrity)",
+      "points": [
+        "No Blind Reliance on DTC Codes: Electronic control modules and diagnostic codes cannot detect severed wires masked by water ingress. Technicians must conduct manual harness continuity and resistance tests.",
+        "Pressure Washing Ban on Electronics: Pressure washing of electrical control boxes, sensor harnesses, and junction terminals is strictly prohibited to prevent internal water logging and wire corrosion."
+      ]
+    },
+    {
+      "title": "Service Call Authorization & Overtime (OT) Verification Policy",
+      "points": [
+        "Designated Authorization Only: No site supervisor or non-core coordinator (e.g., Chunnilal) can authorize service call-outs or overtime. Only Jitendra Budhauliya and Sushil Mishra hold authority to dispatch technicians.",
+        "Mandatory OT WhatsApp Notification: Technicians attending night breakdowns or emergency calls where biometric punching is unavailable must immediately drop an explanatory WhatsApp message detailing the breakdown, arrival time, and cause of punching failure to guarantee OT credit."
+      ]
+    },
+    {
+      "title": "Regional Workforce Restructuring & Shift Distribution",
+      "points": [
+        "Mundra Shift Restructuring: To eliminate excessive 15km daily travel and fatigue, Mundra will operate with a 4-technician roster (1 designated night breakdown technician, 3 day shift technicians).",
+        "Permanent Stationing at Jamnagar: Ranjan is assigned a permanent gate pass to station permanently at Jamnagar to handle regional breakdowns independently."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "person": "Jitendra Budhauliya",
+      "task": "Deploy Pardeep Suthar and Deepak to Tata project site for Genie S-65 emergency circuit rectification; process permanent gate pass for Ranjan at Jamnagar; coordinate technician advance of Rs 6,000 for Preetam Chand."
+    },
+    {
+      "person": "Sushil Mishra",
+      "task": "Draft and dispatch formal warranty replacement email to Surya battery manufacturer with Sitaram's loaded test report; enforce mandatory OT WhatsApp notification protocol."
+    },
+    {
+      "person": "Pardeep Suthar",
+      "task": "Verify Google Form submissions for Machine 6034 filters and JCB boom lift spares; prepare warranty documentation for dead Surya batteries."
+    },
+    {
+      "person": "Preetam Chand",
+      "task": "Complete cosmetic painting, greasing, and push-button fitment on Jamnagar S-65; verify stable software operation before clearing machine."
+    },
+    {
+      "person": "Satendra Kumar",
+      "task": "Coordinate Ranjan's permanent gate pass paperwork with client security; follow up on Sanand 6034 filter requisitions."
+    },
+    {
+      "person": "Dheeraj Dubey",
+      "task": "Coordinate with Vinay Singh and Nalwaya regarding Rajkot dispatch of 12-14 limit switches and dead Surya battery transfer."
+    },
+    {
+      "person": "Sitaram",
+      "task": "Maintain active communication with Kharkhoda site (Kajal) to verify whether intermittent machine stoppage has ceased."
+    }
+  ]
+}

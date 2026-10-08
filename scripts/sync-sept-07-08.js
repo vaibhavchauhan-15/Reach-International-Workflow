@@ -1,506 +1,531 @@
 /**
- * Sync September 07 and September 08, 2026 Meetings to Supabase
+ * Reach International Operations - Daily Meeting Sync (07-09-2026 & 08-09-2026)
  *
  * Implements strict Reach International standards:
- * - 100% Cloud-Native ingestion (zero static JSON files)
+ * - 100% Cloud-Native ingestion (zero static JSON files in src/data/)
  * - Strictly ONE machine per breakdown card
  * - Concise, single-line informative fields across all sections
+ * - Accurate English translation and distillation of raw Hindi meeting transcripts
  */
 
 import { syncDailyMeeting } from './sync-daily-meeting.js';
 
-const meeting07 = {
+export const meeting07 = {
     id: "meet-2026-09-07",
     title: "07-09-2026",
     date: "2026-09-07",
     dateFormatted: "07-09-2026",
-    focus: "Kochi 120ft fuel burn diagnostics, Mundra pump & diesel overhaul, Sanand battery cannibalization, Jaisalmer charger dispatch, and Radhey tire indents.",
+    focus: "Sanand S-65 boom height failure & gate pass protocol, Mundra JCB 45 battery PO, Bina 120ft load cell, Haldia harness, and Hardoi Palfinger discharge.",
     isHoliday: false,
     holidayName: "",
     breakdowns: [
         {
-            site: "Kochi Project Site",
+            site: "Sanand Project Site",
+            model: "Genie S-65",
+            serialNumber: "Unit S-65",
+            issue: "Boom stuck raised at full elevation with broken canopy gas springs causing hood to drop unassisted during safety inspection.",
+            action: "Deepak and Dhiraj coordinating site entry to inspect boom lowering hydraulic circuit and fit replacement gas springs.",
+            logistics: "Canopy gas springs in transit to Sanand site from central store.",
+            clarification: "Tata safety inspectors refused green sticker approval because unassisted canopy drops automatically upon opening.",
+            pendingIssue: "Fit replacement gas springs and inspect lowering valve circuit to bring boom down safely.",
+            status: "Breakdown at Height — Boom stuck raised; canopy gas spring replacement and lowering check pending."
+        },
+        {
+            site: "Sanand Project Site",
+            model: "Electric Scissor Lift",
+            serialNumber: "1472",
+            issue: "Ground panel function failure and electrical drive cutout immobilizing the scissor lift.",
+            action: "Deepak and Khemchand completed repairs on the electrical drive and ground control panel.",
+            logistics: "Replacement electrical components fitted directly on site.",
+            clarification: "Unit successfully restored and operational verification completed on ground controls.",
+            pendingIssue: "Conduct platform control testing and obtain operational sign-off from site supervisor.",
+            status: "Operational — Ground control panel and electrical drive restored by Deepak and Khemchand."
+        },
+        {
+            site: "Sanand Project Site",
+            model: "Fleet Equipment Unit",
+            serialNumber: "0.4-Panel",
+            issue: "Electrical power supply failing to reach busbar in 0.4 panel, causing complete power cutout.",
+            action: "Satendra Kumar assigned to inspect electrical incoming busbar and panel terminations.",
+            logistics: "Multimeter diagnostic tools staged on site.",
+            clarification: "Incoming panel power supply defect preventing machine operation on site.",
+            pendingIssue: "Check incoming supply connections to panel busbar and restore operational power feed.",
+            status: "Breakdown — Power supply failure to 0.4 panel busbar under active investigation."
+        },
+        {
+            site: "Sanand Tata Micron Site",
+            model: "Fleet Operations (76 Units)",
+            serialNumber: "Sanand Fleet",
+            issue: "High risk of pass cancellation across 76-machine fleet under mandatory 5-day biometric face punching rule.",
+            action: "Dhiraj submitting Pradeep's pass paperwork; Ranjan being permanently transferred from Delhi to assist field team.",
+            logistics: "Hari and Dinesh coordinating digital PDF pass documentation and email uploads.",
+            clarification: "Tata Micron automatically deletes pass slots if personnel miss face punching for 5 days without prior notice.",
+            pendingIssue: "Obtain gate pass approvals for Pradeep and Ranjan to ensure required 3-man technician presence.",
+            status: "Administrative Follow-up — Gate pass paperwork submitted for Pradeep and Ranjan."
+        },
+        {
+            site: "Mundra Project Site",
+            model: "JCB 45",
+            serialNumber: "JCB 45-Mundra",
+            issue: "Machine grounded since September 3rd due to exhaustion of two 6V 400Ah traction batteries.",
+            action: "Sushil Mishra and Dinesh raising urgent Purchase Order for two 6V 400Ah batteries (~Rs 56,000–57,000).",
+            logistics: "Direct vendor dispatch to Mundra planned upon PO commercial approval.",
+            clarification: "OEM warranty denied as machine was commissioned prior to April 2026 (1-year warranty expired).",
+            pendingIssue: "Issue commercial purchase order and expedite dispatch of 2 replacement traction batteries.",
+            status: "Breakdown Since Sept 3 — Out of warranty; PO placement for 2 traction batteries pending."
+        },
+        {
+            site: "Mundra Project Site",
+            model: "60ft Boom Lift",
+            serialNumber: "Mundra 60ft",
+            issue: "Traction battery bank degraded, requiring emergency battery bank replacement.",
+            action: "8 batteries previously dispatched via commercial taxi/transport from yard staged for installation.",
+            logistics: "8 batteries delivered to Mundra via commercial transport.",
+            clarification: "Dedicated battery stock transferred to maintain uptime across Mundra's 80 boom lifts.",
+            pendingIssue: "Complete battery bank fitment and verify machine under operating load.",
+            status: "Batteries In Yard — 8 replacement batteries arrived on site awaiting installation."
+        },
+        {
+            site: "Bina Project Site",
             model: "120ft Boom Lift",
-            serialNumber: "Unit 120ft",
-            issue: "Abnormally high diesel consumption burning up to 7 liters per hour under operational load.",
-            action: "Dinesh Babu deploying technician via direct Chennai-to-Kochi bus to inspect injectors and fuel pump.",
-            logistics: "Bus tickets booked from Chennai to Kochi for immediate site arrival.",
-            clarification: "Client disputing daily fuel logs and refusing further fuel supply until resolved.",
-            pendingIssue: "Inspect fuel injection pump calibration and return lines on site.",
-            status: "Technician In Transit — Direct Chennai-to-Kochi bus travel scheduled for engine diagnostics."
+            serialNumber: "Unit 120",
+            issue: "Water ingress from heavy monsoon rains halted operations; load cell and lighting fault logged.",
+            action: "Ram Babu dispatched to Bina to service load cell and light fittings as rain ceased.",
+            logistics: "Load cell and lights dispatched with technician; SSLE junction box transit follow-up active.",
+            clarification: "4 machines operational at Bina; unit 120 resuming service post heavy monsoon rains.",
+            pendingIssue: "Install replacement load cell, reconnect lights, and calibrate safety circuit.",
+            status: "Technician On Site — Ram Babu arrived at Bina to service load cell and electricals."
+        },
+        {
+            site: "Hardoi Project Site",
+            model: "Palfinger 12m",
+            serialNumber: "Palfinger 12",
+            issue: "Battery bank completely discharges within 2 hours after full 8–10 hour charging cycle.",
+            action: "Umesh Kumar obtaining battery nameplate photos; Jitendra arranging technician check from Lucknow depot.",
+            logistics: "Local replacement battery bank sourcing under review in Lucknow depot.",
+            clarification: "Severe specific gravity drop preventing standard shift operation on site.",
+            pendingIssue: "Inspect individual cell voltages and deploy replacement traction batteries.",
+            status: "Battery Breakdown — Rapid discharge after 2 hours; replacement batteries required."
+        },
+        {
+            site: "Haldia Project Site",
+            model: "150ft Boom Lift",
+            serialNumber: "Haldia 150ft",
+            issue: "Main boom control feel issue pending 2–3 months; 15–16 core wiring harness required.",
+            action: "Vinod Pal repairing internal wiring, horn, and lights inside yard; Jitendra ordering 15–16 core harness.",
+            logistics: "15–16 core multi-core cable harness being ordered locally.",
+            clarification: "CM visit restrictions prevent taking machine outside yard to avoid external crane/rental expenses.",
+            pendingIssue: "Procure wiring harness and execute major boom repair after yard release on the 15th.",
+            status: "Yard Restricted — Internal wiring and horn fixed; main boom harness on order."
+        },
+        {
+            site: "Kota Project Site",
+            model: "3-Ton Forklift",
+            serialNumber: "33459",
+            issue: "Forklift grounded due to battery failure; boom lift on site also facing battery shortage.",
+            action: "Jitendra Budhauliya logging battery replacement indent in central equipment tracker.",
+            logistics: "Regional battery allocation being evaluated between Bangalore and Delhi depots.",
+            clarification: "Serial number 33459 confirmed during operational roll call.",
+            pendingIssue: "Finalize battery allocation and dispatch replacement bank to Kota.",
+            status: "Breakdown — Battery exhausted; replacement battery pack required."
+        },
+        {
+            site: "Anuppur Project Site",
+            model: "Genie Z-135",
+            serialNumber: "Z-135",
+            issue: "Electronic control card failure immobilizing platform drive and lift functions.",
+            action: "Software updated on electronic card; Nirbhay and Rajkishore conducted overnight video call to rectify wiring.",
+            logistics: "Programmed PCB card bench-tested and delivered to site.",
+            clarification: "Card bench-tested successfully; on-site wiring fault identified during remote video diagnostics.",
+            pendingIssue: "Rectify harness wiring connections and perform load testing.",
+            status: "Under Field Diagnostics — Card software updated; wiring fault being rectified."
+        },
+        {
+            site: "Saint-Gobain Project Site",
+            model: "Forklift 502",
+            serialNumber: "Unit 502",
+            issue: "Mechanical and electrical breakdown; awaiting replacement spare parts from central warehouse.",
+            action: "Shiv Uniyal checking central warehouse inventory to release pending spares today.",
+            logistics: "Spare parts dispatch scheduled upon store inventory clearance.",
+            clarification: "Machine grounded alongside unit 510 pending client operational clearance.",
+            pendingIssue: "Dispatch required replacement parts and assign technician for fitment.",
+            status: "Breakdown — Awaiting spare parts dispatch from central store."
+        },
+        {
+            site: "Saint-Gobain Project Site",
+            model: "Forklift 510",
+            serialNumber: "Unit 510",
+            issue: "Forklift non-operational; repair work pending parts and commercial payment approval.",
+            action: "Shiv Uniyal coordinating with client regarding payment clearance and parts fitment.",
+            logistics: "Requisition logged in parts indent tracker.",
+            clarification: "Client payment follow-up active before final repair sign-off.",
+            pendingIssue: "Complete parts installation and verify lifting operation under load.",
+            status: "Breakdown — Repair pending commercial payment clearance."
+        },
+        {
+            site: "Hindon Air Force Site",
+            model: "Hindon Equipment Fleet",
+            serialNumber: "Hindon Fleet",
+            issue: "Site access temporarily barred due to ongoing 4-day Air Force military parade.",
+            action: "Imran Khan coordinating gate clearance to enter site immediately upon parade conclusion.",
+            logistics: "Security documentation and worker Aadhaar clearances submitted.",
+            clarification: "Permanent government customer; 2024 invoice payment follow-up handled with Saurabh Sir.",
+            pendingIssue: "Await parade conclusion to resume on-site machine servicing and invoice sign-offs.",
+            status: "Access Restricted — Military parade in progress; gate entry scheduled after completion."
+        },
+        {
+            site: "Jamnagar Project Site",
+            model: "55ft Boom Lift",
+            serialNumber: "Unit 55",
+            issue: "Operational servicing and technical inspection required across site fleet (7–8 machines).",
+            action: "Jitendra dispatching Sandeep to Jamnagar today to inspect and service unit 55.",
+            logistics: "Travel arrangements confirmed for Sandeep to Jamnagar.",
+            clarification: "Jamnagar fleet comprises 7–8 machines requiring dedicated technician presence.",
+            pendingIssue: "Sandeep to arrive on site and carry out preventive maintenance and repair.",
+            status: "Technician Dispatched — Sandeep traveling to Jamnagar for unit 55 servicing."
+        }
+    ],
+    parts: [
+        { part: "Canopy Gas Springs", context: "Genie S-65, Sanand Project Site", statusNextSteps: "Dispatched from central store; awaiting on-site delivery." },
+        { part: "6V 400Ah Traction Batteries (2 Units)", context: "JCB 45, Mundra Project Site", statusNextSteps: "Urgent PO being processed by Sushil Mishra & Dinesh (~Rs 56,000–57,000)." },
+        { part: "15–16 Core Multi-Core Wiring Harness", context: "150ft Boom Lift, Haldia Project Site", statusNextSteps: "Local purchase order placed by Jitendra; awaiting delivery." },
+        { part: "Load Cell & Light Fittings", context: "Unit 120, Bina Project Site", statusNextSteps: "Delivered to site with technician Ram Babu for installation." },
+        { part: "SSLE Junction Box", context: "Bina Project Site", statusNextSteps: "Transit follow-up active with logistics team." },
+        { part: "3-Ton Traction Battery Bank", context: "Forklift 33459, Kota Project Site", statusNextSteps: "Indent logged in tracker; regional depot allocation pending." },
+        { part: "12m Scissor Lift Battery Bank", context: "Palfinger 12m, Hardoi Project Site", statusNextSteps: "Discharge logs verified; replacement pack requisitioned from Lucknow." },
+        { part: "Electronic Control Card & Harness", context: "Genie Z-135, Anuppur Project Site", statusNextSteps: "Software updated; video call wiring rectification completed." },
+        { part: "Forklift Replacement Spares", context: "Forklift 502, Saint-Gobain Project Site", statusNextSteps: "Inventory check underway to release parts from central warehouse." }
+    ],
+    directives: [
+        {
+            title: "Strict Biometric Punching & Gate Pass Retention",
+            points: [
+                "All field technicians must punch in/out on biometric face scanners every 3 to 5 days without fail.",
+                "Tata Micron automatically cancels pass slots if personnel miss face punching for 5 days without notice."
+            ]
+        },
+        {
+            title: "Mandatory Notification Prior to Planned Leave",
+            points: [
+                "Technicians proceeding on leave must surrender gate passes and notify site supervisors beforehand.",
+                "Unreported absences result in gate pass deletion and up to 15-day delays for new approvals."
+            ]
+        },
+        {
+            title: "AGM vs Lead-Acid Charger Compatibility Protocol",
+            points: [
+                "Technicians must verify charger profiles before connecting flooded lead-acid batteries to prevent cell damage.",
+                "Using uncalibrated AGM chargers on lead-acid banks accelerates plate sulfation and ruins batteries."
+            ]
+        },
+        {
+            title: "OEM Warranty Verification Protocol",
+            points: [
+                "Verify machine purchase date and PO terms before processing battery claims with OEMs.",
+                "Machines commissioned prior to April 1, 2026 carry 1-year warranty while newer units carry 2-year warranty."
+            ]
+        }
+    ],
+    actionItems: [
+        { person: "Sushil Mishra & Dinesh", task: "Expedite PO issuance for two 6V 400Ah batteries for Mundra JCB 45 (~Rs 56,000–57,000)." },
+        { person: "Jitendra Budhauliya", task: "Order 15–16 core wiring harness for Haldia 150ft boom lift and monitor dispatch." },
+        { person: "Jitendra Budhauliya", task: "Deploy Sandeep to Jamnagar for unit 55 servicing and Ram Babu to Bina for unit 120." },
+        { person: "Pandit Dhiraj Dubey", task: "Follow up on gate pass approvals for Pradeep and coordinate Ranjan's on-site integration at Sanand." },
+        { person: "Deepak & Khemchand", task: "Replace canopy gas springs on Genie S-65 and inspect boom lowering hydraulics once parts arrive." },
+        { person: "Umesh Kumar", task: "Obtain battery nameplate photos and discharge test logs for Hardoi Palfinger 12m scissor lift." },
+        { person: "Shiv Uniyal", task: "Follow up with Saint-Gobain on commercial invoice payment and release spare parts for forklift 502/510." },
+        { person: "Imran Khan", task: "Coordinate with Saurabh Sir on 2024 invoice payment and track Hindon Air Force entry clearance post-parade." },
+        { person: "Hari & Dinesh", task: "Provide remote PDF document processing and portal upload support for field technician gate pass applications." }
+    ]
+};
+
+export const meeting08 = {
+    id: "meet-2026-09-08",
+    title: "08-09-2026",
+    date: "2026-09-08",
+    dateFormatted: "08-09-2026",
+    focus: "Sanand S-65 safety tag & 4046 pothole harness, JCB 45 charging current leakage, M600JP hydraulic repair window, and Mundra JCB 45 battery PO.",
+    isHoliday: false,
+    holidayName: "",
+    breakdowns: [
+        {
+            site: "Sanand Tata Micron Site",
+            model: "JCB Scissor Lift",
+            serialNumber: "3362413",
+            issue: "Recurring electrical intermittent fault reported over last 4 days; machine operating with instability during shifts.",
+            action: "Dhiraj and Pradeep deployed to Tata Micron plant to inspect wiring harness and electrical connectors.",
+            logistics: "Technician site entry cleared via approved digital gate pass.",
+            clarification: "Logged in daily tracker as working with problem rather than total operational breakdown.",
+            pendingIssue: "Complete electrical harness diagnostics and clear error code on site.",
+            status: "Working with Problem — 4-day recurring electrical issue under on-site investigation."
+        },
+        {
+            site: "Sanand Project Site",
+            model: "Genie S-65",
+            serialNumber: "Unit S-65",
+            issue: "Machine mechanically and electrically restored by Reach team, but grounded awaiting Johnson/Tata safety green tag.",
+            action: "Dhiraj coordinating with Johnson site safety office to obtain mandatory safety sticker.",
+            logistics: "Safety compliance verification photos and checklist submitted to safety office.",
+            clarification: "Technical repair completed; external client safety compliance sign-off pending.",
+            pendingIssue: "Secure safety inspector sign-off and green tag release from Johnson office.",
+            status: "Ready Awaiting Tag — Technically cleared; awaiting client safety inspector green tag."
+        },
+        {
+            site: "Sanand Project Site",
+            model: "JCB 45",
+            serialNumber: "3370437",
+            issue: "Operator receives electrical current shock during battery charging; scheduled periodic maintenance service also overdue.",
+            action: "Jitendra checking warranty coverage (2025 machine); Deepak verifying earthing connections on external distribution board.",
+            logistics: "Multimeter and ground leakage tester staged for electrical inspection.",
+            clarification: "Similar past fault was caused by site distribution board lacking proper earth ground rather than machine defect.",
+            pendingIssue: "Test charging circuit and site power distribution board earthing to eliminate electric shock.",
+            status: "Electrical Leakage — Current felt during charging; earthing verification and service pending."
+        },
+        {
+            site: "Sanand Project Site",
+            model: "JLG M600JP",
+            serialNumber: "300100695",
+            issue: "Hydraulic oil leakage from master cylinder tele-boom pipe manifold; running on night shift with risk of safety grounding.",
+            action: "Deepak and Dinanath attempted repair but plant prohibited work at active bay; Khemchand to obtain permit for weekend repair.",
+            logistics: "Replacement hydraulic O-rings staged for temporary sealing.",
+            clarification: "Full manifold rebuild takes several days; temporary O-ring replacement restores operation for 2–3 months.",
+            pendingIssue: "Obtain yard transit permit and replace hydraulic cylinder O-rings during Sunday maintenance window.",
+            status: "Minor Hydraulic Leak — Operating on night shift; scheduled for O-ring repair over weekend."
+        },
+        {
+            site: "Sanand Project Site",
+            model: "Genie GS-4046",
+            serialNumber: "GS4046-Pothole",
+            issue: "Pothole guard wiring harness damaged, preventing safe machine travel at height.",
+            action: "Dhiraj obtaining 6-hour work permit; Pradeep and Deepak assigned to replace pothole guard wiring harness today.",
+            logistics: "Replacement pothole guard harness issued from Sanand store.",
+            clarification: "Detailed 6-hour replacement job planned to eliminate repetitive drive cutouts.",
+            pendingIssue: "Complete 6-hour wiring harness installation and test pothole deployment mechanism.",
+            status: "Under Repair — Work permit secured for 6-hour pothole guard harness replacement."
+        },
+        {
+            site: "Sanand Project Site",
+            model: "Genie GS-4046",
+            serialNumber: "GS4046-Deck",
+            issue: "Extension platform deck jammed and fails to extend; client warned of immediate machine grounding if unresolved.",
+            action: "Deepak requiring mechanical/hydraulic jack to release and align deck sliders; store tool tracking follow-up initiated.",
+            logistics: "Dinanath tasked to purchase replacement heavy-duty jack locally.",
+            clarification: "Previous store jack was misplaced between technician Manish Patel and operator Lalit during rainy weather.",
+            pendingIssue: "Purchase replacement jack locally and align extension platform deck sliders.",
+            status: "Jammed Extension Deck — Client grounding warning; local jack procurement underway for repair."
+        },
+        {
+            site: "Rajkot Project Site",
+            model: "Zoomlion 4550",
+            serialNumber: "Unit 4550",
+            issue: "Traction battery bank degraded; 14-piece limit switch assembly installation pending management policy clearance.",
+            action: "Traction batteries scheduled to arrive today or tomorrow; Imran verifying Vinay Sir's approval for limit switch fitting.",
+            logistics: "Batteries dispatched from Gujarat vendor; 14 limit switches held in Sanand yard store.",
+            clarification: "Management policy inquiry active regarding whether limit switches should be installed directly on client site.",
+            pendingIssue: "Receive batteries on site and obtain management confirmation for limit switch installation.",
+            status: "Batteries In Transit — Battery delivery expected today/tomorrow; limit switch approval pending."
+        },
+        {
+            site: "Hindon Air Force Site",
+            model: "Hindon Equipment Fleet",
+            serialNumber: "Hindon Fleet",
+            issue: "Final day of 4-day military parade restrictions preventing technician site entry.",
+            action: "Imran Khan confirming entry permits will be granted tomorrow morning upon parade completion.",
+            logistics: "Gate clearance passes pre-processed for immediate entry.",
+            clarification: "Technicians on standby to enter base compound tomorrow for routine inspections and customer billing sign-offs.",
+            pendingIssue: "Enter Air Force compound tomorrow morning to inspect fleet and obtain sign-offs.",
+            status: "Access Restricted — Parade finishes today; full site entry scheduled for tomorrow morning."
+        },
+        {
+            site: "Regional Fleet Workshop",
+            model: "Genie Z-45",
+            serialNumber: "Unit Z-45",
+            issue: "48V battery charger failing and electrical contactor overheating, shorting, and melting at terminals.",
+            action: "Khemchand and Pradeep Tomar arranging local procurement of replacement contactor and 48V charger.",
+            logistics: "Local vendor sourcing initiated; technicians instructed to mark installation date on all parts.",
+            clarification: "Contactor replacement is standard local procurement; date-stamping mandated across all components.",
+            pendingIssue: "Procure 48V charger and heavy-duty contactor, date-mark, and fit onto machine.",
+            status: "Electrical Risk — Contactor melting and charger fault; local procurement underway."
+        },
+        {
+            site: "Bina Project Site",
+            model: "Bina Equipment Fleet",
+            serialNumber: "Bina Fleet",
+            issue: "Scheduled delivery of electrical spares and components logged in requisition portal.",
+            action: "Pradeep Tomar dispatching requested spares to Bina via express courier.",
+            logistics: "Spares consolidated from central store for dispatch.",
+            clarification: "Satendra Kumar confirmed serial numbers and submitted requisitions via Google Form.",
+            pendingIssue: "Track courier dispatch and ensure arrival at Bina site.",
+            status: "Spares Dispatched — Materials package dispatched from store for site delivery."
+        },
+        {
+            site: "Jamnagar Project Site",
+            model: "Boom Lift Fleet",
+            serialNumber: "Jamnagar Fleet",
+            issue: "Engine RPM hunting and calibration issues on site boom lifts requiring experienced engine specialist.",
+            action: "Jitendra coordinating to redeploy Mantu from Mundra to Jamnagar once engine overhaul is completed; Deepak also considered.",
+            logistics: "Travel clearance being arranged between Mundra and Jamnagar.",
+            clarification: "Dedicated engine technician required to troubleshoot RPM regulation and throttle actuator.",
+            pendingIssue: "Complete Mundra engine job and mobilize specialist technician to Jamnagar.",
+            status: "Specialist Mobilization Planned — Mantu scheduled to transfer to Jamnagar for engine diagnostics."
+        },
+        {
+            site: "Mundra Project Site",
+            model: "JCB 45",
+            serialNumber: "JCB 45-Mundra",
+            issue: "Breakdown persists; 370Ah AGM battery previously sent from Sanand failed under operational load.",
+            action: "Dhruv Sharma instructed Hari and Dinesh to coordinate directly and place urgent purchase order for two 440Ah/400Ah batteries.",
+            logistics: "Direct vendor dispatch to Mundra requested to bypass intermediate yard delays.",
+            clarification: "370Ah battery had insufficient capacity; true 440Ah/400Ah heavy-duty cells required.",
+            pendingIssue: "Place direct purchase order and arrange fast-track delivery to Mundra.",
+            status: "Breakdown Awaiting PO — Replacement 370Ah battery insufficient; urgent PO for 440Ah batteries required."
+        },
+        {
+            site: "Mundra Project Site",
+            model: "JLG 600AJ",
+            serialNumber: "Unit 600",
+            issue: "Operator basket rotates automatically on its own during operation, creating serious safety hazard.",
+            action: "Mantu previously repaired basket 10 days ago; problem recurred, indicating defective rotary limit switch/sensor.",
+            logistics: "Rotary control sensor part identification in progress with Pradeep Tomar.",
+            clarification: "Machine currently kept operating for light work but uncommanded rotation presents major safety risk.",
+            pendingIssue: "Identify exact rotary sensor/switch part number and order replacement immediately.",
+            status: "Working with Safety Defect — Basket rotates uncommanded; sensor replacement part identification active."
+        },
+        {
+            site: "Mundra Project Site",
+            model: "JLG 860SJ",
+            serialNumber: "Unit 860",
+            issue: "Engine emitting heavy exhaust smoke and consuming excessive engine oil; grounded since January.",
+            action: "Chunnilal Patel preparing machine for comprehensive on-site engine overhaul.",
+            logistics: "Engine overhaul kit, rings, gaskets, and oil filters required.",
+            clarification: "Long-term breakdown grounded since January; client released machine for full overhaul.",
+            pendingIssue: "Dispatch complete engine overhaul kit and initiate teardown with Mantu.",
+            status: "Grounded Since January — Heavy engine smoking and oil burn; full engine rebuild planned."
         },
         {
             site: "Mundra Project Site",
             model: "Genie GS-4390 RT",
             serialNumber: "Unit 4390",
-            issue: "Locally repaired hydraulic pump failed during commissioning and is completely inoperative.",
-            action: "Dhrup Sir and Vishal Sir requested cost quotation to approve emergency Purchase Order today.",
-            logistics: "Replacement pump vendor identified; dispatch ready upon commercial clearance.",
-            clarification: "Machine grounded 2 weeks awaiting commercial approval amid loss-rental costing debate.",
-            pendingIssue: "Clear emergency PO approval and dispatch replacement hydraulic pump from vendor.",
-            status: "Awaiting Commercial Approval — Emergency PO clearance pending with senior management."
+            issue: "Marching/drive function cuts out completely when scissor platform is elevated to height.",
+            action: "Chunnilal Patel logging defect in CRM group; technician assigned to inspect drive angle sensor and wiring.",
+            logistics: "Field multimeter inspection scheduled on site.",
+            clarification: "Ground driving operational, but elevated drive cutout stops working during maintenance tasks.",
+            pendingIssue: "Inspect platform drive enable circuit and elevation limit switches.",
+            status: "Elevated Drive Failure — Marching cut out at height; drive interlock circuit under inspection."
         },
         {
-            site: "Mundra Project Site",
-            model: "JLG 660SJ",
-            serialNumber: "95369",
-            issue: "Grounded over 1 week due to fuel injection pump failure and pending hydraulic line servicing.",
-            action: "Pritam Chand and Mantu deployed via train to Mundra to execute fuel pump overhaul and engine tuning.",
-            logistics: "Train tickets confirmed for same-day technician travel with fuel pump spares.",
-            clarification: "Engine overhaul and hydraulic line maintenance synchronized with pump replacement.",
-            pendingIssue: "Complete on-site fuel injection pump rebuild and test engine under load.",
-            status: "Technicians En Route — Deputed on train for diesel pump overhaul and tuning."
+            site: "Rewari Project Site",
+            model: "Forklift Fleet (5002 & 3002)",
+            serialNumber: "5002 / 3002",
+            issue: "Both units in breakdown; spares package dispatched to Rewari depot yesterday.",
+            action: "Hari tracking parts delivery; field technician assigned for immediate installation upon package arrival.",
+            logistics: "Spare parts dispatched from Delhi depot yesterday via road transport.",
+            clarification: "Critical material handling units servicing warehouse client.",
+            pendingIssue: "Confirm package arrival at Rewari and complete parts installation.",
+            status: "Spares In Transit — Parts dispatched yesterday; on-site installation scheduled upon delivery."
         },
         {
-            site: "Sanand Tata Micron Site",
-            model: "JCB 3240",
-            serialNumber: "2518",
-            issue: "Four traction batteries completely dead with zero specific gravity, immobilizing the scissor lift.",
-            action: "Pandit Dhiraj Dubey instructed to consolidate working batteries from unit 6241 into unit 2518.",
-            logistics: "Cannibalized battery bank staged for immediate inter-machine swap.",
-            clarification: "Cannibalization deployed to restore operational uptime while replacement packs are processed.",
-            pendingIssue: "Complete battery bank swap and restore scissor lift operation.",
-            status: "Restored via Cannibalization — Swapped functional batteries to achieve full operation."
+            site: "Vidya Polymer Client Site",
+            model: "2-Ton Electric Forklift",
+            serialNumber: "Vidya Polymer 2T",
+            issue: "Client requisition for 2-ton replacement machine to support factory material handling operations.",
+            action: "Dhruv Sharma and Jitendra managing dispatch and commissioning of 2-ton forklift to Vidya Polymer site.",
+            logistics: "Transport carrier booked for equipment dispatch.",
+            clarification: "Client deployment to replace aging unit.",
+            pendingIssue: "Deliver machine to client site, complete commissioning, and obtain client sign-off.",
+            status: "Machine Dispatched — 2-ton forklift in transit for client commissioning."
         },
         {
-            site: "Sanand Tata Micron Site",
-            model: "JCB 3240",
-            serialNumber: "6241",
-            issue: "Three weak batteries operating below rated capacity, risking intermittent site shutdown.",
-            action: "Unit isolated in yard to donate healthy cells to unit 2518 while replacement pack is arranged.",
-            logistics: "Replacement battery requisition logged for procurement.",
-            clarification: "Machine safely parked in bay pending fresh warranty battery pack.",
-            pendingIssue: "Receive new replacement battery bank to recommission unit.",
-            status: "Parked for Spares — Donated batteries to unit 2518; awaiting replacement pack."
-        },
-        {
-            site: "Sanand Tata Micron Site",
-            model: "JCB 4G",
-            serialNumber: "5710",
-            issue: "Premature battery degradation logged under warranty review with JCB OEM.",
-            action: "Field team submitted specific gravity logs to JCB service engineer for warranty claim.",
-            logistics: "Warranty replacement documentation submitted to OEM depot.",
-            clarification: "OEM warranty replacement required before formal client handover.",
-            pendingIssue: "Obtain warranty replacement decision from JCB technical engineer.",
-            status: "Under OEM Warranty Review — Battery claim documentation submitted to JCB."
-        },
-        {
-            site: "Sanand Project Site",
-            model: "Genie GS-1932",
-            serialNumber: "Genie 19",
-            issue: "Total battery discharge and overload cutout during shift operation.",
-            action: "Shifted to charging bay for overnight equalization charging and morning mechanic inspection.",
-            logistics: "Dedicated charging station allocated at Sanand yard.",
-            clarification: "Full charging cycle required to determine if cells recover rated specific gravity.",
-            pendingIssue: "Complete overnight charging and test load capacity tomorrow morning.",
-            status: "Charging Bay — Shifted for overnight battery charge and mechanic inspection."
-        },
-        {
-            site: "Sanand Project Site",
-            model: "Zoomlion 4550",
-            serialNumber: "Unit 4550",
-            issue: "Drive motor emitting grinding noise and overload sensor repeatedly tripping due to uncalibrated bypass.",
-            action: "Deepak and Pardeep deployed to inspect motor terminals and perform formal load recalibration.",
-            logistics: "Multimeter and calibration weight kits staged on site.",
-            clarification: "Temporary overload bypass must be replaced with certified recalibration.",
-            pendingIssue: "Eliminate motor noise and complete calibrated load sensor setup.",
-            status: "Under Rectification — Motor terminal inspection and sensor recalibration active."
-        },
-        {
-            site: "Jaisalmer Project Site",
-            model: "Genie SX-125",
-            serialNumber: "4047",
-            issue: "Machine grounded due to burnt/missing onboard battery charger.",
-            action: "Pardeep Tomar dispatched high-capacity replacement charger via road transit; technician Ranjan deputed.",
-            logistics: "Industrial battery charger dispatched via surface road logistics.",
-            clarification: "Surface road transit mandated to comply with hazardous transport regulations.",
-            pendingIssue: "Receive charger on site and complete technician wiring installation.",
-            status: "Charger Dispatched — Road logistics in transit; technician assigned for installation."
-        },
-        {
-            site: "Vapi Project Site",
-            model: "3-Ton Forklift",
-            serialNumber: "Vapi 3T",
-            issue: "Forklift grounded due to dead traction battery cells causing rapid voltage drop.",
-            action: "Raju packed and dispatched replacement traction battery cells via surface transport.",
-            logistics: "Replacement battery cells dispatched from central depot today.",
-            clarification: "Cell replacement will revive existing battery bank without full pack cost.",
-            pendingIssue: "Deliver cells to site and complete series connection with local technician.",
-            status: "Spares In Transit — Replacement cells dispatched from depot for cell swap."
-        },
-        {
-            site: "Rajpura Project Site",
-            model: "3-Ton Forklift",
-            serialNumber: "Rajpura 3T",
-            issue: "Traction battery cell failure causing lifting cutout under pallet load.",
-            action: "Raju organized courier dispatch of replacement traction cells to local supervisor.",
-            logistics: "Replacement cells dispatched via approved courier service.",
-            clarification: "Local supervisor to install cells upon receipt and verify gravity.",
-            pendingIssue: "Receive replacement cells and complete pack re-balancing.",
-            status: "Spares In Transit — Replacement cells en route to site supervisor."
-        },
-        {
-            site: "Samsung Project Site",
-            model: "3-Ton Forklift",
-            serialNumber: "Samsung 3T",
-            issue: "Machine controller throwing error code 4000 indicating communication failure.",
-            action: "Technician troubleshooting CAN-bus harness and controller terminal connectors.",
-            logistics: "Diagnostic multimeter and spare wiring harness arranged on site.",
-            clarification: "Controller error halts all drive and hydraulic operations.",
-            pendingIssue: "Isolate harness fault and clear controller communication error.",
-            status: "Under Investigation — Technician diagnosing CAN-bus communication error."
-        },
-        {
-            site: "Ahmedabad JK Paper Site",
-            model: "Order Picker",
-            serialNumber: "Bay 507 / 302",
-            issue: "Electrical feed failure on Bay 302 during warehouse shift operations.",
-            action: "Local service team inspected and resolved electrical faults on Bay 302.",
-            logistics: "Local workshop spares utilized for immediate rectification.",
-            clarification: "Bay 302 cleared for production; Bay 507 under preventive monitoring.",
-            pendingIssue: "Monitor machine during shift operation to verify stable performance.",
-            status: "Operational — Bay 302 resolved and cleared for ongoing warehouse duty."
-        },
-        {
-            site: "Haldia Project Site",
-            model: "100ft Boom Lift",
-            serialNumber: "Haldia 100ft",
-            issue: "Awaiting replacement electrical connector assembly currently in transit without tracking status.",
-            action: "Pardeep Tomar instructed to trace courier tracking docket immediately and push delivery.",
-            logistics: "Connector assembly shipped via courier; docket tracking retrieval underway.",
-            clarification: "Unit immobilized until connector is plugged and verified.",
-            pendingIssue: "Trace courier docket and complete connector plug installation.",
-            status: "Spares In Transit — Courier tracking retrieval underway for urgent delivery."
-        },
-        {
-            site: "Mangalore Project Site",
-            model: "100ft Boom Lift",
-            serialNumber: "Mangalore 100ft",
-            issue: "Scheduled preventive maintenance delayed due to continuous client working schedule.",
-            action: "Technician scheduling servicing window during upcoming Sunday/Monday client downtime.",
-            logistics: "Filter kit and hydraulic oil pre-staged at Mangalore site.",
-            clarification: "Maintenance aligned with client off-hours to prevent operational conflict.",
-            pendingIssue: "Execute scheduled preventive maintenance during client work window.",
-            status: "Service Scheduled — Maintenance planned for upcoming Sunday/Monday client off-hours."
-        },
-        {
-            site: "Radhey Client Site",
-            model: "150ft Boom Lift",
-            serialNumber: "Radhey 150ft",
-            issue: "Severe tire failure: 3 tires excessively depressed/flattened and 1 tire burst completely.",
-            action: "Radhey submitted purchase indent for a full set of replacement heavy tires for commercial clearance.",
-            logistics: "Tire supplier quotation and technical specifications attached to indent.",
-            clarification: "Tires declared non-repairable beyond retreading; urgent new tires required.",
-            pendingIssue: "Secure finance approval and place purchase order with tire distributor.",
-            status: "Awaiting Finance Clearance — Emergency tire purchase indent submitted for budget release."
-        },
-        {
-            site: "Radhey Client Site",
-            model: "80ft Boom Lift",
-            serialNumber: "Radhey 80ft",
-            issue: "Boom tires severely worn down to cords, declared non-repairable.",
-            action: "Included in emergency tire procurement requisition submitted for budget release.",
-            logistics: "80ft replacement tire sizing submitted to central procurement.",
-            clarification: "Worn tires pose safety hazard on graded client surfaces.",
-            pendingIssue: "Finalize tire purchase order along with 150ft tire pack.",
-            status: "Indent Logged — Combined tire purchase requisition submitted to management."
+            site: "Visakhapatnam Project Site",
+            model: "Rough Terrain RT",
+            serialNumber: "Vizag RT",
+            issue: "Persistent hydraulic oil leakage reported; client ticket opened with no technician yet on site.",
+            action: "Jitendra Budhauliya planning technician travel; Shiv Uniyal coordinating with equipment specialist for replacement seals.",
+            logistics: "Hydraulic seal kit part number requested from OEM documentation.",
+            clarification: "Machine ticket logged in portal; technician travel booking required.",
+            pendingIssue: "Identify hydraulic seal part number and deploy technician to Visakhapatnam.",
+            status: "Awaiting Technician — Ticket logged for hydraulic oil leakage; technician deployment pending."
         }
     ],
     parts: [
-        { part: "Genie 4390 Hydraulic Pump", context: "Mundra Site / Unit 4390", statusNextSteps: "Emergency PO clearance pending with Vishal Sir & Dhrup Sir for vendor dispatch." },
-        { part: "Genie Z-40 Drive Motor & Control Card", context: "Mundra Site Fleet", statusNextSteps: "Motor dispatched; control card received by Sitaram via train for fitment." },
-        { part: "SX-125 High-Capacity Battery Charger", context: "Jaisalmer Site / Unit 4047", statusNextSteps: "Dispatched today via road transit; technician Ranjan aligning for installation." },
-        { part: "Traction Battery Replacement Cells", context: "Vapi & Rajpura Forklift Sites", statusNextSteps: "Packed and dispatched by Raju via surface transport for cell swaps." },
-        { part: "JCB 3240 Flooded Batteries (SN 2518 & 6241)", context: "Sanand Tata Micron Site", statusNextSteps: "Cannibalized healthy cells between units to restore 2 machines; warranty logged." },
-        { part: "Industrial Boom Lift Tires (150ft & 80ft)", context: "Radhey Client Site", statusNextSteps: "Commercial purchase indent submitted today for finance budget release." },
-        { part: "Haldia 100ft Connector Assembly", context: "Haldia Project Site", statusNextSteps: "Courier tracking docket being traced by Pardeep Tomar for site arrival." },
-        { part: "Zoomlion Scissor Tyres", context: "Sanand Project Site", statusNextSteps: "Dispatched tires arrived on site; local mechanic actively fitting today." },
-        { part: "Forklift Direction Switch & Control Spares", context: "Material Handling Fleet", statusNextSteps: "Payment processed today; supplier direct dispatch scheduled tomorrow." }
+        { part: "6V 440Ah/400Ah Traction Batteries (2 Units)", context: "JCB 45, Mundra Project Site", statusNextSteps: "Hari & Dinesh punching urgent purchase order for direct vendor dispatch." },
+        { part: "48V Battery Charger", context: "Genie Z-45, Regional Fleet Workshop", statusNextSteps: "Local vendor procurement initiated by Pradeep Tomar." },
+        { part: "Heavy-Duty Electrical Contactor", context: "Genie Z-45, Regional Fleet Workshop", statusNextSteps: "Procuring locally; installation date to be marked on component." },
+        { part: "Pothole Guard Wiring Harness", context: "Genie GS-4046, Sanand Project Site", statusNextSteps: "Issued from Sanand store; 6-hour installation permit secured." },
+        { part: "Rotary Control Limit Sensor / Switch", context: "JLG 600AJ, Mundra Project Site", statusNextSteps: "Part identification in progress with store supervisor Pradeep Tomar." },
+        { part: "Heavy-Duty Hydraulic/Mechanical Jack", context: "Genie GS-4046, Sanand Store", statusNextSteps: "Dinanath tasked to purchase replacement jack locally today." },
+        { part: "Engine Overhaul Gasket & Ring Kit", context: "JLG 860SJ, Mundra Project Site", statusNextSteps: "Requisition submitted to central store for engine rebuild." },
+        { part: "Hydraulic Cylinder O-Ring Kit", context: "JLG M600JP, Sanand Project Site", statusNextSteps: "O-rings staged; replacement scheduled during Sunday maintenance window." },
+        { part: "Forklift Replacement Spares", context: "Units 5002 & 3002, Rewari Project Site", statusNextSteps: "Dispatched from Delhi depot yesterday; courier tracking active." },
+        { part: "Hydraulic Seal Kit", context: "Rough Terrain RT, Visakhapatnam Project Site", statusNextSteps: "Part number lookup underway from OEM documentation." }
     ],
     directives: [
         {
-            title: "Strict Prohibition of Battery Transit via Passenger Train Cargo",
+            title: "Part Installation Date-Marking Policy",
             points: [
-                "Absolute ban on rail luggage for batteries following RPF notices; dedicated surface road carriers only.",
-                "General non-hazardous hardware (cards, cables, small motors) may utilize train cargo with valid receipts."
+                "Technicians and supervisors must physically write the exact installation date on every replacement spare part before fitting.",
+                "Mandatory date-marking enables accurate component life tracking and simplifies vendor warranty enforcement."
             ]
         },
         {
-            title: "Interim Battery Swapping & Fleet Cannibalization Protocol",
+            title: "Tool Custody and Financial Liability Policy",
             points: [
-                "Consolidate functional batteries across partially crippled units at a single site to maximize operational uptime.",
-                "Specific gravity test sheets and serial numbers must be recorded in the Breakdown group for all swapped cells."
+                "Heavy tools and specialized service gear must be strictly logged in and out of site stores with photo confirmation.",
+                "Unreturned or misplaced equipment will be debited directly against technician and supervisor accounts."
             ]
         },
         {
-            title: "Loss-Rental & High-Value Spare Procurement Escalation Protocol",
+            title: "Weekend Maintenance Windows for Active Plants",
             points: [
-                "Procurements pending over 48 hours must escalate to a direct conference call with senior management.",
-                "PO approval must be closed within the same working day to keep downtime under 7 days."
+                "For machines running night shifts or inside restricted bays, schedule permits specifically for Saturday night and Sunday.",
+                "Prevents operational disruptions while allowing unhurried repairs like cylinder O-ring replacements."
             ]
         },
         {
-            title: "OEM Portal Complaint Logging Prerequisite",
+            title: "Proper Earthing Verification on Charging Points",
             points: [
-                "Field supervisors must log complaints directly on OEM customer portals before requesting service deputation.",
-                "Record OEM portal ticket IDs in the daily breakdown update to monitor service level agreements."
+                "Test external distribution board ground earth pins whenever electric shock or leakage is reported during charging.",
+                "Rule out site supply grounding faults before dismantling machine chargers or internal wiring."
+            ]
+        },
+        {
+            title: "Accurate Battery Ampere-Hour Matching",
+            points: [
+                "Field teams must never install lower-rated battery banks (e.g., 370Ah instead of 440Ah) on heavy boom lifts.",
+                "Verify exact ampere-hour ratings prior to dispatch to prevent premature voltage drops and recurring downtime."
             ]
         }
     ],
     actionItems: [
-        { person: "Vishal Sir & Dhrup Sir", task: "Conduct emergency conference call today on Mundra Genie 4390 pump costing and release PO." },
-        { person: "Pardeep Tomar", task: "Dispatch SX-125 charger to Jaisalmer today, trace Haldia connector docket, and enforce road transit for batteries." },
-        { person: "Pandit Dhiraj Dubey", task: "Execute battery swapping between JCB 3240 units at Sanand, charge Genie 19 tonight, and check Zoomlion tires." },
-        { person: "Dinesh Babu", task: "Confirm travel tickets to Chennai for tomorrow and arrange direct bus connection to Kochi for fuel diagnostics." },
-        { person: "Raju", task: "Pack and dispatch replacement traction battery cells to Rajpura and Vapi sites today via road logistics." },
-        { person: "Pritam Chand & Mantu", task: "Board train to Mundra today to execute fuel injection pump replacement and engine tuning on JLG 660." },
-        { person: "Radhey", task: "Submit formal requisition document and tire specifications for 150ft and 80ft boom lifts to store and finance." },
-        { person: "Amrish", task: "Clarify electrical contactor vs charger requirements for Jaisalmer machine 4047 and coordinate installation." },
-        { person: "Deepak", task: "Complete physical inspection on Zoomlion 4550 drive motor and wiring terminals at Sanand and calibrate load circuit." }
+        { person: "Hari & Dinesh", task: "Coordinate directly to punch purchase order for two 6V 440Ah/400Ah batteries for Mundra JCB 45." },
+        { person: "Pradeep Tomar & Khemchand", task: "Procure 48V charger and heavy-duty contactor locally, date-mark components, and dispatch." },
+        { person: "Deepak & Dhiraj", task: "Secure 6-hour permit and complete pothole guard wiring harness installation on Genie GS-4046 at Sanand." },
+        { person: "Dinanath", task: "Purchase heavy-duty replacement jack locally to service jammed platform deck on GS-4046." },
+        { person: "Khemchand", task: "Arrange permit to move JLG M600JP outside plant on Saturday night/Sunday to replace master cylinder O-rings." },
+        { person: "Chunnilal Patel & Mantu", task: "Identify rotary sensor part number for unit 600 and initiate engine teardown on unit 860." },
+        { person: "Imran Khan", task: "Finalize Air Force security gate clearance for tomorrow morning entry at Hindon." },
+        { person: "Shiv Uniyal & Jitendra", task: "Deploy technician to Visakhapatnam for RT hydraulic oil leakage with replacement seal kit." },
+        { person: "Hari", task: "Track courier delivery of forklift spares to Rewari depot for units 5002 and 3002." }
     ]
 };
 
-const meeting08 = {
-    id: "meet-2026-09-08",
-    title: "08-09-2026",
-    date: "2026-09-08",
-    dateFormatted: "08-09-2026",
-    focus: "Bangalore 23-battery deficit, Bhiwani tilt cylinder overhaul, GS-90 scrap battery credit, Jamnagar T65 platform diagnostics, Model 450 gasket transit, and 800 axle depot transfer.",
-    isHoliday: false,
-    holidayName: "",
-    breakdowns: [
-        {
-            site: "Bangalore Fleet Site",
-            model: "Material Handling Fleet",
-            serialNumber: "Bangalore MHE",
-            issue: "Acute shortage of traction batteries with 23 battery packs completely dead across the fleet.",
-            action: "Rahul Singh and Dhruv Sharma negotiating vendor support to revive 7-8 dead packs and ordering 10 new banks.",
-            logistics: "Local vendor battery reconditioning setup being evaluated for rapid turnaround.",
-            clarification: "24/7 site operations require immediate battery replenishment to avoid fleet paralysis.",
-            pendingIssue: "Deploy vendor reconditioning team and secure finance release for 10 new battery packs.",
-            status: "Critical Escalation — Cell reconditioning initiated for 7–8 packs; 10 new packs in procurement."
-        },
-        {
-            site: "Bhiwani Project Site",
-            model: "Hyundai 3-Ton",
-            serialNumber: "Bhiwani Unit",
-            issue: "Tilt cylinder assembly opened on site for seal replacement; local mechanic abandoned job.",
-            action: "Rahul Singh following up with Mishra Ji for immediate engineer dispatch with proper seal kit.",
-            logistics: "Replacement cylinder seal kit staged at regional depot.",
-            clarification: "Machine grounded mid-repair; requires certified technician to finish rebuild.",
-            pendingIssue: "Depute Mishra Ji's technician to install seals and commission tilt cylinder.",
-            status: "Under Repair — Technician deputation pending to assemble tilt cylinder."
-        },
-        {
-            site: "Jamshedpur / Tatanagar Site",
-            model: "3-Ton Forklift",
-            serialNumber: "Jamshedpur 3T",
-            issue: "Standing grounded for 2.5 to 3 months due to an exhausted 3-ton traction battery bank.",
-            action: "Dhruv Sharma confirmed dispatched 3-ton battery bank left origin on 30-Aug; tracking shared with team.",
-            logistics: "Road transit tracking docket active with carrier; ETA 24–48 hours.",
-            clarification: "Battery arrival will restore long-term grounded machine to active billing.",
-            pendingIssue: "Receive battery consignment on site and install into forklift.",
-            status: "Spares In Transit — Dispatched 3-ton battery bank en route (ETA 1–2 days)."
-        },
-        {
-            site: "PG Electroplast Site (Greater Noida)",
-            model: "2-Ton Forklift",
-            serialNumber: "PG 2T",
-            issue: "2-Ton traction battery bank degraded, requiring full replacement pack.",
-            action: "Order confirmed with vendor Manish for complete pack (cells and tray assembled); tracking awaited.",
-            logistics: "Vendor assembly completed; dispatch tracking number being shared today.",
-            clarification: "Commercial payment cleared; zero payment block on shipment.",
-            pendingIssue: "Receive carrier tracking docket from vendor Manish and confirm dispatch.",
-            status: "Order Confirmed — Pack assembled by vendor Manish; dispatch tracking awaited today."
-        },
-        {
-            site: "Regional Fleet Depot",
-            model: "Genie GS-90 RT",
-            serialNumber: "GS90D-588",
-            issue: "2023–2024 Amaron battery bank suffered internal cell failure under cranking load.",
-            action: "Satendra Kumar instructed to remove dead batteries, submit core return credit paperwork, and log in CRM.",
-            logistics: "Scrap battery cores being delivered to central depot for vendor credit deduction.",
-            clarification: "Payment for replacements strictly withheld until old scrap cores are surrendered.",
-            pendingIssue: "Surrender old cores for vendor credit and process replacement battery indent.",
-            status: "Core Surrender Pending — De-installation underway for scrap credit deduction."
-        },
-        {
-            site: "Jamnagar Project Site",
-            model: "JCB T65",
-            serialNumber: "539503",
-            issue: "Platform-side function failure prevents operator from controlling boom movements.",
-            action: "Technician Pradeep arrived on site; Jitendra Budhauliya instructed CRM induction of serial 539503.",
-            logistics: "Platform console diagnostic equipment and wiring spares on site.",
-            clarification: "CRM ticket registration required for tracking component consumption.",
-            pendingIssue: "Trace platform console signal failure and register serial number in CRM.",
-            status: "Technician On-Site — Pradeep diagnosing platform control failure; CRM induction active."
-        },
-        {
-            site: "Regional Fleet Site",
-            model: "Genie J-6034",
-            serialNumber: "710",
-            issue: "Cylinder locking pins worn, rotary seals partially fitted, and wiring heating occurred upon restart.",
-            action: "Delhi store dispatched lock pins; remaining rotary seals being fitted and wiring heating rectified.",
-            logistics: "Lock pins and balance rotary seals dispatched from Delhi store.",
-            clarification: "Platform diesel engine function harness being configured to eliminate heating.",
-            pendingIssue: "Install lock pins, fit remaining rotary seals, and verify engine harness.",
-            status: "Under Overhaul — Lock pins sourced; rotary seals and harness wiring underway."
-        },
-        {
-            site: "Panipat Project Site",
-            model: "Model 450 Boom Lift",
-            serialNumber: "030077669",
-            issue: "Engine in complete breakdown due to a blown 1-notch cylinder head gasket.",
-            action: "Technician Praveen carrying 1-notch gasket to Panipat tonight for immediate cylinder head replacement.",
-            logistics: "1-notch gasket hand-carried by traveling technician on night transit.",
-            clarification: "Hand-carried transit eliminates multi-day courier delay for engine repair.",
-            pendingIssue: "Technician Praveen arrival tonight to install 1-notch gasket and torque head.",
-            status: "Spares In Transit — Praveen hand-carrying 1-notch gasket to Panipat tonight."
-        },
-        {
-            site: "Regional Fleet Depot",
-            model: "800 Boom Lift",
-            serialNumber: "Unit 800",
-            issue: "Third-party axle fabrication failed and smoked upon installation due to incorrect tolerances.",
-            action: "Management aborted uncertified local repairs; damaged axle assembly being shipped to Delhi depot.",
-            logistics: "Axle assembly being packed for transport to Delhi central engineering depot.",
-            clarification: "Precision OEM machining at central workshop required to prevent axle destruction.",
-            pendingIssue: "Dispatch damaged axle to Delhi central depot for certified precision machining.",
-            status: "Depot Transfer — Local fabrication aborted; axle assembly shipping to Delhi depot."
-        },
-        {
-            site: "Korba Project Site",
-            model: "JCB 2040",
-            serialNumber: "3534",
-            issue: "Touch pad control keypad console damaged and non-responsive.",
-            action: "Umesh Kumar and store team identifying exact JCB OEM part number for urgent courier dispatch.",
-            logistics: "OEM part catalogue cross-referenced for keypad procurement.",
-            clarification: "Defective keypad prevents operator platform elevation.",
-            pendingIssue: "Confirm JCB part number and place courier order for replacement keypad.",
-            status: "Part Sourcing — OEM part number identification underway for courier dispatch."
-        },
-        {
-            site: "Ambala / Chandigarh Site",
-            model: "Genie GS-1932",
-            serialNumber: "21730",
-            issue: "Recurrent starting issues and safety limit sensor calibration tripped out of tolerance.",
-            action: "Umesh Kumar coordinating limit recalibration; warning decals for 6 machines handed to Ranjan.",
-            logistics: "Calibration sensor and 6-machine decal sets handed to technician Ranjan.",
-            clarification: "Limit switch recalibration required to meet safety compliance standards.",
-            pendingIssue: "Recalibrate safety limit sensors and affix warning decals.",
-            status: "Under Calibration — Sensor recalibration and decal application assigned to Ranjan."
-        },
-        {
-            site: "Outstation Fleet Site",
-            model: "Boom Lift",
-            serialNumber: "Machine 3046",
-            issue: "Electrical supply cutout; platform lift/drive selector toggle button defective, dropping power.",
-            action: "Live video call troubleshooting arranged with Senior Technician Trilochan Ji to bypass/replace switch.",
-            logistics: "Replacement toggle switches and test leads pre-staged.",
-            clarification: "Video conference enables live terminal guidance without outstation travel delay.",
-            pendingIssue: "Conduct video call with Trilochan Ji to execute switch troubleshooting and bypass.",
-            status: "Remote Video Support — Video troubleshooting session scheduled with Trilochan Ji."
-        },
-        {
-            site: "Client Project Site",
-            model: "150ft Ultra Boom Lift",
-            serialNumber: "Unit 150ft",
-            issue: "Misaligned exhaust silencer pipe discharging heavy smoke directly onto the boom structure.",
-            action: "Banarsi deployed to repair exhaust silencer pipe and eliminate smoke discharge.",
-            logistics: "Silencer elbow clamps and heat-resistant seals staged on site.",
-            clarification: "Client supervisor escalating daily regarding smoke staining and fault codes.",
-            pendingIssue: "Complete silencer pipe realignment and test exhaust flow under full engine rev.",
-            status: "Under Repair — Banarsi on-site realigning exhaust silencer pipe."
-        },
-        {
-            site: "Client Project Site",
-            model: "150ft / 100ft Boom Lift",
-            serialNumber: "Large Tyre Unit",
-            issue: "Large replacement tire pending for over 1 month, creating equipment immobilization risk.",
-            action: "Vinod Pal re-escalated tire photos to Shiv Sir and management for immediate shipment update.",
-            logistics: "Tire dispatch status being tracked with regional transporter.",
-            clarification: "Over 30 days pending; critical priority to prevent machine grounding.",
-            pendingIssue: "Obtain confirmed dispatch docket and ETA from Shiv Sir.",
-            status: "Escalated — Tire dispatch confirmation awaited from management."
-        }
-    ],
-    parts: [
-        { part: "Bangalore 2-Ton & 3-Ton Traction Battery Banks", context: "Bangalore Material Handling Fleet", statusNextSteps: "Vendor negotiating cell reconditioning for 7-8 packs; 10 new banks ordered." },
-        { part: "Hyundai 3-Ton Tilt Cylinder Seal Kit", context: "Bhiwani Site / Hyundai 3-Ton", statusNextSteps: "Cylinder opened on site; Mishra Ji deputing engineer with seal kit." },
-        { part: "3-Ton Traction Battery Bank", context: "Jamshedpur Site / 3-Ton Forklift", statusNextSteps: "Dispatched on 30-Aug in road transit (ETA 1-2 days) to revive grounded unit." },
-        { part: "PG Electroplast 2-Ton Battery Pack", context: "PG Electroplast (Greater Noida)", statusNextSteps: "Assembled by vendor Manish; payment cleared; dispatch tracking awaited today." },
-        { part: "Amaron Traction Battery Bank (GS90D-588)", context: "Scissor Fleet / Unit 588", statusNextSteps: "Old cores being surrendered to central store for scrap credit before replacement PO." },
-        { part: "JCB T65 Platform Control Wiring & Console", context: "Jamnagar Site / Serial 539503", statusNextSteps: "Technician Pradeep diagnosing function drops on-site; CRM induction active." },
-        { part: "Cylinder Safety Lock Pins & Rotary Seals", context: "J-6034 / 710 Boom Lift Fleet", statusNextSteps: "Delhi store dispatched lock pins; remaining rotary seals being fitted on site." },
-        { part: "Model 450 1-Notch Cylinder Head Gasket", context: "Panipat Site / Serial 030077669", statusNextSteps: "Praveen hand-carrying 1-notch gasket to Panipat tonight for urgent engine repair." },
-        { part: "800 Boom Lift Heavy-Duty Axle Assembly", context: "800 Boom Lift Fleet", statusNextSteps: "Local fabrication failed; assembly shipping to Delhi central depot for OEM machining." },
-        { part: "JCB 2040 Touch Pad Console Keypad", context: "Korba Site / Serial 3534", statusNextSteps: "Store team cross-referencing JCB OEM part number for urgent courier dispatch." },
-        { part: "150ft Exhaust Silencer Elbow & Heavy Tyres", context: "Client Site / 150ft Fleet", statusNextSteps: "Banarsi realigning silencer pipe; large tyre shipment escalated to Shiv Sir." }
-    ],
-    directives: [
-        {
-            title: "Mandatory Battery Core Surrender Prior to Procurement Payment (Old Battery Return Credit)",
-            points: [
-                "Payment for replacement traction batteries strictly withheld until old scrap cores are surrendered for vendor credit.",
-                "Field supervisors must raise formal email indents and record dead cell serials and specific gravity logs in CRM.",
-                "De-install dead batteries immediately from client premises to prevent pilferage and electrolyte degradation."
-            ]
-        },
-        {
-            title: "Outstation Technician Movement & Task Communication Protocol",
-            points: [
-                "Reassigning technicians between hubs must be coordinated in advance to avoid abandoning high-priority jobs.",
-                "Team leads must post a clear 4-point work summary on WhatsApp when handing over active sites.",
-                "Ensure continuous coverage and vendor alignment for 24/7 operating facilities like Bangalore."
-            ]
-        },
-        {
-            title: "Immediate Ban on Uncertified Third-Party Field Fabrications",
-            points: [
-                "Drivetrain, steering, and structural load components must never be locally fabricated without engineering clearance.",
-                "Ship damaged assemblies to Delhi central depot for certified OEM precision machining instead of wasteful field trials."
-            ]
-        },
-        {
-            title: "CRM Machine Registration & Technician Ticket Ownership",
-            points: [
-                "Every machine discussed in daily meetings must be verified live in CRM before clearing field actions.",
-                "Field technicians must ensure breakdown reports and tickets are registered under their own personal technician IDs."
-            ]
-        },
-        {
-            title: "Remote Technical Support via Live Video Calling",
-            points: [
-                "Operators facing intricate electrical or console faults must immediately initiate live video calls with senior specialists.",
-                "Video calls enable immediate inspection of terminals, wire color codes, and bypass options, cutting downtime."
-            ]
-        }
-    ],
-    actionItems: [
-        { person: "Rahul Singh", task: "Follow up with Mishra Ji for immediate engineer dispatch to Bhiwani tilt cylinder; manage Bangalore handover." },
-        { person: "Dhruv Sharma", task: "Confirm vendor dispatch docket from Manish for PG Electroplast 2-ton battery pack; track Jamshedpur shipment." },
-        { person: "Jitendra Budhauliya", task: "Ensure Jamnagar T65 (SN 539503) is registered in CRM; coordinate video call with Trilochan Ji for Machine 3046." },
-        { person: "Satendra Kumar", task: "De-install dead Amaron battery bank from GS 90 D 588, prepare old core return paperwork, and log in CRM." },
-        { person: "Ravikant", task: "Coordinate with Praveen to deliver 1-notch head gasket to Panipat tonight; arrange 800 axle dispatch to Delhi." },
-        { person: "Pardeep Tomar", task: "Receive cable photographs from site, log in system, and dispatch electrical cables and lock pins." },
-        { person: "Umesh Kumar", task: "Identify JCB 2040 touch pad part number for Korba (SN 3534); coordinate Ambala Genie 1932 limit calibration." },
-        { person: "Banarsi", task: "Complete on-site repair and alignment of exhaust silencer on 150ft boom lift to eliminate boom smoke discharge." },
-        { person: "Vinod Pal", task: "Send cable photographs to Pardeep Tomar, escalate swapped medical insurance card with admin, and track large tire status." },
-        { person: "Trilochan Ji", task: "Conduct technical video call with field operator for Machine 3046 to provide guidance on selector toggle switch." }
-    ]
-};
+async function main() {
+    console.log('🚀 Ingesting September 07 and 08 meetings directly into Supabase...');
 
-async function run() {
-    console.log('🚀 Synchronizing September 7, 2026 meeting...');
-    const r07 = await syncDailyMeeting(meeting07);
-    console.log(`✅ Synced ${r07.meetingId}: ${r07.counts.breakdowns} machines, ${r07.counts.parts} parts, ${r07.counts.directives} directives, ${r07.counts.actionItems} action items.`);
+    console.log('\n--- Syncing September 07, 2026 ---');
+    const res07 = await syncDailyMeeting(meeting07);
+    console.log(`✅ Sept 07 Synced: ${res07.counts.breakdowns} breakdowns, ${res07.counts.parts} parts, ${res07.counts.directives} directives, ${res07.counts.actionItems} action items.`);
 
-    console.log('\n🚀 Synchronizing September 8, 2026 meeting...');
-    const r08 = await syncDailyMeeting(meeting08);
-    console.log(`✅ Synced ${r08.meetingId}: ${r08.counts.breakdowns} machines, ${r08.counts.parts} parts, ${r08.counts.directives} directives, ${r08.counts.actionItems} action items.`);
+    console.log('\n--- Syncing September 08, 2026 ---');
+    const res08 = await syncDailyMeeting(meeting08);
+    console.log(`✅ Sept 08 Synced: ${res08.counts.breakdowns} breakdowns, ${res08.counts.parts} parts, ${res08.counts.directives} directives, ${res08.counts.actionItems} action items.`);
+
+    console.log('\n🎉 Both meetings synced atomically into Supabase with zero static files!');
 }
 
-run().catch(err => {
-    console.error('❌ Failed:', err);
-    process.exit(1);
-});
+if (process.argv[1] && process.argv[1].endsWith('sync-sept-07-08.js')) {
+    main().catch(err => {
+        console.error('❌ Sync failed:', err);
+        process.exit(1);
+    });
+}

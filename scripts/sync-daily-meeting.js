@@ -88,6 +88,24 @@ export async function syncDailyMeeting(meetingData) {
 
     for (const item of rawBreakdowns) {
         if (!item) continue;
+
+        // If the item is already a well-formed single-machine record, preserve exact fields
+        if (item.model && (item.serialNumber || item.serial_number) && item.issue && item.action) {
+            unbundledMachines.push({
+                meeting_id: meetingId,
+                model: cleanOneLine(item.model),
+                serial_number: cleanOneLine(item.serialNumber || item.serial_number || 'N/A'),
+                site: cleanOneLine(item.site || item.site_location || item.location || 'General Site'),
+                issue: cleanOneLine(item.issue),
+                action: cleanOneLine(item.action),
+                logistics: cleanOneLine(item.logistics) || null,
+                clarification: cleanOneLine(item.clarification) || null,
+                pending_issue: cleanOneLine(item.pendingIssue || item.pending_issue) || null,
+                status: cleanOneLine(item.status || 'Under Investigation')
+            });
+            continue;
+        }
+
         const unbundled = unbundleBreakdownEntry(item, {
             date: isoDate,
             dateDisplay: displayDate,
@@ -101,12 +119,12 @@ export async function syncDailyMeeting(meetingData) {
                     model: cleanOneLine(m.model || m.machine_model || 'Standard Fleet Machine'),
                     serial_number: cleanOneLine(m.serial_number || m.serialNumber || 'N/A'),
                     site: cleanOneLine(m.site || m.site_location || m.location || 'General Site'),
-                    issue: cleanOneLine(m.short_issue || m.issue || m.description || 'Breakdown reported.'),
-                    action: cleanOneLine(m.short_action || m.action || 'Technician inspection assigned.'),
-                    logistics: cleanOneLine(m.short_logistics || m.logistics) || null,
-                    clarification: cleanOneLine(m.short_clarification || m.clarification) || null,
-                    pending_issue: cleanOneLine(m.short_pending || m.pending_issue || m.pendingIssue) || null,
-                    status: cleanOneLine(m.short_status || m.status || 'Under Investigation')
+                    issue: cleanOneLine(m.full_issue || m.short_issue || m.issue || m.description || 'Breakdown reported.'),
+                    action: cleanOneLine(m.full_action || m.short_action || m.action || 'Technician inspection assigned.'),
+                    logistics: cleanOneLine(m.full_logistics || m.short_logistics || m.logistics) || null,
+                    clarification: cleanOneLine(m.full_clarification || m.short_clarification || m.clarification) || null,
+                    pending_issue: cleanOneLine(m.full_pending || m.short_pending || m.pending_issue || m.pendingIssue) || null,
+                    status: cleanOneLine(m.full_status || m.short_status || m.status || 'Under Investigation')
                 });
             });
         }

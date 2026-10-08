@@ -72,52 +72,82 @@ When adding or editing workflow slides in `src/data/workflowsData.js` or `src/co
 
 ---
 
-## 3. Daily Meeting Summaries Standards
+## 3. Daily Meeting Summaries & Continuous Cloud Ingestion Workflow
 
-When adding or editing meeting summaries in `src/data/meetings/YYYY/MM/DD.json` (e.g. `src/data/meetings/2026/09/02.json`) or `src/components/MeetingSummariesPage.jsx`:
+### Mandatory Protocol for Every Conversation
+Whenever the user provides a meeting summary and/or raw transcript (in Hindi, Hinglish, or English):
 
-- **Meeting Database Architecture (Supabase)**:
-  - All meeting data is stored live in Supabase (`meetings`, `breakdown_machines`, `meeting_parts`, `meeting_directives`, `meeting_action_items`).
-  - No static JSON files are maintained in the repository.
-- **Meeting Data Schema**:
-  ```json
-  {
-      "id": "meet-YYYY-MM-DD",
-      "title": "DD Mon YYYY",
-      "date": "YYYY-MM-DD",
-      "dateFormatted": "DD Mon YYYY",
-      "focus": "High-level meeting agenda & focus areas",
-      "breakdowns": [
-          { "site": "Site Name", "issue": "...", "action": "...", "logistics": "...", "clarification": "...", "status": "...", "pendingIssue": "..." }
-      ],
-      "parts": [
-          { "part": "Part Name", "context": "Site / Equipment Context", "statusNextSteps": "Status & Next steps" }
-      ],
-      "directives": [
-          { "title": "Directive Name", "points": ["Point 1", "Point 2"] }
-      ],
-      "actionItems": [
-          { "person": "Owner Name", "task": "Assigned task details" }
-      ]
-  }
-  ```
-- **Strict One Machine = One Breakdown Card Rule**:
-  - Every breakdown card MUST represent strictly ONE machine.
-  - NEVER bundle or mix multiple machines, models, or serial numbers in a single card.
-  - If a site discusses 3 machines, create 3 separate breakdown cards.
+1. **Translation & Distillation into English**:
+   - Translate all Hindi/Hinglish transcripts and notes into professional, polished English.
+   - Accurately extract machine models, serial numbers, sites, technical defects, root causes, assigned technicians, logistics, and next steps.
 
-- **Concise, Single-Line Informative Fields Rule**:
-  - First properly analyze the meeting transcript and raw summary.
-  - Distill each point to be very short, concise, and informative in ONE line for effortless reading:
-    - **Meeting `focus`**: Exactly 1 short line summarizing key equipment priorities.
-    - **Breakdown `issue`**: Exactly 1 short line stating the exact problem/defect.
-    - **Breakdown `action`**: Exactly 1 short line stating the assigned person and action.
-    - **Breakdown `logistics`**: Exactly 1 short line (omit if none).
-    - **Breakdown `clarification`**: Exactly 1 short line (omit if none).
-    - **Breakdown `pendingIssue`**: Exactly 1 short line stating the immediate next step.
-    - **Breakdown `status`**: Exactly 1 short line stating current status.
-    - **Directives `points`**: Each bullet point must be exactly 1 short line.
-    - **Action Items `task`**: Exactly 1 short line per assignee.
+2. **100% Cloud-Native Database Storage (Zero Static JSON Files)**:
+   - **DO NOT** create, write, or modify static JSON files in `src/data/` or anywhere in the workspace repository.
+   - All meeting records are stored directly in Supabase (`meetings`, `breakdown_machines`, `meeting_parts`, `meeting_directives`, `meeting_action_items`).
+   - Use the dedicated daily ingestion pipeline:
+     ```bash
+     node scripts/sync-daily-meeting.js <meeting-data.json>
+     # or via npm script:
+     npm run meeting:sync -- <path-or-json>
+     ```
+     Or programmatically import and execute `syncDailyMeeting(data)` from `scripts/sync-daily-meeting.js`.
+   - **DO NOT** use `seed-supabase.js` for daily meetings (which re-seeds historical data). The streamlined pipeline atomically upserts ONLY that specific day's meeting, preventing repetitive database re-seeding.
+
+3. **Strict One Machine = One Breakdown Card Rule**:
+   - Every breakdown card MUST represent strictly ONE machine.
+   - NEVER bundle, group, or mix multiple machines, models, or serial numbers into a single card.
+   - If a site discusses 3 machines, create 3 separate breakdown cards.
+
+4. **Concise, Single-Line Informative Fields Rule**:
+   - First properly analyze the meeting transcript and raw summary.
+   - Distill each point to be very short, concise, and informative in ONE line for effortless reading:
+     - **Meeting `focus`**: Exactly 1 short line summarizing key equipment priorities.
+     - **Breakdown `issue`**: Exactly 1 short line stating the exact problem/defect.
+     - **Breakdown `action`**: Exactly 1 short line stating the assigned person and action.
+     - **Breakdown `logistics`**: Exactly 1 short line (omit if none).
+     - **Breakdown `clarification`**: Exactly 1 short line (omit if none).
+     - **Breakdown `pendingIssue`**: Exactly 1 short line stating the immediate next step.
+     - **Breakdown `status`**: Exactly 1 short line stating current status.
+     - **Directives `points`**: Each bullet point must be exactly 1 short line.
+     - **Action Items `task`**: Exactly 1 short line per assignee.
+
+5. **Meeting Data Schema**:
+   ```json
+   {
+       "id": "meet-YYYY-MM-DD",
+       "title": "DD-MM-YYYY",
+       "date": "YYYY-MM-DD",
+       "dateFormatted": "DD-MM-YYYY",
+       "focus": "Single-line high-level meeting agenda & focus areas",
+       "isHoliday": false,
+       "holidayName": "",
+       "breakdowns": [
+           { 
+             "site": "Site Name", 
+             "model": "Machine Model", 
+             "serialNumber": "Serial or N/A", 
+             "issue": "1-line defect description", 
+             "action": "1-line assigned action & technician", 
+             "logistics": "1-line logistics/parts dispatch", 
+             "clarification": "1-line operating/billing context", 
+             "pendingIssue": "1-line immediate next blocker", 
+             "status": "1-line machine lifecycle status" 
+           }
+       ],
+       "parts": [
+           { "part": "Part Name", "context": "Site / Equipment Context", "statusNextSteps": "1-line status & next steps" }
+       ],
+       "directives": [
+           { "title": "Directive Name", "points": ["1-line point 1", "1-line point 2"] }
+       ],
+       "actionItems": [
+           { "person": "Owner Name", "task": "1-line assigned task details" }
+       ]
+   }
+   ```
+
+6. **Automated GitHub Synchronization**:
+   - Once the meeting is upserted to Supabase and verified, commit any code/documentation changes and push to GitHub (`git push origin main`).
 
 - **Skeleton Loading Requirements**:
   - Both Meeting Card archive list and Meeting Details operational document MUST use animated skeleton loaders while data is fetching. Do NOT use isolated loading spinners.

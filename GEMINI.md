@@ -76,9 +76,9 @@ When adding or editing workflow slides in `src/data/workflowsData.js` or `src/co
 
 When adding or editing meeting summaries in `src/data/meetings/YYYY/MM/DD.json` (e.g. `src/data/meetings/2026/09/02.json`) or `src/components/MeetingSummariesPage.jsx`:
 
-- **Meeting File Hierarchy**:
-  - Each meeting is stored in its own isolated file: `src/data/meetings/YYYY/MM/DD.json`
-  - Do NOT use a single monolithic data file.
+- **Meeting Database Architecture (Supabase)**:
+  - All meeting data is stored live in Supabase (`meetings`, `breakdown_machines`, `meeting_parts`, `meeting_directives`, `meeting_action_items`).
+  - No static JSON files are maintained in the repository.
 - **Meeting Data Schema**:
   ```json
   {
@@ -101,9 +101,30 @@ When adding or editing meeting summaries in `src/data/meetings/YYYY/MM/DD.json` 
       ]
   }
   ```
+- **Strict One Machine = One Breakdown Card Rule**:
+  - Every breakdown card MUST represent strictly ONE machine.
+  - NEVER bundle or mix multiple machines, models, or serial numbers in a single card.
+  - If a site discusses 3 machines, create 3 separate breakdown cards.
+
+- **Concise, Single-Line Informative Fields Rule**:
+  - First properly analyze the meeting transcript and raw summary.
+  - Distill each point to be very short, concise, and informative in ONE line for effortless reading:
+    - **Meeting `focus`**: Exactly 1 short line summarizing key equipment priorities.
+    - **Breakdown `issue`**: Exactly 1 short line stating the exact problem/defect.
+    - **Breakdown `action`**: Exactly 1 short line stating the assigned person and action.
+    - **Breakdown `logistics`**: Exactly 1 short line (omit if none).
+    - **Breakdown `clarification`**: Exactly 1 short line (omit if none).
+    - **Breakdown `pendingIssue`**: Exactly 1 short line stating the immediate next step.
+    - **Breakdown `status`**: Exactly 1 short line stating current status.
+    - **Directives `points`**: Each bullet point must be exactly 1 short line.
+    - **Action Items `task`**: Exactly 1 short line per assignee.
+
+- **Skeleton Loading Requirements**:
+  - Both Meeting Card archive list and Meeting Details operational document MUST use animated skeleton loaders while data is fetching. Do NOT use isolated loading spinners.
+
 - **Document Layout**:
   - **Header**: Main title, formatted date, agenda focus.
-  - **Section 1 (Breakdowns)**: Desktop 2-column grid (`minmax(420px, 1fr)`), mobile 1-column stack, left blue border (`border-left: 4px solid #0066cc`).
+  - **Section 1 (Breakdowns)**: Desktop 2-column grid (`minmax(420px, 1fr)`), mobile 1-column stack, left blue border (`border-left: 4px solid #0066cc`). Do NOT include redundant model/serial pill containers in card headers or Excel export buttons in the section header.
   - **Section 2 (Parts Table)**: Responsive table container (`.clean-table-responsive`) with horizontal touch scroll.
   - **Section 3 (Directives)**: Amber background (`#fffbeb`) with `border-left: 4px solid #f59e0b`.
   - **Section 4 (Action Items)**: Emerald background (`#f0fdf4`) with `border-left: 4px solid #10b981`.

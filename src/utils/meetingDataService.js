@@ -1,15 +1,13 @@
 /**
- * Centralized Static Data Service for Daily Meeting Summaries
+ * Reach International Operations - Supabase Meeting Data Service
  * 
- * Sources all data directly from centralized src/data/meetings:
- * 1. Global Years & Months Index (src/data/meetings/years.json)
- * 2. Monthly Meeting Index (src/data/meetings/YYYY/MM/index.json)
- * 3. Individual Daily Meeting Document (src/data/meetings/YYYY/MM/DD.json)
- * 4. Lightweight Search Index (src/data/meetings/search-index.json)
+ * Replaces all static JSON files with live queries to Supabase.
+ * Powers the meeting summaries dashboard, search, month navigation,
+ * and individual meeting detail modal directly from the database.
  */
 
+import { supabase } from '../lib/supabaseClient.js';
 import { 
-    parseAnyDateToParts, 
     formatDateDDMMYYYY, 
     normalizeDateToYYYYMMDD, 
     generateAllDateVariations 
@@ -17,79 +15,373 @@ import {
 
 export { searchMeetings, getChronologicalNavigation } from './meetingUtils.js';
 
-import yearsData from '../data/meetings/years.json';
-import searchIndexData from '../data/meetings/search-index.json';
+const MONTH_NAMES = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+];
 
-// Eagerly loaded monthly indexes and daily meeting documents (bundled directly into memory)
-const monthIndexModules = import.meta.glob('../data/meetings/*/*/index.json', { eager: true, import: 'default' });
-const dailyMeetingModules = import.meta.glob('../data/meetings/*/*/[0-9]*.json', { eager: true, import: 'default' });
+// In-memory cache for ultra-fast UI rendering
+let cachedYearsData = null;
+let cachedSearchIndex = null;
+const cachedMeetingDetails = new Map();
 
 /**
- * Fetch the global years index containing year tree, month counts, and chronological sequence.
+ * Normalizes a raw Supabase meeting row into the standard meeting summary shape
  */
-export async function fetchYearsIndex() {
-    return yearsData.default || yearsData;
+function normalizeMeetingRow(row) {
+    if (!row) return null;
+    const dateStr = row.date;
+    const displayDate = formatDateDDMMYYYY(dateStr);
+
+    return {
+        id: row.id || `meet-${dateStr}`,
+        date: dateStr,
+        dateDisplay: displayDate,
+        dateFormatted: displayDate,
+        title: row.title || displayDate,
+        focus: row.focus || '',
+        isHoliday: Boolean(row.is_holiday),
+        holidayName: row.holiday_name || '',
+        noMeetingHeld: Boolean(row.no_meeting_held),
+        notRecorded: Boolean(row.not_recorded),
+        breakdownCount: row.breakdowns_count || 0,
+        partsCount: row.parts_count || 0,
+        directivesCount: row.directives_count || 0,
+        actionItemsCount: row.action_items_count || 0,
+        raw_json: row.raw_json || null
+    };
 }
 
 /**
- * Fetch a specific month's meeting index.
+ * Fetch the global years index containing year tree, month counts, and chronological sequence.
+ * Directly queried and constructed from Supabase.
+ */
+export async function fetchYearsIndex() {
+    if (cachedYearsData) {
+        return cachedYearsData;
+    }
+
+    try {
+        const { data: rows, error } = await supabase
+            .from('meetings')
+            .select('id, date, title, focus, is_holiday, holiday_name, no_meeting_held, not_recorded, breakdowns_count, parts_count, directives_count, action_items_count')
+            .order('date', { ascending: true });
+
+        if (error) {
+            console.error('Error fetching meetings from Supabase:', error.message);
+            throw error;
+        }
+
+        if (!rows || rows.length === 0) {
+            return {
+                years: [],
+                totalMeetings: 0,
+                latestYear: '2026',
+                latestMonth: '10',
+                latestMeetingId: null,
+                chronologicalSequence: []
+            };
+        }
+
+        // Build chronological sequence (ascending)
+        const chronologicalSequence = rows.map(r => normalizeMeetingRow(r));
+
+        // Group into years and months
+        const yearMap = new Map();
+
+        rows.forEach(r => {
+            const dateParts = r.date.split('-');
+            const yearStr = dateParts[0];
+            const monthStr = dateParts[1];
+
+            if (!yearMap.has(yearStr)) {
+                yearMap.set(yearStr, new Map());
+            }
+
+            const monthMap = yearMap.get(yearStr);
+            if (!monthMap.has(monthStr)) {
+                monthMap.set(monthStr, {
+                    month: monthStr,
+                    name: MONTH_NAMES[parseInt(monthStr, 10) - 1] || 'Unknown',
+                    meetingCount: 0,
+                    latestMeetingDate: r.date
+                });
+            }
+
+            const monthEntry = monthMap.get(monthStr);
+            monthEntry.meetingCount++;
+            if (r.date > monthEntry.latestMeetingDate) {
+                monthEntry.latestMeetingDate = r.date;
+            }
+        });
+
+        // Convert to hierarchical structure sorted descending
+        const yearsArray = Array.from(yearMap.entries())
+            .map(([year, monthsMap]) => {
+                const months = Array.from(monthsMap.values()).sort((a, b) => b.month.localeCompare(a.month));
+                const totalYearMeetings = months.reduce((acc, m) => acc + m.meetingCount, 0);
+                return {
+                    year,
+                    meetingCount: totalYearMeetings,
+                    months
+                };
+            })
+            .sort((a, b) => b.year.localeCompare(a.year));
+
+        const latestMeeting = chronologicalSequence[chronologicalSequence.length - 1];
+        const latestDateParts = latestMeeting?.date ? latestMeeting.date.split('-') : ['2026', '10'];
+
+        cachedYearsData = {
+            years: yearsArray,
+            totalMeetings: chronologicalSequence.length,
+            latestYear: latestDateParts[0],
+            latestMonth: latestDateParts[1],
+            latestMeetingId: latestMeeting?.id || null,
+            chronologicalSequence
+        };
+
+        return cachedYearsData;
+    } catch (err) {
+        console.error('fetchYearsIndex failed:', err);
+        throw err;
+    }
+}
+
+/**
+ * Fetch a specific month's meeting index from Supabase.
  * @param {string|number} year e.g. "2026"
  * @param {string|number} month e.g. "09" or "9"
  */
 export async function fetchMonthIndex(year, month) {
+    const yearStr = String(year);
     const paddedMonth = String(month).padStart(2, '0');
-    const target = `${year}/${paddedMonth}/index.json`;
-    const match = Object.entries(monthIndexModules).find(([k]) => k.replace(/\\/g, '/').includes(target));
-    if (match && match[1]) {
-        return match[1].default || match[1];
+    const yearNum = parseInt(yearStr, 10);
+    const monthNum = parseInt(paddedMonth, 10);
+    const lastDay = new Date(yearNum, monthNum, 0).getDate();
+
+    const startDate = `${yearStr}-${paddedMonth}-01`;
+    const endDate = `${yearStr}-${paddedMonth}-${String(lastDay).padStart(2, '0')}`;
+
+    try {
+        const { data: rows, error } = await supabase
+            .from('meetings')
+            .select('id, date, title, focus, is_holiday, holiday_name, no_meeting_held, not_recorded, breakdowns_count, parts_count, directives_count, action_items_count')
+            .gte('date', startDate)
+            .lte('date', endDate)
+            .order('date', { ascending: false });
+
+        if (error) {
+            console.error(`Error fetching month index for ${yearStr}-${paddedMonth}:`, error.message);
+            throw error;
+        }
+
+        const meetings = (rows || []).map(r => normalizeMeetingRow(r));
+        const monthInt = parseInt(paddedMonth, 10);
+        const monthName = MONTH_NAMES[monthInt - 1] || 'Unknown';
+
+        return {
+            year: yearStr,
+            month: paddedMonth,
+            monthName,
+            meetingCount: meetings.length,
+            meetings
+        };
+    } catch (err) {
+        console.error(`fetchMonthIndex failed for ${yearStr}/${paddedMonth}:`, err);
+        throw err;
     }
-    throw new Error(`Month index not found for ${year}/${paddedMonth}`);
 }
 
 /**
- * Fetch an individual daily meeting document on-demand.
- * Accepts: "/data/meetings/2026/09/02.json", "2026-09-02", "02-09-2026", "2/09/2026", etc.
+ * Fetch an individual daily meeting document on-demand from Supabase.
+ * Accepts: "2026-10-06", "06-10-2026", "meet-2026-10-06", etc.
  * @param {string} pathOrDate
  */
 export async function fetchMeetingDetail(pathOrDate) {
-    if (!pathOrDate) throw new Error("Path or date required");
+    if (!pathOrDate) throw new Error("Meeting identifier or date required");
 
-    let year = '';
-    let month = '';
-    let day = '';
-
-    const pathMatch = String(pathOrDate).match(/(\d{4})[/-](\d{1,2})[/-](\d{1,2})/);
-    if (pathMatch) {
-        year = pathMatch[1];
-        month = pathMatch[2].padStart(2, '0');
-        day = pathMatch[3].padStart(2, '0');
+    let isoDate = '';
+    const cleanId = String(pathOrDate).replace(/^\/data\/meetings\//, '').replace(/\.json$/, '');
+    
+    if (cleanId.startsWith('meet-')) {
+        isoDate = cleanId.replace('meet-', '');
     } else {
-        const iso = normalizeDateToYYYYMMDD(pathOrDate);
-        if (iso && iso.includes('-')) {
-            const parts = iso.split('-');
-            year = parts[0];
-            month = parts[1].padStart(2, '0');
-            day = parts[2].padStart(2, '0');
+        const pathMatch = cleanId.match(/(\d{4})[/-](\d{1,2})[/-](\d{1,2})/);
+        if (pathMatch) {
+            isoDate = `${pathMatch[1]}-${pathMatch[2].padStart(2, '0')}-${pathMatch[3].padStart(2, '0')}`;
+        } else {
+            isoDate = normalizeDateToYYYYMMDD(cleanId);
         }
     }
 
-    if (!year || !month || !day) {
-        throw new Error(`Invalid meeting identifier: ${pathOrDate}`);
+    if (!isoDate || !isoDate.includes('-')) {
+        throw new Error(`Invalid meeting date identifier: ${pathOrDate}`);
     }
 
-    const target = `${year}/${month}/${day}.json`;
-    const match = Object.entries(dailyMeetingModules).find(([k]) => k.replace(/\\/g, '/').includes(target));
-    if (match && match[1]) {
-        return match[1].default || match[1];
+    const meetingId = `meet-${isoDate}`;
+
+    // Return from in-memory cache if available
+    if (cachedMeetingDetails.has(meetingId)) {
+        return cachedMeetingDetails.get(meetingId);
     }
 
-    throw new Error(`Meeting document not found for ${pathOrDate} (${target})`);
+    try {
+        const { data: row, error } = await supabase
+            .from('meetings')
+            .select('*')
+            .or(`id.eq.${meetingId},date.eq.${isoDate}`)
+            .single();
+
+        if (error || !row) {
+            console.error(`Error fetching meeting detail from Supabase for ${meetingId}:`, error?.message);
+            throw new Error(`Meeting document not found for ${pathOrDate}`);
+        }
+
+        let meetingObject = null;
+
+        // If raw_json is preserved in Supabase, return complete structure
+        if (row.raw_json && typeof row.raw_json === 'object') {
+            meetingObject = { ...row.raw_json };
+        } else {
+            // Reconstruct meeting object from child tables
+            const [bRes, pRes, aRes, dRes] = await Promise.all([
+                supabase.from('breakdown_machines').select('*').eq('meeting_id', meetingId).order('created_at'),
+                supabase.from('meeting_parts').select('*').eq('meeting_id', meetingId),
+                supabase.from('meeting_action_items').select('*').eq('meeting_id', meetingId),
+                supabase.from('meeting_directives').select('*').eq('meeting_id', meetingId)
+            ]);
+
+            meetingObject = {
+                id: meetingId,
+                date: row.date,
+                title: row.title || formatDateDDMMYYYY(row.date),
+                focus: row.focus || '',
+                isHoliday: Boolean(row.is_holiday),
+                holidayName: row.holiday_name || '',
+                noMeetingHeld: Boolean(row.no_meeting_held),
+                notRecorded: Boolean(row.not_recorded),
+                breakdowns: (bRes.data || []).map(b => ({
+                    site: b.site || b.site_location || '',
+                    model: b.model || b.machine_model || '',
+                    serialNumber: b.serial_number || '',
+                    location: b.site || b.site_location || '',
+                    issue: b.issue || b.description || b.short_summary || b.full_issue || b.short_issue || '',
+                    action: b.action || b.full_action || b.short_action || '',
+                    logistics: b.logistics || b.full_logistics || b.short_logistics || '',
+                    clarification: b.clarification || b.full_clarification || b.short_clarification || '',
+                    status: b.status || b.full_status || b.short_status || '',
+                    pendingIssue: b.pending_issue || b.full_pending || b.short_pending || ''
+                })),
+                parts: (pRes.data || []).map(p => ({
+                    part: p.part_name,
+                    context: p.equipment_context,
+                    statusNextSteps: p.status_next_steps
+                })),
+                directives: (dRes.data || []).map(d => ({
+                    title: d.title,
+                    points: d.points || []
+                })),
+                actionItems: (aRes.data || []).map(a => ({
+                    person: a.person,
+                    task: a.task
+                }))
+            };
+        }
+
+        // Ensure formatted date fields are present
+        const displayDate = formatDateDDMMYYYY(meetingObject.date || isoDate);
+        meetingObject.id = meetingId;
+        meetingObject.date = isoDate;
+        meetingObject.dateDisplay = displayDate;
+        meetingObject.dateFormatted = displayDate;
+        if (!meetingObject.title) meetingObject.title = displayDate;
+
+        cachedMeetingDetails.set(meetingId, meetingObject);
+        return meetingObject;
+    } catch (err) {
+        console.error(`fetchMeetingDetail failed for ${pathOrDate}:`, err);
+        throw err;
+    }
 }
 
 /**
- * Fetch the global lightweight pre-indexed search tokens.
+ * Fetch the global search index dynamically built from Supabase.
  */
 export async function fetchSearchIndex() {
-    return searchIndexData.default || searchIndexData;
-}
+    if (cachedSearchIndex) {
+        return cachedSearchIndex;
+    }
 
+    try {
+        const { data: rows, error } = await supabase
+            .from('meetings')
+            .select(`
+                id, date, title, focus, is_holiday, holiday_name, no_meeting_held, not_recorded, 
+                breakdowns_count, parts_count, directives_count, action_items_count,
+                breakdown_machines(site),
+                meeting_parts(part_name, equipment_context),
+                meeting_action_items(person)
+            `)
+            .order('date', { ascending: false });
+
+        if (error) {
+            console.error('Error fetching search index from Supabase:', error.message);
+            throw error;
+        }
+
+        cachedSearchIndex = (rows || []).map(row => {
+            const raw = row.raw_json || {};
+            const displayDate = formatDateDDMMYYYY(row.date);
+            const dateVars = generateAllDateVariations(row.date);
+
+            const sites = [];
+            const people = [];
+            const parts = [];
+
+            const breakdownsList = Array.isArray(raw.breakdowns) ? raw.breakdowns : (row.breakdown_machines || []);
+            const partsList = Array.isArray(raw.parts) ? raw.parts : (row.meeting_parts || []);
+            const actionItemsList = Array.isArray(raw.actionItems) ? raw.actionItems : (row.meeting_action_items || []);
+
+            breakdownsList.forEach(b => {
+                if (b.site) sites.push(b.site);
+                if (b.location) sites.push(b.location);
+            });
+            partsList.forEach(p => {
+                if (p.part) parts.push(p.part);
+                if (p.part_name) parts.push(p.part_name);
+                if (p.context) sites.push(p.context);
+                if (p.equipment_context) sites.push(p.equipment_context);
+            });
+            actionItemsList.forEach(a => {
+                if (a.person) people.push(a.person);
+            });
+
+            return {
+                id: row.id,
+                date: row.date,
+                dateDisplay: displayDate,
+                dateFormatted: displayDate,
+                title: row.title || displayDate,
+                focus: row.focus || '',
+                isHoliday: Boolean(row.is_holiday),
+                holidayName: row.holiday_name || '',
+                noMeetingHeld: Boolean(row.no_meeting_held),
+                notRecorded: Boolean(row.not_recorded),
+                breakdownCount: row.breakdowns_count || 0,
+                partsCount: row.parts_count || 0,
+                directivesCount: row.directives_count || 0,
+                actionItemsCount: row.action_items_count || 0,
+                keywords: [row.focus, ...sites, ...people, ...parts].filter(Boolean).join(' '),
+                sites: Array.from(new Set(sites)).slice(0, 15),
+                people: Array.from(new Set(people)),
+                parts: Array.from(new Set(parts)).slice(0, 15),
+                dateVariations: dateVars
+            };
+        });
+
+        return cachedSearchIndex;
+    } catch (err) {
+        console.error('fetchSearchIndex failed:', err);
+        throw err;
+    }
+}

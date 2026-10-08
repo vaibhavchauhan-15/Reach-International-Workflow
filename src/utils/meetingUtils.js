@@ -272,12 +272,14 @@ export function formatMeetingSummary(meeting) {
         text += `--------------------------------------------------\n`;
         meeting.breakdowns.forEach((m, idx) => {
             text += `• ${m.site}:\n`;
+            if (m.model) text += `  - Model: ${m.model}\n`;
+            if (m.serialNumber) text += `  - Serial No: ${m.serialNumber}\n`;
             if (m.issue) text += `  - Issue: ${m.issue}\n`;
             if (m.action) text += `  - Action: ${m.action}\n`;
-            if (m.logistics) text += `  - Logistics: ${m.logistics}\n`;
-            if (m.clarification) text += `  - Clarification: ${m.clarification}\n`;
-            if (m.status) text += `  - Status: ${m.status}\n`;
-            if (m.pendingIssue) text += `  - Pending Issue: ${m.pendingIssue}\n`;
+            if (m.logistics && m.logistics !== 'undefined' && String(m.logistics).trim()) text += `  - Logistics: ${m.logistics}\n`;
+            if (m.clarification && m.clarification !== 'undefined' && String(m.clarification).trim()) text += `  - Clarification: ${m.clarification}\n`;
+            if (m.status && m.status !== 'undefined' && String(m.status).trim()) text += `  - Status: ${m.status}\n`;
+            if (m.pendingIssue && m.pendingIssue !== 'undefined' && String(m.pendingIssue).trim()) text += `  - Pending Issue: ${m.pendingIssue}\n`;
             if (idx < meeting.breakdowns.length - 1) text += `\n`;
         });
         text += `\n`;
@@ -518,4 +520,10 @@ export function getChronologicalNavigation(currentDate, chronologicalSequence = 
 
     return { prevMeeting, nextMeeting };
 }
+
+export { 
+    exportMeetingBreakdownsToExcel, 
+    exportMonthBreakdownsToExcel,
+    extractMachineFields 
+} from './excelExportUtils.js';
 

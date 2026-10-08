@@ -17,6 +17,10 @@ import {
     formatDateDDMMYYYY,
     normalizeDateToYYYYMMDD
 } from '../utils/meetingUtils';
+import { 
+    exportMeetingBreakdownsToExcel, 
+    exportMonthBreakdownsToExcel 
+} from '../utils/excelExportUtils';
 import MeetingShareMenu from './MeetingShareMenu';
 import PresentationOverlay from './PresentationOverlay';
 
@@ -53,6 +57,8 @@ export default function MeetingSummariesPage({
     const [isDocScrolled, setIsDocScrolled] = useState(false);
     const [isPresentationMode, setIsPresentationMode] = useState(false);
     const [selectionPopup, setSelectionPopup] = useState(null);
+    const [isExportingExcel, setIsExportingExcel] = useState(false);
+    const [isExportingMonthExcel, setIsExportingMonthExcel] = useState(false);
 
     const pageContainerRef = useRef(null);
     const documentCardRef = useRef(null);
@@ -221,6 +227,7 @@ export default function MeetingSummariesPage({
 
         async function loadMeeting() {
             setIsLoadingMeeting(true);
+            setFullMeetingDetail(null);
             try {
                 const doc = await fetchMeetingDetail(selectedMeetingMeta.path || selectedMeetingMeta.date);
                 if (isMounted) {
@@ -456,6 +463,40 @@ export default function MeetingSummariesPage({
         }
     };
 
+    const handleExportMeetingExcel = async () => {
+        if (!fullMeetingDetail) return;
+        setIsExportingExcel(true);
+        try {
+            await exportMeetingBreakdownsToExcel(fullMeetingDetail);
+        } catch (err) {
+            console.error('Failed to export meeting breakdowns to Excel:', err);
+        } finally {
+            setIsExportingExcel(false);
+        }
+    };
+
+    const handleExportMonthExcel = async () => {
+        if (!monthData || !monthData.meetings || monthData.meetings.length === 0) return;
+        setIsExportingMonthExcel(true);
+        try {
+            const fullDocs = await Promise.all(
+                monthData.meetings.map(async (m) => {
+                    try {
+                        return await fetchMeetingDetail(m.path || m.date);
+                    } catch {
+                        return m;
+                    }
+                })
+            );
+            const monthName = monthData.monthName || selectedMonth;
+            await exportMonthBreakdownsToExcel(fullDocs, `${monthName} ${selectedYear}`);
+        } catch (err) {
+            console.error('Failed to export month breakdowns to Excel:', err);
+        } finally {
+            setIsExportingMonthExcel(false);
+        }
+    };
+
     // -------------------------------------------------------------
     // Calculations: Search Filtering & Navigation
     // -------------------------------------------------------------
@@ -601,14 +642,118 @@ export default function MeetingSummariesPage({
                                         {copySuccess ? '✓ Copied!' : 'Copy'}
                                     </span>
                                 </button>
+
+                                {/* Export Breakdowns to Excel Button */}
+                                <button
+                                    type="button"
+                                    onClick={handleExportMeetingExcel}
+                                    disabled={!fullMeetingDetail || isLoadingMeeting || isExportingExcel}
+                                    className={`relative w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center transition-all duration-200 active:scale-90 border flex-shrink-0 cursor-pointer group ${
+                                        isExportingExcel 
+                                            ? 'bg-emerald-600 text-white border-emerald-600 shadow-xs' 
+                                            : 'bg-white text-slate-500 border-border-light hover:text-emerald-700 hover:border-emerald-300 hover:bg-emerald-50/50 shadow-2xs'
+                                    } ${(!fullMeetingDetail || isLoadingMeeting || isExportingExcel) ? 'opacity-50 cursor-not-allowed' : ''}`}
+                                    title={isExportingExcel ? 'Generating Excel file...' : 'Export Breakdowns to Excel (.xlsx)'}
+                                    aria-label="Export Breakdowns to Excel"
+                                >
+                                    <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 sm:w-4 sm:h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="8" y1="13" x2="16" y2="13"></line>
+                                        <line x1="8" y1="17" x2="16" y2="17"></line>
+                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    </svg>
+
+                                    {/* Tooltip */}
+                                    <span className={`absolute right-full mr-2 px-2 py-0.5 rounded-md text-[11px] font-bold whitespace-nowrap transition-all shadow-md ${
+                                        isExportingExcel ? 'bg-emerald-700 text-white opacity-100' : 'bg-slate-900 text-white opacity-0 group-hover:opacity-100 pointer-events-none'
+                                    }`}>
+                                        {isExportingExcel ? 'Exporting...' : 'Excel'}
+                                    </span>
+                                </button>
                             </div>
                         </div>
 
-                        {/* Loading State Spinner */}
+                        {/* Meeting Detail Document Skeleton Loader */}
                         {isLoadingMeeting && !fullMeetingDetail && (
-                            <div className="py-16 flex flex-col items-center justify-center gap-3">
-                                <div className="w-8 h-8 border-3 border-theme-breakdown border-t-transparent rounded-full animate-spin"></div>
-                                <span className="text-xs font-semibold text-slate-500">Loading meeting details...</span>
+                            <div className="space-y-6 sm:space-y-8 animate-pulse select-none" role="status" aria-label="Loading meeting document">
+                                {/* Title & Focus Skeleton */}
+                                <div className="pb-4 sm:pb-5 mb-5 sm:mb-6 border-b border-slate-100">
+                                    <div className="h-8 sm:h-10 w-48 sm:w-64 bg-slate-200/90 rounded-lg mb-4"></div>
+                                    <div className="bg-slate-50/80 border border-slate-200/90 border-l-4 border-l-blue-400 rounded-xl p-3 sm:p-4 space-y-2">
+                                        <div className="flex items-center gap-2">
+                                            <div className="w-4 h-4 bg-blue-200 rounded"></div>
+                                            <div className="w-24 h-3 bg-blue-200 rounded"></div>
+                                        </div>
+                                        <div className="w-full sm:w-4/5 h-4 bg-slate-200/80 rounded"></div>
+                                    </div>
+                                </div>
+
+                                {/* Section 01 Breakdowns Skeleton */}
+                                <section className="space-y-4">
+                                    <div className="flex items-center justify-between gap-3">
+                                        <div className="flex items-center gap-2.5">
+                                            <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-blue-200/80 flex-shrink-0"></div>
+                                            <div className="w-44 sm:w-60 h-5 bg-slate-200/90 rounded"></div>
+                                        </div>
+                                        <div className="w-20 h-5 bg-blue-100/70 rounded-full"></div>
+                                    </div>
+
+                                    <div className="flex flex-col gap-3.5 sm:gap-4">
+                                        {[1, 2, 3].map((n) => (
+                                            <div key={n} className="bg-slate-50/70 border border-border-light border-l-4 border-l-blue-400 rounded-xl p-3.5 sm:p-4.5 space-y-3">
+                                                <div className="flex items-center justify-between pb-2 border-b border-slate-200/70">
+                                                    <div className="flex items-center gap-2">
+                                                        <div className="w-2 h-2 rounded-full bg-blue-400"></div>
+                                                        <div className="w-44 sm:w-72 h-4 bg-slate-300 rounded"></div>
+                                                    </div>
+                                                </div>
+                                                <div className="space-y-2 pt-1">
+                                                    <div className="w-full h-3.5 bg-slate-200/80 rounded"></div>
+                                                    <div className="w-5/6 h-3.5 bg-slate-200/80 rounded"></div>
+                                                    <div className="w-3/5 h-3.5 bg-slate-200/80 rounded"></div>
+                                                </div>
+                                                <div className="pt-2 border-t border-slate-200/60 mt-1">
+                                                    <div className="w-2/5 h-3.5 bg-slate-200 rounded"></div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </section>
+
+                                {/* Section 02 Parts Table Skeleton */}
+                                <section className="space-y-4">
+                                    <div className="flex items-center justify-between gap-3">
+                                        <div className="flex items-center gap-2.5">
+                                            <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-teal-200/80 flex-shrink-0"></div>
+                                            <div className="w-36 h-5 bg-slate-200/90 rounded"></div>
+                                        </div>
+                                        <div className="w-16 h-5 bg-teal-100/70 rounded-full"></div>
+                                    </div>
+                                    <div className="rounded-xl border border-border-light overflow-hidden bg-white">
+                                        <div className="h-9 bg-slate-100/80"></div>
+                                        <div className="divide-y divide-slate-100">
+                                            <div className="h-10 bg-white"></div>
+                                            <div className="h-10 bg-slate-50/50"></div>
+                                            <div className="h-10 bg-white"></div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                {/* Section 03 Directives Skeleton */}
+                                <section className="space-y-4">
+                                    <div className="flex items-center justify-between gap-3">
+                                        <div className="flex items-center gap-2.5">
+                                            <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-amber-200/80 flex-shrink-0"></div>
+                                            <div className="w-32 h-5 bg-slate-200/90 rounded"></div>
+                                        </div>
+                                        <div className="w-16 h-5 bg-amber-100/70 rounded-full"></div>
+                                    </div>
+                                    <div className="bg-amber-50/60 border border-amber-200/80 border-l-4 border-l-amber-400 rounded-xl p-4 space-y-2.5">
+                                        <div className="w-48 sm:w-64 h-4 bg-amber-200 rounded"></div>
+                                        <div className="w-4/5 h-3 bg-amber-100 rounded"></div>
+                                    </div>
+                                </section>
                             </div>
                         )}
 
@@ -725,19 +870,23 @@ export default function MeetingSummariesPage({
                                                     <span className="hidden sm:inline">Machine </span>Breakdowns & Site Updates
                                                 </span>
                                             </h2>
-                                            <span className="text-[11px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full bg-blue-50 text-theme-breakdown border border-blue-200/80 flex-shrink-0 whitespace-nowrap shadow-2xs print:border-blue-300">
-                                                {fullMeetingDetail.breakdowns.length} Sites
-                                            </span>
+                                            <div className="flex items-center gap-2 flex-shrink-0">
+                                                <span className="text-[11px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full bg-blue-50 text-theme-breakdown border border-blue-200/80 whitespace-nowrap shadow-2xs print:border-blue-300">
+                                                    {fullMeetingDetail.breakdowns.length} {fullMeetingDetail.breakdowns.length === 1 ? 'Machine' : 'Machines'}
+                                                </span>
+                                            </div>
                                         </div>
                                         
                                         <div className="flex flex-col gap-3.5 sm:gap-4 print:gap-2.5">
                                             {fullMeetingDetail.breakdowns.map((item, idx) => (
                                                 <div key={idx} className="breakdown-item w-full bg-slate-50/70 border border-border-light border-l-4 border-l-theme-breakdown rounded-xl p-3.5 sm:p-4.5 text-xs sm:text-sm shadow-xs flex flex-col justify-between gap-2.5 transition-colors hover:bg-slate-50/95 print:bg-slate-50/90 print:border-slate-300 print:shadow-none print:break-inside-avoid print:p-3">
                                                     <div>
-                                                        <h3 className="text-xs sm:text-sm font-extrabold text-slate-900 flex items-center gap-2 pb-2 border-b border-slate-200/70 print:border-slate-300">
-                                                            <span className="w-2 h-2 rounded-full bg-theme-breakdown flex-shrink-0"></span>
-                                                            <span className="leading-snug">{item.site}</span>
-                                                        </h3>
+                                                        <div className="pb-2 border-b border-slate-200/70 print:border-slate-300">
+                                                            <h3 className="text-xs sm:text-sm font-extrabold text-slate-900 flex items-center gap-2">
+                                                                <span className="w-2 h-2 rounded-full bg-theme-breakdown flex-shrink-0"></span>
+                                                                <span className="leading-snug">{item.site}</span>
+                                                            </h3>
+                                                        </div>
                                                         
                                                         <div className="space-y-1.5 text-xs sm:text-sm pt-2">
                                                             {item.issue && (
@@ -754,21 +903,21 @@ export default function MeetingSummariesPage({
                                                                 </p>
                                                             )}
 
-                                                            {item.logistics && (
+                                                            {item.logistics && item.logistics !== 'undefined' && String(item.logistics).trim() && (
                                                                 <p className="leading-relaxed">
                                                                     <span className="font-bold text-slate-800 mr-1.5">Logistics:</span>
                                                                     <span className="text-slate-600">{item.logistics}</span>
                                                                 </p>
                                                             )}
 
-                                                            {item.clarification && (
+                                                            {item.clarification && item.clarification !== 'undefined' && String(item.clarification).trim() && (
                                                                 <p className="leading-relaxed">
                                                                     <span className="font-bold text-slate-800 mr-1.5">Clarification:</span>
                                                                     <span className="text-slate-600">{item.clarification}</span>
                                                                 </p>
                                                             )}
 
-                                                            {item.pendingIssue && (
+                                                            {item.pendingIssue && item.pendingIssue !== 'undefined' && String(item.pendingIssue).trim() && (
                                                                 <p className="leading-relaxed">
                                                                     <span className="font-bold text-amber-900 mr-1.5">Pending Issue:</span>
                                                                     <span className="text-amber-800 font-medium">{item.pendingIssue}</span>
@@ -777,7 +926,7 @@ export default function MeetingSummariesPage({
                                                         </div>
                                                     </div>
 
-                                                    {item.status && (
+                                                    {item.status && item.status !== 'undefined' && String(item.status).trim() && (
                                                         <div className="pt-2 border-t border-slate-200/60 mt-1">
                                                             <p className="text-xs leading-relaxed">
                                                                 <span className="font-bold text-slate-700 mr-1.5">Status:</span>
@@ -1072,6 +1221,24 @@ export default function MeetingSummariesPage({
                                         </button>
                                     );
                                 })}
+
+                                {monthData && monthData.meetings && monthData.meetings.length > 0 && (
+                                    <button
+                                        type="button"
+                                        onClick={handleExportMonthExcel}
+                                        disabled={isExportingMonthExcel}
+                                        className="ml-auto inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-white text-emerald-800 border border-emerald-300 hover:bg-emerald-50 active:scale-95 transition-all shadow-2xs cursor-pointer flex-shrink-0 min-h-[36px]"
+                                        title={`Export all breakdowns for ${monthData.monthName || selectedMonth} ${selectedYear} to Excel`}
+                                    >
+                                        <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                            <polyline points="14 2 14 8 20 8"></polyline>
+                                            <line x1="8" y1="13" x2="16" y2="13"></line>
+                                            <line x1="8" y1="17" x2="16" y2="17"></line>
+                                        </svg>
+                                        <span>{isExportingMonthExcel ? 'Exporting Month...' : `Export ${monthData.monthName || ''} (Excel)`}</span>
+                                    </button>
+                                )}
                             </div>
                         )
                     ) : (
@@ -1096,11 +1263,45 @@ export default function MeetingSummariesPage({
 
                     {/* 3. Monthly Meeting Stream / List Section */}
                     <div className="flex-1 min-h-0 flex flex-col overflow-hidden">
-                        {/* Loading Month State */}
+                        {/* Loading Month State - Skeleton Cards */}
                         {isLoadingMonth && !isSearching && (
-                            <div className="py-10 bg-white rounded-2xl border border-border-light flex flex-col items-center justify-center gap-3 shadow-2xs">
-                                <div className="w-7 h-7 border-3 border-theme-breakdown border-t-transparent rounded-full animate-spin"></div>
-                                <span className="text-xs font-semibold text-slate-500">Loading meeting records...</span>
+                            <div className="flex-1 min-h-0 overflow-y-auto pr-1 sm:pr-2 custom-scrollbar">
+                                <div className="flex flex-col gap-2.5 pt-0.5 pb-4" role="status" aria-label="Loading meeting records">
+                                    {[1, 2, 3, 4, 5, 6, 7].map((idx) => (
+                                        <div 
+                                            key={idx}
+                                            className="bg-white border border-border-light rounded-xl p-3 sm:px-5 sm:py-3.5 shadow-card flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4 animate-pulse min-h-[58px] sm:min-h-[54px]"
+                                        >
+                                            {/* Mobile Top Row Skeleton */}
+                                            <div className="flex sm:hidden items-center justify-between gap-2 pb-1 border-b border-slate-100/80">
+                                                <div className="flex items-center gap-1.5">
+                                                    <div className="w-2 h-2 rounded-full bg-slate-300"></div>
+                                                    <div className="w-20 h-3.5 bg-slate-200 rounded"></div>
+                                                </div>
+                                                <div className="w-16 h-3 bg-slate-100 rounded"></div>
+                                            </div>
+
+                                            {/* Desktop Left + Middle Skeleton */}
+                                            <div className="flex items-start sm:items-center gap-3 md:gap-4 min-w-0 flex-1">
+                                                <div className="hidden sm:flex items-center gap-2 min-w-[105px] flex-shrink-0">
+                                                    <div className="w-2 h-2 rounded-full bg-slate-300"></div>
+                                                    <div className="w-20 h-4 bg-slate-200 rounded"></div>
+                                                </div>
+                                                <span className="text-slate-200 select-none hidden sm:inline">│</span>
+                                                <div className="min-w-0 flex-1">
+                                                    <div className={`h-3.5 bg-slate-200/90 rounded ${idx % 2 === 0 ? 'w-4/5' : 'w-3/5'}`}></div>
+                                                </div>
+                                            </div>
+
+                                            {/* Badges Skeleton */}
+                                            <div className="flex items-center justify-between sm:justify-end gap-2 flex-shrink-0">
+                                                <div className="w-14 h-5 bg-blue-100/60 rounded-md"></div>
+                                                <div className="w-12 h-5 bg-teal-100/60 rounded-md"></div>
+                                                <div className="w-14 h-5 bg-emerald-100/60 rounded-md"></div>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
                             </div>
                         )}
 

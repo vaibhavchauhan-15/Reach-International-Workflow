@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { formatMeetingSummary, copyTextToClipboard, formatDateDDMMYYYY } from '../utils/meetingUtils';
+import { exportMeetingBreakdownsToExcel } from '../utils/excelExportUtils';
 
 export default function MeetingShareMenu({ meeting, disabled = false }) {
     const [isOpen, setIsOpen] = useState(false);
     const [copiedLink, setCopiedLink] = useState(false);
     const [hasNativeShare, setHasNativeShare] = useState(false);
+    const [isExportingExcel, setIsExportingExcel] = useState(false);
 
     const menuRef = useRef(null);
     const linkTimeoutRef = useRef(null);
@@ -145,6 +147,20 @@ export default function MeetingShareMenu({ meeting, disabled = false }) {
                 document.title = originalTitle;
             }, 1000);
         }, 150);
+    };
+
+    // Action 6: Export Breakdowns to Excel (.xlsx)
+    const handleExportExcel = async () => {
+        if (!meeting) return;
+        setIsExportingExcel(true);
+        try {
+            await exportMeetingBreakdownsToExcel(meeting);
+        } catch (err) {
+            console.error('Failed to export breakdowns to Excel:', err);
+        } finally {
+            setIsExportingExcel(false);
+            setIsOpen(false);
+        }
     };
 
     return (
@@ -335,6 +351,37 @@ export default function MeetingShareMenu({ meeting, disabled = false }) {
                                 </span>
                             </button>
                         )}
+
+                        {/* Export Breakdowns to Excel */}
+                        <button
+                            type="button"
+                            onClick={handleExportExcel}
+                            disabled={isExportingExcel}
+                            className="w-full flex items-center justify-between p-2 rounded-xl text-left hover:bg-emerald-50/70 border border-transparent hover:border-emerald-200/80 transition-all cursor-pointer group"
+                        >
+                            <div className="flex items-center gap-2.5">
+                                <span className="w-7 h-7 rounded-lg bg-emerald-100 text-emerald-700 flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform">
+                                    <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                        <polyline points="14 2 14 8 20 8"></polyline>
+                                        <line x1="8" y1="13" x2="16" y2="13"></line>
+                                        <line x1="8" y1="17" x2="16" y2="17"></line>
+                                        <polyline points="10 9 9 9 8 9"></polyline>
+                                    </svg>
+                                </span>
+                                <div className="flex flex-col">
+                                    <span className="text-xs font-bold text-slate-900 group-hover:text-emerald-900">
+                                        {isExportingExcel ? 'Exporting...' : 'Export Breakdowns (Excel)'}
+                                    </span>
+                                    <span className="text-[10px] text-slate-500 font-medium">
+                                        Download formatted .xlsx breakdown report
+                                    </span>
+                                </div>
+                            </div>
+                            <span className="text-xs text-slate-400 group-hover:text-emerald-700 transition-transform group-hover:translate-x-0.5">
+                                ↓
+                            </span>
+                        </button>
 
                         {/* Print / Save PDF */}
                         <button

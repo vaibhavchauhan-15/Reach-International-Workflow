@@ -8,8 +8,9 @@ dist-ssr/
 build/
 *.local
 
-# Vercel
+# Vercel & Supabase temp
 .vercel/
+supabase/.temp/
 
 # Logs & Environment
 *.log

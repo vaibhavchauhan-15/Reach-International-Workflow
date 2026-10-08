@@ -4,14 +4,17 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "generate:meetings": "node scripts/generate-meeting-indexes.js",
-    "dev": "node scripts/generate-meeting-indexes.js && vite",
-    "build": "node scripts/generate-meeting-indexes.js && vite build",
-    "preview": "vite preview"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "db:seed": "node scripts/seed-supabase.js",
+    "db:migrate": "node scripts/apply-migration.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.117.0",
     "agentation": "^3.0.2",
+    "exceljs": "^4.4.0",
+    "pg": "^8.23.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

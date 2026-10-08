@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { formatMeetingSummary, copyTextToClipboard, formatDateDDMMYYYY } from '../utils/meetingUtils';
+import { exportMeetingBreakdownsToExcel } from '../utils/excelExportUtils';
 
 export default function MeetingDetailModal({ selectedMeeting, setSelectedMeeting }) {
     if (!selectedMeeting) return null;
 
     const [copySuccess, setCopySuccess] = useState(false);
+    const [isExporting, setIsExporting] = useState(false);
     const copyTimeoutRef = useRef(null);
 
     useEffect(() => {
@@ -27,6 +29,18 @@ export default function MeetingDetailModal({ selectedMeeting, setSelectedMeeting
             copyTimeoutRef.current = setTimeout(() => {
                 setCopySuccess(false);
             }, 2500);
+        }
+    };
+
+    const handleExportExcel = async () => {
+        if (!selectedMeeting) return;
+        setIsExporting(true);
+        try {
+            await exportMeetingBreakdownsToExcel(selectedMeeting);
+        } catch (err) {
+            console.error('Failed to export breakdowns to Excel:', err);
+        } finally {
+            setIsExporting(false);
         }
     };
 
@@ -136,9 +150,25 @@ export default function MeetingDetailModal({ selectedMeeting, setSelectedMeeting
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                                 {selectedMeeting.breakdowns.map((item, idx) => (
                                     <div key={idx} className="bg-slate-50/70 border-l-4 border-theme-breakdown border-t border-r border-b border-border-light rounded-r-xl p-3 text-xs shadow-xs space-y-1.5">
-                                        <h3 className="text-xs sm:text-sm font-extrabold text-slate-900">
-                                            {item.site}:
-                                        </h3>
+                                        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 pb-1.5 border-b border-slate-200/60">
+                                            <h3 className="text-xs sm:text-sm font-extrabold text-slate-900">
+                                                {item.site}
+                                            </h3>
+                                            {(item.model || item.serialNumber) && (
+                                                <div className="flex items-center gap-1.5 flex-wrap">
+                                                    {item.model && (
+                                                        <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-slate-200/80 text-slate-800 border border-slate-300">
+                                                            {item.model}
+                                                        </span>
+                                                    )}
+                                                    {item.serialNumber && (
+                                                        <span className="px-1.5 py-0.5 rounded text-[10px] font-bold bg-blue-100/90 text-blue-900 border border-blue-200 font-mono">
+                                                            S/N: {item.serialNumber}
+                                                        </span>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </div>
                                         
                                         {item.issue && (
                                             <div>
@@ -304,6 +334,26 @@ export default function MeetingDetailModal({ selectedMeeting, setSelectedMeeting
                             title="Copy formatted text summary"
                         >
                             {copySuccess ? '✓ Copied!' : '📋 Copy Text Summary'}
+                        </button>
+                        <button 
+                            type="button"
+                            className={`inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all shadow-xs min-h-[38px] cursor-pointer active:scale-95 ${
+                                isExporting
+                                    ? 'bg-emerald-700 text-white'
+                                    : 'bg-white text-emerald-800 border border-emerald-300 hover:bg-emerald-50'
+                            }`} 
+                            onClick={handleExportExcel}
+                            disabled={isExporting}
+                            title="Export machine breakdowns to formatted Excel file (.xlsx)"
+                        >
+                            <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 text-emerald-600" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="8" y1="13" x2="16" y2="13"></line>
+                                <line x1="8" y1="17" x2="16" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                            <span>{isExporting ? 'Exporting...' : 'Export Excel'}</span>
                         </button>
                         <button 
                             type="button"

@@ -146,8 +146,20 @@ Whenever the user provides a meeting summary and/or raw transcript (in Hindi, Hi
    }
    ```
 
-6. **Automated GitHub Synchronization**:
-   - Once the meeting is upserted to Supabase and verified, commit any code/documentation changes and push to GitHub (`git push origin main`).
+6. **Mandatory Supabase Ingestion Verification Before GitHub Synchronization**:
+   - **Step A (Direct Supabase Ingestion)**: Ingest the meeting data directly into Supabase using `node scripts/sync-daily-meeting.js <meeting-data.json>` (or `npm run meeting:sync -- <path-or-json>`) or via the Supabase Edge Function webhook.
+   - **Step B (Explicit Verification Check)**: Before staging, committing, or pushing code to GitHub, agents MUST run an explicit database verification query confirming that:
+     1. The master record exists in the `meetings` table.
+     2. All child records exist in `breakdown_machines`, `meeting_parts`, `meeting_directives`, and `meeting_action_items` with matching record counts.
+     3. No errors or missing associations occurred during ingestion.
+   - **Step C (Git Commit & Push)**: ONLY AFTER explicit confirmation that all meeting records are successfully persisted in Supabase, commit any workspace changes and push to GitHub (`git push origin main`). Under NO circumstances should changes be committed or pushed to GitHub if database ingestion is unverified or failed.
+
+7. **Supabase Edge Function Webhook Trigger (Slack & WhatsApp Bot Ingestion)**:
+   - For automated real-time ingestion from external messaging platforms (Slack bots, WhatsApp bots, n8n, Zapier):
+     - **Endpoint**: `POST https://<PROJECT_REF>.supabase.co/functions/v1/sync-meeting-webhook`
+     - **Authentication**: `Authorization: Bearer <SUPABASE_SERVICE_ROLE_KEY>` or `x-webhook-secret: <SYNC_WEBHOOK_SECRET>` (set in Supabase Edge Function secrets).
+     - **Payload**: Standard JSON body containing the meeting schema (`date`, `title`, `focus`, `breakdowns`, `parts`, `directives`, `actionItems`).
+     - **Automated Handling**: The webhook automatically cleans text to concise 1-line strings, unbundles composite/multi-serial machine entries into individual breakdown cards, and atomically upserts all tables in Supabase with zero static file creation.
 
 - **Skeleton Loading Requirements**:
   - Both Meeting Card archive list and Meeting Details operational document MUST use animated skeleton loaders while data is fetching. Do NOT use isolated loading spinners.
